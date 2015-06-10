@@ -1,4 +1,4 @@
-This Github project presents continuous integration build of the Appcelerator Documentation, which includes
+This Github project presents a continuous integration build of the Appcelerator Documentation, which includes
 documentation for pre-release features.
 
 To view pre-release documentation, go to:
