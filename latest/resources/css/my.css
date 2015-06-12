@@ -18,9 +18,9 @@
 .thumb-list h2 div { background: none !important; padding: 4px !important; }
 
 /* line 37, ../sass/my.scss */
-#center-container h1 { color: #9b1c1f !important; font-size: 16pt !important; }
+#center-container h1 { color: #9B1C1F !important; font-size: 16pt !important; }
 /* line 40, ../sass/my.scss */
-#center-container h1 a { color: #9b1c1f !important; }
+#center-container h1 a { color: #9B1C1F !important; }
 /* line 44, ../sass/my.scss */
 #center-container h1 .typestr { font-weight: bold; }
 /* line 50, ../sass/my.scss */
@@ -47,7 +47,7 @@
 /* line 101, ../sass/my.scss */
 .x-grid-row-selected .x-grid-cell, .x-grid-row-selected .x-grid-rowwrap-div { border-style: none !important; border-color: transparent !important; background-color: transparent !important; }
 /* line 105, ../sass/my.scss */
-.x-grid-row-selected .x-grid-cell div, .x-grid-row-selected .x-grid-cell a, .x-grid-row-selected .x-grid-rowwrap-div div, .x-grid-row-selected .x-grid-rowwrap-div a { color: #9b1c1f !important; font-weight: bold; }
+.x-grid-row-selected .x-grid-cell div, .x-grid-row-selected .x-grid-cell a, .x-grid-row-selected .x-grid-rowwrap-div div, .x-grid-row-selected .x-grid-rowwrap-div a { color: #9B1C1F !important; font-weight: bold; }
 
 /* line 111, ../sass/my.scss */
 .platform-android { background-image: url(../images/icon_android.png); }
@@ -79,7 +79,7 @@
 
 /* line 161, ../sass/my.scss */
 .doc-contents .platforms, .members .platforms { zoom: 1; }
-/* line 162, ../sass/_mixins.scss */
+/* line 161, ../sass/_mixins.scss */
 .doc-contents .platforms:before, .doc-contents .platforms:after, .members .platforms:before, .members .platforms:after { display: table; content: ""; zoom: 1; *display: inline; }
 /* line 168, ../sass/_mixins.scss */
 .doc-contents .platforms:after, .members .platforms:after { clear: both; }
