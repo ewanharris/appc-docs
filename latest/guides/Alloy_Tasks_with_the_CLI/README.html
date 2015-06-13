@@ -43,6 +43,8 @@
 </li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Alloy_Tasks_with_the_CLI-section-37536785_AlloyTaskswiththeCLI-ExtractingLocalizationStrings">Extracting Localization Strings</a>    </p>
 </li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Alloy_Tasks_with_the_CLI-section-37536785_AlloyTaskswiththeCLI-CompilingaSpecificView-Controller">Compiling a Specific View-Controller</a>    </p>
+</li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Alloy_Tasks_with_the_CLI-section-37536785_AlloyTaskswiththeCLI-BuildinganApplication">Building an Application</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Alloy_Tasks_with_the_CLI-section-37536785_AlloyTaskswiththeCLI-InstallingSpecialProjectComponents">Installing Special Project Components</a>    </p>
@@ -259,6 +261,20 @@ The output of this command shows the content of the current en/strings.xml file 
 <div class="line"><code class="plain">&lt;/resources&gt;</code></div>
 </div>
 </div>    </div>
+    <div class="section section-2 " id="37536785_AlloyTaskswiththeCLI-CompilingaSpecificView-Controller">
+        <h2 class="heading "><span>Compiling a Specific View-Controller</span></h2>
+    <p>
+Starting with Appcelerator CLI 4.1.0 or Alloy 1.7.0, you can select which Alloy view-controller to compile to Titanium code.  Use the command to update the Titanium base code for incremental changes to the Alloy project.  Pass the <tt class=" ">file=&lt;filename&gt;</tt> to the <tt class=" ">--config</tt> option when running the Alloy compile command.    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">appc alloy compile --config platform=&lt;platform&gt;,file=&lt;file&gt;</code></div>
+<div class="line"><code class="plain"> </code></div>
+<div class="line"><code class="plain">## Example</code></div>
+<div class="line"><code class="plain">appc alloy compile --config platform=android,file=app/controller/index.js</code></div>
+</div>
+</div>    <p>
+    </p>
+    </div>
     <div class="section section-2 " id="37536785_AlloyTaskswiththeCLI-BuildinganApplication">
         <h2 class="heading "><span>Building an Application</span></h2>
     <p>
