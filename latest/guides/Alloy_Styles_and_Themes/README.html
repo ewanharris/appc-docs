@@ -357,45 +357,40 @@ In the style file, use these conditional statements to create styles for specifi
     <p>
 Themes provide a way to change the appearance of an entire GUI, allowing you to customize the styles and assets of the application.    </p>
     <p>
-To create a theme, create a folder called <tt class=" ">themes</tt> in your Alloy <tt class=" ">app</tt> directory. In the <tt class=" ">themes</tt> folder, create a folder for your theme. The name of this folder references the name of the theme for configuration and compilation. In your theme folder, create <tt class=" ">assets</tt> and <tt class=" ">styles</tt> folders for your custom images and styles, respectively. The example below creates a theme called 'mytheme'.    </p>
-<ul class=" "><li class=" ">    <p>
-app    </p>
-<ul class=" "><li class=" ">    <p>
-assets    </p>
-<ul class=" "><li class=" ">    <p>
-appicon.png    </p>
-</li><li class=" ">    <p>
-background.png    </p>
-</li></ul></li><li class=" ">    <p>
-controllers    </p>
-</li><li class=" ">    <p>
-styles    </p>
-<ul class=" "><li class=" ">    <p>
-index.tss    </p>
-</li><li class=" ">    <p>
-window.tss    </p>
-</li></ul></li><li class=" ">    <p>
-themes    </p>
-<ul class=" "><li class=" ">    <p>
-mytheme    </p>
-<ul class=" "><li class=" ">    <p>
-assets    </p>
-<ul class=" "><li class=" ">    <p>
-background.png    </p>
-</li></ul></li><li class=" ">    <p>
-styles    </p>
-<ul class=" "><li class=" ">    <p>
-app.tss    </p>
-</li></ul></li></ul></li></ul></li><li class=" ">    <p>
-views    </p>
-<ul class=" "><li class=" ">    <p>
-index.xml    </p>
-</li><li class=" ">    <p>
-window.xml    </p>
-</li></ul></li></ul></li></ul>    <p>
+To create a theme, create a folder called <tt class=" ">themes</tt> in your Alloy <tt class=" ">app</tt> directory. In the <tt class=" ">themes</tt> folder, create a folder for your theme. The name of this folder references the name of the theme for configuration and compilation. In your theme folder, create <tt class=" ">assets</tt> and <tt class=" ">styles</tt> folders for your custom images and styles, respectively. Starting with Appcelerator CLI 4.1.0 (or Alloy 1.7.0), you may also create an <tt class=" ">i18n</tt> folder to add theme-specific <tt class=" ">strings.xml</tt> localization files. The example below creates a theme called 'mytheme'.    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">app</code></div>
+<div class="line"><code class="plain">├── assets</code></div>
+<div class="line"><code class="plain">│   ├── appicon.png</code></div>
+<div class="line"><code class="plain">│   └── background.png</code></div>
+<div class="line"><code class="plain">├── controllers</code></div>
+<div class="line"><code class="plain">├── styles</code></div>
+<div class="line"><code class="plain">│   ├── index.tss</code></div>
+<div class="line"><code class="plain">│   └── window.tss</code></div>
+<div class="line"><code class="plain">├── themes</code></div>
+<div class="line"><code class="plain">│   └── mytheme</code></div>
+<div class="line"><code class="plain">│       ├── assets</code></div>
+<div class="line"><code class="plain">│       │   ├── appicon.png</code></div>
+<div class="line"><code class="plain">│       │   └── background.png</code></div>
+<div class="line"><code class="plain">│       └── i18n</code></div>
+<div class="line"><code class="plain">│       │   ├── en</code></div>
+<div class="line"><code class="plain">│       │   │   └── strings.xml</code></div>
+<div class="line"><code class="plain">│       │   └── es</code></div>
+<div class="line"><code class="plain">│       │       └── strings.xml</code></div>
+<div class="line"><code class="plain">│       └── styles</code></div>
+<div class="line"><code class="plain">│           ├── index.tss</code></div>
+<div class="line"><code class="plain">│           └── window.tss</code></div>
+<div class="line"><code class="plain">└── views</code></div>
+<div class="line"><code class="plain">    ├── index.xml</code></div>
+<div class="line"><code class="plain">    └── window.xml</code></div>
+</div>
+</div>    <p>
 For assets, all files are overwritten by the copies in the theme's <tt class=" ">assets</tt> folder. In the example, the <tt class=" ">background.png</tt> file in the theme overwrites the file <tt class=" ">app/assets/background.png</tt>, but the <tt class=" ">app/assets/appicon.png</tt> file is used since there is not a similar file in the theme. All asset files are copied to the Titanium project's <tt class=" ">Resources</tt> directory, so all references to assets only need to include the path after the <tt class=" ">assets</tt> folder. The theme's <tt class=" ">assets</tt> folder can have platform- and density-specific folders.    </p>
     <p>
 For styles, styles defined in the theme's <tt class=" ">styles</tt> folder merge with and take precedence over the styles defined in <tt class=" ">app/styles</tt>. You can define individual styles per view as well as the global style file <tt class=" ">app.tss</tt>. For example, if a color was specified for a label in the <tt class=" ">themes/mythemes/app.tss</tt> file, this color overwrites the individual style files in <tt class=" ">app/styles</tt> for all labels. However, if a style was defined in one of the individual style files but not in <tt class=" ">themes/mythemes/app.tss</tt>, the styles in <tt class=" ">app/styles/</tt> are applied. The theme's <tt class=" ">styles</tt> folder can have platform-specific folders.    </p>
+    <p>
+For the <tt class=" ">string.xml</tt> localization files, the values in the <tt class=" ">./app/themes/&lt;theme_name&gt;/i18n/</tt> folder are merged with the values in the <tt class=" ">./i18n</tt> folder.  If the same keys exist in both locations, the values in the <tt class=" ">./app/themes/&lt;theme_name&gt;/i18n/</tt> are used, that is, they will override the values if present in the <tt class=" ">./i18n/</tt> folder.    </p>
     <p>
 To use a theme, add it to your <tt class=" ">config.json</tt> configuration file with &quot;theme&quot; as the key and the name of the theme folder as the value. For example:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
