@@ -47,6 +47,8 @@
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/ListViews-section-37521650_ListViews-ListViewnoresultsEvent">ListView noresults Event</a>    </p>
 </li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/ListViews-section-37521650_ListViews-ListViewscrollstartandscrollendEvents">ListView scrollstart and scrollend Events</a>    </p>
+</li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/ListViews-section-37521650_ListViews-ListItemEventing">ListItem Eventing</a>    </p>
 </li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/ListViews-section-37521650_ListViews-SimpleListViewExample">Simple ListView Example</a>    </p>
@@ -63,6 +65,8 @@
 </li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/ListViews-section-37521650_ListViews-iOS-SpecificFeatures">iOS-Specific Features</a>    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
+<a class="document-link " href="#!/guide/ListViews-section-37521650_ListViews-ActionItems">Action Items</a>    </p>
+</li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/ListViews-section-37521650_ListViews-Animations">Animations</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/ListViews-section-37521650_ListViews-Built-inTemplates">Built-in Templates</a>    </p>
@@ -396,7 +400,9 @@ On Android, the <tt class=" ">itemclick</tt> event fires if you click on a contr
     <div class="section section-3 " id="37521650_ListViews-ListViewmarkerEvent">
         <h3 class="heading "><span>ListView marker Event</span></h3>
     <p>
-Since Release 3.2.0, ListView fires the <tt class=" ">marker</tt> event when the user scrolls up or down near a predetermined item in the list.  Use <tt class=" ">ListView.setMarker</tt> method to set when this event should be fired.  Once the user scrolls close to this item, the <tt class=" ">marker</tt> event is fired and you can execute some code, for example, to load more data.  Note that the marker event is fired only once.  You need to use the <tt class=" ">setMarker</tt> method again to set a new item threshold and the <tt class=" ">marker</tt> event will be fired once again.    </p>
+Since Release 3.2.0, ListView fires the <tt class=" ">marker</tt> event when the user scrolls up or down near a predetermined item in the list.  Use <tt class=" ">ListView.setMarker()</tt> method to set when this event should be fired.  Once the user scrolls close to this item, the <tt class=" ">marker</tt> event is fired and you can execute some code, for example, to load more data.  Note that the marker event is fired only once per set marker.  You need to use the <tt class=" ">setMarker</tt> method again to set a new item threshold and the <tt class=" ">marker</tt> event will be fired once again.    </p>
+    <p>
+Starting with Release 4.1.0, use the <tt class=" ">addMarker()</tt> method to add additional markers.  Note that if you call the <tt class=" ">setMarker()</tt> method again, it will remove and override any previous set markers.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var win = Ti.UI.createWindow({backgroundColor: </code><code class="string">'white'</code><code class="plain">, fullscreen: </code><code class="keyword">true</code><code class="plain">});</code></div>
@@ -438,7 +444,7 @@ Since Release 3.2.0, ListView fires the <tt class=" ">marker</tt> event when the
     <div class="section section-3 " id="37521650_ListViews-ListViewmoveanddeleteEvents">
         <h3 class="heading "><span>ListView move and delete Events</span></h3>
     <p>
-Since 3.2.0, on the iOS platform, you can use the <tt class=" ">move</tt> and <tt class=" ">delete</tt> event to see when the user reorders and removes an item from the list, respectively, when the list is in editing mode.  For an example, see the &quot;Editing&quot; section in the &quot;iOS-Specific Features&quot; section below.    </p>
+Since 3.2.0, on the iOS platform, you can use the <tt class=" ">move</tt> and <tt class=" ">delete</tt> event to see when the user reorders and removes an item from the list, respectively, when the list is in editing mode.  Note that if you add custom items to list actions, the delete event will not fire.  For an example, see the &quot;Editing&quot; section in the &quot;iOS-Specific Features&quot; section below.    </p>
     </div>
     <div class="section section-3 " id="37521650_ListViews-ListViewpullandpullendEvents">
         <h3 class="heading "><span>ListView pull and pullend Events</span></h3>
@@ -456,6 +462,21 @@ For a complete example, see the &quot;ListView with a pullView&quot; example in 
     <p>
 Since 3.3.0, when items are filtered in a list view using either <tt class=" ">searchView</tt> or <tt class=" ">searchText</tt>, the <tt class=" ">noresults</tt> event fires when the search does not return any results.  See the &quot;Search Text and View&quot; section in the &quot;iOS-Specific Features&quot; section below    </p>
     </div>
+    <div class="section section-3 " id="37521650_ListViews-ListViewscrollstartandscrollendEvents">
+        <h3 class="heading "><span>ListView scrollstart and scrollend Events</span></h3>
+    <p>
+Since 4.1.0, on the Android and iOS platform, you can use the <tt class=" ">scrollstart</tt> and <tt class=" ">scrollend</tt> events to monitor when the list starts and stops scrolling, respectively.  The event object returns the following information indicating the start location and number of visible items when the events occurred:    </p>
+<ul class=" "><li class=" ">    <p>
+<tt class=" ">firstVisibleSectionIndex</tt> &ndash; index of the first visible section    </p>
+</li><li class=" ">    <p>
+<tt class=" ">firstVisibleItemIndex</tt> &ndash; index of the first visible item    </p>
+</li><li class=" ">    <p>
+<tt class=" ">visibleItemCount</tt> &ndash; number of visible items    </p>
+</li><li class=" ">    <p>
+<tt class=" ">firstVisibleSection</tt> &ndash; first visible section    </p>
+</li><li class=" ">    <p>
+<tt class=" ">firstVisibleItem</tt> &ndash; first visible item    </p>
+</li></ul>    </div>
     <div class="section section-3 " id="37521650_ListViews-ListItemEventing">
         <h3 class="heading "><span>ListItem Eventing</span></h3>
     <p>
@@ -670,6 +691,84 @@ To use the <tt class=" ">searchText</tt> property, set the property to the value
         <h2 class="heading "><span>iOS-Specific Features</span></h2>
     <p>
 ListView supports a few extra native features specific to the iOS platform.    </p>
+    <div class="section section-3 " id="37521650_ListViews-ActionItems">
+        <h3 class="heading "><span>Action Items</span></h3>
+    <p>
+Starting with Release 4.1.0, you can add custom action items to the list items.  Action items appear when the user swipes left on a list item, then the user can select an action to perform on the item.  Custom action items require iOS 8 and above.    </p>
+    <p>
+To use an action item:    </p>
+<ol class=" "><li class=" ">    <p>
+Create an action item, which is only a dictionary with the following properties:    </p>
+<ul class=" "><li class=" ">    <p>
+<tt class=" ">title</tt> &ndash; Name of the action.  Displayed the user and indicates which action was chosen.    </p>
+</li><li class=" ">    <p>
+<tt class=" ">style</tt> &ndash; Style of the action.  Specify one of the following constants: <tt class=" ">Titanium.UI.iOS.ROW_ACTION_STYLE_DEFAULT</tt>, <tt class=" ">Titanium.UI.iOS.ROW_ACTION_STYLE_DESTRUCTIVE</tt>, or <tt class=" ">Titanium.UI.iOS.ROW_ACTION_STYLE_NORMAL</tt>.    </p>
+</li><li class=" ">    <p>
+<tt class=" ">color</tt> &ndash; Background color the action. Optional.  Default is to use the one defined by the style.    </p>
+</li></ul></li><li class=" ">    <p>
+Add the action item to the list data item's <tt class=" ">editActions</tt> property and set the <tt class=" ">canEdit</tt> property to true.  You may also set these properties in the item template.  If you do not set the <tt class=" ">canEdit</tt> property to true, the user cannot swipe left on the item to reveal the action items.    </p>
+</li><li class=" ">    <p>
+Listen to the ListView's <tt class=" ">rowAction</tt> event to respond when the user clicks on an action item.  The event returns an object with the following properties to indicate the action and item the user clicked:    </p>
+<ul class=" "><li class=" ">    <p>
+<tt class=" ">action</tt> &ndash; The <tt class=" ">title</tt> property of the action the user clicked.    </p>
+</li><li class=" ">    <p>
+<tt class=" ">itemId</tt> &ndash; the itemID of the list item that was clicked.    </p>
+</li><li class=" ">    <p>
+<tt class=" ">itemIndex</tt> &ndash; index of the item relative to the section that was clicked.    </p>
+</li><li class=" ">    <p>
+<tt class=" ">section</tt> &ndash; reference to the ListSection object that was clicked.    </p>
+</li><li class=" ">    <p>
+<tt class=" ">sectionIndex</tt> &ndash; index of the list section that was clicked.    </p>
+</li></ul></li></ol>    <p>
+<strong class=" ">Example</strong>    </p>
+    <p>
+The example below creates a list where you can favorite or unfavorite items.    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">var win = Ti.UI.createWindow({backgroundColor: </code><code class="string">'white'</code><code class="plain">}),</code></div>
+<div class="line"><code class="plain">    favoriteAction = {</code></div>
+<div class="line"><code class="plain">        title: </code><code class="string">'Favorite'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">        style: Ti.UI.iOS.ROW_ACTION_STYLE_DEFAULT</code></div>
+<div class="line"><code class="plain">    },</code></div>
+<div class="line"><code class="plain">    unfavoriteAction = {</code></div>
+<div class="line"><code class="plain">        title: </code><code class="string">'Unfavorite'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">        style: Ti.UI.iOS.ROW_ACTION_STYLE_NORMAL</code></div>
+<div class="line"><code class="plain">    },</code></div>
+<div class="line"><code class="plain">    data = [</code></div>
+<div class="line"><code class="plain">        {properties: {canEdit: </code><code class="keyword">true</code><code class="plain">, editActions: [favoriteAction], title: </code><code class="string">'Kitten Whiskers'</code><code class="plain">}},</code></div>
+<div class="line"><code class="plain">        {properties: {canEdit: </code><code class="keyword">true</code><code class="plain">, editActions: [favoriteAction], title: </code><code class="string">'Copper Kettle'</code><code class="plain">}},</code></div>
+<div class="line"><code class="plain">        {properties: {canEdit: </code><code class="keyword">true</code><code class="plain">, editActions: [favoriteAction], title: </code><code class="string">'Woolen Mittens'</code><code class="plain">}},</code></div>
+<div class="line"><code class="plain">        {properties: {canEdit: </code><code class="keyword">true</code><code class="plain">, editActions: [favoriteAction], title: </code><code class="string">'Apple Strudel'</code><code class="plain">}},</code></div>
+<div class="line"><code class="plain">        {properties: {canEdit: </code><code class="keyword">true</code><code class="plain">, editActions: [favoriteAction], title: </code><code class="string">'Brown Packages'</code><code class="plain">}},</code></div>
+<div class="line"><code class="plain">        {properties: {canEdit: </code><code class="keyword">true</code><code class="plain">, editActions: [favoriteAction], title: </code><code class="string">'Dog Bites'</code><code class="plain">}},</code></div>
+<div class="line"><code class="plain">        {properties: {canEdit: </code><code class="keyword">true</code><code class="plain">, editActions: [favoriteAction], title: </code><code class="string">'Bee Stings'</code><code class="plain">}}</code></div>
+<div class="line"><code class="plain">    ],</code></div>
+<div class="line"><code class="plain">    listSection = Ti.UI.createListSection({</code></div>
+<div class="line"><code class="plain">        items: data</code></div>
+<div class="line"><code class="plain">    }),</code></div>
+<div class="line"><code class="plain">    listView = Ti.UI.createListView({</code></div>
+<div class="line"><code class="plain">        top: </code><code class="value">15</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">        sections: [listSection]</code></div>
+<div class="line"><code class="plain">    });</code></div>
+<div class="line"><code class="plain">listView.addEventListener(</code><code class="string">'rowAction'</code><code class="plain">, function(e) {</code></div>
+<div class="line"><code class="plain">    var item = e.section.getItemAt(e.itemIndex)</code></div>
+<div class="line"><code class="plain">    </code><code class="keyword">if</code><code class="plain"> (e.action === </code><code class="string">'Favorite'</code><code class="plain">) {</code></div>
+<div class="line"><code class="plain">        item.properties.editActions = [unfavoriteAction];</code></div>
+<div class="line"><code class="plain">        item.properties.image = </code><code class="string">'/star.png'</code><code class="plain">;</code></div>
+<div class="line"><code class="plain">    } </code><code class="keyword">else</code><code class="plain"> </code><code class="keyword">if</code><code class="plain"> (e.action === </code><code class="string">'Unfavorite'</code><code class="plain">) {</code></div>
+<div class="line"><code class="plain">        item.properties.editActions = [favoriteAction];</code></div>
+<div class="line"><code class="plain">        item.properties.image = </code><code class="keyword">null</code><code class="plain">;</code></div>
+<div class="line"><code class="plain">    }</code></div>
+<div class="line"><code class="plain">    e.section.updateItemAt(e.itemIndex, item);</code></div>
+<div class="line"><code class="plain">});</code></div>
+<div class="line"><code class="plain"> </code></div>
+<div class="line"><code class="plain">win.add(listView);</code></div>
+<div class="line"><code class="plain">win.open();</code></div>
+</div>
+</div>    <p>
+        <img src="images/download/attachments/37521650/RowActions.png" alt="images/download/attachments/37521650/RowActions.png" class="confluence-embedded-image confluence-content-image-border" width="320"/>
+            </p>
+    </div>
     <div class="section section-3 " id="37521650_ListViews-Animations">
         <h3 class="heading "><span>Animations</span></h3>
     <p>
