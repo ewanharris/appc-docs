@@ -114,7 +114,7 @@ After the build process is complete, your application launches automatically on 
 To build a Windows Phone application on device, make sure your device is connected to your host machine and run:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">appc run -p windows -C &lt;DEVICE_ID&gt; -G &lt;PUBLISHER_GUID&gt; </code></div>
+<div class="line"><code class="plain">appc run -p windows -T wp-device -C </code><code class="value">0</code><code class="plain"> -G &lt;PUBLISHER_GUID&gt; </code></div>
 </div>
 </div>    <p>
 While the application is building, you need to keep your phone from locking or the build will fail when trying the install the application to the device.    </p>
