@@ -80,14 +80,33 @@ Titanium provides a number of JavaScript functions in the <tt class=" ">Titanium
     <p>
 Rather than hard-coding strings into your project, you can use localized strings. Localized strings are replaced at runtime with values appropriate to the user's language. Titanium relies on resources files and string placeholders to accomplish this task.    </p>
     <p>
-At the top level of your Titanium project (the same level as <tt class=" ">tiapp.xml</tt> and the <tt class=" ">Resources</tt> directory), you will create a folder called <tt class=" ">i18n</tt>. Inside this folder, you will have folders for each of the supported languages in your application, named according to the <a class="external-link external-link" href="http://en.wikipedia.org/wiki/ISO_639-1" target="_blank">ISO 639-1</a> standard. For example, <tt class=" ">en</tt> for English, is the default.    </p>
+At the top level of your Titanium project (the same level as <tt class=" ">tiapp.xml</tt> file, and the <tt class=" ">app</tt> and <tt class=" ">Resources</tt> directory), you will create a folder called <tt class=" ">i18n</tt>. Inside the <tt class=" ">i18n</tt> folder, create folders for each language your application will support. Name the folder according to the <a class="external-link external-link" href="http://en.wikipedia.org/wiki/ISO_639-1" target="_blank">ISO 639-1</a> standard. For example, use <tt class=" ">en</tt> for English, <tt class=" ">es</tt> for Spanish, <tt class=" ">fr</tt> for French, etc.    </p>
     <p>
-        <img src="images/download/attachments/29004892/resources.jpg" alt="images/download/attachments/29004892/resources.jpg" class="confluence-embedded-image"/>
-            </p>
+Starting with Release 4.1.0, you may also add a region suffix to the folder name to specify a set of resources for a specific country.  Suffix the folder name with a dash followed by the country's <a class="external-link external-link" href="https://en.wikipedia.org/?title=ISO_3166-1" target="_blank">ISO 3166-1</a> Alpha-2 code.  For example, use <tt class=" ">en-US</tt> for American English, <tt class=" ">en-CA</tt> for Canadian English, <tt class=" ">en-GB</tt> for British English, etc.  Note that the OS may not support all regional languages.    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">ProjectFolder</code></div>
+<div class="line"><code class="plain">├── app</code></div>
+<div class="line"><code class="plain">├── i18n</code></div>
+<div class="line"><code class="plain">│   ├── en-AU</code></div>
+<div class="line"><code class="plain">│   │   └── strings.xml</code></div>
+<div class="line"><code class="plain">│   ├── en-CA</code></div>
+<div class="line"><code class="plain">│   │   └── strings.xml</code></div>
+<div class="line"><code class="plain">│   ├── en-GB</code></div>
+<div class="line"><code class="plain">│   │   └── strings.xml</code></div>
+<div class="line"><code class="plain">│   ├── en-US</code></div>
+<div class="line"><code class="plain">│   │   └── strings.xml</code></div>
+<div class="line"><code class="plain">│   └── fr</code></div>
+<div class="line"><code class="plain">│       └── strings.xml</code></div>
+<div class="line"><code class="plain">├── Resources</code></div>
+<div class="line"><code class="plain">└── tiapp.xml</code></div>
+</div>
+</div>    <p>
+    </p>
     <div class="section section-4 " id="29004892_Internationalization-Resourcefilestructure">
         <h4 class="heading "><span>Resource file structure</span></h4>
     <p>
-The string resource file closely mirrors the format of Android localization files, which have an XML-based format. The name attribute represents the 'key' for the string, and the text inside the XML node represents the value. A typical <tt class=" ">strings.xml</tt> file would look like the following:    </p>
+The string resource file closely mirrors the format of Android localization files, which have an XML-based format. The <tt class=" ">name</tt> attribute represents the key for the string, and the text inside the XML node represents the value. A typical <tt class=" ">strings.xml</tt> file would look like the following:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="title">strings.xml</div>
 <div class="defaultnew syntaxhighlighter">
@@ -526,16 +545,16 @@ Titanium also provides <a class="external-link external-link" href="#!/api/Titan
 When building internationalized apps, you'll need to test each of the supported languages. You can do so either on-device or in the simulator/emulator. In each case, you configure the device's language settings to change locales.    </p>
     <p>
 To set the language on iOS:,    </p>
-<ul class=" "><li class=" ">    <p>
-Tap Settings, General, International.    </p>
+<ol class=" "><li class=" ">    <p>
+Open <strong class=" ">Settings</strong>.    </p>
 </li><li class=" ">    <p>
-Tap Language    </p>
+Tap <strong class=" ">General</strong>, then<strong class=" "> Language &amp; Region</strong>.    </p>
 </li><li class=" ">    <p>
-Select the language to use. Tap Done (or OK).    </p>
+Under <strong class=" ">iPhone Language</strong>, select the language to use, then tap <strong class=" ">Done</strong>.    </p>
 </li><li class=" ">    <p>
-Optionally, in Settings, tap General, International, Region Format to specify your locale format for dates and times.    </p>
-</li></ul>    <p>
-    </p>
+iOS will ask you to confirm your changes.  Tap <strong class=" ">Change to...</strong>.    </p>
+</li></ol>    <p>
+Optionally, in Settings, tap General, Language &amp; Region, Region Format to specify your locale format for dates and times.    </p>
     <div class="confbox admonition admonition-note aui-message warning shadowed information-macro">
         
     <p>
@@ -544,15 +563,13 @@ Localization is broken on the iOS 8.1 simulator.    </p>
     
     <p>
 To set the language on Android:    </p>
-<ul class=" "><li class=" ">    <p>
-Open your Android Settings    </p>
+<ol class=" "><li class=" ">    <p>
+Open <strong class=" ">Settings</strong>.    </p>
 </li><li class=" ">    <p>
-Tap Language and Keyboard.    </p>
+Tap <strong class=" ">Language &amp; input</strong>.    </p>
 </li><li class=" ">    <p>
-Tap Select language    </p>
-</li><li class=" ">    <p>
-Tap the language to use    </p>
-</li></ul>    </div>
+Tap <strong class=" ">Language</strong> and select the language to use.    </p>
+</li></ol>    </div>
     </div>
     <div class="section section-2 " id="29004892_Internationalization-Hands-onPractice">
         <h2 class="heading "><span>Hands-on Practice</span></h2>
