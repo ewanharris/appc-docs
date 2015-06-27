@@ -147,6 +147,10 @@
 </li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-Windows-specificsection">Windows-specific section</a>    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
+<a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-manifest.1">manifest</a>    </p>
+<ul class="toc-indentation "><li class=" ">    <p>
+<a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-Addcapabilities">Add capabilities</a>    </p>
+</li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-Windows-specificapplicationproperties">Windows-specific application properties</a>    </p>
 </li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-Cloud">Cloud</a>    </p>
@@ -1452,6 +1456,52 @@ Currently, only <tt class=" ">default</tt> is supported. Do not change this valu
     </div>
     <div class="section section-2 " id="29004921_tiapp.xmlandtimodule.xmlReference-Windows-specificsection">
         <h2 class="heading "><span>Windows-specific section</span></h2>
+    <p>
+Under the top <tt class=" ">&lt;ti:app&gt;</tt> element, you may optionally have a <tt class=" ">&lt;windows&gt;</tt> element that contains Windows specific configuration settings.    </p>
+    <div class="section section-3 " id="29004921_tiapp.xmlandtimodule.xmlReference-manifest.1">
+        <h3 class="heading "><span>manifest</span></h3>
+    <p>
+Add the <strong class=" "><tt class=" ">&lt;manifest&gt;</tt></strong> element as a child of the <strong class=" "><tt class=" ">&lt;windows&gt;</tt></strong> element to include <a class="external-link external-link" href="https://msdn.microsoft.com/en-us/library/windows/apps/br211453.aspx" target="_blank">ad-hoc Windows appx.manifest XML elements</a>.  You may optionally define the <tt class=" ">target</tt> attribute and set it to either <tt class=" ">phone</tt> or <tt class=" ">store</tt> to have Windows Phone or Windows Store specific manifests, respectively.    </p>
+    <p>
+Only supports the following elements:    </p>
+<ul class=" "><li class=" ">    <p>
+<tt class=" ">&lt;Capabilities&gt;</tt>: for a list of capabilities, see <a class="external-link external-link" href="https://msdn.microsoft.com/en-us/library/windows/apps/hh464936.aspx" target="_blank">Window Dev Center: App capability declarations</a>    </p>
+</li><li class=" ">    <p>
+<tt class=" ">&lt;Prerequisites&gt;</tt>    </p>
+</li><li class=" ">    <p>
+<tt class=" ">&lt;Properties&gt;</tt>    </p>
+</li><li class=" ">    <p>
+<tt class=" ">&lt;Resources&gt;</tt>    </p>
+</li></ul>    <div class="section section-4 " id="29004921_tiapp.xmlandtimodule.xmlReference-Addcapabilities">
+        <h4 class="heading "><span>Add capabilities</span></h4>
+    <p>
+The following example request access to connect to the Internet if the application is published as a Phone or Store application, access to the device's location if the application is published as a Phone application, and access to the USB bus if the application is publish as a Store application.    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">&lt;ti:app&gt;</code></div>
+<div class="line"><code class="plain">  &lt;windows&gt;</code></div>
+<div class="line"><code class="plain">    &lt;manifest target=</code><code class="string">"phone"</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">      &lt;Capabilities&gt;</code></div>
+<div class="line"><code class="plain">        &lt;DeviceCapability Name=</code><code class="string">"location"</code><code class="plain"> /&gt;</code></div>
+<div class="line"><code class="plain">      &lt;/Capabilities&gt;</code></div>
+<div class="line"><code class="plain">    &lt;/manifest&gt;</code></div>
+<div class="line"><code class="plain">    &lt;manifest target=</code><code class="string">"store"</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">      &lt;Capabilities&gt;</code></div>
+<div class="line"><code class="plain">        &lt;DeviceCapability Name=</code><code class="string">"usb"</code><code class="plain"> /&gt;</code></div>
+<div class="line"><code class="plain">      &lt;/Capabilities&gt;</code></div>
+<div class="line"><code class="plain">    &lt;/manifest&gt;</code></div>
+<div class="line"><code class="plain">    &lt;manifest&gt;</code></div>
+<div class="line"><code class="plain">      &lt;Capabilities&gt;</code></div>
+<div class="line"><code class="plain">        &lt;Capability Name=</code><code class="string">"internetClient"</code><code class="plain"> /&gt;</code></div>
+<div class="line"><code class="plain">      &lt;/Capabilities&gt;</code></div>
+<div class="line"><code class="plain">    &lt;/manifest&gt;</code></div>
+<div class="line"><code class="plain">  &lt;/windows&gt;</code></div>
+<div class="line"><code class="plain">&lt;/ti:app&gt;</code></div>
+</div>
+</div>    <p>
+    </p>
+    </div>
+    </div>
     <div class="section section-3 " id="29004921_tiapp.xmlandtimodule.xmlReference-Windows-specificapplicationproperties">
         <h3 class="heading "><span>Windows-specific application properties</span></h3>
     <div class="tablewrap">
@@ -1473,12 +1523,30 @@ ti.windows.publishername    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-Matches the     <span style="color: #454545;">
-publisher subject information of the certificate used to     </span>
-sign a package    <span style="color: #454545;">
+Must match the Windows publisher ID of your Microsoft Developer account. Used by the Titanium and Windows SDKs to generate signing certificates and sign your package.    </p>
+    <p>
+<strong class=" ">To retrieve your Windows publisher ID:</strong>    </p>
+    <p>
     <span style="color: #454545;">
-.    </span>
+    <span style="color: #454545;">
+     </span>
     </span>
+    </p>
+<ol class=" "><li class=" ">    <p>
+Log into <a class="external-link external-link" href="https://dev.windows.com/" target="_blank">https://dev.windows.com</a>.    </p>
+</li><li class=" ">    <p>
+Click <strong class=" ">Dashboard</strong> in the top-right corner.    </p>
+</li><li class=" ">    <p>
+Click <strong class=" ">Account settings</strong> in the left navigation.    </p>
+</li></ol>    <p>
+    <span style="color: #454545;">
+    <span style="color: #454545;">
+     </span>
+    </span>
+    </p>
+    <p>
+The publisher GUID will be under the <strong class=" ">Account details</strong> section as the     <span style="color: #000000;">
+<strong class=" ">Windows publisher ID</strong> field.    </span>
     </p>
     <p>
     <span style="color: #454545;">
@@ -1487,7 +1555,7 @@ Example:    </span>
     </span>
     </p>
     <p>
-<tt class=" ">&lt;property name=&quot;ti.windows.publishername&quot; type=&quot;string&rdquo;&gt;CN=Joe User&lt;/property&gt; </tt>    </p>
+<tt class=" ">&lt;property name=&quot;ti.windows.publishername&quot; type=&quot;string&rdquo;&gt;CN=11111111-2222-3333-4444-555555555555&lt;/property&gt; </tt>    </p>
             </td>
         </tr>
 </tbody>        </table>
