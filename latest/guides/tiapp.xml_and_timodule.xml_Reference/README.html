@@ -66,6 +66,8 @@
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-appc-security-jailbreak-detect">appc-security-jailbreak-detect</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-appc-security-debugger-detect">appc-security-debugger-detect</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-appc-sourcecode-encryption-policy">appc-sourcecode-encryption-policy</a>    </p>
 </li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-Android-specificsection">Android-specific section</a>    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
@@ -331,7 +333,7 @@ This element includes subelements of plugins to include with the project.    </p
 <ul class=" "><li class=" ">    <p>
 <tt class=" "> &lt;plugin version=&quot;PLUGIN_VERSION&quot;&gt;</tt>:  Defines a plugin to include with the project specified by the plugin's folder name. Place plugins in the <tt class=" ">plugins</tt> folder of the project (same level as the <tt class=" ">Resources</tt> folder). This element must be placed inside the <tt class=" ">&lt;plugins&gt;</tt> element.  The <tt class=" ">version</tt> attribute is optional.  Define it to include a specific version of the plugin.    </p>
 </li></ul><div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
-<div class="title">Example: Include the ti.cloud module</div>
+<div class="title">Example: Include the Alloy plugin</div>
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">&lt;plugins&gt;</code></div>
 <div class="line"><code class="plain">    &lt;plugin version=</code><code class="string">"1.0"</code><code class="plain">&gt;ti.alloy&lt;/plugin&gt;</code></div>
@@ -464,7 +466,7 @@ See <a class="external-link external-link" href="#!/api/Titanium.UI.View">Ti.UI.
     <div class="section section-3 " id="29004921_tiapp.xmlandtimodule.xmlReference-appc-security-jailbreak-detect">
         <h3 class="heading "><span>appc-security-jailbreak-detect</span></h3>
     <p>
-The special property <tt class=" ">appc.security-jailbreak-detect</tt> can be used to increase the security of your application by preventing the mobile app from running on a Jailbroken (iOS) or rooted (Android) device.    </p>
+The special property <tt class=" ">appc-security-jailbreak-detect</tt> can be used to increase the security of your application by preventing the mobile app from running on a Jailbroken (iOS) or rooted (Android) device.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">&lt;property name=</code><code class="string">"appc-security-jailbreak-detect"</code><code class="plain">&gt;</code><code class="keyword">true</code><code class="plain">&lt;/property&gt;</code></div>
@@ -477,7 +479,7 @@ Setting this property to <strong class=" ">false</strong> will allow your applic
     <div class="section section-3 " id="29004921_tiapp.xmlandtimodule.xmlReference-appc-security-debugger-detect">
         <h3 class="heading "><span>appc-security-debugger-detect</span></h3>
     <p>
-The special property <tt class=" ">appc.security-debugger-detect</tt> can be used to increase the security of your application by preventing debugging applications from connecting to your mobile app.    </p>
+The special property <tt class=" ">appc-security-debugger-detect</tt> can be used to increase the security of your application by preventing debugging applications from connecting to your mobile app.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">&lt;property name=</code><code class="string">"appc-security-debugger-detect"</code><code class="plain">&gt;</code><code class="keyword">true</code><code class="plain">&lt;/property&gt;</code></div>
@@ -487,6 +489,19 @@ This feature is enabled by default.    </p>
     <p>
 Setting this property to <strong class=" ">false</strong> will allow debug applications to connect to your mobile app.    </p>
     </div>
+    <div class="section section-3 " id="29004921_tiapp.xmlandtimodule.xmlReference-appc-sourcecode-encryption-policy">
+        <h3 class="heading "><span>appc-sourcecode-encryption-policy</span></h3>
+    <p>
+The special property <tt class=" ">appc-sourcecode-encryption-policy</tt> determines the encryption policy for application assets.  Values can be:    </p>
+<ul class=" "><li class=" ">    <p>
+<tt class=" ">embed</tt>: Embeds the encryption key and initialization vector (IV) into the application binary.  The key and IV are padded and obfuscated.    </p>
+</li><li class=" ">    <p>
+<tt class=" ">remote</tt>: Stores the encryption key remotely, which requires the device to have an internet connection to run the application (default behavior).    </p>
+</li></ul><div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">&lt;property name=</code><code class="string">"appc-sourcecode-encryption-policy"</code><code class="plain">&gt;remote&lt;/property&gt;</code></div>
+</div>
+</div>    </div>
     </div>
     <div class="section section-2 " id="29004921_tiapp.xmlandtimodule.xmlReference-Android-specificsection">
         <h2 class="heading "><span>Android-specific section</span></h2>
