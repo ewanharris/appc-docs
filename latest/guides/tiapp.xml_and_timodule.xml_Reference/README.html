@@ -380,7 +380,7 @@ The URL of this application.    </p>
     <p>
 The application version.    </p>
     <p>
-<u class=" ">Since Release 3.3.0</u>, the version number is truncated to three dot-separated numbers.  For example, '2.1' remains as '2.1', but '2.1.0.1' will be converted to '2.1.0'.    </p>
+<u class=" ">Since Release 3.3.0</u>, for iOS the version number is truncated to three dot-separated numbers.  For example, '2.1' remains as '2.1', but '2.1.0.1' will be converted to '2.1.0'.    </p>
     <p>
 <u class=" ">Prior to Release 3.3.0</u>, for the iOS platform, the version number will be converted to three dot-separated numbers according to Apple's <a class="external-link external-link" href="https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/20001431-111349" target="_blank">CFBundleShortVersionString</a> and <a class="external-link external-link" href="https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/20001431-102364" target="_blank">CFBundleVersion</a> when creating a package.  For example, if you specify '2.1' or '2.1.0.1', the version number will be converted to '2.1.0' for the final package.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
@@ -388,15 +388,7 @@ The application version.    </p>
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">&lt;version&gt;</code><code class="value">3.1</code><code class="plain">.</code><code class="value">4</code><code class="plain">&lt;/version&gt;</code></div>
 </div>
-</div>    <p>
-To skip the validation of the version number during the build process, using the Titanium CLI, set the <tt class=" ">ios.skipAppIdValidation</tt> key to <tt class=" ">true: </tt>    </p>
-<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
-<div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">ti config ios.skipAppIdValidation </code><code class="keyword">true</code></div>
-</div>
-</div>    <p>
-For example, if you are creating an enterprise application that will not be submitted to the iTunes Store, you are not forced to comply with Apple's bundle version restriction.    </p>
-    </div>
+</div>    </div>
     <div class="section section-3 " id="29004921_tiapp.xmlandtimodule.xmlReference-DeprecatedElements">
         <h3 class="heading "><span>Deprecated Elements</span></h3>
 <ul class=" "><li class=" ">    <p>
