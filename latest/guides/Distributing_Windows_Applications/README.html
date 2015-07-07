@@ -39,7 +39,7 @@
 </li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Distributing_Windows_Applications-section-43308729_DistributingWindowsApplications-PackageforWindowsStore">Package for Windows Store</a>    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Distributing_Windows_Applications-section-43308729_DistributingWindowsApplications-GeneratetheCertificate">Generate the Certificate</a>    </p>
+<a class="document-link " href="#!/guide/Distributing_Windows_Applications-section-43308729_DistributingWindowsApplications-PackageforWindowsStorewithStudio">Package for Windows Store with Studio</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Distributing_Windows_Applications-section-43308729_DistributingWindowsApplications-PackageforWindowsStorewiththeCLI">Package for Windows Store with the CLI</a>    </p>
 </li></ul></li><li class=" ">    <p>
@@ -240,11 +240,36 @@ To package an APPX file for the Windows Phone Store, run:    </p>
     <div class="section section-2 " id="43308729_DistributingWindowsApplications-PackageforWindowsStore">
         <h2 class="heading "><span>Package for Windows Store</span></h2>
     <p>
-Before creating an APPX file for Windows Store, you need to create a signing certificate in PFX format.  The CLI will prompt you to create one if you do not specify one in the command options.    </p>
-    <div class="section section-3 " id="43308729_DistributingWindowsApplications-GeneratetheCertificate">
-        <h3 class="heading "><span>Generate the Certificate</span></h3>
+Before creating an APPX file for Windows Store, you need to create a signing certificate in PFX format.  The CLI will prompt you to create one if you do not specify one in the command options.  Studio will prompt you to either create or select a PFX file.    </p>
+    <div class="section section-3 " id="43308729_DistributingWindowsApplications-PackageforWindowsStorewithStudio">
+        <h3 class="heading "><span>Package for Windows Store with Studio</span></h3>
     <p>
-To generate a certificate, run the following CLI command:    </p>
+To package with Studio:    </p>
+<ol class=" "><li class=" ">    <p>
+Select the project in the <strong class=" ">Project Explorer</strong> view.    </p>
+</li><li class=" ">    <p>
+In the global tool bar, select <strong class=" ">Package</strong> from the <strong class=" ">Launch Mode </strong>drop-down list.    </p>
+</li><li class=" ">    <p>
+Select <strong class=" ">Windows &gt; Windows Store</strong> from the <strong class=" ">Target</strong> drop-down list.    </p>
+</li><li class=" ">    <p>
+If the <strong class=" ">Launch Automatically</strong> option is enabled under the <strong class=" ">Target</strong> drop-down list, the build process will automatically start.  If not, you need to click the <strong class=" ">Launch</strong> button to start the build process.    </p>
+</li></ol>    <p>
+        <img src="images/download/attachments/43308729/PackageWindowsStore.png" alt="images/download/attachments/43308729/PackageWindowsStore.png" class="confluence-embedded-image confluence-content-image-border" width="500"/>
+            </p>
+    <p>
+Studio will prompt you to enter a location to copy the generated APPX file to and to either create or specify a PFX file for signing the package.    </p>
+    <p>
+To <u class=" ">create</u> a new certificate, select <strong class=" ">Create New</strong> and enter a password for the certificate.  During the certificate creation process, the Certificate Import wizard will be launched.  You will be prompted to enter the same password in subsequent dialogs. Click <strong class=" ">OK</strong> or <strong class=" ">Next</strong> when prompted.    </p>
+    <p>
+To <u class=" ">specify</u> a certificate to use, select <strong class=" ">Use Existing</strong>, enter the location of the certificate and enter the password used to create the certificate.    </p>
+    <p>
+        <img src="images/download/attachments/43308729/WindowsStoreConfig.PNG" alt="images/download/attachments/43308729/WindowsStoreConfig.PNG" class="confluence-embedded-image" width="500"/>
+            </p>
+    </div>
+    <div class="section section-3 " id="43308729_DistributingWindowsApplications-PackageforWindowsStorewiththeCLI">
+        <h3 class="heading "><span>Package for Windows Store with the CLI</span></h3>
+    <p>
+If you need to generate a certificate, run the following CLI command:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">C:\Users\JoeUser\Documents\Appcelerator_Studio_Workspace\WindowsApp&gt; appc run -p windows -T dist-winstore -O dist</code></div>
@@ -265,9 +290,6 @@ You will be prompted to enter the same password in subsequent dialogs and to gen
 <tt class=" ">generated.pkv</tt>: private key    </p>
 </li></ul>    <p>
 After the certificate is generated, the CLI will automatically create and sign the APPX file.    </p>
-    </div>
-    <div class="section section-3 " id="43308729_DistributingWindowsApplications-PackageforWindowsStorewiththeCLI">
-        <h3 class="heading "><span>Package for Windows Store with the CLI</span></h3>
     <p>
 To package an APPX file for the Windows Store after you have generated the certificate, run:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
