@@ -18,8 +18,8 @@
 
         <div id="43299747" class="content">
             <h1>Arrow Builder Release Notes</h1>
-    <div class="section section-2 " id="43299747_ArrowBuilderReleaseNotes-ArrowBuilder1.1.0Beta">
-        <h2 class="heading "><span>Arrow Builder 1.1.0 Beta</span></h2>
+    <div class="section section-2 " id="43299747_ArrowBuilderReleaseNotes-ArrowBuilder1.1.0-08July2015">
+        <h2 class="heading "><span>Arrow Builder 1.1.0 - 08 July 2015</span></h2>
     <p>
 Arrow Builder 1.1.0 is a feature release, including new features, improvements and bug fixes.    </p>
     <div class="section section-3 " id="43299747_ArrowBuilderReleaseNotes-BehaviorChanges">
@@ -40,15 +40,28 @@ API-646: ArrowDB: Show an error when trying to query with $like and a wildcard p
 </li><li class=" ">    <p>
 API-690: ArrowDB Connector: if you use the distinct endpoint with a $like query, a stack trace is thrown in the terminal    </p>
 </li><li class=" ">    <p>
+API-803: Conflict with auto-generated &quot;/api/user/:id&quot; API endpoint when creating an &quot;/api/user/me&quot; API endpoint    </p>
+</li><li class=" ">    <p>
 API-851: Defer batch requests to connectors if applicable    </p>
 </li><li class=" ">    <p>
 API-866: Export express so user can access included middleware    </p>
+</li><li class=" ">    <p>
+API-876: If you make a PUT API call, you will get a 404 on the first request    </p>
 </li><li class=" ">    <p>
 API-879: Fixed request logging    </p>
 </li><li class=" ">    <p>
 API-884: Fixed access log capabilities    </p>
 </li><li class=" ">    <p>
 API-894: If you create a new model while running locally, the local admin page becomes blank after you refresh    </p>
+</li><li class=" ">    <p>
+API-906: Latest arrow is returning 404 for PUT request (update) using arrowdb    </p>
+</li></ul>    </div>
+    <div class="section section-3 " id="43299747_ArrowBuilderReleaseNotes-KnownIssues">
+        <h3 class="heading "><span>Known Issues</span></h3>
+<ul class=" "><li class=" ">    <p>
+API-905: Arrow application throws an error when trying to use two different MySQL databases.    </p>
+</li><li class=" ">    <p>
+API-917: The styling of the code examples in the Admin console is skewed for both local builds and published Arrow applications.    </p>
 </li></ul>    </div>
     <div class="section section-3 " id="43299747_ArrowBuilderReleaseNotes-APIChanges">
         <h3 class="heading "><span>API Changes</span></h3>
@@ -125,7 +138,7 @@ API-813: Using Count which matches 0 records should not return 404, but 200 with
         <h2 class="heading "><span>Arrow Builder 0.4.0 - 21 May 2015</span></h2>
     <p>
 Initial release.    </p>
-    <div class="section section-3 " id="43299747_ArrowBuilderReleaseNotes-KnownIssues">
+    <div class="section section-3 " id="43299747_ArrowBuilderReleaseNotes-KnownIssues.1">
         <h3 class="heading "><span>Known Issues</span></h3>
     <div class="section section-4 " id="43299747_ArrowBuilderReleaseNotes-ETIMEDOUTisreturnedwhenyoupublishanArrowapp">
         <h4 class="heading "><span>ETIMEDOUT is returned when you publish an Arrow app</span></h4>
