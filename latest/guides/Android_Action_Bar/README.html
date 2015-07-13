@@ -108,6 +108,9 @@ There are two ways to hide the Action Bar.  You can either hide the activity's A
 <div class="line"><code class="plain">    &lt;style name=</code><code class="string">"Theme.NoActionBar"</code><code class="plain"> parent=</code><code class="string">"@style/Theme.AppCompat"</code><code class="plain">&gt;</code></div>
 <div class="line"><code class="plain">        &lt;item name=</code><code class="string">"android:windowActionBar"</code><code class="plain">&gt;</code><code class="keyword">false</code><code class="plain">&lt;/item&gt;</code></div>
 <div class="line"><code class="plain">        &lt;item name=</code><code class="string">"android:windowNoTitle"</code><code class="plain">&gt;</code><code class="keyword">true</code><code class="plain">&lt;/item&gt;</code></div>
+<div class="line"><code class="plain">		&lt;!-- AppCompat Compatibility --&gt;</code></div>
+<div class="line"><code class="plain">		&lt;item name=</code><code class="string">"windowActionBar"</code><code class="plain">&gt;</code><code class="keyword">false</code><code class="plain">&lt;/item&gt;</code></div>
+<div class="line"><code class="plain">		&lt;item name=</code><code class="string">"windowNoTitle"</code><code class="plain">&gt;</code><code class="keyword">true</code><code class="plain">&lt;/item&gt;</code></div>
 <div class="line"><code class="plain">    &lt;/style&gt;</code></div>
 <div class="line"><code class="plain">&lt;/resources&gt; </code></div>
 </div>
@@ -118,8 +121,6 @@ There are two ways to hide the Action Bar.  You can either hide the activity's A
 <div class="line"><code class="plain"> &lt;android xmlns:android=</code><code class="string">"http://schemas.android.com/apk/res/android"</code><code class="plain">&gt;</code></div>
 <div class="line"><code class="plain">    &lt;manifest&gt;</code></div>
 <div class="line"><code class="plain">        &lt;application android:theme=</code><code class="string">"@style/Theme.NoActionBar"</code><code class="plain">/&gt;</code></div>
-<div class="line"><code class="plain">        &lt;!-- Need to specify at least API level </code><code class="value">11</code><code class="plain"> </code><code class="keyword">for</code><code class="plain"> Titanium SDK </code><code class="value">3.2</code><code class="plain">.x and prior --&gt;</code></div>
-<div class="line"><code class="plain">        &lt;uses-sdk android:minSdkVersion=</code><code class="string">"14"</code><code class="plain"> android:targetSdkVersion=</code><code class="string">"19"</code><code class="plain">/&gt;</code></div>
 <div class="line"><code class="plain">    &lt;/manifest&gt;</code></div>
 <div class="line"><code class="plain">&lt;/android&gt;</code></div>
 </div>
