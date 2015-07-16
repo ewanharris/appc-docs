@@ -139,29 +139,30 @@ Arrow Cloud needs to know which port the application listens on.  Use the specia
     <div class="section section-3 " id="43309269_MigrateanApplicationtoArrowCloud1.2.0-Optionalhealthcheck">
         <h3 class="heading "><span>Optional health check</span></h3>
     <p>
-To let Arrow Cloud know your application is up and running, you can optionally define a health-check endpoint in the <tt class=" ">package.json</tt> file.    </p>
+To let Arrow Cloud know your application is up and running, you can optionally define a health-check endpoint called <tt class=" ">healthCheck.json</tt> that returns a 200 HTTP status code, then in the <tt class=" ">package.json</tt> file, set the <tt class=" ">healthCheck</tt> key to <tt class=" ">true</tt> to let Arrow Cloud know that the health check endpoint is defined:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="title">package.json</div>
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">{</code></div>
-<div class="line"><code class="plain"> </code><code class="string">"pingEndpoint"</code><code class="plain">: </code><code class="string">"/health"</code></div>
+<div class="line"><code class="plain"> </code><code class="string">"healthCheck"</code><code class="plain">: </code><code class="keyword">true</code></div>
 <div class="line"><code class="plain">}</code></div>
 </div>
 </div>    <p>
-If <tt class=" ">pingEndpoint</tt> is not defined, Arrow Cloud assumes that your application is up when there is no exception after the container is launched. If your application takes a while to come up, users could access your application, which returns 503 or 502 errors. It is highly recommended that you implement and include <tt class=" ">pingEndpoint</tt> for your app.    </p>
-    <p>
-You can define the endpoint for health check as an environment variable named <tt class=" ">pingEndpoint</tt>, and the environment variable has a higher priority than the one defined in the package.json file.    </p>
-<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
-<div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">appc cloud config --set pingEndpoint=/health</code></div>
-</div>
-</div>    </div>
+If <tt class=" ">healthCheck.json</tt> is not defined, Arrow Cloud assumes that your application is up when there is no exception after the container is launched. If your application takes a while to come up, users could access your application, which returns 503 or 502 errors. It is highly recommended that you implement and include the health-check endpoint for your app.    </p>
+    </div>
     <div class="section section-3 " id="43309269_MigrateanApplicationtoArrowCloud1.2.0-Provisionacontainer">
         <h3 class="heading "><span>Provision a container</span></h3>
     <p>
 Arrow Cloud allows you to provision a Docker container for running your application. If you need certain tools, you can install them before your app is built.  Note that you have root access to the Docker container.    </p>
     <p>
 To install additional third-party tools, write a Bash script which installs the required packages and include it in your app. In the <tt class=" ">package.json</tt> file, set the <tt class=" ">scripts.preinstall</tt> field to the path to the script.    </p>
+    <div class="confbox admonition admonition-info aui-message hint shadowed information-macro">
+            <div class="title">ImageMagick and PhantomJS</div>
+        
+    <p>
+Both ImageMagick and PhantomJS are pre-installed on the containers.    </p>
+    </div>
+    
     <p>
 Below is a sample script located at <tt class=" ">./script/prepare.sh</tt> folder in the application's directory.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
