@@ -25,6 +25,8 @@
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Arrow_NPM_Configuration-section-43299038_ArrowNPMConfiguration-engines">engines</a>    </p>
 </li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Arrow_NPM_Configuration-section-43299038_ArrowNPMConfiguration-healthCheck">healthCheck</a>    </p>
+</li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Arrow_NPM_Configuration-section-43299038_ArrowNPMConfiguration-main">main</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Arrow_NPM_Configuration-section-43299038_ArrowNPMConfiguration-name">name</a>    </p>
@@ -34,7 +36,11 @@
 <a class="document-link " href="#!/guide/Arrow_NPM_Configuration-section-43299038_ArrowNPMConfiguration-npmRegistry">npmRegistry</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Arrow_NPM_Configuration-section-43299038_ArrowNPMConfiguration-scripts">scripts</a>    </p>
+<ul class="toc-indentation "><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Arrow_NPM_Configuration-section-43299038_ArrowNPMConfiguration-preinstall">preinstall</a>    </p>
 </li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Arrow_NPM_Configuration-section-43299038_ArrowNPMConfiguration-start">start</a>    </p>
+</li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Arrow_NPM_Configuration-section-43299038_ArrowNPMConfiguration-version">version</a>    </p>
 </li></ul>    <p>
 An Arrow application contains a file called <tt class=" ">package.json</tt> located in the root directory of the project. Arrow Cloud uses the <tt class=" ">package.json</tt> file to configure settings and install dependencies for the application.    </p>
@@ -54,18 +60,36 @@ The application can import any third-party modules that are supported by standar
     <div class="section section-2 " id="43299038_ArrowNPMConfiguration-engines">
         <h2 class="heading "><span>engines</span></h2>
     <p>
-You can specify which version of Node.js to run your application on. Use the <tt class=" ">engines</tt> field in <tt class=" ">package.json</tt> to specify engine versions. To specify the Node.js version, set the <tt class=" ">node</tt> key in the <tt class=" ">engines</tt> dictionary to either a version or <a class="external-link external-link" href="https://github.com/isaacs/node-semver" target="_blank">version range</a> of Node.js to use. For example, to specify to use version 0.10.22 or greater:    </p>
+You can specify which version of Node.js to run your application on. Use the <tt class=" ">engines</tt> field in <tt class=" ">package.json</tt> to specify engine versions. To specify the Node.js version, set the <tt class=" ">node</tt> key in the <tt class=" ">engines</tt> dictionary to either a version or <a class="external-link external-link" href="https://github.com/isaacs/node-semver" target="_blank">version range</a> of Node.js to use. For example, to specify to use version 0.10.22:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">{</code></div>
-<div class="line"><code class="plain">  </code><code class="string">"engines"</code><code class="plain"> : { </code><code class="string">"node"</code><code class="plain">: </code><code class="string">"&gt;=0.10.22"</code><code class="plain"> }</code></div>
+<div class="line"><code class="plain">  </code><code class="string">"engines"</code><code class="plain"> : { </code><code class="string">"node"</code><code class="plain">: </code><code class="string">"0.10.22"</code><code class="plain"> }</code></div>
 <div class="line"><code class="plain">}</code></div>
 </div>
 </div>    <p>
-If this field is undefined when you publish your application, the latest supported Node.js version is used. The current supported version is 0.10.22.    </p>
+You may specify any version of Node. Node 0.8.26, 0.10.22 and 0.12.4 are built in, but other versions will be downloaded from <a class="external-link external-link" href="https://nodejs.org/" target="_blank">https://nodejs.org/</a> when the application is built prior to running <tt class=" ">npm install</tt>.  If you do not specify a Node version, the application will use 0.12.4 by default.    </p>
+    <div class="confbox admonition admonition-info aui-message hint shadowed information-macro">
+            <div class="title">Deprecated Behavior</div>
+        
+    <p>
+Prior to Arrow Cloud 1.2.0, if this field is undefined when you publish your application, the latest supported Node.js version is used. The current supported version is 0.10.22.    </p>
     <p>
 If this field is undefined when you republish your application and the latest supported Node.js version changed on the Arrow Cloud servers, you will receive an error message when trying to publish your application. You must set the Node.js version to republish your application.    </p>
     </div>
+    
+    </div>
+    <div class="section section-2 " id="43299038_ArrowNPMConfiguration-healthCheck">
+        <h2 class="heading "><span>healthCheck</span></h2>
+    <p>
+<u class=" ">Starting with Arrow Cloud 1.2.0</u>, you may define a health-check endpoint called <tt class=" ">healthCheck.json</tt> that returns a 200 HTTP code.  To let Arrow Cloud know you defined the health-check endpoint, set the <tt class=" ">healthCheck</tt> field to <tt class=" ">true</tt>.  For an example, see <a class="document-link " href="#!/guide/Arrow_Project-section-43298987_ArrowProject-OptionalHealthCheck">Arrow Project: Optional Health Check</a>    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">{</code></div>
+<div class="line"><code class="plain">  healthCheck: </code><code class="keyword">true</code></div>
+<div class="line"><code class="plain">}</code></div>
+</div>
+</div>    </div>
     <div class="section section-2 " id="43299038_ArrowNPMConfiguration-main">
         <h2 class="heading "><span>main</span></h2>
     <p>
@@ -154,6 +178,19 @@ To require authentication for npm installs, add the <tt class=" ">npmAuthenticat
     </div>
     <div class="section section-2 " id="43299038_ArrowNPMConfiguration-scripts">
         <h2 class="heading "><span>scripts</span></h2>
+    <div class="section section-3 " id="43299038_ArrowNPMConfiguration-preinstall">
+        <h3 class="heading "><span>preinstall</span></h3>
+    <p>
+<u class=" ">Starting with Arrow Cloud 1.2.0</u>, to install third-party tools to your container, create a Bash script that installs the dependencies, then set the <tt class=" ">scripts.preinstall</tt> field to the Bash script.  For an example, see <a class="document-link " href="#!/guide/Arrow_Project-section-43298987_ArrowProject-ProvisionaContainer">Arrow Project: Provision a Container</a>.    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="string">"scripts"</code><code class="plain">: {</code></div>
+<div class="line"><code class="plain">  </code><code class="string">"preinstall"</code><code class="plain">: </code><code class="string">"script/prepare.sh"</code></div>
+<div class="line"><code class="plain">}</code></div>
+</div>
+</div>    </div>
+    <div class="section section-3 " id="43299038_ArrowNPMConfiguration-start">
+        <h3 class="heading "><span>start</span></h3>
     <p>
 If your application's <tt class=" ">package.json</tt> file does not specify a <tt class=" ">main</tt> field, Appcelerator Cloud will now look at the <tt class=" ">scripts.start</tt> field in <tt class=" ">package.json</tt> to determine the main module to launch. Appcelerator Cloud will execute the start script using <tt class=" ">npm start</tt>.    </p>
     <p>
@@ -167,6 +204,7 @@ For example, to launch the foo module:    </p>
 <div class="line"><code class="plain">}</code></div>
 </div>
 </div>    </div>
+    </div>
     <div class="section section-2 " id="43299038_ArrowNPMConfiguration-version">
         <h2 class="heading "><span>version</span></h2>
     <p>

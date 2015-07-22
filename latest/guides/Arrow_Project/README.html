@@ -36,12 +36,22 @@ This Appcelerator Platform feature requires a Team Subscription.    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Arrow_Project-section-43298987_ArrowProject-DeploytheApplication">Deploy the Application</a>    </p>
 </li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Arrow_Project-section-43298987_ArrowProject-LogOutput">Log Output</a>    </p>
+</li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Arrow_Project-section-43298987_ArrowProject-ViewLogFiles">View Log Files</a>    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Arrow_Project-section-43298987_ArrowProject-LoggingUtilities">Logging Utilities</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Arrow_Project-section-43298987_ArrowProject-Aboutloggedexecutiontimes">About logged execution times</a>    </p>
 </li></ul></li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Arrow_Project-section-43298987_ArrowProject-NodeVersion">Node Version</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Arrow_Project-section-43298987_ArrowProject-PortBinding">Port Binding</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Arrow_Project-section-43298987_ArrowProject-OptionalHealthCheck">Optional Health Check</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Arrow_Project-section-43298987_ArrowProject-ProvisionaContainer">Provision a Container</a>    </p>
+</li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Arrow_Project-section-43298987_ArrowProject-DeclareDependencies">Declare Dependencies</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Arrow_Project-section-43298987_ArrowProject-DefineEnvironmentVariables">Define Environment Variables</a>    </p>
@@ -310,9 +320,39 @@ This example sets a custom 404 page for your application.    </p>
 To deploy an application to Arrow Cloud, run the <tt class=" ">appc publish</tt> command from the Arrow Cloud project directory.  Your project source code will be uploaded to the Arrow Cloud where <tt class=" ">npm install</tt> will be executed against the project, which downloads and installs any NPM module dependencies.  When installation completes, the application is executed using <tt class=" ">node</tt>.    </p>
     <p>
 If the application is already deployed, you need to either increment the <tt class=" ">version</tt> field in the <tt class=" ">package.json</tt> file to publish a new version of the application or pass the <tt class=" ">--force</tt> flag to the publish command to republish the application. Before republishing the application, Arrow Cloud sends the <tt class=" ">SIGTERM</tt> signal to the currently deployed application to let it shutdown gracefully. If the app does not shutdown in time, Arrow Cloud will kill the application.    </p>
-    <p>
-    </p>
     </div>
+    <div class="section section-2 " id="43298987_ArrowProject-LogOutput">
+        <h2 class="heading "><span>Log Output</span></h2>
+    <p>
+Arrow Cloud can capture two kinds of log output from applications:    </p>
+<ul class=" "><li class=" ">    <p>
+access logs &ndash; HTTP requests to the application    </p>
+</li><li class=" ">    <p>
+application logs &ndash; explicit log calls made in the application    </p>
+</li></ul>    <p>
+To capture access logs, use the <tt class=" ">appc-logger</tt> module, and to capture application logs, you can either use the standard JavaScript <tt class=" ">console.log()</tt> and <tt class=" ">console.error()</tt> methods, or you can use the <tt class=" ">appc-logger</tt> module.    </p>
+    <p>
+By default, when an Arrow application is initialized, it loads and creates an <tt class=" ">appc-logger</tt> instance.  The <tt class=" ">appc-logger</tt> instance is bound to the server instance, which will automatically capture access logs for the application.    </p>
+    <p>
+To make log calls, use the <tt class=" ">logger</tt> property from either the Arrow instance, request object or response object to invoke <a class="external-link external-link" href="#!/api/Arrow.Logger"><tt class=" ">appc-logger</tt> APIs</a>.    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">var Arrow = require(</code><code class="string">'arrow'</code><code class="plain">);</code></div>
+<div class="line"><code class="plain">var TestAPI = Arrow.API.extend({</code></div>
+<div class="line"><code class="plain">    group: </code><code class="string">'ping'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">    path: </code><code class="string">'/healthCheck'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">    method: </code><code class="string">'GET'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">    description: </code><code class="string">'Health-check endpoint'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">    action: function (req, res, next) {</code></div>
+<div class="line"><code class="plain">        req.logger.info(</code><code class="string">'ping'</code><code class="plain">);</code></div>
+<div class="line"><code class="plain">        res.status(</code><code class="value">200</code><code class="plain">).send(</code><code class="string">'OK'</code><code class="plain">);</code></div>
+<div class="line"><code class="plain">        res.logger.info(</code><code class="string">'pong'</code><code class="plain">);</code></div>
+<div class="line"><code class="plain">        next();</code></div>
+<div class="line"><code class="plain">    }</code></div>
+<div class="line"><code class="plain">});</code></div>
+<div class="line"><code class="plain">module.exports = TestAPI;</code></div>
+</div>
+</div>    </div>
     <div class="section section-2 " id="43298987_ArrowProject-ViewLogFiles">
         <h2 class="heading "><span>View Log Files</span></h2>
     <p>
@@ -357,6 +397,112 @@ And below is the corresponding <tt class=" ">loglist</tt> output.    </p>
 </div>
 </div>    </div>
     </div>
+    <div class="section section-2 " id="43298987_ArrowProject-NodeVersion">
+        <h2 class="heading "><span>Node Version</span></h2>
+    <p>
+Prior to Arrow Cloud 1.2.0, the only Node versions you could use were 0.8.26 and 0.10.22.    </p>
+    <p>
+Starting with Arrow Cloud 1.2.0, you may specify any version of Node. Node 0.8.26, 0.10.22 and 0.12.4 are built in, but other versions will be downloaded from <a class="external-link external-link" href="https://nodejs.org/" target="_blank">https://nodejs.org/</a> when the application is built prior to running <tt class=" ">npm install</tt>.  The Node version is managed by the 'n' module (<a class="external-link external-link" href="https://github.com/tj/n" target="_blank">https://github.com/tj/n</a>).    </p>
+    <p>
+To specify a Node version, in the <tt class=" ">package.json</tt> file, set the <tt class=" ">engines.node</tt> key to the version of Node you want to use or you can specify a version range. If you do not specify a Node version, the application will use 0.12.4 by default.    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="title">package.json</div>
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">{</code></div>
+<div class="line"><code class="plain">  </code><code class="string">"engines"</code><code class="plain">: {</code></div>
+<div class="line"><code class="plain">    </code><code class="string">"node"</code><code class="plain">: </code><code class="string">"0.12.4"</code></div>
+<div class="line"><code class="plain">  }</code></div>
+<div class="line"><code class="plain">}</code></div>
+</div>
+</div>    </div>
+    <div class="section section-2 " id="43298987_ArrowProject-PortBinding">
+        <h2 class="heading "><span>Port Binding</span></h2>
+    <p>
+Starting with Arrow Cloud 1.2.0, you may explicitly set the port the application listens on.  Use the <tt class=" ">appc cloud config --set PORT=&lt;PORT_NUMBER&gt;</tt> command to set the special environment variable PORT. If you do not set PORT explicitly before publishing your application, Arrow Cloud sets it to 80 by default.    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">appc cloud config --set PORT=</code><code class="value">8080</code></div>
+</div>
+</div>    <p>
+Verify that the applications listens on PORT, otherwise your app cannot be connected. Use <tt class=" ">process.env.PORT</tt> in the application to verify the application is connected to a port.    </p>
+    </div>
+    <div class="section section-2 " id="43298987_ArrowProject-OptionalHealthCheck">
+        <h2 class="heading "><span>Optional Health Check</span></h2>
+    <p>
+Starting with Arrow Cloud 1.2.0, you can optionally define a health-check endpoint, which Arrow Cloud will check to verify that the application is up and running. To create a health-check endpoint, define an endpoint called <tt class=" ">healthCheck.json</tt> that returns a 200 HTTP status code, then in the <tt class=" ">package.json</tt> file, set the <tt class=" ">healthCheck</tt> key to <tt class=" ">true</tt> to let Arrow Cloud know that the health check endpoint is defined.    </p>
+    <p>
+If <tt class=" ">healthCheck.json</tt> is not defined, Arrow Cloud assumes that your application is up when there is no exception after the container is launched. If your application takes a while to come up, users could access your application, which returns 503 or 502 errors. It is highly recommended that you implement and include the health-check endpoint for your app.    </p>
+    <p>
+<strong class=" ">Example:</strong>    </p>
+    <p>
+The following code defines a health-check endpoint for an Arrow application:    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="title">./apis/ping.js</div>
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">var Arrow = require(</code><code class="string">'arrow'</code><code class="plain">);</code></div>
+<div class="line"><code class="plain">var HealthCheck = Arrow.API.extend({</code></div>
+<div class="line"><code class="plain">    group: </code><code class="string">'ping'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">    </code><code class="comments">// Arrow provides several default extensions, including .json</code></div>
+<div class="line"><code class="plain">    </code><code class="comments">// Do not add the .json for Arrow applications</code></div>
+<div class="line"><code class="plain">    path: </code><code class="string">'/healthCheck'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">    method: </code><code class="string">'GET'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">    description: </code><code class="string">'Health-check endpoint'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">    action: function (req, res, next) {</code></div>
+<div class="line"><code class="plain">        res.status(</code><code class="value">200</code><code class="plain">).send(</code><code class="string">'OK'</code><code class="plain">);</code></div>
+<div class="line"><code class="plain">        next();</code></div>
+<div class="line"><code class="plain">    }</code></div>
+<div class="line"><code class="plain">});</code></div>
+<div class="line"><code class="plain">module.exports = HealthCheck;</code></div>
+</div>
+</div>    <p>
+Then, let Arrow Cloud know that the application implemented the health-check endpoint by setting the <tt class=" ">healthCheck</tt> key to <tt class=" ">true</tt> in the <tt class=" ">package.json</tt> file:    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="title">./package.json</div>
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">{</code></div>
+<div class="line"><code class="plain"> </code><code class="string">"healthCheck"</code><code class="plain">: </code><code class="keyword">true</code></div>
+<div class="line"><code class="plain">}</code></div>
+</div>
+</div>    </div>
+    <div class="section section-2 " id="43298987_ArrowProject-ProvisionaContainer">
+        <h2 class="heading "><span>Provision a Container</span></h2>
+    <p>
+Arrow Cloud 1.2.0 and later allows you to provision a Docker container for running your application. If you need certain tools, you can install them before your app is built.  Note that you have root access to the Docker container.    </p>
+    <p>
+To install additional third-party tools, write a Bash script which installs the required packages and include it in your app. In the <tt class=" ">package.json</tt> file, set the <tt class=" ">scripts.preinstall</tt> field to the path to the script.    </p>
+    <div class="confbox admonition admonition-info aui-message hint shadowed information-macro">
+            <div class="title">ImageMagick and PhantomJS</div>
+        
+    <p>
+Both ImageMagick and PhantomJS are pre-installed on the containers.    </p>
+    </div>
+    
+    <p>
+Below is a sample script located at <tt class=" ">./script/prepare.sh</tt> folder in the application's directory.    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="title">script/prepare.sh</div>
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="comments">#!/bin/bash</code></div>
+<div class="line"><code class="functions">echo</code><code class="plain"> </code><code class="string">"---"</code></div>
+<div class="line"><code class="functions">echo</code><code class="plain"> </code><code class="string">"Start installing some tools..."</code></div>
+<div class="line"><code class="functions">echo</code><code class="plain"> </code><code class="string">"(This bash script is run at npm preinstall.)"</code></div>
+<div class="line"><code class="functions">echo</code><code class="plain"> </code><code class="string">"---"</code></div>
+<div class="line"><code class="plain">apt-get </code><code class="functions">install</code><code class="plain"> -qq </code><code class="functions">tar</code><code class="plain"> </code><code class="functions">bzip2</code><code class="plain"> libaio1</code></div>
+<div class="line"><code class="plain">apt-get </code><code class="functions">install</code><code class="plain"> -y wget</code></div>
+<div class="line"><code class="functions">echo</code><code class="plain"> </code><code class="string">"---"</code></div>
+<div class="line"><code class="functions">echo</code><code class="plain"> </code><code class="string">"done installing additional tools!"</code></div>
+<div class="line"><code class="functions">echo</code><code class="plain"> </code><code class="string">"---"</code></div>
+</div>
+</div>    <p>
+Add the script to <tt class=" ">package.json</tt> file:    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="title">package.json</div>
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">  </code><code class="string">"scripts"</code><code class="plain">: {</code></div>
+<div class="line"><code class="plain">    </code><code class="string">"preinstall"</code><code class="plain">: </code><code class="string">"script/prepare.sh"</code></div>
+<div class="line"><code class="plain">  }</code></div>
+</div>
+</div>    </div>
     <div class="section section-2 " id="43298987_ArrowProject-DeclareDependencies">
         <h2 class="heading "><span>Declare Dependencies</span></h2>
     <p>
@@ -379,8 +525,13 @@ You can access the environment variables from the application using the <tt clas
 To unset an environment variable, use the <tt class=" ">appc cloud config --unset &lt;key&gt;</tt> command.    </p>
     <p>
 To check the current environment variables, use the <tt class=" "> appc cloud config --env</tt> command.    </p>
+    <div class="confbox admonition admonition-info aui-message hint shadowed information-macro">
+            <div class="title">Blacklist Variable Names</div>
+        
     <p>
-You cannot use the following names for environment variables: &quot;appid&quot;, &quot;basedir&quot;, &quot;bodyParser&quot;, &quot;customConfig&quot;, &quot;dirname&quot;, &quot;framework&quot;, &quot;fullpath&quot;, &quot;name&quot;, &quot;serverId&quot;, &quot;port&quot;, &quot;version&quot;, &quot;NODE&quot;, &quot;NODE_PATH&quot;, &quot;PATH&quot;, &quot;PWD&quot;, &quot;PORT&quot;, &quot;TMPDIR&quot;, and &quot;USER&quot;.    </p>
+Prior to Arrow Cloud 1.2.0, you could not use the following names for environment variables: &quot;appid&quot;, &quot;basedir&quot;, &quot;bodyParser&quot;, &quot;customConfig&quot;, &quot;dirname&quot;, &quot;framework&quot;, &quot;fullpath&quot;, &quot;name&quot;, &quot;serverId&quot;, &quot;port&quot;, &quot;version&quot;, &quot;NODE&quot;, &quot;NODE_PATH&quot;, &quot;PATH&quot;, &quot;PWD&quot;, &quot;PORT&quot;, &quot;TMPDIR&quot;, and &quot;USER&quot;.    </p>
+    </div>
+    
     <p>
 After changing an environment variable, you will be prompted to restart the application.    </p>
     <p>

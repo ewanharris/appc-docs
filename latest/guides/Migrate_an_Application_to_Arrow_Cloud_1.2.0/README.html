@@ -25,13 +25,13 @@
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Migrate_an_Application_to_Arrow_Cloud_1.2.0-section-43309269_MigrateanApplicationtoArrowCloud1.2.0-ArrowCloudLoggingandAccessLogs">Arrow Cloud Logging and Access Logs</a>    </p>
 </li><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Migrate_an_Application_to_Arrow_Cloud_1.2.0-section-43309269_MigrateanApplicationtoArrowCloud1.2.0-Nodeversion">Node version</a>    </p>
+<a class="document-link " href="#!/guide/Migrate_an_Application_to_Arrow_Cloud_1.2.0-section-43309269_MigrateanApplicationtoArrowCloud1.2.0-NodeVersion">Node Version</a>    </p>
 </li><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Migrate_an_Application_to_Arrow_Cloud_1.2.0-section-43309269_MigrateanApplicationtoArrowCloud1.2.0-Portbinding">Port binding</a>    </p>
+<a class="document-link " href="#!/guide/Migrate_an_Application_to_Arrow_Cloud_1.2.0-section-43309269_MigrateanApplicationtoArrowCloud1.2.0-PortBinding">Port Binding</a>    </p>
 </li><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Migrate_an_Application_to_Arrow_Cloud_1.2.0-section-43309269_MigrateanApplicationtoArrowCloud1.2.0-Optionalhealthcheck">Optional health check</a>    </p>
+<a class="document-link " href="#!/guide/Migrate_an_Application_to_Arrow_Cloud_1.2.0-section-43309269_MigrateanApplicationtoArrowCloud1.2.0-OptionalHealthCheck">Optional Health Check</a>    </p>
 </li><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Migrate_an_Application_to_Arrow_Cloud_1.2.0-section-43309269_MigrateanApplicationtoArrowCloud1.2.0-Provisionacontainer">Provision a container</a>    </p>
+<a class="document-link " href="#!/guide/Migrate_an_Application_to_Arrow_Cloud_1.2.0-section-43309269_MigrateanApplicationtoArrowCloud1.2.0-ProvisionaContainer">Provision a Container</a>    </p>
 </li></ul>    <p>
     </p>
     <div class="confbox admonition admonition-warning aui-message problem shadowed information-macro">
@@ -113,8 +113,8 @@ In the code sample, you use the logger to log debug logs. Behind the scenes it l
 </div>    <p>
 For more detailed appc-logger usage, refer to <a class="external-link external-link" href="https://github.com/appcelerator/appc-logger" target="_blank">appc-logger Github project</a> and <a class="external-link external-link" href="https://docs.appcelerator.com/platform/latest/#!/api/Arrow.Logger" target="_blank">Arrow Logger API reference</a>.    </p>
     </div>
-    <div class="section section-3 " id="43309269_MigrateanApplicationtoArrowCloud1.2.0-Nodeversion">
-        <h3 class="heading "><span>Node version</span></h3>
+    <div class="section section-3 " id="43309269_MigrateanApplicationtoArrowCloud1.2.0-NodeVersion">
+        <h3 class="heading "><span>Node Version</span></h3>
     <p>
 Prior to Arrow Cloud 1.2.0, the only Node versions you could use were 0.8.26 and 0.10.22.    </p>
     <p>
@@ -131,15 +131,21 @@ To specify a Node version, in the <tt class=" ">package.json</tt> file, set the 
 <div class="line"><code class="plain">}</code></div>
 </div>
 </div>    </div>
-    <div class="section section-3 " id="43309269_MigrateanApplicationtoArrowCloud1.2.0-Portbinding">
-        <h3 class="heading "><span>Port binding</span></h3>
+    <div class="section section-3 " id="43309269_MigrateanApplicationtoArrowCloud1.2.0-PortBinding">
+        <h3 class="heading "><span>Port Binding</span></h3>
     <p>
-Arrow Cloud needs to know which port the application listens on.  Use the special environment variable PORT. If you do not set PORT explicitly before publishing your application, Arrow Cloud sets it to 80 by default. Verify that the applications listens on PORT, otherwise your app cannot be connected. Use <tt class=" ">process.env.PORT</tt> in the application to verify the application is connected to a port.    </p>
+Starting with Arrow Cloud 1.2.0, you may explicitly set the port the application listens on.  Use the <tt class=" ">appc cloud config --set PORT=&lt;PORT_NUMBER&gt;</tt> command to set the special environment variable PORT. If you do not set PORT explicitly before publishing your application, Arrow Cloud sets it to 80 by default.    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">appc cloud config --set PORT=</code><code class="value">8080</code></div>
+</div>
+</div>    <p>
+Verify that the applications listens on PORT, otherwise your app cannot be connected. Use <tt class=" ">process.env.PORT</tt> in the application to verify the application is connected to a port.    </p>
     </div>
-    <div class="section section-3 " id="43309269_MigrateanApplicationtoArrowCloud1.2.0-Optionalhealthcheck">
-        <h3 class="heading "><span>Optional health check</span></h3>
+    <div class="section section-3 " id="43309269_MigrateanApplicationtoArrowCloud1.2.0-OptionalHealthCheck">
+        <h3 class="heading "><span>Optional Health Check</span></h3>
     <p>
-To let Arrow Cloud know your application is up and running, you can optionally define a health-check endpoint called <tt class=" ">healthCheck.json</tt> that returns a 200 HTTP status code, then in the <tt class=" ">package.json</tt> file, set the <tt class=" ">healthCheck</tt> key to <tt class=" ">true</tt> to let Arrow Cloud know that the health check endpoint is defined.    </p>
+Starting with Arrow Cloud 1.2.0, you can optionally define a health-check endpoint, which Arrow Cloud will check to verify that the application is up and running. To create a health-check endpoint, define an endpoint called <tt class=" ">healthCheck.json</tt> that returns a 200 HTTP status code, then in the <tt class=" ">package.json</tt> file, set the <tt class=" ">healthCheck</tt> key to <tt class=" ">true</tt> to let Arrow Cloud know that the health check endpoint is defined.    </p>
     <p>
 If <tt class=" ">healthCheck.json</tt> is not defined, Arrow Cloud assumes that your application is up when there is no exception after the container is launched. If your application takes a while to come up, users could access your application, which returns 503 or 502 errors. It is highly recommended that you implement and include the health-check endpoint for your app.    </p>
     <p>
@@ -152,6 +158,8 @@ The following code defines a health-check endpoint for an Arrow application:    
 <div class="line"><code class="plain">var Arrow = require(</code><code class="string">'arrow'</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">var HealthCheck = Arrow.API.extend({</code></div>
 <div class="line"><code class="plain">    group: </code><code class="string">'ping'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">    </code><code class="comments">// Arrow provides several default extensions, including .json</code></div>
+<div class="line"><code class="plain">    </code><code class="comments">// Do not add the .json for Arrow applications</code></div>
 <div class="line"><code class="plain">    path: </code><code class="string">'/healthCheck'</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">    method: </code><code class="string">'GET'</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">    description: </code><code class="string">'Health-check endpoint'</code><code class="plain">,</code></div>
@@ -172,10 +180,10 @@ Then, let Arrow Cloud know that the application implemented the health-check end
 <div class="line"><code class="plain">}</code></div>
 </div>
 </div>    </div>
-    <div class="section section-3 " id="43309269_MigrateanApplicationtoArrowCloud1.2.0-Provisionacontainer">
-        <h3 class="heading "><span>Provision a container</span></h3>
+    <div class="section section-3 " id="43309269_MigrateanApplicationtoArrowCloud1.2.0-ProvisionaContainer">
+        <h3 class="heading "><span>Provision a Container</span></h3>
     <p>
-Arrow Cloud allows you to provision a Docker container for running your application. If you need certain tools, you can install them before your app is built.  Note that you have root access to the Docker container.    </p>
+Arrow Cloud 1.2.0 and later allows you to provision a Docker container for running your application. If you need certain tools, you can install them before your app is built.  Note that you have root access to the Docker container.    </p>
     <p>
 To install additional third-party tools, write a Bash script which installs the required packages and include it in your app. In the <tt class=" ">package.json</tt> file, set the <tt class=" ">scripts.preinstall</tt> field to the path to the script.    </p>
     <div class="confbox admonition admonition-info aui-message hint shadowed information-macro">
