@@ -40,6 +40,8 @@
 <a class="document-link " href="#!/guide/Creating_Your_First_Titanium_App-section-37541502_CreatingYourFirstTitaniumApp-AddaNavigationWindowforiOS">Add a NavigationWindow for iOS</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Creating_Your_First_Titanium_App-section-37541502_CreatingYourFirstTitaniumApp-Allowusertoaddbooks">Allow user to add books</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Creating_Your_First_Titanium_App-section-37541502_CreatingYourFirstTitaniumApp-NextSteps">Next Steps</a>    </p>
 </li></ul>    <p>
     </p>
     <div class="section section-2 " id="37541502_CreatingYourFirstTitaniumApp-Introduction">
@@ -57,7 +59,7 @@ Using platform-specific resources and styles    </p>
 </li><li class=" ">    <p>
 Handling events    </p>
 </li></ul>    <p>
-<a class="attachment-link " href="./attachments_37685675_1_favebooks-complete.zip">Download</a> a completed version of the project.    </p>
+<a class="external-link external-link" href="https://github.com/appcelerator-developer-relations/FaveBooks" target="_blank">Download</a> a completed version of the project.    </p>
     <div class="tablewrap">
         <table class="confluenceTable">
         <thead class=" "/><tfoot class=" "/><tbody class=" ">    <tr>
@@ -114,7 +116,7 @@ In the <strong class=" ">Schema</strong> table, add two fields named <strong cla
         </li></ul></li><li class=" ">    <p>
 Click OK.     </p>
 </li></ol>    <p>
-This creates a new file in the <strong class=" ">app/models</strong> directory called <strong class=" ">books.js</strong>.  This file describes the data model you just created. The <tt class=" ">config</tt> section, in particular, defines the data columns, adapter type, and collection name.    </p>
+This creates a new file in the <strong class=" ">app/models</strong> directory called <strong class=" ">books.js</strong>.  This file describes the data model you just created. The  <tt class=" ">config</tt> section, in particular, defines the data columns, adapter type, and collection name.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">exports.definition = {</code></div>
@@ -233,6 +235,16 @@ Using curly-bracket syntax, assign the title from each book (that is, each model
 <div class="line"><code class="plain">    &lt;/Window&gt;</code></div>
 <div class="line"><code class="plain">&lt;/Alloy&gt;  </code></div>
 </div>
+</div></li><li class=" ">    <p>
+Open <strong class=" ">styles/index.tss</strong>.    </p>
+</li><li class=" ">    <p>
+By default, Android applications built with Titanium use the AppCompat theme, which uses a dark background with light text, while iOS defaults to black text and a black background.  In order to see text, change the background to white for iOS only by adding the platform attribute to the container rule.    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="string">".container[platform=ios]"</code><code class="plain">: {</code></div>
+<div class="line"><code class="plain">	backgroundColor: </code><code class="string">'white'</code></div>
+<div class="line"><code class="plain">}</code></div>
+</div>
 </div></li></ol>    <p>
 At this point we&rsquo;re now ready to test our app. For comparison, we&rsquo;ll run the app in both an iPhone simulator and an Android emulator.    </p>
     <p>
@@ -324,10 +336,10 @@ Add two <tt class=" ">&lt;Label&gt;</tt> elements to the <tt class=" ">&lt;Windo
 <div class="line"><code class="plain">&lt;/Alloy&gt;</code></div>
 </div>
 </div><pre class=" ">    </pre></li><li class=" ">    <p>
-Open <strong class=" ">styles/bookdetails.tss</strong> and a background color to the <tt class=" ">.container</tt> rule:    </p>
+Open <strong class=" ">styles/bookdetails.tss</strong> and a background color for iOS to the <tt class=" ">.container</tt> rule:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="string">".container"</code><code class="plain"> : { </code></div>
+<div class="line"><code class="string">".container[platform=ios]"</code><code class="plain"> : { </code></div>
 <div class="line"><code class="plain">   backgroundColor: </code><code class="string">'white'</code><code class="plain"> </code></div>
 <div class="line"><code class="plain">}</code></div>
 </div>
@@ -342,13 +354,13 @@ To respond to user selection, you add an <tt class=" ">onClick</tt> attribute to
 <ol class=" "><li class=" ">    <p>
 In the Project Navigator, open <strong class=" ">views/index.xml</strong>.    </p>
 </li><li class=" ">    <p>
-Add an <strong class=" "> <tt class=" ">onClick</tt> </strong> attribute to the <tt class=" ">&lt;TableView&gt;</tt> element and set its value to <strong class=" "> <tt class=" ">showBook</tt></strong>.    </p>
+Add an <strong class=" "> <tt class=" ">onClick</tt> </strong> attribute to the <tt class=" ">&lt;TableView&gt;</tt> element and set its value to <strong class=" "> <tt class=" ">showBook</tt> </strong>.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">&lt;TableViewRow title=</code><code class="string">"{title}"</code><code class="plain"> author=</code><code class="string">"{author}"</code><code class="plain"> onClick=</code><code class="string">"showBook"</code><code class="plain">&gt;&lt;/TableViewRow&gt;</code></div>
 </div>
 </div><pre class=" ">    </pre></li><li class=" ">    <p>
-Open <strong class=" ">controllers/index.js</strong> and add a function named <strong class=" "> <tt class=" ">showBook()</tt> </strong> that takes a single argument called <strong class=" "> <tt class=" ">event</tt></strong>. This is the event object passed to the function that contains information about the selected item.    </p>
+Open <strong class=" ">controllers/index.js</strong> and add a function named <strong class=" "> <tt class=" ">showBook()</tt> </strong> that takes a single argument called <strong class=" "> <tt class=" ">event</tt> </strong>. This is the event object passed to the function that contains information about the selected item.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">function showBook (event) { </code></div>
@@ -416,7 +428,7 @@ Wrap the two <tt class=" ">&lt;Label&gt;</tt> elements within a <tt class=" ">&l
 <div class="line"><code class="plain">&lt;/View&gt;   </code></div>
 </div>
 </div></li><li class=" ">    <p>
-Add a <strong class=" "> <tt class=" ">layout</tt> </strong> attribute to the <tt class=" ">&lt;View&gt;</tt> element and set its value to <strong class=" "> <tt class=" ">vertical</tt></strong>.    </p>
+Add a <strong class=" "> <tt class=" ">layout</tt> </strong> attribute to the <tt class=" ">&lt;View&gt;</tt> element and set its value to <strong class=" "> <tt class=" ">vertical</tt> </strong>.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">&lt;View layout=</code><code class="string">'vertical'</code><code class="plain">&gt; </code></div>
@@ -450,7 +462,7 @@ Save your changes and build again for iPhone or Android. The title and author sh
     <p>
 If you test the app on an Android device with a high-resolution display, you&rsquo;ll notice that the default height of each table row is a bit small to comfortably read or select with a finger. For instance, the screenshot below was taken on an HTC One device.    </p>
     <p>
-        <img src="images/download/attachments/37541502/htcone-screenshot.png" alt="images/download/attachments/37541502/htcone-screenshot.png" class="confluence-embedded-image confluence-content-image-border" width="247"/>
+        <img src="images/download/attachments/37541502/htcone-screenshot.png" alt="images/download/attachments/37541502/htcone-screenshot.png" class="confluence-embedded-image confluence-content-image-border"/>
             </p>
     <p>
 To fix this we will apply a <a class="external-link external-link" href="#!/guide/Alloy_Styles_and_Themes-section-35621526_AlloyStylesandThemes-Platform-SpecificStyles">platform-specific style</a> to the <tt class=" ">&lt;TableViewRow&gt;</tt> element. During the build process, platform-specific styles are applied only to builds on the target platform. The following is an example of a platform-specific style that makes all Labels blue in iOS builds.    </p>
@@ -472,7 +484,7 @@ Open <strong class=" ">views/index.tss</strong> and add the following style rule
 </div><pre class=" ">    </pre></li><li class=" ">    <p>
 Save your changes and build the application for Android. The TableView should look like the following screenshot:    </p>
     <p>
-        <img src="images/download/attachments/37541502/htcone-tablerow-tall.png" alt="images/download/attachments/37541502/htcone-tablerow-tall.png" class="confluence-embedded-image confluence-content-image-border" width="246"/>
+        <img src="images/download/attachments/37541502/htcone-tablerow-tall.png" alt="images/download/attachments/37541502/htcone-tablerow-tall.png" class="confluence-embedded-image"/>
             </p>
 </li></ol>    </div>
     <div class="section section-2 " id="37541502_CreatingYourFirstTitaniumApp-AddaNavigationWindowforiOS">
@@ -480,7 +492,7 @@ Save your changes and build the application for Android. The TableView should lo
     <p>
 Unlike Android, iOS devices do not provide a physical back button for navigation. The <a class="external-link external-link" href="#!/api/Titanium.UI.iOS.NavigationWindow"> <tt class=" ">NavigationWindow</tt> </a> is an iOS-only UI control that provides an easy way to display and navigate hierarchical content. (In native iOS terms, the control is an implementation of the iOS <a class="external-link external-link" href="https://developer.apple.com/library/ios/documentation/WindowsViews/Conceptual/ViewControllerCatalog/Chapters/NavigationControllers.html" target="_blank">navigation controller interface</a>.) On Android, you get this type of navigation for &quot;free&quot;. The <tt class=" ">NavigationWindow</tt> will wrap the original <tt class=" ">&lt;Window&gt;</tt> element and provide a title bar above the <tt class=" ">&lt;TableView&gt;</tt> control, solving this layout issue.    </p>
     <p>
-To do this we'll take advantage of an Alloy feature called <a class="external-link external-link" href="#!/guide/Alloy_Concepts-section-34636240_AlloyConcepts-Platform-SpecificResources">platform-specific resources</a> that lets you define platform-specific view, controller, and style files. At build time, only those resources specific to the target platform are included.  There are two parts to this:    </p>
+To do this we'll take advantage of an Alloy feature called  <a class="external-link external-link" href="#!/guide/Alloy_Concepts-section-34636240_AlloyConcepts-Platform-SpecificResources">platform-specific resources</a> that lets you define platform-specific view, controller, and style files. At build time, only those resources specific to the target platform are included.  There are two parts to this:    </p>
 <ul class=" "><li class=" ">    <p>
 Creating a new iOS-specific entry point (a new version of <tt class=" ">index</tt>.xml) that includes the <tt class=" ">NavigationWindow</tt> element    </p>
 </li><li class=" ">    <p>
@@ -495,14 +507,14 @@ Create a new file named <strong class=" ">index.xml</strong> in the new folder.<
     <p>
     </p>
 </li><li class=" ">    <p>
-Copy the contents of  <strong class=" "> <tt class=" ">views/index.xml</tt> </strong>  to  <strong class=" "> <tt class=" ">views/ios/index.xml</tt> </strong> .    </p>
+Copy the contents of  <strong class=" "> <tt class=" ">views/index.xml</tt> </strong>  to  <strong class=" "> <tt class=" ">views/ios/index.xml</tt></strong>.    </p>
 </li><li class=" ">    <p>
-Wrap the existing <tt class=" ">&lt;Window&gt;</tt> element with a <strong class=" "> <tt class=" ">&lt;NavigationWindow&gt;</tt> </strong> element and set the new element&rsquo;s <tt class=" ">id</tt> attribute to <strong class=" ">navGroupWin</strong>:    </p>
+Wrap the existing <tt class=" ">&lt;Window&gt;</tt> element with a <strong class=" "> <tt class=" ">&lt;NavigationWindow&gt;</tt> </strong> element:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">&lt;Alloy&gt;</code></div>
 <div class="line"><code class="plain">    &lt;Collection src=</code><code class="string">"books"</code><code class="plain">/&gt;</code></div>
-<div class="line"><code class="plain">    &lt;NavigationWindow id=</code><code class="string">"navGroupWin"</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">    &lt;NavigationWindow&gt;</code></div>
 <div class="line"><code class="plain">        &lt;Window </code><code class="keyword">class</code><code class="plain">=</code><code class="string">"container"</code><code class="plain"> title=</code><code class="string">"My Books"</code><code class="plain">&gt;</code></div>
 <div class="line"><code class="plain">            &lt;TableView dataCollection=</code><code class="string">"books"</code><code class="plain"> id=</code><code class="string">"bookTable"</code><code class="plain">&gt;</code></div>
 <div class="line"><code class="plain">                &lt;TableViewRow title=</code><code class="string">"{title}"</code><code class="plain"> author=</code><code class="string">"{author}"</code><code class="plain"> onClick=</code><code class="string">"showBook"</code><code class="plain">&gt;&lt;/TableViewRow&gt;</code></div>
@@ -520,19 +532,6 @@ The <tt class=" ">NavigationWindow</tt> control has a different API than <tt cla
 <ol class=" "><li class=" ">    <p>
 Open <strong class=" ">controllers/index.js</strong>.    </p>
 </li><li class=" ">    <p>
-Replace the existing <tt class=" ">$.index.open()</tt> code at the bottom of the file with the following:    </p>
-<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
-<div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="keyword">if</code><code class="plain">(OS_IOS) { </code></div>
-<div class="line"><code class="plain">   $.navGroupWin.open();</code></div>
-<div class="line"><code class="plain">} </code></div>
-<div class="line"><code class="keyword">if</code><code class="plain"> (OS_ANDROID) { </code></div>
-<div class="line"><code class="plain">   $.index.open(); </code></div>
-<div class="line"><code class="plain">}</code></div>
-</div>
-</div><pre class=" ">    </pre>    <p>
-When you build for iOS <tt class=" ">$.navGroupWin.open()</tt> will be included; when you build for Android <tt class=" ">$.index.open()</tt> code will be included.    </p>
-</li><li class=" ">    <p>
 Modify the <tt class=" ">showBook()</tt> method to account for the platform differences when opening the details view. On iOS, you now need to open the book details view using the <tt class=" ">NavigationWindow</tt> object's <tt class=" ">openWindow()</tt> method:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
@@ -543,7 +542,7 @@ Modify the <tt class=" ">showBook()</tt> method to account for the platform diff
 <div class="line"><code class="plain">    };</code></div>
 <div class="line"><code class="plain">    var bookview = Alloy.createController(</code><code class="string">"bookdetails"</code><code class="plain">, args).getView();</code></div>
 <div class="line"><code class="plain">    </code><code class="keyword">if</code><code class="plain"> (OS_IOS) {</code></div>
-<div class="line"><code class="plain">        $.navGroupWin.openWindow(bookview);</code></div>
+<div class="line"><code class="plain">        $.index.openWindow(bookview);</code></div>
 <div class="line"><code class="plain">    }</code></div>
 <div class="line"><code class="plain">    </code><code class="keyword">if</code><code class="plain"> (OS_ANDROID) {</code></div>
 <div class="line"><code class="plain">        bookview.open();</code></div>
@@ -551,7 +550,7 @@ Modify the <tt class=" ">showBook()</tt> method to account for the platform diff
 <div class="line"><code class="plain">} </code></div>
 </div>
 </div>    <p>
-As you can see, in the iOS case the handler now opens the window inside <tt class=" ">navGroupWin</tt>; the Android code branch uses the same code to open the window (<tt class=" ">addview.open()</tt>).    </p>
+As you can see, in the iOS case the handler now opens the window inside the NavigationGroup; the Android code branch uses the same code to open the window ( <tt class=" ">addview.open()</tt> ).    </p>
 </li><li class=" ">    <p>
 Save your changes and test again on an iPhone device or simulator.    </p>
 </li></ol>    <p>
@@ -590,12 +589,19 @@ Open <strong class=" ">views/addbook.xml</strong> and add the following markup: 
 </div>    <p>
 This creates input text fields where the user will enter the book title and author, and a button to add the new book to the collection. The button&rsquo;s <tt class=" ">onClick</tt> handler will call the <tt class=" ">insertBook()</tt> function, which you&rsquo;ll create next.    </p>
 </li><li class=" ">    <p>
-Open <strong class=" ">styles/addbook.tss</strong> and add <tt class=" ">backgroundColor: white</tt> to the <tt class=" ">.container</tt> class:    </p>
+Open <strong class=" ">styles/addbook.tss</strong> and add the following styling:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="string">".container"</code><code class="plain"> : {</code></div>
+<div class="line"><code class="string">".container[platform=ios]"</code><code class="plain"> : {</code></div>
 <div class="line"><code class="plain">  backgroundColor: </code><code class="string">'white'</code></div>
-<div class="line"><code class="plain">}      </code></div>
+<div class="line"><code class="plain">}</code></div>
+<div class="line"><code class="string">"TextField"</code><code class="plain"> : {</code></div>
+<div class="line"><code class="plain">	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,</code></div>
+<div class="line"><code class="plain">	top: </code><code class="value">10</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	left: </code><code class="value">20</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	right: </code><code class="value">20</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	height: </code><code class="value">40</code></div>
+<div class="line"><code class="plain">}</code></div>
 </div>
 </div><pre class=" ">    </pre></li><li class=" ">    <p>
 Open <strong class=" ">controllers/addbook.js</strong>, remove the existing code in that file and add the following:    </p>
@@ -647,7 +653,7 @@ Open <strong class=" ">controllers/index.js</strong> and add the following code 
 <div class="line"><code class="plain">function addBook(){</code></div>
 <div class="line"><code class="plain">    var myAddBook = Alloy.createController(</code><code class="string">"addbook"</code><code class="plain">,{}).getView();</code></div>
 <div class="line"><code class="plain">    </code><code class="keyword">if</code><code class="plain"> (OS_IOS) {</code></div>
-<div class="line"><code class="plain">        $.navGroupWin.openWindow(myAddBook);</code></div>
+<div class="line"><code class="plain">        $.index.openWindow(myAddBook);</code></div>
 <div class="line"><code class="plain">    }</code></div>
 <div class="line"><code class="plain">    </code><code class="keyword">if</code><code class="plain"> (OS_ANDROID) {</code></div>
 <div class="line"><code class="plain">        myAddBook.open();</code></div>
@@ -658,6 +664,13 @@ Open <strong class=" ">controllers/index.js</strong> and add the following code 
 Save your changes and test on a device or emulator.    </p>
 </li></ol>    <p>
 You should now be able to click 'Add' and add new books to the collection which persist between sessions.    </p>
+    </div>
+    <div class="section section-2 " id="37541502_CreatingYourFirstTitaniumApp-NextSteps">
+        <h2 class="heading "><span>Next Steps</span></h2>
+    <p>
+Review the guides in <a class="document-link " href="#!/guide/Alloy_Framework">Alloy Framework</a> to learn more about using Alloy to build your application; specifically, see the <a class="document-link " href="#!/guide/Alloy_Views">Alloy Views</a> section to learn about creating the UI for your application.  Also, review the <a class="document-link " href="#!/guide/Titanium_SDK">Titanium SDK</a> guides to learn more about specific categories of APIs, such as UI, media, geolocation, etc.    </p>
+    <p>
+For more samples, see <a class="document-link " href="#!/guide/Alloy_Samples">Alloy Samples</a>.    </p>
     </div>
         </div><a id="editButton" href="https://wiki.appcelerator.org/pages/editpage.action?pageId=37541502"><span>Edit</span></a>
     
