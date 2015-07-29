@@ -60,7 +60,7 @@ The application can import any third-party modules that are supported by standar
     <div class="section section-2 " id="43299038_ArrowNPMConfiguration-engines">
         <h2 class="heading "><span>engines</span></h2>
     <p>
-You can specify which version of Node.js to run your application on. Use the <tt class=" ">engines</tt> field in <tt class=" ">package.json</tt> to specify engine versions. To specify the Node.js version, set the <tt class=" ">node</tt> key in the <tt class=" ">engines</tt> dictionary to either a version or <a class="external-link external-link" href="https://github.com/isaacs/node-semver" target="_blank">version range</a> of Node.js to use. For example, to specify to use version 0.10.22:    </p>
+You can specify which version of Node.js to run your application on. Use the <tt class=" ">engines</tt> field in <tt class=" ">package.json</tt> to specify engine versions. To specify the Node.js version, set the <tt class=" ">node</tt> key in the <tt class=" ">engines</tt> dictionary to a specific version of Node.js to use. For example, to specify to use version 0.10.22:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">{</code></div>
@@ -73,7 +73,7 @@ You may specify any version of Node. Node 0.8.26, 0.10.22 and 0.12.4 are built i
             <div class="title">Deprecated Behavior</div>
         
     <p>
-Prior to Arrow Cloud 1.2.0, if this field is undefined when you publish your application, the latest supported Node.js version is used. The current supported version is 0.10.22.    </p>
+Prior to Arrow Cloud 1.2.0, if this field is undefined when you publish your application, the application will use 0.10.22 by default.    </p>
     <p>
 If this field is undefined when you republish your application and the latest supported Node.js version changed on the Arrow Cloud servers, you will receive an error message when trying to publish your application. You must set the Node.js version to republish your application.    </p>
     </div>

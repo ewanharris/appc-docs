@@ -404,7 +404,7 @@ Prior to Arrow Cloud 1.2.0, the only Node versions you could use were 0.8.26 and
     <p>
 Starting with Arrow Cloud 1.2.0, you may specify any version of Node. Node 0.8.26, 0.10.22 and 0.12.4 are built in, but other versions will be downloaded from <a class="external-link external-link" href="https://nodejs.org/" target="_blank">https://nodejs.org/</a> when the application is built prior to running <tt class=" ">npm install</tt>.  The Node version is managed by the 'n' module (<a class="external-link external-link" href="https://github.com/tj/n" target="_blank">https://github.com/tj/n</a>).    </p>
     <p>
-To specify a Node version, in the <tt class=" ">package.json</tt> file, set the <tt class=" ">engines.node</tt> key to the version of Node you want to use or you can specify a version range. If you do not specify a Node version, the application will use 0.12.4 by default.    </p>
+To specify a Node version, in the <tt class=" ">package.json</tt> file, set the <tt class=" ">engines.node</tt> key to the version of Node you want to use. DO NOT SPECIFY A RANGE. If you do not specify a Node version, the application will use 0.12.4 by default.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="title">package.json</div>
 <div class="defaultnew syntaxhighlighter">
