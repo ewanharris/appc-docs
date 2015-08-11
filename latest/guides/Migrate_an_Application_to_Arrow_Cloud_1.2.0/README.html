@@ -31,7 +31,7 @@
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Migrate_an_Application_to_Arrow_Cloud_1.2.0-section-43309269_MigrateanApplicationtoArrowCloud1.2.0-OptionalHealthCheck">Optional Health Check</a>    </p>
 </li><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Migrate_an_Application_to_Arrow_Cloud_1.2.0-section-43309269_MigrateanApplicationtoArrowCloud1.2.0-ProvisionaContainer">Provision a Container</a>    </p>
+<a class="document-link " href="#!/guide/Migrate_an_Application_to_Arrow_Cloud_1.2.0-section-43309269_MigrateanApplicationtoArrowCloud1.2.0-InstallCustomBinaries">Install Custom Binaries</a>    </p>
 </li></ul>    <div class="section section-3 " id="43309269_MigrateanApplicationtoArrowCloud1.2.0-Overview">
         <h3 class="heading "><span>Overview</span></h3>
     <p>
@@ -125,10 +125,17 @@ To specify a Node version, in the <tt class=" ">package.json</tt> file, set the 
     <div class="section section-3 " id="43309269_MigrateanApplicationtoArrowCloud1.2.0-PortBinding">
         <h3 class="heading "><span>Port Binding</span></h3>
     <p>
-Starting with Arrow Cloud 1.2.0, you may explicitly set the port the application listens on.  Use the <tt class=" ">appc cloud config --set PORT=&lt;PORT_NUMBER&gt;</tt> command to set the special environment variable PORT. If you do not set PORT explicitly before publishing your application, Arrow Cloud sets it to 80 by default.    </p>
+Starting with Arrow Cloud 1.2.0, you may explicitly set the port the application listens on.  Set the <tt class=" ">cloud.environment.PORT</tt> key in <tt class=" ">appc.json</tt> file. or use the <tt class=" ">appc cloud config --set PORT=&lt;PORT_NUMBER&gt;</tt> command to set the special environment variable PORT. If you do not set PORT explicitly before publishing your application, Arrow Cloud sets it to 80 by default.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="title">appc.json</div>
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">appc cloud config --set PORT=</code><code class="value">8080</code></div>
+<div class="line"><code class="plain">{</code></div>
+<div class="line"><code class="plain">  cloud: {</code></div>
+<div class="line"><code class="plain">    environment: {</code></div>
+<div class="line"><code class="plain">      PORT: </code><code class="value">8080</code></div>
+<div class="line"><code class="plain">    }</code></div>
+<div class="line"><code class="plain">  }</code></div>
+<div class="line"><code class="plain">}</code></div>
 </div>
 </div>    <p>
 Verify that the applications listens on PORT, otherwise your app cannot be connected. Use <tt class=" ">process.env.PORT</tt> in the application to verify the application is connected to a port.    </p>
@@ -171,8 +178,8 @@ Then, let Arrow Cloud know that the application implemented the health-check end
 <div class="line"><code class="plain">}</code></div>
 </div>
 </div>    </div>
-    <div class="section section-3 " id="43309269_MigrateanApplicationtoArrowCloud1.2.0-ProvisionaContainer">
-        <h3 class="heading "><span>Provision a Container</span></h3>
+    <div class="section section-3 " id="43309269_MigrateanApplicationtoArrowCloud1.2.0-InstallCustomBinaries">
+        <h3 class="heading "><span>Install Custom Binaries</span></h3>
     <p>
 Arrow Cloud 1.2.0 and later allows you to provision a Docker container for running your application. If you need certain tools, you can install them before your app is built.  Note that you have root access to the Docker container.    </p>
     <p>
