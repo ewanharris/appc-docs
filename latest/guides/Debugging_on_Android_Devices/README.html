@@ -28,11 +28,7 @@
 <a class="document-link " href="#!/guide/Debugging_on_Android_Devices-section-34638026_DebuggingonAndroidDevices-Requirements">Requirements</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Debugging_on_Android_Devices-section-34638026_DebuggingonAndroidDevices-StartingaDebugSession">Starting a Debug Session</a>    </p>
-<ul class="toc-indentation "><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Debugging_on_Android_Devices-section-34638026_DebuggingonAndroidDevices-InitiatetheDebugSession">Initiate the Debug Session</a>    </p>
 </li><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Debugging_on_Android_Devices-section-34638026_DebuggingonAndroidDevices-LaunchtheApplicationandDebug">Launch the Application and Debug</a>    </p>
-</li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Debugging_on_Android_Devices-section-34638026_DebuggingonAndroidDevices-RelatedTopics">Related Topics</a>    </p>
 </li></ul>    </div>
     <div class="section section-2 " id="34638026_DebuggingonAndroidDevices-Introduction">
@@ -46,7 +42,7 @@ Studio builds the application.    </p>
 </li><li class=" ">    <p>
 Application is installed on the device.    </p>
 </li><li class=" ">    <p>
-User launches the application on device.    </p>
+Application launches on the device.    </p>
 </li><li class=" ">    <p>
 Application initiates debug session with Studio.    </p>
 </li></ul>    <p>
@@ -72,13 +68,7 @@ An Android device connected to your computer using the USB cable.    </p>
     <div class="section section-2 " id="34638026_DebuggingonAndroidDevices-StartingaDebugSession">
         <h2 class="heading "><span>Starting a Debug Session</span></h2>
     <p>
-Before debugging, you must have created a Titanium project with an Android deploy target. There are two basic steps:    </p>
-<ol class=" "><li class=" ">    <p>
-Initiate the debug session in Studio.    </p>
-</li><li class=" ">    <p>
-Launch the application from the device and start debugging    </p>
-</li></ol>    <div class="section section-3 " id="34638026_DebuggingonAndroidDevices-InitiatetheDebugSession">
-        <h3 class="heading "><span>Initiate the Debug Session</span></h3>
+Before debugging, you must have created a Titanium project with an Android deploy target.    </p>
 <ol class=" "><li class=" ">    <p>
 Make sure your project is selected in the <strong class=" ">Project Explorer</strong> view.    </p>
 </li><li class=" ">    <p>
@@ -90,6 +80,8 @@ Click the <strong class=" ">Launch </strong>button.    </p>
 </li><li class=" ">    <p>
 Studio builds the application and installs it on the device.    </p>
 </li></ol>    <p>
+The application will launch on the device and you can use the <strong class=" ">Debug</strong> perspective to start debugging your application.    </p>
+    <p>
 After you have launched one debug session for a given application, Studio creates a launch configuration for you, named <strong class=" ">Titanium Android Device - &lt;AppName&gt;</strong>.  You can select this launch configuration, after launching the <strong class=" ">Debug Configuration</strong> wizard by select <strong class=" ">Debug Configurations</strong> from the <strong class=" ">Target</strong> drop-down list, to skip the wizard and start a new debug session using the same parameters.    </p>
     <p>
 To change the SDK version that the application is built against:    </p>
@@ -100,16 +92,6 @@ Select the <strong class=" ">Debug Configuration</strong> from the <strong class
 </li><li class=" ">    <p>
 Select the name of the launch configuration and click <strong class=" ">Apply</strong> to save changes or <strong class=" ">Debug</strong> to save changes and start a new debug session.    </p>
 </li></ol>    </div>
-    <div class="section section-3 " id="34638026_DebuggingonAndroidDevices-LaunchtheApplicationandDebug">
-        <h3 class="heading "><span>Launch the Application and Debug</span></h3>
-    <p>
-After the application finishes installing:    </p>
-<ol class=" "><li class=" ">    <p>
-Run the application on the device.    </p>
-</li><li class=" ">    <p>
-The device connects to Studio, and a debug session begins (and is visible in Studio's <strong class=" ">Debug</strong> perspective).    </p>
-</li></ol>    </div>
-    </div>
     <div class="section section-2 " id="34638026_DebuggingonAndroidDevices-RelatedTopics">
         <h2 class="heading "><span>Related Topics</span></h2>
 <ul class=" "><li class=" ">    <p>
