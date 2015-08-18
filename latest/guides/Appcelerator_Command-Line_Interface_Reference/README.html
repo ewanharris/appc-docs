@@ -680,8 +680,14 @@ Project subtype, such as <tt class=" ">sample</tt> or <tt class=" ">new</tt>.   
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-Project type. Specify either <tt class=" ">arrow</tt> for a cloud project or <tt class=" ">titanium</tt> for a mobile client project.    </p>
-            </td>
+Project type. Specify either:    </p>
+<ul class=" "><li class=" ">    <p>
+<strong class=" ">arrow</strong> for a cloud project    </p>
+</li><li class=" ">    <p>
+<strong class=" ">titanium</strong> for a mobile client project    </p>
+</li><li class=" ">    <p>
+<strong class=" ">timodule</strong> for a Titanium module project.    </p>
+</li></ul>            </td>
         </tr>
 </tbody>        </table>
             </div>
@@ -1062,6 +1068,26 @@ Identical to the --force-copy flag except this will also copy the 236.7 MB libTi
     <tr>
             <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
+--launch-watch-app    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<strong class=" "><strong class=" ">Since Appc CLI 5.0.0 or Titanium CLI 4.1.4</strong>. </strong>Launch both the watch app and main app; only used when target is <strong class=" ">simulator</strong>.    </p>
+            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+--launch-watch-app-only    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<strong class=" ">Since Appc CLI 5.0.0 or Titanium CLI 4.1.4</strong>. Launch only the watch app; only used when target is <strong class=" ">simulator</strong>.    </p>
+            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
 --liveview    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
@@ -1084,11 +1110,11 @@ Use the retina version of the iOS Simulator.    </p>
     <tr>
             <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
---sim-64-btin    </p>
+--sim-focus    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-In combination with the --tall and --retina flags, start the 64-bit tall version of the retina simulator.    </p>
+Focus the iOS simulator (default is true).    </p>
             </td>
         </tr>
     <tr>
@@ -1219,6 +1245,26 @@ iOS Simulator version; only used when target is <strong class=" ">simulator</str
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
 Target to build for: <strong class=" ">simulator</strong>, <strong class=" ">device</strong>, <strong class=" ">dist-appstore</strong>, or <strong class=" ">dist-adhoc</strong>.    </p>
+            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+--watch-app-name &lt;name&gt;    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<strong class=" ">Since Appc CLI 5.0.0 or Titanium CLI 4.1.4</strong>. Name of the watch app to launch; only used when target is <strong class=" ">simulator</strong>.    </p>
+            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+-W, --watch-device-id &lt;udid&gt;    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<strong class=" ">Since Appc CLI 5.0.0 or Titanium CLI 4.1.4</strong>. Watch simulator UDID to launch when building an app with a watch app; only used when target is <strong class=" ">simulator</strong>.    </p>
             </td>
         </tr>
 </tbody>        </table>
