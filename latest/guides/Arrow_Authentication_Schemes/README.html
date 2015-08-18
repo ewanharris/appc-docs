@@ -25,6 +25,8 @@
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Arrow_Authentication_Schemes-section-43302486_ArrowAuthenticationSchemes-HTTPHeaderAuthentication">HTTP Header Authentication</a>    </p>
 </li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Arrow_Authentication_Schemes-section-43302486_ArrowAuthenticationSchemes-LDAP">LDAP</a>    </p>
+</li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Arrow_Authentication_Schemes-section-43302486_ArrowAuthenticationSchemes-CustomAuthentication">Custom Authentication</a>    </p>
 </li></ul>    <div class="section section-2 " id="43302486_ArrowAuthenticationSchemes-Introduction">
         <h2 class="heading "><span>Introduction</span></h2>
@@ -40,6 +42,8 @@ To change the authentication mechanism, open the <tt class=" ">conf/default.js</
 <strong class=" "><tt class=" ">basic</tt></strong>: Use HTTP basic authentication (default)    </p>
 </li><li class=" ">    <p>
 <strong class=" "><tt class=" ">apikey</tt></strong>: Use HTTP header authentication    </p>
+</li><li class=" ">    <p>
+<strong class=" "><tt class=" ">ldap</tt></strong> (since Arrow 1.2.0): Use LDAP plugin for authentication.  You must also set the <tt class=" ">ldap</tt> key to an object containing settings for the LDAP configuration.    </p>
 </li><li class=" ">    <p>
 <strong class=" ">plugin</strong>: Use a custom or third-party authentication mechanism.  You must also set the     <span style="color: #343438;">
 <tt class=" ">APIKeyAuthPlugin</tt> key to the location of the plugin file or to the name of the node module if you specify it as a dependency in the <tt class=" ">package.json</tt> file.    </span>
@@ -91,6 +95,175 @@ In HTTP header authentication, the client sends the API key in a custom APIKey h
 <div class="line"><code class="plain">xhr.open(</code><code class="string">"GET"</code><code class="plain">, REQUEST_URL);</code></div>
 <div class="line"><code class="plain">xhr.setRequestHeader(</code><code class="string">"APIKey"</code><code class="plain">, API_KEY);</code></div>
 <div class="line"><code class="plain">xhr.send();</code></div>
+</div>
+</div>    </div>
+    <div class="section section-2 " id="43302486_ArrowAuthenticationSchemes-LDAP">
+        <h2 class="heading "><span>LDAP</span></h2>
+    <p>
+Starting with Arrow 1.2.0, you may use the LDAP plugin to authenticate requests.  The client application will need to use HTTP basic authentication to send the username and password in the HTTP authorization header to the Arrow application.    </p>
+    <p>
+To use the plugin, you need to pass your LDAP settings to the <tt class=" ">ldap</tt> object in the <tt class=" ">conf/default.js</tt> file.  Define the following key-value pairs:    </p>
+    <div class="tablewrap">
+        <table class="confluenceTable">
+        <thead class=" ">    <tr>
+            <td class="confluenceTh" rowspan="1" colspan="1">
+        <p>
+Key    </p>
+            </td>
+                <td class="confluenceTh" rowspan="1" colspan="1">
+        <p>
+Optional    </p>
+            </td>
+                <td class="confluenceTh" rowspan="1" colspan="1">
+        <p>
+Description    </p>
+            </td>
+        </tr>
+</thead><tfoot class=" "/><tbody class=" ">    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+url    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+No    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+LDAP URL to connect to.    </p>
+            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">adminDn</tt>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+No    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+Distinguished name (DN) of the user that is allowed to connect to the LDAP database and read user and group data    </p>
+            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">adminPassword</tt>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+Yes    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+Password for the directory administrator    </p>
+            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">searchBase</tt>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+No    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+The base DN to search for users    </p>
+            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">searchFilter</tt>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+No    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+LDAP search filter to find a user    </p>
+            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">groupSearchBase</tt>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+Yes    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+The base DN to search for groups    </p>
+            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">groupSearchFilter</tt>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+Yes    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+LDAP search filter to find a group    </p>
+            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">cache</tt>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+Yes    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+Set to true to cache up to 100 sessions for five minutes. Default is false.    </p>
+            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">tlsOptions</tt>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+Yes    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+Additional options to pass to the <a class="external-link external-link" href="https://nodejs.org/api/tls.html#tls_tls_connect_options_callback" target="_blank">Node.js tls.connect() callback</a>    </p>
+            </td>
+        </tr>
+</tbody>        </table>
+            </div>
+    <p>
+<strong class=" ">Example:</strong>    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="title">conf/default.js</div>
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain"> module.exports = {</code></div>
+<div class="line"><code class="plain">    ...</code></div>
+<div class="line"><code class="plain">    APIKeyAuthType: </code><code class="string">'ldap'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">    ldap: {</code></div>
+<div class="line"><code class="plain">        url: </code><code class="string">'ldap://ldap.foo.com:389'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">        adminDn: </code><code class="string">'cn=read-only-admin,dc=example,dc=com'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">        adminPassword: </code><code class="string">'password'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">        searchBase: </code><code class="string">'dc=example,dc=com'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">        searchFilter: </code><code class="string">'(uid={{username}})'</code></div>
+<div class="line"><code class="plain">    },</code></div>
+<div class="line"><code class="plain">    ...</code></div>
+<div class="line"><code class="plain">}</code></div>
 </div>
 </div>    </div>
     <div class="section section-2 " id="43302486_ArrowAuthenticationSchemes-CustomAuthentication">
