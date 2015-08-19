@@ -107,6 +107,8 @@
 </li></ul></li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-iOS-specificsection">iOS-specific section</a>    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
+<a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-extensions">extensions</a>    </p>
+</li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-min-ios-ver">min-ios-ver</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-min-sdk-ver">min-sdk-ver</a>    </p>
@@ -1119,11 +1121,14 @@ To request a large heap size on Android 3.x and later, set the <tt class=" ">and
     <div class="section section-2 " id="29004921_tiapp.xmlandtimodule.xmlReference-iOS-specificsection">
         <h2 class="heading "><span>iOS-specific section</span></h2>
     <p>
-Under the top <tt class=" ">&lt;ti:app&gt;</tt> element, you may optionally have iOS-specific elements. Starting in Titanium SDK 2.1, a new <tt class=" ">&lt;ios&gt;</tt> element is supported. This is intended to replace the <tt class=" ">&lt;iphone&gt;</tt> section, which is now deprecated.    </p>
+Under the top <tt class=" ">&lt;ti:app&gt;</tt> element, you may optionally have iOS-specific elements.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">&lt;ios&gt;</code></div>
 <div class="line"><code class="plain">    &lt;min-sdk-ver&gt;</code><code class="value">4.5</code><code class="plain">&lt;/min-sdk-ver&gt;</code></div>
+<div class="line"><code class="plain">    &lt;extensions&gt;</code></div>
+<div class="line"><code class="plain">        ...</code></div>
+<div class="line"><code class="plain">    &lt;/extensions&gt;</code></div>
 <div class="line"><code class="plain">    &lt;plist&gt;</code></div>
 <div class="line"><code class="plain">        &lt;dict&gt;</code></div>
 <div class="line"><code class="plain">            &lt;!-- ... --&gt;</code></div>
@@ -1131,7 +1136,50 @@ Under the top <tt class=" ">&lt;ti:app&gt;</tt> element, you may optionally have
 <div class="line"><code class="plain">    &lt;/plist&gt;</code></div>
 <div class="line"><code class="plain">&lt;/ios&gt;</code></div>
 </div>
-</div>    <div class="section section-3 " id="29004921_tiapp.xmlandtimodule.xmlReference-min-ios-ver">
+</div>    <div class="section section-3 " id="29004921_tiapp.xmlandtimodule.xmlReference-extensions">
+        <h3 class="heading "><span>extensions</span></h3>
+    <p>
+<strong class=" ">Since Release 5.0.0.</strong> Specifies the iOS extensions the applications supports.    </p>
+    <p>
+For each extension, add an <strong class=" "><tt class=" ">&lt;extension&gt;</tt></strong> element and set the <tt class=" ">projectPath</tt> attribute to the relative or absolute path to the Xcode project folder (<tt class=" ">&lt;name&gt;.xcodeproj</tt>).    </p>
+    <p>
+In the <tt class=" ">extension</tt> element, add a <strong class=" "><tt class=" ">&lt;target&gt;</tt></strong> element and set the <tt class=" ">name</tt> attribute to the target name of the extension.  For Apple Watch applications, you will need to add another <tt class=" ">target</tt> element for the WatchApp target.    </p>
+    <p>
+In the <tt class=" ">target</tt> element, add a <strong class=" "><tt class=" ">&lt;provisioning-profiles&gt;</tt></strong> element, which determines the devices the application can run on.  Add the following elements as children of the <tt class=" ">provisioning-profiles</tt> element:    </p>
+<ul class=" "><li class=" ">    <p>
+<strong class=" "><tt class=" ">&lt;devices/&gt;</tt></strong>: Add to deploy for development builds    </p>
+</li><li class=" ">    <p>
+<tt class=" ">&lt;dist-appstore/&gt;</tt>: Add to deploy to the iTunes App Store    </p>
+</li><li class=" ">    <p>
+<strong class=" "><tt class=" ">&lt;dist-adhoc/&gt;</tt></strong>: Add to deploy for ad-hoc builds    </p>
+</li></ul><div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="title">Example: Include the foo Apple Watch application</div>
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">&lt;ti:app&gt;</code></div>
+<div class="line"><code class="plain">  &lt;ios&gt;</code></div>
+<div class="line"><code class="plain">    &lt;extensions&gt;</code></div>
+<div class="line"><code class="plain">      &lt;extension projectPath=</code><code class="string">"extensions/foo/foo.xcodeproj"</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">        &lt;target name=</code><code class="string">"foo WatchApp Extension"</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">          &lt;provisioning-profiles&gt;</code></div>
+<div class="line"><code class="plain">            &lt;devices/&gt;</code></div>
+<div class="line"><code class="plain">            &lt;dist-appstore/&gt;</code></div>
+<div class="line"><code class="plain">            &lt;dist-adhoc/&gt;</code></div>
+<div class="line"><code class="plain">          &lt;/provisioning-profiles&gt;</code></div>
+<div class="line"><code class="plain">        &lt;/target&gt;</code></div>
+<div class="line"><code class="plain">        &lt;target name=</code><code class="string">"foo WatchApp"</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">          &lt;provisioning-profiles&gt;</code></div>
+<div class="line"><code class="plain">            &lt;devices/&gt;</code></div>
+<div class="line"><code class="plain">            &lt;dist-appstore/&gt;</code></div>
+<div class="line"><code class="plain">            &lt;dist-adhoc/&gt;</code></div>
+<div class="line"><code class="plain">          &lt;/provisioning-profiles&gt;</code></div>
+<div class="line"><code class="plain">        &lt;/target&gt; </code></div>
+<div class="line"><code class="plain">      &lt;/extension&gt;</code></div>
+<div class="line"><code class="plain">    &lt;/extensions&gt;</code></div>
+<div class="line"><code class="plain">  &lt;ios&gt;</code></div>
+<div class="line"><code class="plain">&lt;/ti:app&gt;</code></div>
+</div>
+</div>    </div>
+    <div class="section section-3 " id="29004921_tiapp.xmlandtimodule.xmlReference-min-ios-ver">
         <h3 class="heading "><span>min-ios-ver</span></h3>
     <p>
 Specifies the minimum iOS version supported by this application.    </p>
@@ -1465,7 +1513,7 @@ Currently, only <tt class=" ">default</tt> is supported. Do not change this valu
     <div class="section section-2 " id="29004921_tiapp.xmlandtimodule.xmlReference-Windows-specificsection">
         <h2 class="heading "><span>Windows-specific section</span></h2>
     <p>
-Under the top <tt class=" ">&lt;ti:app&gt;</tt> element, you may optionally have a <tt class=" ">&lt;windows&gt;</tt> element that contains Windows specific configuration settings.    </p>
+Under the top <tt class=" ">&lt;ti:app&gt;</tt> element, you may optionally have a <tt class=" ">&lt;windows&gt;</tt> element that contains Windows-specific configuration settings.    </p>
     <div class="section section-3 " id="29004921_tiapp.xmlandtimodule.xmlReference-manifest.1">
         <h3 class="heading "><span>manifest</span></h3>
     <p>
@@ -1483,7 +1531,7 @@ Only supports the following elements:    </p>
 </li></ul>    <div class="section section-4 " id="29004921_tiapp.xmlandtimodule.xmlReference-Addcapabilities">
         <h4 class="heading "><span>Add capabilities</span></h4>
     <p>
-The following example request access to connect to the Internet if the application is published as a Phone or Store application, access to the device's location if the application is published as a Phone application, and access to the USB bus if the application is publish as a Store application.    </p>
+The following example request access to connect to the Internet if the application is published as a Phone or Store application, access to the device's location if the application is published as a Phone application, and access to the USB bus if the application is published as a Store application.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">&lt;ti:app&gt;</code></div>
