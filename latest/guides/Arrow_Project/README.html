@@ -48,8 +48,6 @@ This Appcelerator Platform feature requires a Team or Enterprise Subscription.  
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Arrow_Project-section-43298987_ArrowProject-PortBinding">Port Binding</a>    </p>
 </li><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Arrow_Project-section-43298987_ArrowProject-OptionalHealthCheck">Optional Health Check</a>    </p>
-</li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Arrow_Project-section-43298987_ArrowProject-InstallCustomBinaries">Install Custom Binaries</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Arrow_Project-section-43298987_ArrowProject-DeclareDependencies">Declare Dependencies</a>    </p>
@@ -433,44 +431,6 @@ Starting with Arrow Cloud 1.2.0, you may explicitly set the port the application
 </div>    <p>
 Verify that the applications listens on PORT, otherwise your app cannot be connected. Use <tt class=" ">process.env.PORT</tt> in the application to verify the application is connected to a port.    </p>
     </div>
-    <div class="section section-2 " id="43298987_ArrowProject-OptionalHealthCheck">
-        <h2 class="heading "><span>Optional Health Check</span></h2>
-    <p>
-Starting with Arrow Cloud 1.2.0, you can optionally define a health-check endpoint, which Arrow Cloud will check to verify that the application is up and running. To create a health-check endpoint, define an endpoint called <tt class=" ">healthCheck.json</tt> that returns a 200 HTTP status code, then in the <tt class=" ">package.json</tt> file, set the <tt class=" ">healthCheck</tt> key to <tt class=" ">true</tt> to let Arrow Cloud know that the health check endpoint is defined.    </p>
-    <p>
-If <tt class=" ">healthCheck.json</tt> is not defined, Arrow Cloud assumes that your application is up when there is no exception after the container is launched. If your application takes a while to come up, users could access your application, which returns 503 or 502 errors. It is highly recommended that you implement and include the health-check endpoint for your app.    </p>
-    <p>
-<strong class=" ">Example:</strong>    </p>
-    <p>
-The following code defines a health-check endpoint for an Arrow application:    </p>
-<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
-<div class="title">./apis/ping.js</div>
-<div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">var Arrow = require(</code><code class="string">'arrow'</code><code class="plain">);</code></div>
-<div class="line"><code class="plain">var HealthCheck = Arrow.API.extend({</code></div>
-<div class="line"><code class="plain">    group: </code><code class="string">'ping'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">    </code><code class="comments">// Arrow provides several default extensions, including .json</code></div>
-<div class="line"><code class="plain">    </code><code class="comments">// Do not add the .json for Arrow applications</code></div>
-<div class="line"><code class="plain">    path: </code><code class="string">'/healthCheck'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">    method: </code><code class="string">'GET'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">    description: </code><code class="string">'Health-check endpoint'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">    action: function (req, res, next) {</code></div>
-<div class="line"><code class="plain">        res.status(</code><code class="value">200</code><code class="plain">).send(</code><code class="string">'OK'</code><code class="plain">);</code></div>
-<div class="line"><code class="plain">        next();</code></div>
-<div class="line"><code class="plain">    }</code></div>
-<div class="line"><code class="plain">});</code></div>
-<div class="line"><code class="plain">module.exports = HealthCheck;</code></div>
-</div>
-</div>    <p>
-Then, let Arrow Cloud know that the application implemented the health-check endpoint by setting the <tt class=" ">healthCheck</tt> key to <tt class=" ">true</tt> in the <tt class=" ">package.json</tt> file:    </p>
-<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
-<div class="title">./package.json</div>
-<div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">{</code></div>
-<div class="line"><code class="plain"> </code><code class="string">"healthCheck"</code><code class="plain">: </code><code class="keyword">true</code></div>
-<div class="line"><code class="plain">}</code></div>
-</div>
-</div>    </div>
     <div class="section section-2 " id="43298987_ArrowProject-InstallCustomBinaries">
         <h2 class="heading "><span>Install Custom Binaries</span></h2>
     <p>

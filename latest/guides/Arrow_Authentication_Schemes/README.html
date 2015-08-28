@@ -43,7 +43,7 @@ To change the authentication mechanism, open the <tt class=" ">conf/default.js</
 </li><li class=" ">    <p>
 <strong class=" "><tt class=" ">apikey</tt></strong>: Use HTTP header authentication    </p>
 </li><li class=" ">    <p>
-<strong class=" "><tt class=" ">ldap</tt></strong> (since Arrow 1.2.0): Use LDAP plugin for authentication.  You must also set the <tt class=" ">ldap</tt> key to an object containing settings for the LDAP configuration.    </p>
+<strong class=" "><tt class=" ">ldap</tt></strong> (since Arrow 1.2.x): Use LDAP plugin for authentication.  You must also set the <tt class=" ">ldap</tt> key to an object containing settings for the LDAP configuration.    </p>
 </li><li class=" ">    <p>
 <strong class=" ">plugin</strong>: Use a custom or third-party authentication mechanism.  You must also set the     <span style="color: #343438;">
 <tt class=" ">APIKeyAuthPlugin</tt> key to the location of the plugin file or to the name of the node module if you specify it as a dependency in the <tt class=" ">package.json</tt> file.    </span>
@@ -100,7 +100,7 @@ In HTTP header authentication, the client sends the API key in a custom APIKey h
     <div class="section section-2 " id="43302486_ArrowAuthenticationSchemes-LDAP">
         <h2 class="heading "><span>LDAP</span></h2>
     <p>
-Starting with Arrow 1.2.0, you may use the LDAP plugin to authenticate requests.  The client application will need to use HTTP basic authentication to send the username and password in the HTTP authorization header to the Arrow application.    </p>
+Starting with Arrow 1.2.x, you may use the LDAP plugin to authenticate requests.  The client application will need to use HTTP basic authentication to send the username and password in the HTTP authorization header to the Arrow application.    </p>
     <p>
 To use the plugin, you need to pass your LDAP settings to the <tt class=" ">ldap</tt> object in the <tt class=" ">conf/default.js</tt> file.  Define the following key-value pairs:    </p>
     <div class="tablewrap">
