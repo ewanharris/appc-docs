@@ -1145,7 +1145,7 @@ For each extension, add an <strong class=" "><tt class=" ">&lt;extension&gt;</tt
     <p>
 In the <tt class=" ">extension</tt> element, add a <strong class=" "><tt class=" ">&lt;target&gt;</tt></strong> element and set the <tt class=" ">name</tt> attribute to the target name of the extension.  For Apple Watch applications, you will need to add another <tt class=" ">target</tt> element for the WatchApp target.    </p>
     <p>
-In the <tt class=" ">target</tt> element, add a <strong class=" "><tt class=" ">&lt;provisioning-profiles&gt;</tt></strong> element, which determines the devices the application can run on.  Add the following elements as children of the <tt class=" ">provisioning-profiles</tt> element:    </p>
+In the <tt class=" ">target</tt> element, add a <strong class=" "><tt class=" ">&lt;provisioning-profiles&gt;</tt></strong> element, which determines the devices the application can run on.  Add the following elements as children of the <tt class=" ">provisioning-profiles</tt> element.  For each listed element you add, set the node text to the provisioning profile UUID of the extension or watch application:    </p>
 <ul class=" "><li class=" ">    <p>
 <strong class=" "><tt class=" ">&lt;devices/&gt;</tt></strong>: Add to deploy for development builds    </p>
 </li><li class=" ">    <p>
