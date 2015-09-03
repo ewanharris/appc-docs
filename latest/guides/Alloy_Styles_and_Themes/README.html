@@ -223,15 +223,15 @@ The sample style sheet below defines styles for iPhone, iPad, Android and mobile
     <p>
 <strong class=" ">To use a custom query:</strong>    </p>
 <ol class=" "><li class=" ">    <p>
-Define a conditional statement, which returns a boolean value, and assign it to a property in the <tt class=" ">Alloy.Globals</tt> namespace. Since <u class=" ">Alloy 1.6.0</u>, the application can also pass custom Boolean properties to the <tt class=" ">Alloy.createController()</tt> method, which can be accessed in the XML and TSS files.    </p>
+Define a conditional statement, which returns a boolean value, and assign it to a property in the <tt class=" ">Alloy.Globals</tt> namespace or a local function in the controller. Since <u class=" ">Alloy 1.7.6</u>, the application can also pass custom Boolean properties to the <tt class=" ">Alloy.createController()</tt> method, which can be accessed in the XML and TSS files.    </p>
 </li><li class=" ">    <p>
-Assign the <tt class=" ">if</tt> attribute to an element in the XML file or in the conditional block of the TSS file to the defined query with the <tt class=" ">Alloy.Globals</tt> namespace or a custom property passed in from the <tt class=" ">createController()</tt> method prefixed with <tt class=" ">$.args</tt> namespace, for example, <tt class=" ">$.args.someProperty</tt>.    </p>
+Assign the <tt class=" ">if</tt> attribute to an element in the XML file or in the conditional block of the TSS file to the defined query with the <tt class=" ">Alloy.Globals</tt> namespace, a local function in the controller or a custom property passed in from the <tt class=" ">createController()</tt> method prefixed with <tt class=" ">$.args</tt> namespace, for example, <tt class=" ">$.args.someProperty</tt>.    </p>
 </li></ol>    <p>
 You may use the <tt class=" ">if</tt> attribute in combination with the <tt class=" ">platform</tt> and <tt class=" ">formFactor</tt> attributes.  You can only add one custom query to the <tt class=" ">if</tt> attribute.  The <tt class=" ">if</tt> attribute does not support multiple queries or the not operator (<tt class=" ">!</tt>).    </p>
     <div class="section section-4 " id="35621526_AlloyStylesandThemes-ExampleusingCustomProperties">
         <h4 class="heading "><span>Example using Custom Properties</span></h4>
     <p>
-Starting with <u class=" ">Alloy 1.6.0</u>, the application can pass custom Boolean properties to the <tt class=" ">Alloy.createController()</tt> method.  These properties can be accessed by both the XML and TSS files.  When calling the <tt class=" ">createController</tt>() method, pass the custom Boolean properties in the second argument of the method.    </p>
+Starting with <u class=" ">Alloy 1.7.6</u>, the application can pass custom Boolean properties to the <tt class=" ">Alloy.createController()</tt> method.  These properties can be accessed by both the XML and TSS files.  When calling the <tt class=" ">createController</tt>() method, pass the custom Boolean properties in the second argument of the method.    </p>
     <p>
 The controller below defines two functions that create and open an instance of the <tt class=" ">win2</tt> controller, but each function passes a different property to the controller.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
@@ -357,7 +357,7 @@ In the style file, use these conditional statements to create styles for specifi
     <p>
 Themes provide a way to change the appearance of an entire GUI, allowing you to customize the styles and assets of the application.    </p>
     <p>
-To create a theme, create a folder called <tt class=" ">themes</tt> in your Alloy <tt class=" ">app</tt> directory. In the <tt class=" ">themes</tt> folder, create a folder for your theme. The name of this folder references the name of the theme for configuration and compilation. In your theme folder, create <tt class=" ">assets</tt> and <tt class=" ">styles</tt> folders for your custom images and styles, respectively. Starting with Appcelerator CLI 5.0.0 (or Alloy 1.7.6), you may also create an <tt class=" ">i18n</tt> folder to add theme-specific <tt class=" ">strings.xml</tt> localization files and a <tt class=" ">lib</tt> folder to add theme-specific CommonJS modules. The example below creates a theme called 'mytheme'.    </p>
+To create a theme, create a folder called <tt class=" ">themes</tt> in your Alloy <tt class=" ">app</tt> directory. In the <tt class=" ">themes</tt> folder, create a folder for your theme. The name of this folder references the name of the theme for configuration and compilation. In your theme folder, create <tt class=" ">assets</tt> and <tt class=" ">styles</tt> folders for your custom images and styles, respectively. Starting with Appcelerator CLI 5.0.0 (or Alloy 1.7.6), you may also create an <tt class=" ">i18n</tt> folder to add theme-specific localization assets, a <tt class=" ">lib</tt> folder to add theme-specific CommonJS modules and a <tt class=" ">platform</tt> folder to add platform-specific assets. The example below creates a theme called 'mytheme'.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">app</code></div>
