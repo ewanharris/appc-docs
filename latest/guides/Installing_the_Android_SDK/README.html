@@ -115,13 +115,11 @@ Rev 21 (Rev 19.0.3 and later requires Titanium SDK 3.2.2 or later.)    </p>
 Android SDK    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
-    <ul class=" "><li class=" ">    <p>
-For Release 3.2.0 and later, you need to have at least one Android SDK installed within the supported minimum and maximum target versions.    </p>
-</li><li class=" ">    <p>
-For Release 3.1.x and prior, you need to have the minimum supported Android SDK installed.    </p>
-</li><li class=" ">    <p>
+        <p>
+You need to have at least one Android SDK installed within the supported minimum and maximum target versions.    </p>
+    <p>
 For Android modules, you need to install Android SDK 5.0.x (API 21) if using Release 4.0.0 and later, or Android SDK 2.3.x (API level 10) if using a Release prior to 4.0.0.    </p>
-</li></ul>    <p>
+    <p>
 See section below for the range of supported SDKs.    </p>
             </td>
         </tr>
@@ -164,8 +162,6 @@ With this in mind, it's important to only upgrade these packages <i class=" ">be
         <h3 class="heading "><span>Android SDK / Target Android Platform</span></h3>
     <p>
 Each Titanium SDK supports building against a specific range of Android versions, as shown in the following table, and requires at least one of these versions to be installed. If you specify a <tt class=" ">android:targetSDKVersion</tt> in the <tt class=" ">tiapp.xml</tt> file of your project, you must specify one within the target min and max values. The minimum Android/SDK version column indicates the minimum version of Android that a device can run, which a Titanium application supports.    </p>
-    <p>
-For Release 3.1.x and prior, the minimum target Android API level must be installed to use the Titanium SDK. The Titanium SDK will not work with Android SDKs earlier than the minimum Android SDK version. The <strong class=" ">maximum</strong> SDK version in the table below represents the maximum Android SDK version that the Titanium SDK was tested against.    </p>
     <div class="tablewrap">
         <table class="confluenceTable">
         <thead class=" ">    <tr>
@@ -189,7 +185,7 @@ Minimum Android/SDK Version<br/>(android:minSdkVersion)    </p>
 </thead><tfoot class=" "/><tbody class=" ">    <tr>
             <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-4.0.0    </p>
+5.0.0 - latest    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
@@ -197,7 +193,25 @@ Minimum Android/SDK Version<br/>(android:minSdkVersion)    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
+6.0.x (API 23)    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+4.0.x (API 14)    </p>
+            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+4.0.0 - 4.1.x    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
 5.0.x (API 21)    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+5.1.x (API 22)    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
@@ -411,12 +425,8 @@ The default Android SDK can be configured using Studio's <i class=" ">Preference
 For Android API levels 14 and above, the emulator system images are installed separately from the SDK platform packages. To run in the emulator for Android API 14+, you must install at least one of the emulator system images.    </p>
     </div>
     
-    <div class="confbox admonition admonition-note aui-message warning shadowed information-macro">
-        
     <p>
-Due to <a class="external-link external-link" href="http://code.google.com/p/android/issues/detail?id=12987" target="_blank">this Android bug</a>, webViews created on a virtual device running Android 2.3.x cause applications to behave erratically and crash. Thus, if developing on an emulator, it is recommended to use one of the other supported versions (Android 2.2, for instance). In contrast, applications that include webViews run as expected on (physical) devices installed with Android 2.3.2+. Note that Google has pronounced 2.3.1 obsolete and, as such, it is not supported.    </p>
-    </div>
-    
+    </p>
     </div>
     <div class="section section-3 " id="29004851_InstallingtheAndroidSDK-AndroidNativeAdd-onModuleDevelopmentonMacOSX">
         <h3 class="heading "><span>Android Native Add-on Module Development on Mac OS X</span></h3>

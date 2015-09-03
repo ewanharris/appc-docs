@@ -57,9 +57,9 @@ Once you've selected a test app to build and run, you first create a new &quot;b
     <div class="section section-3 " id="41845629_TestAppSamples-UsingtheCLItools">
         <h3 class="heading "><span>Using the CLI tools</span></h3>
     <p>
-Starting with Appcelerator CLI 4.2.0 or Alloy 1.7.0, you can generate a new Alloy project using a test application from the Alloy Github repo.  (The source code is copied from the global or local install of the Alloy npm package.)    </p>
+Starting with Appcelerator CLI 5.0.0 or Alloy 1.7.6, you can generate a new Alloy project using a test application from the Alloy Github repo.  (The source code is copied from the global or local install of the Alloy npm package.)    </p>
     <p>
-To create an Alloy application based on a test application, first create a skeleton Titanium project, then run the Alloy new command with the <tt class=" ">--testapp &lt;path_to_test_app&gt;</tt> option.  Pass the option the relative path to test application after the <tt class=" ">alloy/test/app</tt> path.  For example, if you want to use the <a class="external-link external-link" href="https://github.com/appcelerator/alloy/tree/master/test/apps/ui/picker" target="_blank">picker test application</a>, run <tt class=" ">alloy new --testapp ui/picker</tt> from a skeleton Titanium project.    </p>
+To create an Alloy application based on a test application, first create a skeleton Titanium project, then run the Alloy new command with the <tt class=" ">--testapp &lt;path_to_test_app&gt;</tt> option.  Pass the option the relative path to the test application after the <tt class=" ">alloy/test/apps</tt> path.  For example, if you want to use the <a class="external-link external-link" href="https://github.com/appcelerator/alloy/tree/master/test/apps/ui/picker" target="_blank">picker test application</a>, run <tt class=" ">alloy new --testapp ui/picker</tt> from a skeleton Titanium project.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">appc </code><code class="keyword">new</code><code class="plain"> -t titanium --classic -i com.appc.picker -n AlloyPicker</code></div>
@@ -67,7 +67,7 @@ To create an Alloy application based on a test application, first create a skele
 <div class="line"><code class="plain">appc alloy </code><code class="keyword">new</code><code class="plain"> --testapp ui/picker</code></div>
 </div>
 </div>    <p>
-Prior to Alloy 1.7.0, you need to manually copy the source code to the new Titanium project:.    </p>
+Prior to Alloy 1.7.6, you need to manually copy the source code to the new Titanium project:.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="title">Creating a test project</div>
 <div class="defaultnew syntaxhighlighter">
