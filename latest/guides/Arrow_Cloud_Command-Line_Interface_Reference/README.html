@@ -355,7 +355,7 @@ Lists set environment variables.    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-Specifies the maximum number of queued requests for autoscaling to occur. The number should be based on the response time of your application; the longer the response time is, the smaller this value should be. The default value is 50.    </p>
+Specifies the maximum number of queued requests for autoscaling to occur. The number should be based on the response time of your application; the longer the response time is, the smaller this value should be. Arrow Cloud will increase the number of containers if the queue is too high for at least one minute. The default value is 50.    </p>
             </td>
         </tr>
     <tr>

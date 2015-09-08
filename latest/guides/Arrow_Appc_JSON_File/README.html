@@ -32,8 +32,8 @@ By default, each Arrow project includes a configuration file, in JSON format, ca
 <div class="line"><code class="plain">    },</code></div>
 <div class="line"><code class="plain">    </code><code class="string">"cloud"</code><code class="plain">: {</code></div>
 <div class="line"><code class="plain">        </code><code class="string">"container"</code><code class="plain">: </code><code class="string">"Dev"</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">        </code><code class="string">"min"</code><code class="plain">: </code><code class="value">1</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">        </code><code class="string">"max"</code><code class="plain">: </code><code class="value">1</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">        </code><code class="string">"minimum"</code><code class="plain">: </code><code class="value">1</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">        </code><code class="string">"maximum"</code><code class="plain">: </code><code class="value">1</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">        </code><code class="string">"maxqueuesize"</code><code class="plain">: </code><code class="value">50</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">        </code><code class="string">"environment"</code><code class="plain">: {},</code></div>
 <div class="line"><code class="plain">        </code><code class="string">"domain"</code><code class="plain">: </code><code class="keyword">null</code><code class="plain">,</code></div>
@@ -124,7 +124,7 @@ maxqueuesize    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-Sets the maximum number of queued requests for autoscaling to occur. Default is 50.    </p>
+Sets the maximum number of queued requests for autoscaling to occur. Arrow Cloud will increase the number of containers if the queue is too high for at least one minute. Default is 50.    </p>
             </td>
         </tr>
     <tr>

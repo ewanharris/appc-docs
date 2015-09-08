@@ -137,7 +137,7 @@ Contains the logic for your connector. Requires an <tt class=" ">index.js</tt> f
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-Contains generated log files when running your project locally. If you test the connector, the generated log files will get packaged with the application. You may want to disable logging by setting the <tt class=" ">transactionLogEnabled</tt> property to <tt class=" ">false</tt> in the<tt class=" "> conf/default.js</tt>.    </p>
+Contains generated log files when running your project locally. If you test the connector, the generated log files will get packaged with the application. You may want to disable logging by setting the <tt class=" ">transactionLogEnabled</tt>  property to  <tt class=" ">false</tt>  in the <tt class=" "> conf/default.js</tt> .    </p>
             </td>
         </tr>
     <tr>
@@ -542,7 +542,7 @@ endRequest(methodName, args, request, next)    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-Request interceptor invoked after the request completes. The method is passed the name of the method that started the request and the arguments passed to the method. Invoke the next function when the operation completes.    </p>
+Request  interceptor  invoked after the request completes . The method is passed the name of the method that started the request and the arguments passed to the method.  Invoke the next function when the operation completes.    </p>
             </td>
         </tr>
 </tbody>        </table>
@@ -606,6 +606,22 @@ By default, when you install a connector, it will add its API endpoints to the A
 <div class="line"><code class="plain">        }</code></div>
 <div class="line"><code class="plain">    }</code></div>
 <div class="line"><code class="plain">};</code></div>
+</div>
+</div>    <p>
+Since Release 5.0.0, you may specify specific models to generate from a connector.  Set the <tt class=" ">generateModels</tt> key to an array of model names you want to include.    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">module.exports = {</code></div>
+<div class="line"><code class="plain">    connectors: {</code></div>
+<div class="line"><code class="plain">        </code><code class="string">'connector.name'</code><code class="plain">: {</code></div>
+<div class="line"><code class="plain">            generateModels: [</code></div>
+<div class="line"><code class="plain">                </code><code class="string">'foo'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">                </code><code class="string">'bar'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">                </code><code class="string">'baz'</code></div>
+<div class="line"><code class="plain">            ]</code></div>
+<div class="line"><code class="plain">        }</code></div>
+<div class="line"><code class="plain">    }</code></div>
+<div class="line"><code class="plain">}</code></div>
 </div>
 </div>    </div>
     <div class="section section-2 " id="43300774_ArrowConnectorProject-DeclareDependencies">
