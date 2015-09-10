@@ -63,6 +63,22 @@ Paired iOS devices must run iOS 9.0 or greater    </p>
     <div class="section section-2 " id="43314566_IntegrateaWatchKitAppBuiltinXcode-CreateanAppleWatchApplication">
         <h2 class="heading "><span>Create an Apple Watch Application</span></h2>
     <p>
+<strong class=" ">Using Studio</strong>    </p>
+    <p>
+To create an Apple Watch application:    </p>
+<ol class=" "><li class=" ">    <p>
+Open the project's <tt class=" ">tiapp.xml</tt> file in the Overview tab.    </p>
+</li><li class=" ">    <p>
+Under the <i class=" ">Apple watchOS 2 App</i> section, click <strong class=" ">Create New...</strong>    </p>
+</li><li class=" ">    <p>
+A dialog will prompt you for the name of the application.  Enter a name for the watch application, then click <strong class=" ">OK</strong>.    </p>
+</li></ol>    <p>
+Studio will generate a new Xcode WatchKit project in the Titaniuim project's <tt class=" ">extensions</tt> folder and updates the <tt class=" ">ios extensions</tt> element in the <tt class=" ">tiapp.xml</tt> file.  Open the Xcode project's <tt class=" ">&lt;NAME&gt;.xcodeproj</tt> to start developing the watch application.    </p>
+    <p>
+    </p>
+    <p>
+<strong class=" ">Using the CLI</strong>    </p>
+    <p>
 To create an Apple Watch application, run the following command from the Titanium project that will include the watch application:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
@@ -425,6 +441,20 @@ Before deploying a watchOS application to a device or creating a package for dis
 For directions on creating a provisioning profile, see <a class="document-link " href="#!/guide/Deploying_to_iOS_devices">Deploying to iOS devices</a> or <a class="document-link " href="#!/guide/Distributing_iOS_apps">Distributing iOS apps</a>.    </p>
     <p>
 After you create your provisioning profiles and add them to Xcode, you need to add the UUID of the provisioning profiles to the <tt class=" ">tiapp.xml</tt> file.    </p>
+    <p>
+<strong class=" ">Using Studio:</strong>    </p>
+<ol class=" "><li class=" ">    <p>
+Open the tiapp.xml file in the Overview tab.    </p>
+</li><li class=" ">    <p>
+Under the <i class=" ">Apple watchOS 2 App</i> section, click <strong class=" ">Configure Provisioning Profiles...</strong>    </p>
+</li><li class=" ">    <p>
+In the <i class=" ">Configure Targets</i> step, verify both the Watch App and WatchApp Extension are checked, then click <strong class=" ">Next</strong>.    </p>
+</li><li class=" ">    <p>
+For each distribution target, select in drop-down the provisioning profile you want to use for the WatchApp and WatchApp extension.    </p>
+</li></ol>    <p>
+    </p>
+    <p>
+<strong class=" ">Using a Text Editor:</strong>    </p>
 <ol class=" "><li class=" ">    <p>
 Open the <tt class=" ">tiapp.xml</tt> file.    </p>
 </li><li class=" ">    <p>
@@ -471,7 +501,14 @@ The example below add the development provisioning profiles to the file.    </p>
     <div class="section section-2 " id="43314566_IntegrateaWatchKitAppBuiltinXcode-RuntheProject">
         <h2 class="heading "><span>Run the Project</span></h2>
     <p>
-To run the project, just build and launch the project like you would any other Titanium project, but for the WatchKit app, add the <tt class=" ">--launch-watch-app</tt> or <tt class=" ">--launch-watch-app-only</tt> flags to launch the watch application with or without the iOS application, respectively.  For Studio, use the run command from the launch options toolbar, and for the CLI, execute <tt class=" ">appc run -p ios</tt> with the additional build options.    </p>
+To run the project, just build and launch the project like you would any other Titanium project, but for the WatchKit app, add the <tt class=" ">--launch-watch-app</tt> or <tt class=" ">--launch-watch-app-only</tt> flags to launch the watch application with or without the iOS application, respectively.    </p>
+    <p>
+For Studio, use the run command from the launch options toolbar. If you want to run the watch application on a simulator, in the Target drop-down, select a 9.0 or greater simulator that has a paired watch target.    </p>
+    <p>
+        <img src="images/download/attachments/43314566/StudioWatchSimulator.png" alt="images/download/attachments/43314566/StudioWatchSimulator.png" class="confluence-embedded-image confluence-content-image-border"/>
+            </p>
+    <p>
+For the CLI, execute <tt class=" ">appc run -p ios</tt> with the additional build options.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">appc run -p ios --launch-watch-app</code></div>
