@@ -45,7 +45,7 @@
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Installing_the_Windows_Phone_SDK-section-43306274_InstallingtheWindowsPhoneSDK-SetPowerShellPermissions">Set PowerShell Permissions</a>    </p>
 </li></ul></li><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Installing_the_Windows_Phone_SDK-section-43306274_InstallingtheWindowsPhoneSDK-ConfigurethePublisherGUID">Configure the Publisher GUID</a>    </p>
+<a class="document-link " href="#!/guide/Installing_the_Windows_Phone_SDK-section-43306274_InstallingtheWindowsPhoneSDK-ConfigurethePublisherID">Configure the Publisher ID</a>    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Installing_the_Windows_Phone_SDK-section-43306274_InstallingtheWindowsPhoneSDK-CLIInstructions">CLI Instructions</a>    </p>
 </li><li class=" ">    <p>
@@ -237,10 +237,10 @@ For more information about this command, see <a class="external-link external-li
     </p>
     </div>
     </div>
-    <div class="section section-2 " id="43306274_InstallingtheWindowsPhoneSDK-ConfigurethePublisherGUID">
-        <h2 class="heading "><span>Configure the Publisher GUID</span></h2>
+    <div class="section section-2 " id="43306274_InstallingtheWindowsPhoneSDK-ConfigurethePublisherID">
+        <h2 class="heading "><span>Configure the Publisher ID</span></h2>
     <p>
-To deploy to the Windows Phone emulator or device, and to create a Windows Phone store package, you need to set your publisher GUID.    </p>
+To deploy to the Windows Phone emulator or device, and to create a Windows Phone store package, you need to set your publisher ID.    </p>
     <p>
 <strong class=" ">To retrieve your publisher GUID</strong>:    </p>
 <ol class=" "><li class=" ">    <p>
@@ -251,22 +251,22 @@ Click <strong class=" ">Dashboard</strong> in the top-right corner.    </p>
 Click <strong class=" ">Account settings</strong> in the left navigation.    </p>
 </li></ol>    <p>
 The publisher GUID will be under the <strong class=" ">Account Details</strong> section as the     <span style="color: #000000;">
-<strong class=" ">Windows Phone publisher ID</strong> field.    </span>
+<strong class=" ">Windows publisher ID</strong> field.    </span>
     </p>
     <p>
     <span style="color: #000000;">
-You can set the publisher GUID using either the CLI or in the Studio Preferences dialog.  If you set the publisher GUID using the CLI, the value will be passed to Studio from the CLI.    </span>
+You can set the publisher ID using either the CLI or in the Studio Preferences dialog.  If you set the publisher ID using the CLI, the value will be passed to Studio from the CLI.    </span>
     </p>
     <div class="section section-3 " id="43306274_InstallingtheWindowsPhoneSDK-CLIInstructions">
         <h3 class="heading "><span>CLI Instructions</span></h3>
     <p>
-Use the <tt class=" ">appc ti config</tt> CLI command to set the <tt class=" ">windows.phone.publisherGuid</tt> Titanium CLI key.    </p>
+Use the <tt class=" ">appc ti config</tt> CLI command to set the <tt class=" ">windows.publisherId</tt> Titanium CLI key.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">appc ti config windows.phone.publisherGuid </code><code class="value">00000000</code><code class="plain">-</code><code class="value">0000</code><code class="plain">-</code><code class="value">1000</code><code class="plain">-</code><code class="value">8000</code><code class="plain">-</code><code class="value">000000000000</code></div>
+<div class="line"><code class="plain">appc ti config windows.publisherId </code><code class="string">"CN=00000000-0000-1000-8000-000000000000"</code></div>
 </div>
 </div>    <p>
-Alternatively, you may also pass the publisher GUID to the CLI using the <tt class=" ">-G</tt> option.    </p>
+Alternatively, you may also pass the publisher ID to the CLI using the <tt class=" ">-I</tt> option.    </p>
     </div>
     <div class="section section-3 " id="43306274_InstallingtheWindowsPhoneSDK-StudioInstructions">
         <h3 class="heading "><span>Studio Instructions</span></h3>
@@ -279,11 +279,11 @@ On Windows and Linux, from the menu bar, select <strong class=" ">Window &gt; Pr
 </li></ol></li><li class=" ">    <p>
 In the<strong class=" "> Preferences</strong> dialog, navigate to<strong class=" "> Studio &gt; Platforms &gt; Windows</strong>.    </p>
 </li><li class=" ">    <p>
-Enter your publisher GUID in the <strong class=" ">Publisher GUID </strong>field.    </p>
+Enter your publisher ID in the <strong class=" ">Publisher Id </strong>field.    </p>
 </li><li class=" ">    <p>
 In the <strong class=" ">Windows SDK Home</strong> field, enter the path to your <tt class=" ">Microsoft SDKs</tt> folder if you installed it in a custom location.  By default, the CLI is able to retrieve the default path and pass it to Studio.    </p>
 </li></ol>    <p>
-        <img src="images/download/attachments/43306274/WindowPreference.png" alt="images/download/attachments/43306274/WindowPreference.png" class="confluence-embedded-image"/>
+        <img src="images/download/attachments/43306274/WindowsPreferences.PNG" alt="images/download/attachments/43306274/WindowsPreferences.PNG" class="confluence-embedded-image"/>
             </p>
     </div>
     </div>

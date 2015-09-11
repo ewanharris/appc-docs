@@ -256,6 +256,13 @@ For all icon files (image files prefixed with <tt class=" ">appicon</tt>), the i
 For launch image files (image files prefixed with <tt class=" ">Default</tt>), if you omit any files, the build will not fail.    </p>
     <p>
 For more information, see <a class="external-link external-link" href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/IconMatrix.html#//apple_ref/doc/uid/TP40006556-CH27-SW1" target="_blank">iOS Human Interface Guidelines: Icons and Image Sizes</a>.    </p>
+    <div class="confbox admonition admonition-note aui-message warning shadowed information-macro">
+            <div class="title">Asset Catalog</div>
+        
+    <p>
+Starting with Release 5.0.0, application icons and launch images are added to the Asset Catalog to support App Thinning. Due to the change, you can no longer reference the image assets from the filesystem. For example, you can no longer set the <tt class=" ">backgroundImage</tt> property to a launch image. Note that the localized launch images in the <tt class=" ">i18n</tt> folder are not supported in Asset Catalog.    </p>
+    </div>
+    
     <div class="tablewrap">
         <table class="confluenceTable">
         <thead class=" ">    <tr>

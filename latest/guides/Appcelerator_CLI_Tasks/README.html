@@ -326,34 +326,50 @@ To build for Mobile Web, run <tt class=" ">appc run -p mobileweb</tt>.  The CLI 
     <p>
 <strong class=" ">Requires CLI and SDK 4.1.0.</strong>    </p>
     <p>
-To build for a Windows Phone emulator, you need to obtain your publisher GUID.  After you have created your Windows Dev Center account, log in to <a class="external-link external-link" href="https://dev.windowsphone.com/en-us/Account/Summary" target="_blank">https://dev.windowsphone.com/en-us/Account/Summary</a> to get your publish GUID.    </p>
+To build for a Windows Phone emulator, you need to obtain your Windows publisher ID.  After you have created your Windows Dev Center account, log in to <a class="external-link external-link" href="https://dev.windowsphone.com/en-us/Account/Summary" target="_blank">https://dev.windowsphone.com/en-us/Account/Summary</a> to get your publish GUID.    </p>
     <p>
 To build for a Windows Phone emulator, run:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">appc run -p windows [-C &lt;DEVICE_UDID&gt; -G &lt;PUBLISHER_GUID&gt;]</code></div>
+<div class="line"><code class="plain">appc run -p windows [-C &lt;DEVICE_UDID&gt; -I &lt;WINDOWS_PUBLISHER_ID&gt;]</code></div>
 <div class="line"><code class="plain">## Example</code></div>
-<div class="line"><code class="plain">appc run -p windows -C </code><code class="value">8</code><code class="plain">-</code><code class="value">1</code><code class="plain">-</code><code class="value">1</code><code class="plain"> -G </code><code class="value">00000000</code><code class="plain">-</code><code class="value">0000</code><code class="plain">-</code><code class="value">1000</code><code class="plain">-</code><code class="value">8000</code><code class="plain">-</code><code class="value">000000000000</code></div>
+<div class="line"><code class="plain">appc run -p windows -C </code><code class="value">8</code><code class="plain">-</code><code class="value">1</code><code class="plain">-</code><code class="value">1</code><code class="plain"> -I </code><code class="string">"CN=00000000-0000-1000-8000-000000000000"</code></div>
 </div>
 </div>    <p>
 If you omit any of the optional parameters, the CLI will prompt you with options.    </p>
+    <div class="confbox admonition admonition-note aui-message warning shadowed information-macro">
+            <div class="title">Windows Phone Publisher GUID</div>
+        
+    <p>
+Prior to Release 5.0.0, you need to pass the <tt class=" ">-G</tt> option with your Windows Phone Publisher GUID rather than using the <tt class=" ">-I</tt> option with your Windows Publisher ID.    </p>
+    </div>
+    
+    <p>
+    </p>
     </div>
     <div class="section section-4 " id="43306725_AppceleratorCLITasks-WindowsPhoneDevice">
         <h4 class="heading "><span>Windows Phone Device</span></h4>
     <p>
 <strong class=" ">Requires CLI and SDK 4.1.0.</strong>    </p>
     <p>
-To build for a Windows Phone emulator, you need to obtain your publisher GUID.  After you have created your Windows Dev Center account, log in to <a class="external-link external-link" href="https://dev.windowsphone.com/en-us/Account/Summary" target="_blank">https://dev.windowsphone.com/en-us/Account/Summary</a> to get your publish GUID.    </p>
+To build for a Windows Phone emulator, you need to obtain your Windows publisher ID.  After you have created your Windows Dev Center account, log in to <a class="external-link external-link" href="https://dev.windowsphone.com/en-us/Account/Summary" target="_blank">https://dev.windowsphone.com/en-us/Account/Summary</a> to get your publish GUID.    </p>
     <p>
 To deploy to a Windows Phone device, connect the device to your computer with a USB cable, then run:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">appc run -p windows -T wp-device [-C &lt;DEVICE_UDID&gt; -G &lt;PUBLISHER_GUID&gt;]</code></div>
+<div class="line"><code class="plain">appc run -p windows -T wp-device [-C &lt;DEVICE_UDID&gt; -I &lt;WINDOWS_PUBLISHER_ID&gt;]</code></div>
 <div class="line"><code class="plain">## Example</code></div>
-<div class="line"><code class="plain">appc run -p windows -T wp-device -C </code><code class="value">0</code><code class="plain"> -G </code><code class="value">00000000</code><code class="plain">-</code><code class="value">0000</code><code class="plain">-</code><code class="value">1000</code><code class="plain">-</code><code class="value">8000</code><code class="plain">-</code><code class="value">000000000000</code></div>
+<div class="line"><code class="plain">appc run -p windows -T wp-device -C </code><code class="value">0</code><code class="plain"> -I </code><code class="string">"CN=00000000-0000-1000-8000-000000000000"</code></div>
 </div>
 </div>    <p>
 If you omit any of the optional parameters, the CLI will prompt you with options.    </p>
+    <div class="confbox admonition admonition-note aui-message warning shadowed information-macro">
+            <div class="title">Windows Phone Publisher GUID</div>
+        
+    <p>
+Prior to Release 5.0.0, you need to pass the <tt class=" ">-G</tt> option with your Windows Phone Publisher GUID rather than using the <tt class=" ">-I</tt> option with your Windows Publisher ID.    </p>
+    </div>
+    
     </div>
     <div class="section section-4 " id="43306725_AppceleratorCLITasks-WindowsComputer">
         <h4 class="heading "><span>Windows Computer</span></h4>
@@ -365,10 +381,10 @@ To deploy the application to your local Windows machine, you will need a certifi
 To deploy to your local machine, run:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">appc run -p windows -T ws-local [-R &lt;PFX_CERTIFICATE_FILE&gt; -P &lt;PFX_PASSWORD&gt;]</code></div>
+<div class="line"><code class="plain">appc run -p windows -T ws-local [-R &lt;PFX_CERTIFICATE_FILE&gt; -P &lt;PFX_PASSWORD&gt; -I &lt;WINDOWS_PUBLISHER_ID&gt;]</code></div>
 </div>
 </div>    <p>
-If you omit any of the optional parameters, the CLI will prompt you with options.    </p>
+If you omit any of the optional parameters, the CLI will prompt you with options. Prior to Release 5.0.0, the <tt class=" ">-I</tt> option was not required.    </p>
     </div>
     </div>
     <div class="section section-3 " id="43306725_AppceleratorCLITasks-PackageanApplication">
@@ -442,15 +458,22 @@ To create a minified version of your Mobile Web application, run the <tt class="
     <p>
 <strong class=" ">Requires CLI and SDK 4.1.0.</strong>    </p>
     <p>
-To package for the Windows Phone Store (ARM architecture), you need to obtain your publisher GUID.  After you have created your Windows Dev Center account, log in to <a class="external-link external-link" href="https://dev.windowsphone.com/en-us/Account/Summary" target="_blank">https://dev.windowsphone.com/en-us/Account/Summary</a> to get your publish GUID.    </p>
+To package for the Windows Phone Store (ARM architecture), you need to obtain your Windows publisher ID.  After you have created your Windows Dev Center account, log in to <a class="external-link external-link" href="https://dev.windowsphone.com/en-us/Account/Summary" target="_blank">https://dev.windowsphone.com/en-us/Account/Summary</a> to get your publish GUID.    </p>
     <p>
 To package an APPX file for the Windows Phone Store, run:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">appc run -p windows -T dist-phonestore [-G &lt;PUBLISHER_GUID&gt; -O &lt;OUTPUT_DIRECTORY&gt;]</code></div>
+<div class="line"><code class="plain">appc run -p windows -T dist-phonestore [-I &lt;WINDOWS_PUBLISHER_ID&gt; -O &lt;OUTPUT_DIRECTORY&gt;]</code></div>
 </div>
 </div>    <p>
 If you omit any of the optionals parameters, the CLI will prompt you with options.    </p>
+    <div class="confbox admonition admonition-note aui-message warning shadowed information-macro">
+            <div class="title">Windows Phone Publisher GUID</div>
+        
+    <p>
+Prior to Release 5.0.0, you need to pass the <tt class=" ">-G</tt> option with your Windows Phone Publisher GUID rather than using the <tt class=" ">-I</tt> option with your Windows Publisher ID.    </p>
+    </div>
+    
     </div>
     <div class="section section-4 " id="43306725_AppceleratorCLITasks-WindowsStore">
         <h4 class="heading "><span>Windows Store</span></h4>
@@ -462,10 +485,10 @@ To package for the Windows Store (x86 architecture), you will need a certificate
 To package an APPX file for the Windows Store, run:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">appc run -p windows -T dist-winstore [-R &lt;PFX_CERTIFICATE_FILE&gt; -P &lt;PFX_PASSWORD&gt; -O &lt;OUTPUT_DIRECTORY&gt;]</code></div>
+<div class="line"><code class="plain">appc run -p windows -T dist-winstore [-I &lt;WINDOWS_PUBLISHER_ID&gt; -R &lt;PFX_CERTIFICATE_FILE&gt; -P &lt;PFX_PASSWORD&gt; -O &lt;OUTPUT_DIRECTORY&gt;]</code></div>
 </div>
 </div>    <p>
-If you omit any of the optional parameters, the CLI will prompt you with options.    </p>
+If you omit any of the optional parameters, the CLI will prompt you with options. Prior to Release 5.0.0, the <tt class=" ">-I</tt> was not required.    </p>
     </div>
     </div>
     <div class="section section-3 " id="43306725_AppceleratorCLITasks-CleanYourBuildFolder">
