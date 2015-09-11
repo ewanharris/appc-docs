@@ -251,9 +251,11 @@ iOS uses various splash screen (launch) images depending on the target device. T
     <p>
 The following table summarizes some of the requirements for application graphic assets.  All files must be in PNG format.  Any non-PNG file will be ignored.  For Alloy projects, place the assets in the <tt class=" ">app/assets</tt>, <tt class=" ">app/assets/iphone</tt> or <tt class=" ">app/assets/ios</tt> folder.  For Class Titanium projects, place the assets in the <tt class=" ">Resources</tt>, <tt class=" ">Resources/iphone</tt> or <tt class=" ">Resources/ios</tt> folder.    </p>
     <p>
-For all icon files (image files prefixed with <tt class=" ">appicon</tt>), the images need to be square, that is, the height and width must be equal. If you omit any appicon files and have a file called <tt class=" ">appicon.png</tt> or <tt class=" ">appicon@2x.png</tt> that is at least 180 x 180, the Titanium SDK will generate any missing icon files from the file.  <u class=" ">If any icon files are missing, the build will fail.</u>    </p>
+For all icon files (image files prefixed with <tt class=" ">appicon</tt>), the images need to be square, that is, the height and width must be equal. If you omit any appicon files and have a <u class=" ">file called <tt class=" ">DefaultIcon.png</tt> in the root folder of the project</u> that is at least 180 x 180 (1024 x 1024 is recommended), the Titanium SDK will generate any missing icon files from the file.  <u class=" ">If any app icon files are missing, the build will fail.</u> The build will not fail if you omit spotlight and settings icons.    </p>
     <p>
 For launch image files (image files prefixed with <tt class=" ">Default</tt>), if you omit any files, the build will not fail.    </p>
+    <p>
+For the iTuneArtwork files, if you omit any iTunesArtwork file and have a <u class=" ">file called <tt class=" ">DefaultIcon.png</tt> in the root folder of the project</u> that is at least 512 x 512 (1024 x 1024 is recommended), the Titanium SDK will generate any missing iTuneArtwork files.  If any files are omitted, the build will not fail.    </p>
     <p>
 For more information, see <a class="external-link external-link" href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/IconMatrix.html#//apple_ref/doc/uid/TP40006556-CH27-SW1" target="_blank">iOS Human Interface Guidelines: Icons and Image Sizes</a>.    </p>
     <div class="confbox admonition admonition-note aui-message warning shadowed information-macro">
