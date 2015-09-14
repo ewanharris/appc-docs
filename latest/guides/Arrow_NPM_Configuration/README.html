@@ -37,8 +37,6 @@
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Arrow_NPM_Configuration-section-43299038_ArrowNPMConfiguration-scripts">scripts</a>    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Arrow_NPM_Configuration-section-43299038_ArrowNPMConfiguration-preinstall">preinstall</a>    </p>
-</li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Arrow_NPM_Configuration-section-43299038_ArrowNPMConfiguration-start">start</a>    </p>
 </li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Arrow_NPM_Configuration-section-43299038_ArrowNPMConfiguration-version">version</a>    </p>
@@ -178,17 +176,6 @@ To require authentication for npm installs, add the <tt class=" ">npmAuthenticat
     </div>
     <div class="section section-2 " id="43299038_ArrowNPMConfiguration-scripts">
         <h2 class="heading "><span>scripts</span></h2>
-    <div class="section section-3 " id="43299038_ArrowNPMConfiguration-preinstall">
-        <h3 class="heading "><span>preinstall</span></h3>
-    <p>
-<u class=" ">Starting with Arrow Cloud 1.2.0</u>, to install third-party tools to your container, create a Bash script that installs the dependencies, then set the <tt class=" ">scripts.preinstall</tt> field to the Bash script.  For an example, see <a class="document-link " href="#!/guide/Arrow_Project-section-43298987_ArrowProject-ProvisionaContainer">Arrow Project: Provision a Container</a>.    </p>
-<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
-<div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="string">"scripts"</code><code class="plain">: {</code></div>
-<div class="line"><code class="plain">  </code><code class="string">"preinstall"</code><code class="plain">: </code><code class="string">"script/prepare.sh"</code></div>
-<div class="line"><code class="plain">}</code></div>
-</div>
-</div>    </div>
     <div class="section section-3 " id="43299038_ArrowNPMConfiguration-start">
         <h3 class="heading "><span>start</span></h3>
     <p>
