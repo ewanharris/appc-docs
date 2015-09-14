@@ -176,6 +176,8 @@ Expand the <strong class=" ">Link Binary With Libraries</strong> section and add
 </li><li class=" ">    <p>
 Click the <strong class=" ">Build Settings</strong> tab, then click the <strong class=" ">All</strong> button in the top-left corner of the tab.    </p>
 </li><li class=" ">    <p>
+If you are using Xcode 7, you will need to disable bitcode since some third-party libraries do not have bitcode enabled. Expand the <strong class=" ">Build Options</strong> section and set <strong class=" ">Enable Bitcode</strong> to <strong class=" ">No</strong>.    </p>
+</li><li class=" ">    <p>
 Expand the <strong class=" ">Linking</strong> section and add <tt class=" ">-ObjC</tt>  to <strong class=" ">Other Linker Flags</strong>  .    </p>
 </li><li class=" ">    <p>
 In your application delegate implementation file, import <strong class=" ">Appcelerator/Appcelerator.h.</strong>    </p>

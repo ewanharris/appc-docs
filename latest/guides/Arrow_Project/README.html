@@ -436,7 +436,7 @@ Verify that the applications listens on PORT, otherwise your app cannot be conne
     <p>
 Arrow Cloud allows you to install additional binaries before your application is built.    </p>
     <p>
-Starting with Arrow Cloud 1.3.0, to install additional third-party tools, create a Bash script called <tt class=" ">install.sh</tt> in the project's root folder, which installs the required packages.    </p>
+Starting with Arrow Cloud 1.3.0, to install additional third-party tools, create a script called <tt class=" ">install.sh</tt> in the project's root folder, which installs the required packages.    </p>
     <div class="confbox admonition admonition-info aui-message hint shadowed information-macro">
             <div class="title">ImageMagick and PhantomJS</div>
         
@@ -461,7 +461,7 @@ Below is a sample script located at <tt class=" ">./install.sh</tt> folder in th
 <div class="line"><code class="functions">echo</code><code class="plain"> </code><code class="string">"---"</code></div>
 </div>
 </div>    <p>
-Prior to Release 1.3.0, you could create a custom Bash script in your project folder (no name restrictions) and add the script to the <tt class=" ">package.json</tt> file. In the <tt class=" ">package.json</tt> file, set the <tt class=" ">scripts.preinstall</tt> or <tt class=" ">scripts.postinstall</tt> field to the path to the script:    </p>
+Prior to Release 1.3.0, you could create a custom script in your project folder (no name restrictions) and add the script to the <tt class=" ">package.json</tt> file. In the <tt class=" ">package.json</tt> file, set the <tt class=" ">scripts.preinstall</tt> or <tt class=" ">scripts.postinstall</tt> field to the path to the script:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="title">package.json</div>
 <div class="defaultnew syntaxhighlighter">

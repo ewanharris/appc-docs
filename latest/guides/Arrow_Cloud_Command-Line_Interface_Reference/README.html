@@ -697,6 +697,16 @@ Show server ID in logs    </p>
     <tr>
             <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
+<tt class=" ">--build_log</tt>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+Displays the application build log. Does not work with the --server_id or --show_serverid options.    </p>
+            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
 <tt class=" ">--interval interval</tt>    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
@@ -1293,6 +1303,16 @@ The name of the app to configure cloud server resources for. If omitted, the com
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
 Sets the server size. Values can be one of the following: `Dev`, `Small`, `Medium`, `Large` or `XLarge`.    </p>
+            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">--restart &lt;SERVER_ID&gt;</tt>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+Restarts the server. You may want to run the restart command if the application is using too much memory or CPU cycles on the server. To get the server ID the application is running on, use the <tt class=" ">acs list</tt> command.    </p>
             </td>
         </tr>
     <tr>
