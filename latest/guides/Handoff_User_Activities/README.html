@@ -24,10 +24,16 @@
 <a class="document-link " href="#!/guide/Handoff_User_Activities-section-43315116_HandoffUserActivities-DeviceSetup">Device Setup</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Handoff_User_Activities-section-43315116_HandoffUserActivities-ShareanActivity">Share an Activity</a>    </p>
+<ul class="toc-indentation "><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Handoff_User_Activities-section-43315116_HandoffUserActivities-MonitortheActivity">Monitor the Activity</a>    </p>
 </li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Handoff_User_Activities-section-43315116_HandoffUserActivities-UpdatetheActivity">Update the Activity</a>    </p>
+</li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Handoff_User_Activities-section-43315116_HandoffUserActivities-ContinuetheActivity">Continue the Activity</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Handoff_User_Activities-section-43315116_HandoffUserActivities-TesttheSample">Test the Sample</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Handoff_User_Activities-section-43315116_HandoffUserActivities-Reference">Reference</a>    </p>
 </li></ul>    <div class="section section-2 " id="43315116_HandoffUserActivities-Introduction">
         <h2 class="heading "><span>Introduction</span></h2>
     <p>
@@ -63,15 +69,13 @@ To create an Activity, use the Titanium.App.iOS.createUserActivity() method.  Pa
 </li><li class=" ">    <p>
 <tt class=" ">eligibleForHandOff</tt>: set to <tt class=" ">true</tt> to allow the activity to be handed off to another device.  Default is true.<strong class=" ">  Requires iOS 9.0 or later.</strong>    </p>
 </li><li class=" ">    <p>
-<tt class=" ">eligibleForPublicIndexing</tt>: set to <tt class=" ">true</tt> to allow the activity to be indexed publicly allowing it to be search by all users.  Must also set the <tt class=" ">requiredUserInfoKey</tt> and <tt class=" ">webpageURL</tt> properties. Default is false.<strong class=" ">  Requires iOS 9.0 or later.</strong>    </p>
+<tt class=" ">eligibleForPublicIndexing</tt>: set to <tt class=" ">true</tt> to allow the activity to be indexed publicly allowing it to be search by all users.  Must also set the <tt class=" ">requiredUserInfoKey</tt> or <tt class=" ">webpageURL</tt> properties. Default is false.<strong class=" ">  Requires iOS 9.0 or later.</strong>    </p>
 </li><li class=" ">    <p>
 <tt class=" ">eligibleForSearch</tt>: set to <tt class=" ">true</tt> to allow the activity to be added to the on-device index. Default is false.<strong class=" ">  Requires iOS 9.0 or later.</strong>    </p>
 </li><li class=" ">    <p>
 <tt class=" ">expirationDate</tt>: date that the activity expires in the format: <tt class=" ">yyyy-MM-ddTHH:mm:ss.SSS+0000</tt>.  If not set, the OS will determine the expiration time.    </p>
 </li><li class=" ">    <p>
 <tt class=" ">keywords</tt>: array of strings that a user can use to find the activity in Spotlight.  You can also use the UserActivity object's <tt class=" ">addContentAttributeSet()</tt> method to add indexable content.  <strong class=" ">Both APIs require iOS 9.0 or later.</strong>    </p>
-</li><li class=" ">    <p>
-<tt class=" ">needsSave</tt>: set to <tt class=" ">true</tt> to fire the <tt class=" ">useractivitywillsave</tt> event before the activity is continued on another device.    </p>
 </li><li class=" ">    <p>
 <tt class=" ">requiredUserInfoKey</tt>: array of keys that need to be sent in the <tt class=" ">userInfo</tt> object.  <strong class=" ">Requires iOS 9.0 or later.</strong>    </p>
 </li><li class=" ">    <p>
@@ -80,12 +84,6 @@ To create an Activity, use the Titanium.App.iOS.createUserActivity() method.  Pa
 <tt class=" ">userInfo</tt>: object of key-value pairs to send with the activity    </p>
 </li><li class=" ">    <p>
 <tt class=" ">webpageURL</tt>: if a suitable application is not found on the device, loads the specified web page and continues the activity in the browser.  Only supports the <tt class=" ">http://</tt> and <tt class=" ">https://</tt> protocols.  Any other protocol will throw an error.    </p>
-</li></ul>    <p>
-After creating the UserActivity object, you can listen for the following events.  Both events are passed the <tt class=" ">activityType</tt>, <tt class=" ">title</tt>, <tt class=" ">userInfo</tt> and <tt class=" ">webpageURL</tt> properties that are set on the UserActivity object.    </p>
-<ul class=" "><li class=" ">    <p>
-<tt class=" ">useractivitywillsave</tt>: fired if the <tt class=" ">needsSave</tt> property is set to true before the activity is continued on another device.    </p>
-</li><li class=" ">    <p>
-<tt class=" ">useractivitywascontinued</tt>: fired when the activity is continues on another device    </p>
 </li></ul>    <p>
 Once you are ready to share the activity, use the <tt class=" ">supported</tt> property to check if the user activity is supported by the application, then invoke its <tt class=" ">becomeCurrent()</tt> method to indicate that the activity is in use by the current device.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
@@ -123,8 +121,33 @@ Before using the activity, you will need to register each activity type in the <
 <div class="line"><code class="plain">  &lt;/ios&gt;</code></div>
 <div class="line"><code class="plain">&lt;/ti:app&gt;</code></div>
 </div>
+</div>    <div class="section section-3 " id="43315116_HandoffUserActivities-MonitortheActivity">
+        <h3 class="heading "><span>Monitor the Activity</span></h3>
+    <p>
+Listen for the <a class="external-link external-link" href="#!/api/Titanium.App.iOS.UserActivity-event-useractivitywascontinued"><tt class=" ">useractivitywascontinued</tt> </a>event to determine when the user activity was handed off to another device.  The event will be passed the <tt class=" ">activityType</tt>, <tt class=" ">title</tt>, <tt class=" ">userInfo</tt> and <tt class=" ">webpageURL</tt> properties that were set on the user activity.    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="title">app.js</div>
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">activity.addEventListener(</code><code class="string">'useractivitywascontinued'</code><code class="plain">, function(e) {</code></div>
+<div class="line"><code class="plain">    Ti.API.info(</code><code class="string">'Activity moved to a different device.'</code><code class="plain">);</code></div>
+<div class="line"><code class="plain">});</code></div>
+</div>
+</div>    </div>
+    <div class="section section-3 " id="43315116_HandoffUserActivities-UpdatetheActivity">
+        <h3 class="heading "><span>Update the Activity</span></h3>
+    <p>
+If the activity's state or content needs to be periodically updated, set the UserActivity object's <tt class=" ">needsSave</tt> property to <tt class=" ">true</tt>, then listen for the <tt class=" ">useractivitywillsave</tt> event to update the activity state or content, such as saving changes to a document.  The event is triggered at the discretion of iOS. The event will be passed the <tt class=" ">activityType</tt>, <tt class=" ">title</tt>, <tt class=" ">userInfo</tt> and <tt class=" ">webpageURL</tt> properties that were set on the user activity.    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="title">app.js</div>
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">activity.needsSave = </code><code class="keyword">true</code><code class="plain">;</code></div>
+<div class="line"><code class="plain">activity.addEventListener(</code><code class="string">'useractivitywillsave'</code><code class="plain">, function(e) {</code></div>
+<div class="line"><code class="plain">    Ti.API.info(</code><code class="string">'Updating content...'</code><code class="plain">);</code></div>
+<div class="line"><code class="plain">});</code></div>
+</div>
 </div>    <p>
-    </p>
+By default, the event will fire when the activity becomes the active activity.  After the event is fired, iOS will reset the <tt class=" ">needsSave</tt> property to false.  You will need to set the <tt class=" ">needsSave</tt> property again if you want to update the content later.    </p>
+    </div>
     </div>
     <div class="section section-2 " id="43315116_HandoffUserActivities-ContinuetheActivity">
         <h2 class="heading "><span>Continue the Activity</span></h2>
@@ -154,6 +177,11 @@ Tap the icon and drag up to open the application on the first device.  You shoul
     <p>
         <img src="images/download/attachments/43315116/tagyouareit.png" alt="images/download/attachments/43315116/tagyouareit.png" class="confluence-embedded-image" width="500"/>
             </p>
+    </div>
+    <div class="section section-2 " id="43315116_HandoffUserActivities-Reference">
+        <h2 class="heading "><span>Reference</span></h2>
+    <p>
+<a class="external-link external-link" href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html#//apple_ref/doc/uid/TP40014338" target="_blank">iOS Developer Library: Handoff Programming Guide</a>    </p>
     </div>
         </div><a id="editButton" href="https://wiki.appcelerator.org/pages/editpage.action?pageId=43315116"><span>Edit</span></a>
     
