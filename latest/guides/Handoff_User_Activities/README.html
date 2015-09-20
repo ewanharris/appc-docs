@@ -124,7 +124,7 @@ Before using the activity, you will need to register each activity type in the <
 </div>    <div class="section section-3 " id="43315116_HandoffUserActivities-MonitortheActivity">
         <h3 class="heading "><span>Monitor the Activity</span></h3>
     <p>
-Listen for the <a class="external-link external-link" href="#!/api/Titanium.App.iOS.UserActivity-event-useractivitywascontinued"><tt class=" ">useractivitywascontinued</tt> </a>event to determine when the user activity was handed off to another device.  The event will be passed the <tt class=" ">activityType</tt>, <tt class=" ">title</tt>, <tt class=" ">userInfo</tt> and <tt class=" ">webpageURL</tt> properties that were set on the user activity.    </p>
+Listen for the <a class="external-link external-link" href="#!/api/Titanium.App.iOS.UserActivity-event-useractivitywascontinued"> <tt class=" ">useractivitywascontinued</tt> </a>event to determine when the user activity was handed off to another device. The event will be passed the <tt class=" ">activityType</tt>, <tt class=" ">title</tt>, <tt class=" ">userInfo</tt> and <tt class=" ">webpageURL</tt> properties that were set on the user activity.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="title">app.js</div>
 <div class="defaultnew syntaxhighlighter">
@@ -136,23 +136,23 @@ Listen for the <a class="external-link external-link" href="#!/api/Titanium.App.
     <div class="section section-3 " id="43315116_HandoffUserActivities-UpdatetheActivity">
         <h3 class="heading "><span>Update the Activity</span></h3>
     <p>
-If the activity's state or content needs to be periodically updated, set the UserActivity object's <tt class=" ">needsSave</tt> property to <tt class=" ">true</tt>, then listen for the <tt class=" ">useractivitywillsave</tt> event to update the activity state or content, such as saving changes to a document.  The event is triggered at the discretion of iOS. The event will be passed the <tt class=" ">activityType</tt>, <tt class=" ">title</tt>, <tt class=" ">userInfo</tt> and <tt class=" ">webpageURL</tt> properties that were set on the user activity.    </p>
+<i class=" ">Every time</i> something happens that requires the activity's state to be updated before it could be handed off, set the UserActivity object's <tt class=" ">needsSave</tt> property to <tt class=" ">true</tt>. Listen for the <tt class=" ">useractivitywillsave</tt> event to actually update the activity state or content, such as saving changes to an API. This event is triggered at the discretion of iOS and when you call <tt class=" ">becomCurrent()</tt>. The event will be passed the current <tt class=" ">activityType</tt>, <tt class=" ">title</tt>, <tt class=" ">userInfo</tt> and <tt class=" ">webpageURL</tt> properties. After the event is fired, iOS will reset the <tt class=" ">needsSave</tt> property to false.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="title">app.js</div>
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">activity.needsSave = </code><code class="keyword">true</code><code class="plain">;</code></div>
 <div class="line"><code class="plain">activity.addEventListener(</code><code class="string">'useractivitywillsave'</code><code class="plain">, function(e) {</code></div>
 <div class="line"><code class="plain">    Ti.API.info(</code><code class="string">'Updating content...'</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">});</code></div>
+<div class="line"><code class="plain"> </code></div>
+<div class="line"><code class="comments">// Every time the activity needs to be updated set:</code></div>
+<div class="line"><code class="plain">activity.needsSave = </code><code class="keyword">true</code><code class="plain">;</code></div>
 </div>
-</div>    <p>
-By default, the event will fire when the activity becomes the active activity.  After the event is fired, iOS will reset the <tt class=" ">needsSave</tt> property to false.  You will need to set the <tt class=" ">needsSave</tt> property again if you want to update the content later.    </p>
-    </div>
+</div>    </div>
     </div>
     <div class="section section-2 " id="43315116_HandoffUserActivities-ContinuetheActivity">
         <h2 class="heading "><span>Continue the Activity</span></h2>
     <p>
-To continue the activity on another paired device, listen for the <tt class=" ">Titanium.App.iOS</tt> module's <tt class=" ">continueactivity</tt> event.  The handoff event will be passed the <tt class=" ">activityType</tt>, <tt class=" ">title</tt>, <tt class=" ">userInfo</tt> and <tt class=" ">webpageURL</tt> properties that were set on the user activity.  Use the passed information to continue the activity.    </p>
+To continue the activity on another paired device, listen for the <tt class=" ">Ti.App.iOS</tt> module's <tt class=" ">continueactivity</tt>event. The handoff event will be passed the <tt class=" ">activityType</tt>, <tt class=" ">title</tt>, <tt class=" ">userInfo</tt> and <tt class=" ">webpageURL</tt> properties that were set on the user activity. Use the passed information to continue the activity.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="title">app.js</div>
 <div class="defaultnew syntaxhighlighter">
