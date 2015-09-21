@@ -6,3 +6,6 @@ To view pre-release documentation, go to:
 
 To view current documentation, go to:
 [docs.appcelerator.com](//docs.appcelerator.com).
+
+For a downloadable version of the documentation, see
+[http://htmlpreview.github.io/?http://github.com/appcelerator/appc-docs/blob/master/ci.html](http://htmlpreview.github.io/?http://github.com/appcelerator/appc-docs/blob/master/ci.html).
