@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stuff</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="http://docs.appcelerator.com/css/docs.css" type="text/css" media="screen" charset="utf-8">
+  <link href="http://docs.appcelerator.com/css/normalize.css" rel="stylesheet" type="text/css" />
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,700italic|PT+Sans:400,700|Droid+Sans+Mono" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<script>
+function handleFile(data) {
+  var data = JSON.parse(data);
+  var content = '<table><tr><th>File</th><th>Date</th><th>Size (MB)</th><th>SHA-1</th></tr>';
+  var x;
+  for (x = data.length - 1; x > 0; x--) {
+    var date = data[x].filename,
+    date = date.substring(date.indexOf('-') + 1, date.length - '.zip'.length);
+    var dates = date.split('_');
+    if (dates.length == 2) {
+      date = dates[0] + 'T' + dates[1].split('-').join(':') + '-07:00';
+      date = new Date(date);
+    } else {
+      date = 'Invalid date.'
+    }
+
+    content += '<tr><td>'
+    content += '<a href="http://builds.appcelerator.com.s3.amazonaws.com/mobile/docs/' + data[x].filename + '">' + data[x].filename + '</a>';
+    content += '</td><td>';
+    content += date;
+    content += '</td><td>';
+    content += (data[x].size / (1024 * 1024)).toFixed(2) + ' MB';
+    content += '</td><td>';
+    content += data[x].sha1;
+    content += '</td></tr>';
+  };
+  content += "</table>"
+  $('#filecontents').html(content);
+}
+
+$.get('http://builds.appcelerator.com.s3.amazonaws.com/mobile/docs/index.json',
+           handleFile,
+           'text');
+</script>
+
+<div id="filecontents"></div>
+
+</body>
+</html>
