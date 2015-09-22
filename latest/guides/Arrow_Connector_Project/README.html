@@ -42,6 +42,8 @@ This Appcelerator Platform feature requires a Team Subscription.    </p>
 </li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Arrow_Connector_Project-section-43300774_ArrowConnectorProject-ConnectorLogic">Connector Logic</a>    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Arrow_Connector_Project-section-43300774_ArrowConnectorProject-Capabilities">Capabilities</a>    </p>
+</li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Arrow_Connector_Project-section-43300774_ArrowConnectorProject-Initialization">Initialization</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Arrow_Connector_Project-section-43300774_ArrowConnectorProject-ConnectionLifecycle">Connection Lifecycle</a>    </p>
@@ -228,27 +230,230 @@ By default, the access level for the connector is set to private, so only the cr
     <div class="section section-2 " id="43300774_ArrowConnectorProject-ConnectorLogic">
         <h2 class="heading "><span>Connector Logic</span></h2>
     <p>
-Place all the connector logic in the <tt class=" ">lib</tt> folder.  There must be an <tt class=" ">index.js</tt> file in your <tt class=" ">lib</tt> folder, which is the first file loaded by the connector.  You can have additional JavaScript file, which can be loaded by the <tt class=" ">lib/index.js</tt> file.    </p>
+Place all the connector logic in the <tt class=" ">lib</tt> folder.  There must be an <tt class=" ">index.js</tt> file in your <tt class=" ">lib</tt> folder, which is the first file loaded by the connector.    </p>
     <p>
-The connector logic needs to expose a <tt class=" ">create()</tt> method, which is passed the Arrow class and a server instance.  The method must return a Connector instance, which is created using the <tt class=" ">Arrow.Connector.extend()</tt> method.  Pass the <tt class=" ">extend()</tt> method an object, which implements the methods of the Connector class and a few methods from the Model class.  For details, see the <a class="external-link external-link" href="#!/api/Arrow.Connector">Arrow.Connector API reference</a>.    </p>
+The boiler plate <tt class=" ">index.js</tt> file expose a <tt class=" ">create()</tt> method, which is passed the Arrow class.  The method must return a Connector instance, which is created using the <tt class=" ">Arrow.Connector.extend()</tt>method.  Uncomment each Capability constant in the <tt class=" ">capabilities</tt> field to have Arrow generate boiler plate logic for each capability you want the Arrow Connector to support.  Each method will have its own JavaScript file. You may also pass the <tt class=" ">extend()</tt> method an object, which implements the methods of the Connector class and a few methods from the Model class.    </p>
     <p>
-The boiler plate project already contains a default <tt class=" ">index.js</tt> you can use, which implements a simple in-memory connector.    </p>
+To start developing your connector, run the project in one console window, then edit the files with the connector logic in another console or editor.  As you save your files, Arrow will automatically update your connector and restart the server instance, allowing you to work on and test the connector incrementally.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="title">lib/index.js</div>
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="comments">// Example</code></div>
-<div class="line"><code class="plain">exports.create = function(Arrow, server) {</code></div>
-<div class="line"><code class="plain">    var Connector = Arrow.Connector;</code></div>
-<div class="line"><code class="plain">    </code><code class="keyword">return</code><code class="plain"> Connector.extend({</code></div>
-<div class="line"><code class="plain">        defaultConfig: require(</code><code class="string">'fs'</code><code class="plain">).readFileSync(__dirname + </code><code class="string">'/../conf/example.config.js'</code><code class="plain">, </code><code class="string">'utf8'</code><code class="plain">),</code></div>
-<div class="line"><code class="plain">        connect: function (callback) {</code></div>
-<div class="line"><code class="plain">            </code><code class="comments">// Connect to the data source</code></div>
-<div class="line"><code class="plain">            callback();</code></div>
-<div class="line"><code class="plain">        }</code></div>
-<div class="line"><code class="plain">    });</code></div>
-<div class="line"><code class="plain">}</code></div>
+<div class="line"><code class="comments">/*</code></div>
+<div class="line"><code class="comments"> Welcome to your new connector!</code></div>
+<div class="line"><code class="comments"> TODO: First things first, look at the "capabilities" array TODOs down below.</code></div>
+<div class="line"><code class="comments"> */</code></div>
+<div class="line"><code class="plain">var _ = require(</code><code class="string">'lodash'</code><code class="plain">);</code></div>
+<div class="line"><code class="preprocessor">/**</code></div>
+<div class="line"><code class="preprocessor"> * Creates your connector for Arrow.</code></div>
+<div class="line"><code class="preprocessor"> */</code></div>
+<div class="line"><code class="plain">exports.create = function (Arrow) {</code></div>
+<div class="line"><code class="plain">        var Connector = Arrow.Connector,</code></div>
+<div class="line"><code class="plain">                Capabilities = Connector.Capabilities;</code></div>
+<div class="line"><code class="plain">        </code><code class="keyword">return</code><code class="plain"> Connector.extend({</code></div>
+<div class="line"><code class="plain">                filename: module.filename,</code></div>
+<div class="line"><code class="plain">                capabilities: [</code></div>
+<div class="line"><code class="plain">                        </code><code class="comments">// TODO: Get started by uncommenting the next line and running `appc run`.</code></div>
+<div class="line"><code class="plain">                        </code><code class="comments">//Capabilities.ConnectsToADataSource,</code></div>
+<div class="line"><code class="plain">                        </code><code class="comments">// TODO: Each of these capabilities is optional; add the ones you want, and delete the rest.</code></div>
+<div class="line"><code class="plain">                        </code><code class="comments">// (Hint: I've found it to be easiest to add these one at a time, running `appc run` for guidance.)</code></div>
+<div class="line"><code class="plain">                        </code><code class="comments">//Capabilities.ValidatesConfiguration,</code></div>
+<div class="line"><code class="plain">                        </code><code class="comments">//Capabilities.ContainsModels,</code></div>
+<div class="line"><code class="plain">                        </code><code class="comments">//Capabilities.GeneratesModels,</code></div>
+<div class="line"><code class="plain">                        </code><code class="comments">//Capabilities.CanCreate,</code></div>
+<div class="line"><code class="plain">                        </code><code class="comments">//Capabilities.CanRetrieve,</code></div>
+<div class="line"><code class="plain">                        </code><code class="comments">//Capabilities.CanUpdate,</code></div>
+<div class="line"><code class="plain">                        </code><code class="comments">//Capabilities.CanDelete,</code></div>
+<div class="line"><code class="plain">                        </code><code class="comments">//Capabilities.AuthenticatesThroughConnector</code></div>
+<div class="line"><code class="plain">                ]</code></div>
+<div class="line"><code class="plain">        });</code></div>
+<div class="line"><code class="plain">};</code></div>
 </div>
-</div>    <div class="section section-3 " id="43300774_ArrowConnectorProject-Initialization">
+</div>    <div class="section section-3 " id="43300774_ArrowConnectorProject-Capabilities">
+        <h3 class="heading "><span>Capabilities</span></h3>
+    <p>
+Starting with Arrow 1.2.48 or Appcelerator CLI 4.1.3, the connector configuration object passed to the <tt class=" ">Connect.extend()</tt> method supports a <tt class=" ">capabilities</tt> property.  The first time you run a project after adding a Capability constant to the <tt class=" ">capabilities</tt> property, Arrow will generate boiler plate logic, which you can modify.  The table below explains what each capability constant exposes and creates. If a certain connector is not exposed through a capability, you can implement the method in the object passed to the <tt class=" ">Connector.extend()</tt> method.    </p>
+    <div class="tablewrap">
+        <table class="confluenceTable">
+        <thead class=" ">    <tr>
+            <td class="confluenceTh" rowspan="1" colspan="1">
+        <p>
+Capability Constant    </p>
+            </td>
+                <td class="confluenceTh" rowspan="1" colspan="1">
+        <p>
+Location    </p>
+            </td>
+                <td class="confluenceTh" rowspan="1" colspan="1">
+        <p>
+Exposed Connector Methods    </p>
+            </td>
+        </tr>
+</thead><tfoot class=" "/><tbody class=" ">    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+ConnectToADataSource    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">./lib/lifecycle</tt>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+    <ul class=" "><li class=" ">    <p>
+connect    </p>
+</li><li class=" ">    <p>
+disconnect    </p>
+</li></ul>            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+ValidatesConfiguration    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">./lib/metadata</tt>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+    <ul class=" "><li class=" ">    <p>
+fetchMetadata    </p>
+</li></ul>            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+AddsCustomTypes    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">./lib/metadata</tt>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+    <ul class=" "><li class=" ">    <p>
+coerceCustomType    </p>
+</li><li class=" ">    <p>
+getCustomType    </p>
+</li></ul>            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+GenerateModels    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">./lib/schema</tt>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+    <ul class=" "><li class=" ">    <p>
+createModelsFromSchema    </p>
+</li><li class=" ">    <p>
+fetchSchema    </p>
+</li></ul>            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+ContainsModels    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">./models</tt>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+Creates a boiler plate model in the <tt class=" ">models</tt> folder    </p>
+            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+CanCreate    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">./lib/methods</tt>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+    <ul class=" "><li class=" ">    <p>
+create    </p>
+</li></ul>            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+CanRetrieve    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">./lib/methods</tt>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+    <ul class=" "><li class=" ">    <p>
+distinct    </p>
+</li><li class=" ">    <p>
+findAll    </p>
+</li><li class=" ">    <p>
+findOne    </p>
+</li><li class=" ">    <p>
+query    </p>
+</li></ul>            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+CanUpdate    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">./lib/methods</tt>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+    <ul class=" "><li class=" ">    <p>
+findAndModify    </p>
+</li><li class=" ">    <p>
+save    </p>
+</li><li class=" ">    <p>
+upsert    </p>
+</li></ul>            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+CanDelete    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">./lib/methods</tt>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+    <ul class=" "><li class=" ">    <p>
+delete    </p>
+</li><li class=" ">    <p>
+deleteAll    </p>
+</li></ul>            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p class="p1">
+AuthenticatesThroughConnector    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">./lib/lifecycle</tt>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+    <ul class=" "><li class=" ">    <p>
+login    </p>
+</li><li class=" ">    <p>
+loginRequired    </p>
+</li></ul>            </td>
+        </tr>
+</tbody>        </table>
+            </div>
+    <p>
+    </p>
+    </div>
+    <div class="section section-3 " id="43300774_ArrowConnectorProject-Initialization">
         <h3 class="heading "><span>Initialization</span></h3>
     <p>
 If you need to add some custom initialization logic when creating the connector, implement the following methods.  The connector instance is the value passed to <tt class=" ">this</tt> in the functions.  The functions do not take any arguments or return any values:    </p>
@@ -277,7 +482,7 @@ Use to execute some custom logic when the connector is created.    </p>
     <tr>
             <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-postCreate(void)    </p>
+<a class="external-link external-link" href="#!/api/Arrow.Connector-method-postCreate">postCreate(void)</a>    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
@@ -302,6 +507,14 @@ Method Signature    </p>
             </td>
                 <td class="confluenceTh" rowspan="1" colspan="1">
         <p>
+Capability    </p>
+            </td>
+                <td class="confluenceTh" rowspan="1" colspan="1">
+        <p>
+Boiler Plate File    </p>
+            </td>
+                <td class="confluenceTh" rowspan="1" colspan="1">
+        <p>
 Description    </p>
             </td>
                 <td class="confluenceTh" rowspan="1" colspan="1">
@@ -312,7 +525,15 @@ Result to Pass to the Callback    </p>
 </thead><tfoot class=" "/><tbody class=" ">    <tr>
             <td class="confluenceTd" rowspan="1" colspan="1">
         <p class="p1">
-fetchMetadata(callback)    </p>
+<a class="external-link external-link" href="#!/api/Arrow.Connector-method-fetchMetadata">fetchMetadata(callback)</a>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+ValidatesConfiguration    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">./lib/metadata/fetchMetadata.js</tt>    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
@@ -326,7 +547,15 @@ Metadata object. Set the <tt class=" ">fields</tt> key to an array of Arrow Meta
     <tr>
             <td class="confluenceTd" rowspan="1" colspan="1">
         <p class="p1">
-fetchConfig(callback)    </p>
+<a class="external-link external-link" href="#!/api/Arrow.Connector-method-fetchConfig">fetchConfig(callback)</a>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+-    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+-    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
@@ -340,7 +569,15 @@ Configuration object. Key-value pairs describing the configuration of the connec
     <tr>
             <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-connect(callback)    </p>
+<a class="external-link external-link" href="#!/api/Arrow.Connector-method-connect">connect(callback)</a>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+ConnectToADataSource    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">./lib/lifecycle/connect.js</tt>    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
@@ -354,7 +591,15 @@ None.    </p>
     <tr>
             <td class="confluenceTd" rowspan="1" colspan="1">
         <p class="p1">
-fetchSchema(callback)    </p>
+<a class="external-link external-link" href="#!/api/Arrow.Connector-method-fetchSchema">fetchSchema(callback)</a>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+GenerateModels    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">./lib/schema/fetchSchema.js</tt>    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
@@ -363,6 +608,28 @@ Retrieves the model schema of the data source.    </p>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
 Schema object.    </p>
+            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<a class="external-link external-link" href="#!/api/Arrow.Connector-method-disconnect">disconnect(callback)</a>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+ConnectToADataSource    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">./lib/lifecycle/connect.js</tt>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+Disconnect from the data source.    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+None.    </p>
             </td>
         </tr>
 </tbody>        </table>
@@ -381,6 +648,14 @@ Method Signature    </p>
             </td>
                 <td class="confluenceTh" rowspan="1" colspan="1">
         <p>
+Capability    </p>
+            </td>
+                <td class="confluenceTh" rowspan="1" colspan="1">
+        <p>
+Boiler Plate File    </p>
+            </td>
+                <td class="confluenceTh" rowspan="1" colspan="1">
+        <p>
 Description    </p>
             </td>
                 <td class="confluenceTh" rowspan="1" colspan="1">
@@ -392,6 +667,14 @@ Result to Pass to the Callback    </p>
             <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
 create(Model, values, callback)    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+CanCreate    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">./lib/methods/create.js</tt>    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
@@ -409,6 +692,14 @@ delete(Model, instance, callback)    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
+CanDelete    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">./lib/methods/delete.js</tt>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
 Deletes the model instance.    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
@@ -420,6 +711,14 @@ Deleted model    </p>
             <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
 deleteAll(Model, callback)    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+CanDelete    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">./lib/methods/deleteAll.js</tt>    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
@@ -437,6 +736,14 @@ findAll(Model, callback)    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
+CanRetrieve    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">./lib/methods/findAll.js</tt>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
 Retrieves all the models.    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
@@ -448,6 +755,14 @@ Array of models    </p>
             <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
 findOne(Model, id, callback)    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+CanRetrieve    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">./lib/methods/findOne.js</tt>    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
@@ -465,6 +780,14 @@ query(Model, options, callback)    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
+CanRetrieve    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">./lib/methods/query.js</tt>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
 Retrieves all models based on the query options.    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
@@ -475,7 +798,37 @@ Array of found models    </p>
     <tr>
             <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
+distinct(Model, field, options, callback)    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+CanRetrieve    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">./lib/methods/ditinct.js</tt>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+Retrieves a distinct set of models based on the field(s) and query options.    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+Array of distinct models    </p>
+            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
 save(Model, instance, callback)    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+CanUpdate    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">./lib/methods/save.js</tt>    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
@@ -484,6 +837,50 @@ Updates the model instance.    </p>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
 Updated model    </p>
+            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<a class="external-link external-link" href="#!/api/Arrow.Connector-method-findAndModify">findAndModify(Model, options, doc, args, callback)</a>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+CanUpdate    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">./lib/methods/findAndModify.js</tt>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+Finds one model instance and modifies it.    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+Modified model    </p>
+            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<a class="external-link external-link" href="#!/api/Arrow.Connector-method-upsert">upsert(Model, id, doc, callback)</a>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+CanUpdate    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">./lib/methods/upsert.js</tt>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+Updates the model instance if found or creates a new model instance.    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+Updated or new model    </p>
             </td>
         </tr>
 </tbody>        </table>
@@ -502,13 +899,29 @@ Method Signature    </p>
             </td>
                 <td class="confluenceTh" rowspan="1" colspan="1">
         <p>
+Capability    </p>
+            </td>
+                <td class="confluenceTh" rowspan="1" colspan="1">
+        <p>
+Boiler Plate File    </p>
+            </td>
+                <td class="confluenceTh" rowspan="1" colspan="1">
+        <p>
 Description    </p>
             </td>
         </tr>
 </thead><tfoot class=" "/><tbody class=" ">    <tr>
             <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-startRequest(methodName, args, request, next)    </p>
+<a class="external-link external-link" href="#!/api/Arrow.Connector-method-startRequest">startRequest(methodName, args, request, next)</a>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+-    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+-    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p class="p1">
@@ -518,7 +931,15 @@ Request interceptor invoked before the request is initiated and the login method
     <tr>
             <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-loginRequired(request, callback)    </p>
+<a class="external-link external-link" href="#!/api/Arrow.Connector-method-loginRequired">loginRequired(request, callback)</a>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p class="p1">
+AuthenticatesThroughConnector    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">./lib/lifecycle/loginRequired.js</tt>    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
@@ -528,7 +949,15 @@ Determines if the request required a login. Pass an error message (or null if su
     <tr>
             <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-login(request, next)    </p>
+<a class="external-link external-link" href="#!/api/Arrow.Connector-method-login">login(request, next)</a>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p class="p1">
+AuthenticatesThroughConnector    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">./lib/lifecycle/login.js</tt>    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
@@ -538,7 +967,15 @@ Logs in to the data source to make a request. Invoke the next function when the 
     <tr>
             <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-endRequest(methodName, args, request, next)    </p>
+<a class="external-link external-link" href="#!/api/Arrow.Connector-method-endRequest">endRequest(methodName, args, request, next)</a>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+-    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+-    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
@@ -573,14 +1010,11 @@ Then reference the file in the connector logic using the <tt class=" ">defaultCo
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="title">lib/index.js</div>
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">exports.create = function(Arrow, server) {</code></div>
+<div class="line"><code class="plain">exports.create = function(Arrow) {</code></div>
 <div class="line"><code class="plain">    var Connector = Arrow.Connector;</code></div>
 <div class="line"><code class="plain">    </code><code class="keyword">return</code><code class="plain"> Connector.extend({</code></div>
 <div class="line"><code class="plain">        defaultConfig: require(</code><code class="string">'fs'</code><code class="plain">).readFileSync(__dirname + </code><code class="string">'/../conf/example.config.js'</code><code class="plain">, </code><code class="string">'utf8'</code><code class="plain">),</code></div>
-<div class="line"><code class="plain">        connect: function (callback) {</code></div>
-<div class="line"><code class="plain">            </code><code class="comments">// Connect to the data source</code></div>
-<div class="line"><code class="plain">            callback();</code></div>
-<div class="line"><code class="plain">        }</code></div>
+<div class="line"><code class="plain">        ...</code></div>
 <div class="line"><code class="plain">    });</code></div>
 <div class="line"><code class="plain">}</code></div>
 </div>
