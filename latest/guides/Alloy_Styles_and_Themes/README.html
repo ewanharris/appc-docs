@@ -99,7 +99,7 @@ which pairs to this view markup (<tt class=" ">index.xml</tt>):    </p>
 <div class="line"><code class="plain">&lt;/Alloy&gt;</code></div>
 </div>
 </div>    <p>
-In the example code above, the Label object in the view inherits styles from both 'Label' and '#label'. Since '#label' is defined at the id level, the color of the label will be gray ('#999') instead of black ('#000').  For the Label's <tt class=" ">transform</tt> property, the TSS file is using a function assigned to the <tt class=" ">Alloy.Globals</tt> namespace defined in the initializer file:    </p>
+In the example code above, the Label object in the view inherits styles from both 'Label' and '#label'. Since '#label' is defined at the id level, the color of the label will be gray ('#999') instead of black ('#000').  For the Label's <tt class=" ">transform</tt> property, the TSS file is using a function assigned to the  <tt class=" ">Alloy.Globals</tt>    namespace defined in the  initializer  file:     </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="title">app/alloy.js</div>
 <div class="defaultnew syntaxhighlighter">
@@ -221,7 +221,7 @@ The sample style sheet below defines styles for iPhone, iPad, Android and mobile
     <p>
 <u class=" ">Since Alloy 1.4</u>, you can create custom queries to select which styles to apply in both the TSS and XML files.  These query statements must return a boolean value.  Custom query styles override all styles, that is, class, id, and markup element styles, except the ones defined as attributes in the XML file.    </p>
     <p>
-<strong class=" ">To use a custom query:</strong>    </p>
+<strong class=" "> To use a custom query: </strong>    </p>
 <ol class=" "><li class=" ">    <p>
 Define a conditional statement, which returns a boolean value, and assign it to a property in the <tt class=" ">Alloy.Globals</tt> namespace or a local function in the controller. Since <u class=" ">Alloy 1.7.6</u>, the application can also pass custom Boolean properties to the <tt class=" ">Alloy.createController()</tt> method, which can be accessed in the XML and TSS files.    </p>
 </li><li class=" ">    <p>
@@ -231,7 +231,7 @@ You may use the <tt class=" ">if</tt> attribute in combination with the <tt clas
     <div class="section section-4 " id="35621526_AlloyStylesandThemes-ExampleusingCustomProperties">
         <h4 class="heading "><span>Example using Custom Properties</span></h4>
     <p>
-Starting with <u class=" ">Alloy 1.7.6</u>, the application can pass custom Boolean properties to the <tt class=" ">Alloy.createController()</tt> method.  These properties can be accessed by both the XML and TSS files.  When calling the <tt class=" ">createController</tt>() method, pass the custom Boolean properties in the second argument of the method.    </p>
+Starting with <u class=" ">Alloy 1.7.6</u>, the application can pass custom Boolean properties to the <tt class=" ">Alloy.createController()</tt>  method.  These properties can be accessed by both the XML and TSS files.  When calling the <tt class=" ">createController</tt>() method, pass the custom Boolean properties in the second argument of the method.    </p>
     <p>
 The controller below defines two functions that create and open an instance of the <tt class=" ">win2</tt> controller, but each function passes a different property to the controller.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
@@ -259,7 +259,7 @@ In the TSS file, add the conditional block and assign the <tt class=" ">if</tt> 
 <div class="line"><code class="plain">}</code></div>
 </div>
 </div>    <p>
-In the XML markup, add the <tt class=" ">if</tt> attribute to an element and assign it to the property passed to the <tt class=" ">createController()</tt> method.  Prefix the property name with the <tt class=" ">$.args</tt> namespace.  Based on the property passed to the method, the application displays a different label.    </p>
+In the XML markup, add the <tt class=" ">if</tt> attribute to an element and assign it to the property passed to the  <tt class=" ">createController()</tt>  method.  Prefix the property name with the  <tt class=" ">$.args</tt>  namespace.  Based on the property passed to the method, the application displays a different label.     </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="title">app/views/win2.xml</div>
 <div class="defaultnew syntaxhighlighter">
@@ -355,42 +355,139 @@ In the style file, use these conditional statements to create styles for specifi
     <div class="section section-2 " id="35621526_AlloyStylesandThemes-Themes">
         <h2 class="heading "><span>Themes</span></h2>
     <p>
-Themes provide a way to change the appearance of an entire GUI, allowing you to customize the styles and assets of the application.    </p>
+Themes provide a way to overwrite or modify files for a specific <i class=" ">brand</i> of your app.    </p>
     <p>
-To create a theme, create a folder called <tt class=" ">themes</tt> in your Alloy <tt class=" ">app</tt> directory. In the <tt class=" ">themes</tt> folder, create a folder for your theme. The name of this folder references the name of the theme for configuration and compilation. In your theme folder, create <tt class=" ">assets</tt> and <tt class=" ">styles</tt> folders for your custom images and styles, respectively. Starting with Appcelerator CLI 5.0.0 (or Alloy 1.7.6), you may also create an <tt class=" ">i18n</tt> folder to add theme-specific localization assets, a <tt class=" ">lib</tt> folder to add theme-specific CommonJS modules and a <tt class=" ">platform</tt> folder to add platform-specific assets. The example below creates a theme called 'mytheme'.    </p>
-<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
-<div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">app</code></div>
-<div class="line"><code class="plain">├── assets</code></div>
-<div class="line"><code class="plain">│   ├── appicon.png</code></div>
-<div class="line"><code class="plain">│   └── background.png</code></div>
-<div class="line"><code class="plain">├── controllers</code></div>
-<div class="line"><code class="plain">├── styles</code></div>
-<div class="line"><code class="plain">│   ├── index.tss</code></div>
-<div class="line"><code class="plain">│   └── window.tss</code></div>
-<div class="line"><code class="plain">├── themes</code></div>
-<div class="line"><code class="plain">│   └── mytheme</code></div>
-<div class="line"><code class="plain">│       ├── assets</code></div>
-<div class="line"><code class="plain">│       │   ├── appicon.png</code></div>
-<div class="line"><code class="plain">│       │   └── background.png</code></div>
-<div class="line"><code class="plain">│       └── i18n</code></div>
-<div class="line"><code class="plain">│       │   ├── en</code></div>
-<div class="line"><code class="plain">│       │   │   └── strings.xml</code></div>
-<div class="line"><code class="plain">│       │   └── es</code></div>
-<div class="line"><code class="plain">│       │       └── strings.xml</code></div>
-<div class="line"><code class="plain">│       └── styles</code></div>
-<div class="line"><code class="plain">│           ├── index.tss</code></div>
-<div class="line"><code class="plain">│           └── window.tss</code></div>
-<div class="line"><code class="plain">└── views</code></div>
-<div class="line"><code class="plain">    ├── index.xml</code></div>
-<div class="line"><code class="plain">    └── window.xml</code></div>
-</div>
-</div>    <p>
-For assets, all files are overwritten by the copies in the theme's <tt class=" ">assets</tt> folder. In the example, the <tt class=" ">background.png</tt> file in the theme overwrites the file <tt class=" ">app/assets/background.png</tt>, but the <tt class=" ">app/assets/appicon.png</tt> file is used since there is not a similar file in the theme. All asset files are copied to the Titanium project's <tt class=" ">Resources</tt> directory, so all references to assets only need to include the path after the <tt class=" ">assets</tt> folder. The theme's <tt class=" ">assets</tt> folder can have platform- and density-specific folders.    </p>
-    <p>
-For styles, styles defined in the theme's <tt class=" ">styles</tt> folder merge with and take precedence over the styles defined in <tt class=" ">app/styles</tt>. You can define individual styles per view as well as the global style file <tt class=" ">app.tss</tt>. For example, if a color was specified for a label in the <tt class=" ">themes/mythemes/app.tss</tt> file, this color overwrites the individual style files in <tt class=" ">app/styles</tt> for all labels. However, if a style was defined in one of the individual style files but not in <tt class=" ">themes/mythemes/app.tss</tt>, the styles in <tt class=" ">app/styles/</tt> are applied. The theme's <tt class=" ">styles</tt> folder can have platform-specific folders.    </p>
-    <p>
-For the <tt class=" ">string.xml</tt> localization files, the values in the <tt class=" ">./app/themes/&lt;theme_name&gt;/i18n/</tt> folder are merged with the values in the <tt class=" ">./i18n</tt> folder.  If the same keys exist in both locations, the values in the <tt class=" ">./app/themes/&lt;theme_name&gt;/i18n/</tt> are used, that is, they will override the values if present in the <tt class=" ">./i18n/</tt> folder.    </p>
+To create a theme, create a folder called <tt class=" ">themes</tt> in your Alloy <tt class=" ">app</tt> directory. In the <tt class=" ">themes</tt> folder, create a folder for your theme. The name of this folder references the name of the theme for configuration and compilation. In your theme folder you can include many of the files and folders found under the <tt class=" ">app</tt> folder to override or merge with them.    </p>
+    <div class="tablewrap">
+        <table class="confluenceTable">
+        <thead class=" ">    <tr>
+            <td class="confluenceTh" rowspan="1" colspan="1">
+        <p>
+Folder or Filename    </p>
+            </td>
+                <td class="confluenceTh" rowspan="1" colspan="1">
+        <p>
+Supported since    </p>
+            </td>
+                <td class="confluenceTh" rowspan="1" colspan="1">
+        <p>
+Overwrites or Merges    </p>
+            </td>
+        </tr>
+</thead><tfoot class=" "/><tbody class=" ">    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+config.json    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+Alloy 1.4.0    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+merges    </p>
+            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+i18n    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+Alloy 1.7.6 / CLI 5.0.0    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+merges folders and files    </p>
+            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+assets    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+merges folders, overwrites files    </p>
+            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+lib    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+Alloy 1.7.6 /  CLI 5.0.0    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+merges folders, overwrites files    </p>
+            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+platform    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+Alloy 1.7.6 /  CLI 5.0.0    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+merges folders, overwrites files    </p>
+            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+styles    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+merges folders and files    </p>
+            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+widgets/*/assets    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+Alloy 1.4.0    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+merges folders, overwrites files    </p>
+            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+widgets/*/styles    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+Alloy 1.4.0    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+merges folders, overwrites files    </p>
+            </td>
+        </tr>
+</tbody>        </table>
+            </div>
     <p>
 To use a theme, add it to your <tt class=" ">config.json</tt> configuration file with &quot;theme&quot; as the key and the name of the theme folder as the value. For example:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
@@ -467,7 +564,7 @@ Global Style File <u class=" ">in a Theme</u> with Platform-Specific Styles    <
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-<tt class=" ">themes/&lt;theme_name&gt;/styles/&lt;platform&gt;/app.tss</tt><br/><strong class=" ">OR</strong><br/><tt class=" ">themes/&lt;theme_name&gt;/styles/app.tss</tt> with the<tt class=" "> [platform=&lt;platform&gt;]</tt> syntax    </p>
+<tt class=" ">themes/&lt;theme_name&gt;/styles/&lt;platform&gt;/app.tss</tt><br/><strong class=" ">OR</strong><br/> <tt class=" ">themes/&lt;theme_name&gt;/styles/app.tss</tt> with the <tt class=" "> [platform=&lt;platform&gt;]</tt> syntax     </p>
             </td>
         </tr>
     <tr>
@@ -497,7 +594,7 @@ View-Controller Style File with Platform-Specific Styles    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-<tt class=" ">styles/&lt;platform&gt;/&lt;view_controller&gt;.tss</tt><strong class=" ">OR</strong><br/><tt class=" ">styles/&lt;view_controller&gt;.tss</tt> with the <tt class=" ">[platform=&lt;platform&gt;]</tt> syntax    </p>
+<tt class=" ">styles/&lt;platform&gt;/&lt;view_controller&gt;.tss</tt> <strong class=" ">OR</strong><br/> <tt class=" ">styles/&lt;view_controller&gt;.tss</tt> with the <tt class=" ">[platform=&lt;platform&gt;]</tt> syntax    </p>
             </td>
         </tr>
     <tr>
@@ -507,7 +604,7 @@ View-Controller Style File <u class=" ">in a Theme</u> with Platform-Specific St
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-<tt class=" ">themes/&lt;theme_name&gt;/styles/&lt;platform&gt;/&lt;view_controller&gt;.tss</tt><br/><strong class=" ">OR<br/></strong><tt class=" ">themes/&lt;theme_name&gt;/styles/&lt;view_controller&gt;.tss</tt> with the <tt class=" ">platform</tt> attribute    </p>
+<tt class=" ">themes/&lt;theme_name&gt;/styles/&lt;platform&gt;/&lt;view_controller&gt;.tss</tt><br/><strong class=" ">OR<br/> </strong> <tt class=" ">themes/&lt;theme_name&gt;/styles/&lt;view_controller&gt;.tss</tt>  with the   <tt class=" "> platform </tt>  attribute    </p>
             </td>
         </tr>
     <tr>
@@ -527,7 +624,7 @@ XML Markup with Platform-Specific Styles    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-<tt class=" ">views/&lt;platform&gt;/&lt;view_controller&gt;.xml</tt><strong class=" ">OR<br/></strong><tt class=" ">views/&lt;view_controller&gt;.xml</tt> with the <tt class=" ">platform</tt> attribute    </p>
+<tt class=" ">views/&lt;platform&gt;/&lt;view_controller&gt;.xml</tt> <strong class=" ">OR<br/> </strong> <tt class=" ">views/&lt;view_controller&gt;.xml</tt> with the <tt class=" ">platform</tt>  attribute    </p>
             </td>
         </tr>
 </tbody>        </table>
