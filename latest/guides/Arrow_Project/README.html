@@ -54,7 +54,7 @@ This Appcelerator Platform feature requires a Team or Enterprise Subscription.  
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Arrow_Project-section-43298987_ArrowProject-DefineEnvironmentVariables">Define Environment Variables</a>    </p>
 </li><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Arrow_Project-section-43298987_ArrowProject-ScaletheApplication">Scale the Application </a>    </p>
+<a class="document-link " href="#!/guide/Arrow_Project-section-43298987_ArrowProject-ScaletheApplication">Scale the Application  </a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Arrow_Project-section-43298987_ArrowProject-CustomDomains">Custom Domains</a>    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
@@ -332,7 +332,7 @@ To capture access logs, use the <tt class=" ">appc-logger</tt> module, and to ca
     <p>
 By default, when an Arrow application is initialized, it loads and creates an <tt class=" ">appc-logger</tt> instance.  The <tt class=" ">appc-logger</tt> instance is bound to the server instance, which will automatically capture access logs for the application.    </p>
     <p>
-To make log calls, use the <tt class=" ">logger</tt> property from either the Arrow instance, request object or response object to invoke <a class="external-link external-link" href="#!/api/Arrow.Logger"><tt class=" ">appc-logger</tt> APIs</a>.    </p>
+To make log calls, use the <tt class=" ">logger</tt> property from either the Arrow instance, request object or response object to invoke <a class="external-link external-link" href="#!/api/Arrow.Logger"> <tt class=" ">appc-logger</tt> APIs</a>.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var Arrow = require(</code><code class="string">'arrow'</code><code class="plain">);</code></div>
@@ -384,7 +384,7 @@ The execution time reported by the <tt class=" ">loglist</tt> and <tt class=" ">
 <div class="line"><code class="plain">[</code><code class="value">12</code><code class="plain">/</code><code class="value">11</code><code class="plain">/</code><code class="value">2013</code><code class="plain"> </code><code class="value">08</code><code class="plain">:</code><code class="value">42</code><code class="plain">:</code><code class="value">48.365</code><code class="plain">]   </code><code class="value">127.0</code><code class="plain">.</code><code class="value">0.1</code><code class="plain">   /   10075ms</code></div>
 </div>
 </div>    <p>
-And below is the corresponding <tt class=" ">loglist</tt> output.    </p>
+And below is the corresponding  <tt class=" ">loglist</tt>  output.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="value">12</code><code class="plain">/</code><code class="value">11</code><code class="plain">/</code><code class="value">2013</code><code class="plain"> </code><code class="value">16</code><code class="plain">:</code><code class="value">42</code><code class="plain">:</code><code class="value">028.139</code><code class="plain"> [INFO] [</code><code class="value">43210</code><code class="plain">] App started</code></div>
@@ -461,16 +461,16 @@ Below is a sample script located at <tt class=" ">./install.sh</tt> folder in th
 <div class="line"><code class="functions">echo</code><code class="plain"> </code><code class="string">"---"</code></div>
 </div>
 </div>    <p>
-Prior to Release 1.3.0, you could create a custom script in your project folder (no name restrictions) and add the script to the <tt class=" ">package.json</tt> file. In the <tt class=" ">package.json</tt> file, set the <tt class=" ">scripts.preinstall</tt> or <tt class=" ">scripts.postinstall</tt> field to the path to the script:    </p>
+Prior to Release 1.3.0, you needed to create a script in your project folder (no name restrictions) and add the script to the <tt class=" ">package.json</tt> file. In the  <tt class=" ">package.json</tt>  file, set the  <tt class=" ">scripts.preinstall</tt>  or <tt class=" ">scripts.postinstall</tt> field to the path to the script:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="title">package.json</div>
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">  </code><code class="string">"scripts"</code><code class="plain">: {</code></div>
-<div class="line"><code class="plain">    </code><code class="string">"preinstall"</code><code class="plain">: </code><code class="string">"install.sh"</code></div>
+<div class="line"><code class="plain">    </code><code class="string">"preinstall"</code><code class="plain">: </code><code class="string">"myscript.sh"</code></div>
 <div class="line"><code class="plain">  }</code></div>
 </div>
 </div>    <p>
-Note that from Arrow Cloud 1.3.0 and later, you can only use <tt class=" ">scripts.preinstall</tt> and <tt class=" ">scripts.postinstall</tt> method to install binaries in the project directory. Prior to Arrow Cloud 1.3.0, binaries could be installed outside the project directory.    </p>
+Note that from Arrow Cloud 1.3.0 and later, you can still do the above but don't name the script <tt class=" ">install.sh</tt> or it will run twice, and only to install binaries in the project directory. Prior to Arrow Cloud 1.3.0, binaries could be installed outside the project directory.    </p>
     </div>
     <div class="section section-2 " id="43298987_ArrowProject-DeclareDependencies">
         <h2 class="heading "><span>Declare Dependencies</span></h2>
@@ -557,7 +557,7 @@ The following example enables autoscaling, using a maximum of five servers, when
 </div>    <p>
     <span style="color: #222222;">
 You can also use the     </span>
-<tt class=" ">appc cloud config</tt>    <span style="color: #222222;">
+ <tt class=" ">appc cloud config</tt>     <span style="color: #222222;">
  command to configure autoscaling:    </span>
     </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
@@ -602,9 +602,9 @@ To route an application based on a path with the domain name, use the <tt class=
     <p>
     <span style="color: #222222;">
 The following example allows the application to be accessed from     </span>
- <tt class=" ">www.foo.com</tt>    <span style="color: #222222;">
+ <tt class=" ">www.foo.com</tt>     <span style="color: #222222;">
 :    </span>
-    <span style="color: #222222;">
+     <span style="color: #222222;">
      </span>
     </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
@@ -613,13 +613,13 @@ The following example allows the application to be accessed from     </span>
 </div>
 </div>    <p>
     <span style="color: #222222;">
-    <span style="color: #222222;">
+     <span style="color: #222222;">
 The following example allows the LegacyApp application to be accessed from      </span>
-<tt class=" ">www.foo.com/v1</tt>    <span style="color: #222222;">
+ <tt class=" ">www.foo.com/v1</tt>     <span style="color: #222222;">
  and the BrandNewApp application to be accessed from      </span>
-<tt class=" ">www.foo.com/v2</tt>    <span style="color: #222222;">
+ <tt class=" ">www.foo.com/v2</tt>     <span style="color: #222222;">
 :    </span>
-    </span>
+     </span>
     </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
@@ -919,7 +919,7 @@ Note that each container your application runs on costs a certain number of poin
 Currently, Arrow Cloud only supports applications opening one server listening port. There cannot be more than one TCP/HTTP server started in one application.    </p>
     <p>
     <span style="color: #222222;">
-<br/>    </span>
+ <br/>     </span>
     </p>
     </div>
     </div>
