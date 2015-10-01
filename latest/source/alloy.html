@@ -313,6 +313,14 @@ exports.createStyle = function(controller, opts, defaults) {
 			continue;
 		}
 
+		// process runtime custom queries
+		if (style.queries &amp;&amp; style.queries.if &amp;&amp;
+			(style.queries.if.trim().toLowerCase() === 'false' ||
+			(style.queries.if.indexOf('Alloy.Globals') !== -1 &amp;&amp;
+			Alloy.Globals[style.queries.if.split('.')[2]] === false))) {
+				continue;
+		}
+
 		// Merge this style into the existing style object
 		deepExtend(true, styleFinal, style.style);
 	}
