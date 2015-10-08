@@ -51,6 +51,8 @@
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-publisher">publisher</a>    </p>
 </li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-statusbar-hidden">statusbar-hidden</a>    </p>
+</li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-sdk-version">sdk-version</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-url">url</a>    </p>
@@ -295,7 +297,9 @@ The description of this application.    </p>
     <div class="section section-3 " id="29004921_tiapp.xmlandtimodule.xmlReference-fullscreen">
         <h3 class="heading "><span>fullscreen</span></h3>
     <p>
-Whether or not the application will start by taking up the entire screen.    </p>
+Whether or not the application will start by taking up the entire screen. Default is false.    </p>
+    <p>
+Since Release 5.0.0, on Android, the theme will be set to <tt class=" ">Theme.AppCompat.NoTitleBar.Fullscreen</tt>.    </p>
     </div>
     <div class="section section-3 " id="29004921_tiapp.xmlandtimodule.xmlReference-icon">
         <h3 class="heading "><span>icon</span></h3>
@@ -325,9 +329,9 @@ This element includes subelements of modules to include with the project.    </p
     <div class="section section-3 " id="29004921_tiapp.xmlandtimodule.xmlReference-navbar-hidden">
         <h3 class="heading "><span>navbar-hidden</span></h3>
     <p>
-Whether or not the navigation bar is hidden for this application.    </p>
+Whether or not the navigation bar is hidden for this application.  Default is false.    </p>
     <p>
-As of Release 3.3.0, due to the support for the appcompat library on Android, setting this element has no effect for Android applications.  To hide the action bar, see <a class="document-link " href="#!/guide/Android_Action_Bar-section-36735509_AndroidActionBar-HidingtheActionBar">Android Action Bar: Hiding the Action Bar</a>.    </p>
+Supported since Release 5.0.0 for Android. On Android, the theme will be set to <tt class=" ">Theme.AppCompat.NoTitleBar</tt> unless <tt class=" ">fullscreen</tt> or <tt class=" ">statusbar-hidden</tt> is set to <tt class=" ">true</tt>.    </p>
     </div>
     <div class="section section-3 " id="29004921_tiapp.xmlandtimodule.xmlReference-plugins">
         <h3 class="heading "><span>plugins</span></h3>
@@ -358,6 +362,11 @@ The publisher of this application.    </p>
 <div class="line"><code class="plain">&lt;publisher&gt;Bluth Company&lt;/publisher&gt;</code></div>
 </div>
 </div>    </div>
+    <div class="section section-3 " id="29004921_tiapp.xmlandtimodule.xmlReference-statusbar-hidden">
+        <h3 class="heading "><span>statusbar-hidden</span></h3>
+    <p>
+Only supported on Android.  Set to <tt class=" ">true</tt> to set the theme to <tt class=" ">Theme.AppCompat.NoTitleBar.Fullscreen</tt>. Default is false.    </p>
+    </div>
     <div class="section section-3 " id="29004921_tiapp.xmlandtimodule.xmlReference-sdk-version">
         <h3 class="heading "><span>sdk-version</span></h3>
     <p>
