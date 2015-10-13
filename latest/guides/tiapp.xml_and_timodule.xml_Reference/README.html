@@ -133,6 +133,8 @@
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-UnsupportedInfo.plistKeys">Unsupported Info.plist Keys</a>    </p>
 </li></ul></li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-use-autolayout">use-autolayout</a>    </p>
+</li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-LegacyiPhonesection">Legacy iPhone section</a>    </p>
 </li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-Mobile-Web-specificsection">Mobile-Web-specific section</a>    </p>
@@ -153,6 +155,8 @@
 </li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-Windows-specificsection">Windows-specific section</a>    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
+<a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-id.1">id</a>    </p>
+</li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-manifest.1">manifest</a>    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-Addcapabilities">Add capabilities</a>    </p>
@@ -1133,17 +1137,19 @@ To request a large heap size on Android 3.x and later, set the <tt class=" ">and
 Under the top <tt class=" ">&lt;ti:app&gt;</tt> element, you may optionally have iOS-specific elements.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">&lt;ios&gt;</code></div>
-<div class="line"><code class="plain">    &lt;min-sdk-ver&gt;</code><code class="value">4.5</code><code class="plain">&lt;/min-sdk-ver&gt;</code></div>
-<div class="line"><code class="plain">    &lt;extensions&gt;</code></div>
-<div class="line"><code class="plain">        ...</code></div>
-<div class="line"><code class="plain">    &lt;/extensions&gt;</code></div>
-<div class="line"><code class="plain">    &lt;plist&gt;</code></div>
-<div class="line"><code class="plain">        &lt;dict&gt;</code></div>
-<div class="line"><code class="plain">            &lt;!-- ... --&gt;</code></div>
-<div class="line"><code class="plain">        &lt;/dict&gt;</code></div>
-<div class="line"><code class="plain">    &lt;/plist&gt;</code></div>
-<div class="line"><code class="plain">&lt;/ios&gt;</code></div>
+<div class="line"><code class="plain">&lt;ti:app&gt;</code></div>
+<div class="line"><code class="plain">    &lt;ios&gt;</code></div>
+<div class="line"><code class="plain">        &lt;extensions&gt;</code></div>
+<div class="line"><code class="plain">            ...</code></div>
+<div class="line"><code class="plain">        &lt;/extensions&gt;</code></div>
+<div class="line"><code class="plain">        &lt;plist&gt;</code></div>
+<div class="line"><code class="plain">            &lt;dict&gt;</code></div>
+<div class="line"><code class="plain">                &lt;!-- ... --&gt;</code></div>
+<div class="line"><code class="plain">            &lt;/dict&gt;</code></div>
+<div class="line"><code class="plain">        &lt;/plist&gt;</code></div>
+<div class="line"><code class="plain">        &lt;use-autolayout&gt;</code><code class="keyword">true</code><code class="plain">&lt;/use-autolayout&gt;</code></div>
+<div class="line"><code class="plain">    &lt;/ios&gt;</code></div>
+<div class="line"><code class="plain">&lt;/ti:app&gt;</code></div>
 </div>
 </div>    <div class="section section-3 " id="29004921_tiapp.xmlandtimodule.xmlReference-extensions">
         <h3 class="heading "><span>extensions</span></h3>
@@ -1421,6 +1427,11 @@ CFBundleVersion    </p>
 CFBundleShortVersionString    </p>
 </li></ul>    </div>
     </div>
+    <div class="section section-3 " id="29004921_tiapp.xmlandtimodule.xmlReference-use-autolayout">
+        <h3 class="heading "><span>use-autolayout</span></h3>
+    <p>
+<strong class=" ">Since Release 5.1.0</strong>. Enables the iOS <a class="external-link external-link" href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/AutolayoutPG/index.html#//apple_ref/doc/uid/TP40010853" target="_blank">auto-layout engine</a> to layout the children components of a view.    </p>
+    </div>
     <div class="section section-3 " id="29004921_tiapp.xmlandtimodule.xmlReference-LegacyiPhonesection">
         <h3 class="heading "><span>Legacy iPhone section</span></h3>
     <p>
@@ -1523,6 +1534,13 @@ Currently, only <tt class=" ">default</tt> is supported. Do not change this valu
         <h2 class="heading "><span>Windows-specific section</span></h2>
     <p>
 Under the top <tt class=" ">&lt;ti:app&gt;</tt> element, you may optionally have a <tt class=" ">&lt;windows&gt;</tt> element that contains Windows-specific configuration settings.    </p>
+    <div class="section section-3 " id="29004921_tiapp.xmlandtimodule.xmlReference-id.1">
+        <h3 class="heading "><span>id</span></h3>
+    <p>
+<strong class=" ">Since Release 5.1.0</strong>. Set to the     <span style="color: #000000;">
+<tt class=" ">Package/Identity/Name</tt> of the application, which was generated when you created the application in the Windows Dev Center Dashboard.  Required to package the application.  Microsoft will validate this field when you submit the package to the Windows Store.    </span>
+    </p>
+    </div>
     <div class="section section-3 " id="29004921_tiapp.xmlandtimodule.xmlReference-manifest.1">
         <h3 class="heading "><span>manifest</span></h3>
     <p>
@@ -1545,6 +1563,7 @@ The following example request access to connect to the Internet if the applicati
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">&lt;ti:app&gt;</code></div>
 <div class="line"><code class="plain">  &lt;windows&gt;</code></div>
+<div class="line"><code class="plain">    &lt;id&gt;12345FooInc.FooApp&lt;/id&gt;</code></div>
 <div class="line"><code class="plain">    &lt;manifest target=</code><code class="string">"phone"</code><code class="plain">&gt;</code></div>
 <div class="line"><code class="plain">      &lt;Capabilities&gt;</code></div>
 <div class="line"><code class="plain">        &lt;DeviceCapability Name=</code><code class="string">"location"</code><code class="plain"> /&gt;</code></div>

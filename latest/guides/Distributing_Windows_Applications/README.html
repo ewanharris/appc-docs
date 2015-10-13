@@ -93,10 +93,6 @@ Open the project's <tt class=" ">tiapp.xml</tt> file.    </p>
 </li><li class=" ">    <p>
 Locate the &lt;name&gt; element.  The node text of the element must match the name of the application in the Windows Dev Center.    </p>
 </li><li class=" ">    <p>
-Locate the &lt;id&gt; element.  The node text of the element must match the     <span style="color: #000000;">
-<tt class=" ">Package/Identity/Name</tt> of the application, which was generated when you created the application in the Windows Dev Center Dashboard.    </span>
-    </p>
-</li><li class=" ">    <p>
 Locate the <tt class=" ">&lt;publisher&gt;</tt>    <span style="color: #000000;">
  element.  The node text of the element must match the     </span>
     <span style="color: #000000;">
@@ -106,7 +102,26 @@ Locate the <tt class=" ">&lt;publisher&gt;</tt>    <span style="color: #000000;"
 Locate the <tt class=" ">&lt;property name=&quot;ti.windows.publishername&quot;&gt;</tt> element.  If you do not have the element in your <tt class=" ">tiapp.xml</tt> file, add it. The node text for the element must match the<i class=" "> Windows publisher ID</i> of your Microsoft Developer account (or the     <span style="color: #000000;">
 Package/Identity/Publisher of the application)    </span>
 .    </p>
+</li><li class=" ">    <p>
+Add the <tt class=" ">&lt;id&gt;</tt> element to the <tt class=" ">&lt;windows&gt;</tt> element.  The node text of the element must match the     <span style="color: #000000;">
+<tt class=" ">Package/Identity/Name</tt> of the application, which was generated when you created the application in the Windows Dev Center Dashboard.    </span>
+    </p>
 </li></ol>    <p>
+    </p>
+    <div class="confbox admonition admonition-note aui-message warning shadowed information-macro">
+            <div class="title">Prior to Release 5.1.0</div>
+        
+    <p>
+Prior to Release 5.1.0, set the     <span style="color: #000000;">
+<tt class=" ">Package/Identity/Name</tt> of the application to the <tt class=" ">&lt;id&gt;</tt> element under the <tt class=" ">&lt;ti:app&gt;</tt> element rather than the <tt class=" ">&lt;windows&gt;</tt> element.    </span>
+    </p>
+    </div>
+    
+    <p>
+    <span style="color: #000000;">
+<br/>    </span>
+    </p>
+    <p>
 <strong class=" ">To retrieve your Windows publisher ID and Publisher display name:</strong>    </p>
 <ol class=" "><li class=" ">    <p>
 Log into <a class="external-link external-link" href="https://dev.windows.com/" target="_blank">https://dev.windows.com</a>.    </p>
@@ -145,9 +160,14 @@ Expand <strong class=" ">App management</strong> and click <strong class=" ">App
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">&lt;ti:app&gt;</code></div>
 <div class="line"><code class="plain">  &lt;name&gt;FooApp&lt;/name&gt;</code></div>
-<div class="line"><code class="plain">  &lt;id&gt;12345FooInc.FooApp&lt;/id&gt;</code></div>
+<div class="line"><code class="plain">  &lt;!-- Prior to Release </code><code class="value">5.1</code><code class="plain">.</code><code class="value">0</code><code class="plain">, set the Package/Identity/Name of the application to the top-level id element --&gt;</code></div>
+<div class="line"><code class="plain">  &lt;!-- &lt;id&gt;12345FooInc.FooApp&lt;/id&gt; --&gt;</code></div>
 <div class="line"><code class="plain">  &lt;publisher&gt;FooInc&lt;/publisher&gt;</code></div>
 <div class="line"><code class="plain">  &lt;property name=</code><code class="string">"ti.windows.publishername"</code><code class="plain">&gt;CN=</code><code class="value">11111111</code><code class="plain">-</code><code class="value">2222</code><code class="plain">-</code><code class="value">3333</code><code class="plain">-</code><code class="value">4444</code><code class="plain">-</code><code class="value">555555555555</code><code class="plain">&lt;/property&gt;</code></div>
+<div class="line"><code class="plain">  &lt;windows&gt;</code></div>
+<div class="line"><code class="plain">    &lt;!-- Since Release </code><code class="value">5.1</code><code class="plain">.</code><code class="value">0</code><code class="plain">, set the Package/Identity/Name of the application to the windows id element --&gt;</code></div>
+<div class="line"><code class="plain">    &lt;id&gt;12345FooInc.FooApp&lt;/id&gt;</code></div>
+<div class="line"><code class="plain">  &lt;/windows&gt;</code></div>
 <div class="line"><code class="plain">&lt;/ti:app&gt;</code></div>
 </div>
 </div>    <p>
