@@ -237,7 +237,7 @@ On iOS, you can retrieve density-specific images from a remote URL as well. You 
             <div class="title">Asset Catalog</div>
         
     <p>
-Starting with Release 5.1.0, PNG and JPEG images following this naming convention will be added to an Asset Catalog to support App Thinning. When a user installs the application to their device, only the relevant images will be included.    </p>
+Starting with Release 5.1.0, PNG and JPEG images following this naming convention will be added to an Asset Catalog to support App Thinning. When a user installs the application to their device, only the relevant images will be included. Note that you will not be able to access images added to the Asset Catalog from the filesystem, that is, you cannot use the <tt class=" ">Ti.Filesystem</tt> APIs or equivalent to access the files with a URL or path.    </p>
     </div>
     
     </div>

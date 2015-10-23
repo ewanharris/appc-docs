@@ -70,6 +70,8 @@
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-appc-security-debugger-detect">appc-security-debugger-detect</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-appc-sourcecode-encryption-policy">appc-sourcecode-encryption-policy</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-use-app-thinning">use-app-thinning</a>    </p>
 </li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-Android-specificsection">Android-specific section</a>    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
@@ -510,6 +512,18 @@ The special property <tt class=" ">appc-sourcecode-encryption-policy</tt> determ
 <div class="line"><code class="plain">&lt;property name=</code><code class="string">"appc-sourcecode-encryption-policy"</code><code class="plain">&gt;remote&lt;/property&gt;</code></div>
 </div>
 </div>    </div>
+    <div class="section section-3 " id="29004921_tiapp.xmlandtimodule.xmlReference-use-app-thinning">
+        <h3 class="heading "><span>use-app-thinning</span></h3>
+    <p>
+<strong class=" ">Since Release 5.1.0</strong>. Determines whether to enable App Thinning for iOS applications by using an Asset Catalog.  Enabled by default. An Asset Catalog contains image assets for specific devices. When a user installs your application, only the resources that your device supports will be downloaded.    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">&lt;!-- Disable App Thinning --&gt;</code></div>
+<div class="line"><code class="plain">&lt;property name=</code><code class="string">"use-app-thinning"</code><code class="plain">&gt;</code><code class="keyword">false</code><code class="plain">&lt;/property&gt;</code></div>
+</div>
+</div>    <p>
+    </p>
+    </div>
     </div>
     <div class="section section-2 " id="29004921_tiapp.xmlandtimodule.xmlReference-Android-specificsection">
         <h2 class="heading "><span>Android-specific section</span></h2>
