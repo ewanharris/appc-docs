@@ -1437,6 +1437,19 @@ CFBundleShortVersionString    </p>
         <h3 class="heading "><span>run-on-main-thread</span></h3>
     <p>
 <strong class=" ">Since Release 5.1.0</strong>. Enables running all JavaScript scripts on the main thread as opposed to a secondary thread.  Disabled by default.    </p>
+    <div class="confbox admonition admonition-warning aui-message problem shadowed information-macro">
+            <div class="title">Experimental Feature</div>
+        
+    <p>
+This is an experimental feature with known issues:    </p>
+<ul class=" "><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-19762" target="_blank">TIMOB-19762</a>    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-19760" target="_blank">TIMOB-19760</a>    </p>
+</li></ul>    <p>
+If you encounter any issue using this feature, file a bug in <a class="external-link external-link" href="https://jira.appcelerator.org" target="_blank">JIRA</a>.    </p>
+    </div>
+    
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">&lt;ti:app&gt;</code></div>
@@ -1451,7 +1464,14 @@ CFBundleShortVersionString    </p>
     <div class="section section-3 " id="29004921_tiapp.xmlandtimodule.xmlReference-use-app-thinning">
         <h3 class="heading "><span>use-app-thinning</span></h3>
     <p>
-<strong class=" ">Since Release 5.1.0</strong>. Determines whether to enable App Thinning for iOS applications by using an Asset Catalog.  An Asset Catalog contains image assets for specific devices. When a user installs your application, only the resources that your device supports will be downloaded. Disabled by default.  The element is automatically added to new projects since Release 5.1.0.    </p>
+<strong class=" ">Since Release 5.1.0</strong>. Determines whether to enable App Thinning for iOS applications by using an Asset Catalog.  An Asset Catalog contains image assets for specific devices. When a user installs your application, only the resources that your device supports will be downloaded. The element is automatically added to new projects since Release 5.1.0. For details, see <a class="document-link " href="#!/guide/App_Thinning-section-46007568_AppThinning-Slicing">App Thinning: Slicing</a>.    </p>
+    <div class="confbox admonition admonition-note aui-message warning shadowed information-macro">
+            <div class="title">Filesystem Access</div>
+        
+    <p>
+Because images are store in the Asset Catalog, image files cannot be accessed from the filesystem using the <tt class=" ">Ti.Filesystem</tt> APIs and any equivalent functionality.    </p>
+    </div>
+    
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">&lt;ti:app&gt;</code></div>
@@ -1465,6 +1485,23 @@ CFBundleShortVersionString    </p>
         <h3 class="heading "><span>use-autolayout</span></h3>
     <p>
 <strong class=" ">Since Release 5.1.0</strong>. Enables the iOS <a class="external-link external-link" href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/AutolayoutPG/index.html#//apple_ref/doc/uid/TP40010853" target="_blank">auto-layout engine</a> to layout the children components of a view. Disabled by default.    </p>
+    <div class="confbox admonition admonition-warning aui-message problem shadowed information-macro">
+            <div class="title">Experimental Feature</div>
+        
+    <p>
+This is an experimental feature with known issues:    </p>
+<ul class=" "><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-19808" target="_blank">TIMOB-19808</a>    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-19807" target="_blank">TIMOB-19807</a>    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-19806" target="_blank">TIMOB-19806</a>    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-19805" target="_blank">TIMOB-19805</a>    </p>
+</li></ul>    <p>
+If you find any issue using this feature, file a bug in <a class="external-link external-link" href="https://jira.appcelerator.org/" target="_blank">JIRA</a>.    </p>
+    </div>
+    
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">&lt;ti:app&gt;</code></div>
