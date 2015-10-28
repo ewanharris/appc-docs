@@ -52,16 +52,17 @@ Starting with Release 5.0.0, icons and launch images are added to the Asset Cata
     <p>
 Starting with application created in Release 5.1.0, by default, the Titanium SDK automatically adds PNG and JPEG images that have a corresponding display suffix (<tt class=" ">@2x</tt> or <tt class=" ">@3x</tt>).  If an image does not have a corresponding image with a display suffix, it will not be added to the Asset Catalog.  For details, see <a class="document-link " href="#!/guide/Images_and_ImageView_APIs">Images and ImageView APIs</a>. Because of this change, you cannot access these images from the filesystem, that is, you cannot access the file using its path or URL with the <tt class=" ">Ti.Filesystem</tt> API or equivalent.    </p>
     <p>
-To disable slicing, set the <tt class=" ">use-app-thinning</tt> property to <tt class=" ">false</tt> in the <tt class=" ">tiapp.xml</tt> file.    </p>
+To enable slicing, add the <tt class=" ">use-app-thinning</tt> element to the <tt class=" ">ios</tt> element in the <tt class=" ">tiapp.xml</tt> file and set it to true. The element is automatically added to new projects created since Release 5.1.0.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="title">tiapp.xml</div>
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">&lt;ti:app&gt;</code></div>
-<div class="line"><code class="plain">  &lt;property name=</code><code class="string">"use-app-thinning"</code><code class="plain">&gt;</code><code class="keyword">false</code><code class="plain">&lt;/property&gt;</code></div>
+<div class="line"><code class="plain">  &lt;ios&gt;</code></div>
+<div class="line"><code class="plain">    &lt;use-app-thinning&gt;</code><code class="keyword">true</code><code class="plain">&lt;/use-app-thinning&gt;</code></div>
+<div class="line"><code class="plain">  &lt;/ios&gt;</code></div>
 <div class="line"><code class="plain">&lt;/ti:app&gt;</code></div>
 </div>
-</div>    <p>
-For applications created before Release 5.1.0, App Thinning is disabled.  You need to enable App Thinning by setting the <tt class=" ">use-app-thinning</tt> property to <tt class=" ">true</tt>.    </p>
-    </div>
+</div>    </div>
     <div class="section section-2 " id="46007568_AppThinning-Bitcode">
         <h2 class="heading "><span>Bitcode</span></h2>
     <p>

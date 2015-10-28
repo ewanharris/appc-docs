@@ -70,8 +70,6 @@
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-appc-security-debugger-detect">appc-security-debugger-detect</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-appc-sourcecode-encryption-policy">appc-sourcecode-encryption-policy</a>    </p>
-</li><li class=" ">    <p>
-<a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-use-app-thinning">use-app-thinning</a>    </p>
 </li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-Android-specificsection">Android-specific section</a>    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
@@ -135,7 +133,13 @@
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-UnsupportedInfo.plistKeys">Unsupported Info.plist Keys</a>    </p>
 </li></ul></li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-run-on-main-thread">run-on-main-thread</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-use-app-thinning">use-app-thinning</a>    </p>
+</li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-use-autolayout">use-autolayout</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-use-jscore-framework">use-jscore-framework</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-LegacyiPhonesection">Legacy iPhone section</a>    </p>
 </li></ul></li><li class=" ">    <p>
@@ -512,18 +516,6 @@ The special property <tt class=" ">appc-sourcecode-encryption-policy</tt> determ
 <div class="line"><code class="plain">&lt;property name=</code><code class="string">"appc-sourcecode-encryption-policy"</code><code class="plain">&gt;remote&lt;/property&gt;</code></div>
 </div>
 </div>    </div>
-    <div class="section section-3 " id="29004921_tiapp.xmlandtimodule.xmlReference-use-app-thinning">
-        <h3 class="heading "><span>use-app-thinning</span></h3>
-    <p>
-<strong class=" ">Since Release 5.1.0</strong>. Determines whether to enable App Thinning for iOS applications by using an Asset Catalog.  An Asset Catalog contains image assets for specific devices. When a user installs your application, only the resources that your device supports will be downloaded.    </p>
-<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
-<div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">&lt;!-- Disable App Thinning --&gt;</code></div>
-<div class="line"><code class="plain">&lt;property name=</code><code class="string">"use-app-thinning"</code><code class="plain">&gt;</code><code class="keyword">false</code><code class="plain">&lt;/property&gt;</code></div>
-</div>
-</div>    <p>
-    </p>
-    </div>
     </div>
     <div class="section section-2 " id="29004921_tiapp.xmlandtimodule.xmlReference-Android-specificsection">
         <h2 class="heading "><span>Android-specific section</span></h2>
@@ -1441,10 +1433,61 @@ CFBundleVersion    </p>
 CFBundleShortVersionString    </p>
 </li></ul>    </div>
     </div>
+    <div class="section section-3 " id="29004921_tiapp.xmlandtimodule.xmlReference-run-on-main-thread">
+        <h3 class="heading "><span>run-on-main-thread</span></h3>
+    <p>
+<strong class=" ">Since Release 5.1.0</strong>. Enables running all JavaScript scripts on the main thread as opposed to a secondary thread.  Disabled by default.    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">&lt;ti:app&gt;</code></div>
+<div class="line"><code class="plain">  &lt;ios&gt;</code></div>
+<div class="line"><code class="plain">    &lt;run-on-main-thread&gt;</code><code class="keyword">true</code><code class="plain">&lt;/run-on-main-thread&gt;</code></div>
+<div class="line"><code class="plain">  &lt;/ios&gt;</code></div>
+<div class="line"><code class="plain">&lt;/ti:app&gt;</code></div>
+</div>
+</div>    <p>
+    </p>
+    </div>
+    <div class="section section-3 " id="29004921_tiapp.xmlandtimodule.xmlReference-use-app-thinning">
+        <h3 class="heading "><span>use-app-thinning</span></h3>
+    <p>
+<strong class=" ">Since Release 5.1.0</strong>. Determines whether to enable App Thinning for iOS applications by using an Asset Catalog.  An Asset Catalog contains image assets for specific devices. When a user installs your application, only the resources that your device supports will be downloaded. Disabled by default.  The element is automatically added to new projects since Release 5.1.0.    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">&lt;ti:app&gt;</code></div>
+<div class="line"><code class="plain">  &lt;ios&gt;</code></div>
+<div class="line"><code class="plain">    &lt;property name=</code><code class="string">"use-app-thinning"</code><code class="plain">&gt;</code><code class="keyword">true</code><code class="plain">&lt;/property&gt;</code></div>
+<div class="line"><code class="plain">  &lt;/ios&gt;</code></div>
+<div class="line"><code class="plain">&lt;/ti:app&gt;</code></div>
+</div>
+</div>    </div>
     <div class="section section-3 " id="29004921_tiapp.xmlandtimodule.xmlReference-use-autolayout">
         <h3 class="heading "><span>use-autolayout</span></h3>
     <p>
-<strong class=" ">Since Release 5.1.0</strong>. Enables the iOS <a class="external-link external-link" href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/AutolayoutPG/index.html#//apple_ref/doc/uid/TP40010853" target="_blank">auto-layout engine</a> to layout the children components of a view.    </p>
+<strong class=" ">Since Release 5.1.0</strong>. Enables the iOS <a class="external-link external-link" href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/AutolayoutPG/index.html#//apple_ref/doc/uid/TP40010853" target="_blank">auto-layout engine</a> to layout the children components of a view. Disabled by default.    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">&lt;ti:app&gt;</code></div>
+<div class="line"><code class="plain">  &lt;ios&gt;</code></div>
+<div class="line"><code class="plain">    &lt;use-autolayout&gt;</code><code class="keyword">true</code><code class="plain">&lt;/use-autolayout&gt;</code></div>
+<div class="line"><code class="plain">  &lt;/ios&gt;</code></div>
+<div class="line"><code class="plain">&lt;/ti:app&gt;</code></div>
+</div>
+</div>    </div>
+    <div class="section section-3 " id="29004921_tiapp.xmlandtimodule.xmlReference-use-jscore-framework">
+        <h3 class="heading "><span>use-jscore-framework</span></h3>
+    <p>
+<strong class=" ">Since Release 4.1.0</strong>. Use the built-in JavaScriptCore framework rather than the custom Titanium one.    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">&lt;ti:app&gt;</code></div>
+<div class="line"><code class="plain">  &lt;ios&gt;</code></div>
+<div class="line"><code class="plain">    &lt;use-jscore-framework&gt;</code><code class="keyword">true</code><code class="plain">&lt;/use-jscore-framework&gt;</code></div>
+<div class="line"><code class="plain">  &lt;/ios&gt;</code></div>
+<div class="line"><code class="plain">&lt;/ti:app&gt;</code></div>
+</div>
+</div>    <p>
+    </p>
     </div>
     <div class="section section-3 " id="29004921_tiapp.xmlandtimodule.xmlReference-LegacyiPhonesection">
         <h3 class="heading "><span>Legacy iPhone section</span></h3>
