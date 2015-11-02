@@ -46,16 +46,16 @@ When running into issues with the Appcelerator CLI, there are some simple steps 
     <div class="section section-2 " id="43299941_AppceleratorCLITroubleshooting-SubmittingaBug">
         <h2 class="heading "><span>Submitting a Bug</span></h2>
     <p>
-Refer to <a class="document-link " href="#!/guide/Reporting_Bugs_or_Requesting_Features">Reporting Bugs or Requesting Features</a> for more information. Check JIRA first as the issue may already have been reported with a fix or workaround. When submitting a bug, it is often helpful to provide a stack trace. You can do so by running the CLI with an extra parameter of DEBUG=* before the regular command and a trace flag after the regular command. For example:    </p>
+Refer to <a class="document-link " href="#!/guide/Reporting_Bugs_or_Requesting_Features">Reporting Bugs or Requesting Features</a> for more information. Check JIRA first as the issue may already have been reported with a fix or workaround. When submitting a bug, it is often helpful to provide a stack trace. You can do so by running the CLI with an extra parameter of DEBUG=* before the regular command and a trace flag after the regular command. For example (replace &lt;command. with the actual command):    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="title">OS X/Linux</div>
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">DEBUG=* appc use -l trace</code></div>
+<div class="line"><code class="plain">DEBUG=* appc &lt;</code><code class="functions">command</code><code class="plain">&gt; -l trace</code></div>
 </div>
 </div><div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="title">Windows</div>
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">cmd </code><code class="plain">/C</code><code class="plain"> </code><code class="string">"set DEBUG=* &amp;&amp; appc use -l trace"</code></div>
+<div class="line"><code class="plain">cmd </code><code class="plain">/C</code><code class="plain"> </code><code class="string">"set DEBUG=* &amp;&amp; appc &lt;command&gt; -l trace"</code></div>
 </div>
 </div>    <p>
 Another useful piece of information is which version of Node you are running and which <strong class=" ">versions</strong> of the Appc CLI you are using. Here are some useful commands to get the Appc CLI versions:    </p>
