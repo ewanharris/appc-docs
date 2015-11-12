@@ -101,12 +101,6 @@
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-Enablingthedebuggerbydefault">Enabling the debugger by default</a>    </p>
 </li><li class=" ">    <p>
-<a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-Settingcalendarpermissions">Setting calendar permissions</a>    </p>
-</li><li class=" ">    <p>
-<a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-Settingcontactspermissions">Setting contacts permissions</a>    </p>
-</li><li class=" ">    <p>
-<a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-Settingcamerapermissions">Setting camera permissions</a>    </p>
-</li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-Settinginstalllocationpreferences">Setting install location preferences</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-RequestingalargeheapfromDalvik">Requesting a large heap from Dalvik</a>    </p>
@@ -1083,47 +1077,6 @@ To make the app <tt class=" ">debuggable</tt> by default, set the <tt class=" ">
 <div class="line"><code class="plain">&lt;android xmlns:android=</code><code class="string">"http://schemas.android.com/apk/res/android"</code><code class="plain">&gt;</code></div>
 <div class="line"><code class="plain">    &lt;manifest&gt;</code></div>
 <div class="line"><code class="plain">        &lt;application android:debuggable=</code><code class="string">"true"</code><code class="plain"> /&gt;</code></div>
-<div class="line"><code class="plain">    &lt;/manifest&gt;</code></div>
-<div class="line"><code class="plain">&lt;/android&gt;</code></div>
-</div>
-</div>    </div>
-    <div class="section section-4 " id="29004921_tiapp.xmlandtimodule.xmlReference-Settingcalendarpermissions">
-        <h4 class="heading "><span>Setting calendar permissions</span></h4>
-    <p>
-To allow the application to access the user's calendar data, add a <tt class=" ">uses-permission</tt> element for both <tt class=" ">android.permission.READ_CALENDAR</tt> and <tt class=" ">android.permission.WRITE_CALENDAR</tt>:    </p>
-<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
-<div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">&lt;android xmlns:android=</code><code class="string">"http://schemas.android.com/apk/res/android"</code><code class="plain">&gt;</code></div>
-<div class="line"><code class="plain">    &lt;manifest&gt;</code></div>
-<div class="line"><code class="plain">        &lt;uses-permission android:name=</code><code class="string">"android.permission.READ_CALENDAR"</code><code class="plain"> /&gt;</code></div>
-<div class="line"><code class="plain">        &lt;uses-permission android:name=</code><code class="string">"android.permission.WRITE_CALENDAR"</code><code class="plain"> /&gt;</code></div>
-<div class="line"><code class="plain">    &lt;/manifest&gt;</code></div>
-<div class="line"><code class="plain">&lt;/android&gt;</code></div>
-</div>
-</div>    </div>
-    <div class="section section-4 " id="29004921_tiapp.xmlandtimodule.xmlReference-Settingcontactspermissions">
-        <h4 class="heading "><span>Setting contacts permissions</span></h4>
-    <p>
-To allow the application to access the user's contacts data, add a <tt class=" ">uses-permission</tt> element for both <tt class=" ">android.permission.READ_CONTACTS</tt> and <tt class=" ">android.permission.WRITE_CONTACTS</tt>:    </p>
-<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
-<div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">&lt;android xmlns:android=</code><code class="string">"http://schemas.android.com/apk/res/android"</code><code class="plain">&gt;</code></div>
-<div class="line"><code class="plain">    &lt;manifest&gt;</code></div>
-<div class="line"><code class="plain">        &lt;uses-permission android:name=</code><code class="string">"android.permission.READ_CONTACTS"</code><code class="plain"> /&gt;</code></div>
-<div class="line"><code class="plain">        &lt;uses-permission android:name=</code><code class="string">"android.permission.WRITE_CONTACTS"</code><code class="plain"> /&gt;</code></div>
-<div class="line"><code class="plain">    &lt;/manifest&gt;</code></div>
-<div class="line"><code class="plain">&lt;/android&gt;</code></div>
-</div>
-</div>    </div>
-    <div class="section section-4 " id="29004921_tiapp.xmlandtimodule.xmlReference-Settingcamerapermissions">
-        <h4 class="heading "><span>Setting camera permissions</span></h4>
-    <p>
-To allow the application to access the user's camera, add a <tt class=" ">uses-permission</tt> element for <tt class=" ">android.permission.CAMERA</tt>:    </p>
-<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
-<div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">&lt;android xmlns:android=</code><code class="string">"http://schemas.android.com/apk/res/android"</code><code class="plain">&gt;</code></div>
-<div class="line"><code class="plain">    &lt;manifest&gt;</code></div>
-<div class="line"><code class="plain">        &lt;uses-permission android:name=</code><code class="string">"android.permission.CAMERA"</code><code class="plain"> /&gt;</code></div>
 <div class="line"><code class="plain">    &lt;/manifest&gt;</code></div>
 <div class="line"><code class="plain">&lt;/android&gt;</code></div>
 </div>
