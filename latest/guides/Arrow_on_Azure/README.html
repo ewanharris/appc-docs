@@ -41,14 +41,14 @@ There's a lot <a class="external-link external-link" href="#!/guide/Arrow_Builde
 <ol class=" "><li class=" ">    <p>
 <a class="external-link external-link" href="http://www.appcelerator.com/ArrowOnAzure" target="_blank">Sign up</a> for an Azure account    </p>
 </li><li class=" ">    <p>
-Create the Arrow VM from the Azure marketplace. <strong class=" ">NOTE: You must create a VM in the &quot;classic&quot; area of Azure. </strong>    </p>
+Create the Arrow VM from the Azure marketplace.    </p>
 </li><li class=" ">    <p>
 Ensure port endpoints 80, 8080, and 443 are open (They should already be). <a class="external-link external-link" href="https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-set-up-endpoints/" target="_blank">Instructions here.</a>    </p>
 </li></ol>    </div>
-    <div class="section section-2 " id="46236168_ArrowonAzure-RunningtheServer">
-        <h2 class="heading "><span>Running the Server</span></h2>
+    <div class="section section-2 " id="46236168_ArrowonAzure-RunningthePublishingServer">
+        <h2 class="heading "><span>Running the Publishing Server</span></h2>
     <p>
-The VM Arrow is installed on is a normal Ubuntu 14.04 linux server.  You can use it like you would any Ubuntu server.  One important thing to note: To start / stop the Arrow publishing features manually, there is an <i class=" ">init.d/arrowd</i> script that can be run.  e.g.  <i class=" ">`sudo /etc/init.d/arrowd start`</i> will start the publishing server on your VM, so you can easily publish your arrow app to it.    </p>
+The Arrow VM is installed on a normal Ubuntu 14.04 linux server.  You can use it like you would any Ubuntu server.  One important thing to note: To start / stop the Arrow publishing features manually, there is an <i class=" ">init.d/arrowd</i> script that can be run.  e.g.  <i class=" ">`sudo /etc/init.d/arrowd start`</i> will start the publishing server on your VM, so you can easily publish your arrow app to it.  The publishing service allows you to easily publish your app to the VM without having to jump on your VM and manually install the Arrow and app and run it.  Because this is in the init.d directory, it should auto-start the publishing service automatically.    </p>
     </div>
     <div class="section section-2 " id="46236168_ArrowonAzure-Publishing">
         <h2 class="heading "><span>Publishing</span></h2>
