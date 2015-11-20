@@ -52,6 +52,12 @@
 <a class="document-link " href="#!/guide/Titanium_SDK_Release_Notes-section-43316487_TitaniumSDKReleaseNotes-CameraandFilesystemPermissions">Camera and Filesystem Permissions</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Titanium_SDK_Release_Notes-section-43316487_TitaniumSDKReleaseNotes-HTTPClientPATCHMethodfor5.x.x">HTTPClient PATCH Method for 5.x.x</a>    </p>
+</li></ul></li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Titanium_SDK_Release_Notes-section-43316487_TitaniumSDKReleaseNotes-iOS">iOS</a>    </p>
+<ul class="toc-indentation "><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Titanium_SDK_Release_Notes-section-43316487_TitaniumSDKReleaseNotes-iOSandDefaultIcon.pngWithAlphaChannels">iOS and DefaultIcon.png With Alpha Channels</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Titanium_SDK_Release_Notes-section-43316487_TitaniumSDKReleaseNotes-HandoffAPI">Handoff API</a>    </p>
 </li></ul></li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Titanium_SDK_Release_Notes-section-43316487_TitaniumSDKReleaseNotes-APIChanges">API Changes</a>    </p>
 </li></ul>    </div>
@@ -88,6 +94,14 @@ Fixed memory leak from imageAsResize function.    </p>
 LiveView doesn't throw errors if action bar is implemented in the app.    </p>
     <p>
 HTTPClient allows contentType that is unspecified in the response.    </p>
+    <p>
+General bug fixes for HTTPClient.    </p>
+    <p>
+HTTPClient now POSTs form data file correctly.    </p>
+    <p>
+Starting app TiMap module no longer crashes app.    </p>
+    <p>
+    </p>
     </div>
     <div class="section section-3 " id="43316487_TitaniumSDKReleaseNotes-iOSPlatform.1">
         <h3 class="heading "><span>iOS Platform</span></h3>
@@ -119,6 +133,18 @@ Making changes to a newly build app now shows updates in iOS simulations.    </p
 Setting setshowUndoRedoActions to true after creation no longer crashes app.    </p>
     <p>
 Suppressed missing UIBackgroundModes for &quot;fetch&quot; and &quot;remote-notification&quot; warnings.    </p>
+    <p>
+Changing DefaultIcon.png is now reflected in subsequent builds.    </p>
+    <p>
+ListView with infinite scrolling load times for images improved and should not fail to load.    </p>
+    <p>
+Ti.UI.iOS.ApplicationShortcuts.addDynamicShortcut icon now accepts custom images.    </p>
+    <p>
+iOS 8.4 simulator is stable when using 5.1.0 CI when implementing Ti.UI.iOS.ApplicationShortcuts.    </p>
+    <p>
+Creating a contact with a custom label on iPhone 6S Plus should return the proper contact information.    </p>
+    <p>
+Fixed an issue where table views have unexpected margins in iOS9.    </p>
     <p>
     </p>
     <p>
@@ -173,6 +199,31 @@ If both filesystem and camera are granted permission, the app performs as normal
         <h4 class="heading "><span>HTTPClient PATCH Method for 5.x.x</span></h4>
     <p>
 We don't officially support PATCH method but we do offer a workaround of OkHTTPClient.    </p>
+    </div>
+    </div>
+    <div class="section section-3 " id="43316487_TitaniumSDKReleaseNotes-iOS">
+        <h3 class="heading "><span>iOS</span></h3>
+    <div class="section section-4 " id="43316487_TitaniumSDKReleaseNotes-iOSandDefaultIcon.pngWithAlphaChannels">
+        <h4 class="heading "><span>iOS and DefaultIcon.png With Alpha Channels</span></h4>
+    <p>
+Apple does not accept app icons with alpha channels. Ti developers must either not use alpha channels in their DefaultIcon.png across all platforms or suffix this file with the platform name (e.g. DefaultIcon-ios.png, DefaultIcon-iphone.png, etc.).    </p>
+    <p>
+    </p>
+    <div class="confbox admonition admonition-warning aui-message problem shadowed information-macro">
+        
+    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-19753" target="_blank">https://jira.appcelerator.org/browse/TIMOB-19753</a>    <h4 id="43316487_TitaniumSDKReleaseNotes-HandoffAPI" class="heading "><span>Handoff API</span></h4>
+    </p>
+    <p>
+If Handoff API is used but its functionality isn't, Apple will reject your app. To fix this, enable the Handoff features via the tiapp.xml property.    </p>
+    </div>
+    
+    <p>
+    </p>
+    <p>
+    </p>
+    <p>
+    </p>
     </div>
     </div>
     </div>
