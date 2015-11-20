@@ -18,10 +18,72 @@
 
         <div id="40929417" class="content">
             <h1>Studio Release Notes</h1>
-    <div class="section section-2 " id="40929417_StudioReleaseNotes-Studio4.4.0Beta">
-        <h2 class="heading "><span>Studio 4.4.0 Beta</span></h2>
+    <div class="section section-2 " id="40929417_StudioReleaseNotes-Studio4.4.0">
+        <h2 class="heading "><span>Studio 4.4.0</span></h2>
     <p>
 Studio 4.4.0 is a minor release that includes new features, improvements and bug fixes. See the <a class="external-link external-link" href="https://jira.appcelerator.org/issues/?filter=17008" target="_blank">full list of issues address in Release 4.4.0</a>.    </p>
+    <div class="section section-3 " id="40929417_StudioReleaseNotes-NewFeaturesandImprovements">
+        <h3 class="heading "><span>New Features and Improvements</span></h3>
+<ul class=" "><li class=" ">    <p>
+You can set environment variable for all commands going to CLI before invocation.    </p>
+</li><li class=" ">    <p>
+For the Package on Android App Store, the SDK version drop-down list has been removed. Best practices for Android specify that you should use the latest API tools available, setting compatibility targets with your tiapp.xml. For this reason, as of version 3.2, the CLI uses the newest version of the Android SDK installed.    </p>
+</li><li class=" ">    <p>
+Studio login now has an option to remember your username.    </p>
+</li><li class=" ">    <p>
+Consolidated Titanium and Titanium360 users.    </p>
+</li><li class=" ">    <p>
+Updated go.appcelerator.com with the new Node.js version (4.2.2).    </p>
+</li><li class=" ">    <p>
+Appcelerator Studio Windows Installer now installs NodeJS 4.2.2 on a clean machine.    </p>
+</li></ul>    </div>
+    <div class="section section-3 " id="40929417_StudioReleaseNotes-FixedIssues">
+        <h3 class="heading "><span>Fixed Issues</span></h3>
+<ul class=" "><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TISTUD-7431" target="_blank">TISTUD-7431</a>: &quot;user profile&quot; link in &quot;New Mobile App Project&quot; wizard directs to wrong URL when signed out on studio dashboard    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TISTUD-7620" target="_blank">TISTUD-7620</a>: Studio account session expires in 24h    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TISTUD-7712" target="_blank">TISTUD-7712</a>: After you terminate a build process and close Studio, orphaned node processes will linger    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TISTUD-7762" target="_blank">TISTUD-7762</a>: Studio unable to update if OSX (El Capitan) logon using iCloud Account    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TISTUD-7799" target="_blank">TISTUD-7799</a>: Error connecting to profiler and debugger: Error Domain=NSPOSIXErrorDomain Code=2 &quot;No such file or directory&quot;    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TISTUD-7804" target="_blank">TISTUD-7804</a>: Cannot open Studio after clean install    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TISTUD-7485" target="_blank">TISTUD-7485</a>: Studio logged in user name shows wrong in status bar    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TISTUD-7743" target="_blank">TISTUD-7743</a>: Studio hangs in Verifying state during startup    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TISTUD-7750" target="_blank">TISTUD-7750</a>: LiveView does not work on incremental builds: Failed to copy app to device    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TISTUD-7779" target="_blank">TISTUD-7779</a>: If you have Node 0.10.X installed, you cannot log into Studio 4.4.0    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TISTUD-7783" target="_blank">TISTUD-7783</a>: When you create new project, the App Id field and URL field are in the reverse order    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TISTUD-7784" target="_blank">TISTUD-7784</a>: Clicking on publish for android packaging opens android studio preferences window    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TISTUD-7867" target="_blank">TISTUD-7867</a>: Node is not correctly installed by 4.4.0 windows installer on a win machine with no node    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TISTUD-6655" target="_blank">TISTUD-6655</a>: Breakpoints disappear after formatting controller file    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TISTUD-7781" target="_blank">TISTUD-7781</a>: &quot;Unable to locate the CLI executable..&quot; error during the studio startup    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TISTUD-7787" target="_blank">TISTUD-7787</a>: ArrayIndexOutOfBoundsException during launch of app in Android emulator    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TISTUD-7562" target="_blank">TISTUD-7562</a>: For limited plan billing is not opened via wizard    </p>
+</li></ul>    <p>
+    </p>
+    <p>
+    </p>
+    <p>
+    <span style="color: #2b4771;">
+Studio 4.4.0 Beta    </span>
+    </p>
+    <p>
+Studio 4.4.0 is a minor release that includes new features, improvements and bug fixes. See the <a class="external-link external-link" href="https://jira.appcelerator.org/issues/?filter=17008" target="_blank">full list of issues address in Release 4.4.0</a>.    </p>
+    </div>
     <div class="section section-3 " id="40929417_StudioReleaseNotes-NewFeatures">
         <h3 class="heading "><span>New Features</span></h3>
 <ul class=" "><li class=" ">    <p>
@@ -34,7 +96,7 @@ Update Studio to check for minimum Node.js version 0.12.7 and will install versi
         <h2 class="heading "><span>Studio 4.3.3 - 27 October 2015</span></h2>
     <p>
 Studio 4.3.3 is a patch release addressing high-priority issues from previous releases.    </p>
-    <div class="section section-3 " id="40929417_StudioReleaseNotes-FixedIssues">
+    <div class="section section-3 " id="40929417_StudioReleaseNotes-FixedIssues.1">
         <h3 class="heading "><span>Fixed Issues</span></h3>
 <ul class=" "><li class=" ">    <p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TISTUD-7747" target="_blank">TISTUD-7747</a>: LiveView does not work: Script Error Couldn't find module: localeStrings for architecture: x86_64    </p>
@@ -50,7 +112,7 @@ Studio 4.3.3 is a patch release addressing high-priority issues from previous re
         <h2 class="heading "><span>Studio 4.3.1 - 1 October 2015</span></h2>
     <p>
 Studio 4.3.1 is a patch release addressing high-priority issues from previous releases.    </p>
-    <div class="section section-3 " id="40929417_StudioReleaseNotes-FixedIssues.1">
+    <div class="section section-3 " id="40929417_StudioReleaseNotes-FixedIssues.2">
         <h3 class="heading "><span>Fixed Issues</span></h3>
 <ul class=" "><li class=" ">    <p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TISTUD-7732" target="_blank">TISTUD-7732</a>: NullPointerException when trying to Configure SDK    </p>
@@ -77,7 +139,7 @@ Support for building, running and deploying watchOS 2 application built in Xcode
 </li><li class=" ">    <p>
 Update Windows SDK Preference Page to use Windows Publisher ID    </p>
 </li></ul>    </div>
-    <div class="section section-3 " id="40929417_StudioReleaseNotes-FixedIssues.2">
+    <div class="section section-3 " id="40929417_StudioReleaseNotes-FixedIssues.3">
         <h3 class="heading "><span>Fixed Issues</span></h3>
 <ul class=" "><li class="p1 ">    <p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TISTUD-7385" target="_blank">TISTUD-7385</a>: LiveView sees (dot)files as languages    </p>
@@ -111,7 +173,7 @@ Update Windows SDK Preference Page to use Windows Publisher ID    </p>
         <h2 class="heading "><span>Studio 4.1.1 - 20 July 2015</span></h2>
     <p>
 Studio 4.1.1 is a patch release, addressing high-priority issues from previous releases.    </p>
-    <div class="section section-3 " id="40929417_StudioReleaseNotes-FixedIssues.3">
+    <div class="section section-3 " id="40929417_StudioReleaseNotes-FixedIssues.4">
         <h3 class="heading "><span>Fixed Issues</span></h3>
 <ul class=" "><li class=" ">    <p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TISTUD-7415" target="_blank">TISTUD-7415</a>:     <span style="color: #2b4771;">
@@ -154,7 +216,7 @@ On Windows, node processes linger around consuming memory, which causes performa
         <h2 class="heading "><span>Studio 4.0.1 - 11 June 2015</span></h2>
     <p>
 Studio 4.0.1 is a patch release, addressing high-priority issues from previous releases.    </p>
-    <div class="section section-3 " id="40929417_StudioReleaseNotes-FixedIssues.4">
+    <div class="section section-3 " id="40929417_StudioReleaseNotes-FixedIssues.5">
         <h3 class="heading "><span>Fixed Issues</span></h3>
 <ul class=" "><li class=" ">    <p>
  <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TISTUD-7428" target="_blank">TISTUD-7428</a>: Studio launches Mobile Web in browser but returns &quot;Connection Refused&quot;     </p>
@@ -453,7 +515,9 @@ Support for creating Github forks    </p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TISTUD-5283" target="_blank">TISTUD-5283</a>    </p>
 </li><li class=" ">    <p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TISTUD-5381" target="_blank">TISTUD-5381</a>    </p>
-</li></ul>    </div>
+</li></ul>    <p>
+    </p>
+    </div>
     </div>
         </div><a id="editButton" href="https://wiki.appcelerator.org/pages/editpage.action?pageId=40929417"><span>Edit</span></a>
     
