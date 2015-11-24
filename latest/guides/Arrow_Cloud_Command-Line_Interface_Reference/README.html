@@ -66,7 +66,7 @@
     <p>
     <span style="color: #222222;">
 Arrow Cloud provides a simple command-line interface,     </span>
-<strong class=" ">acs</strong>    <span style="color: #222222;">
+ <strong class=" ">acs</strong>     <span style="color: #222222;">
 , for creating and administering applications in the Arrow Cloud environment.  By default, the Appcelerator CLI or Studio handles the installation of the <tt class=" ">acs</tt> CLI tool.    </span>
     </p>
     </div>
@@ -217,7 +217,7 @@ Dates are specified as YYYY-MM-DD or &quot;YYYY-MM-DD HH:MM&quot;. Note that if 
     <p>
     <span style="color: #222222;">
 Adds a new route or service to an existing application. The     </span>
-<i class=" ">name</i>    <span style="color: #222222;">
+ <i class=" ">name</i>     <span style="color: #222222;">
  parameter specifies the new the route's name, as well as the name of the handler function.    </span>
     </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
@@ -274,7 +274,7 @@ Show help information for this command.    </p>
             </div>
     <p>
     <span style="color: #222222;">
-<br/>    </span>
+ <br/>     </span>
     </p>
     </div>
     <div class="section section-3 " id="43299782_ArrowCloudCommand-LineInterfaceReference-config">
@@ -282,7 +282,7 @@ Show help information for this command.    </p>
     <p>
     <span style="color: #222222;">
 The     </span>
-<tt class=" ">config</tt>    <span style="color: #222222;">
+ <tt class=" ">config</tt>     <span style="color: #222222;">
  command configures environment variables and the number of cloud servers for the application to use (auto-scaling).    </span>
     </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
@@ -290,7 +290,7 @@ The     </span>
 <div class="line"><code class="plain">### Environment variables</code></div>
 <div class="line"><code class="plain">acs config [--set &lt;key&gt;=&lt;value&gt;] [--unset &lt;key&gt;] [--env] [appname]</code></div>
 <div class="line"><code class="plain">### Auto-scaling</code></div>
-<div class="line"><code class="plain">acs config [--autoscaleup </code><code class="keyword">true</code><code class="plain">|</code><code class="keyword">false</code><code class="plain">] [--autoscaledown </code><code class="keyword">true</code><code class="plain">|</code><code class="keyword">false</code><code class="plain">] [--minsize N] [--maxsize N] [--maxqueuedrequests N] [appname]</code></div>
+<div class="line"><code class="plain">acs config [--autoscaleup </code><code class="keyword">true</code><code class="plain">|</code><code class="keyword">false</code><code class="plain">] [--autoscaledown </code><code class="keyword">true</code><code class="plain">|</code><code class="keyword">false</code><code class="plain">] [--minsize N] [--maxsize N] [--maxqueuedrequests N] [--usagenotice </code><code class="keyword">true</code><code class="plain">|</code><code class="keyword">false</code><code class="plain">] [appname]</code></div>
 </div>
 </div>    <p>
     <span style="color: #222222;">
@@ -405,6 +405,16 @@ Unsets the specified environment variable.    </p>
     <tr>
             <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
+<tt class=" ">--usagenotice</tt>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+Boolean (default is true). Enables or disables app resource usage email notification    </p>
+            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
 <tt class=" ">--org orgID</tt>    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
@@ -495,7 +505,7 @@ The ID of the organization the application belongs to. This parameter only is re
     <p>
     <span style="color: #222222;">
 Binds a domain to a published application, so that the application can be accessed using a custom domain as an alias for the application's     </span>
-<tt class=" ">cloud.appcelerator.com</tt>    <span style="color: #222222;">
+ <tt class=" ">cloud.appcelerator.com</tt>     <span style="color: #222222;">
  URL.    </span>
     </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
@@ -655,14 +665,14 @@ Show help information for this command.    </p>
             </div>
     <p>
     <span style="color: #222222;">
-<br/>    </span>
+ <br/>     </span>
     </p>
     </div>
     <div class="section section-3 " id="43299782_ArrowCloudCommand-LineInterfaceReference-logcat">
         <h3 class="heading "><span>logcat</span></h3>
     <p>
     <span style="color: #222222;">
-Retrieves and displays a published application's runtime logs continuously from Arrow Cloud. It let's you see in real-time what's happening with an application running in the cloud. By default, runtime logs are retrieved every five seconds, and you can configure this interval with the <tt class=" ">--interval</tt> parameter. The interval cannot be smaller than five seconds.    </span>
+ Retrieves and displays a published application's runtime logs continuously from Arrow Cloud. It let's you see in real-time what's happening with an application running in the cloud. By default, runtime logs are retrieved every five seconds, and you can configure this interval with the  <tt class=" ">--interval</tt>  parameter. The interval cannot be smaller than five seconds.     </span>
     </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
@@ -950,7 +960,7 @@ Publishes and runs an application on the Arrow Cloud. This command also lists al
     </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">acs publish [-d | --dir &lt;application-directory&gt; ] [ --list_versions ] [ --set_active_version &lt;version&gt;] [--git &lt;options|config_file&gt;] [ --force ] [-h | --help] [npm_username] [npm_password]</code></div>
+<div class="line"><code class="plain">acs publish [-d | --dir &lt;application-directory&gt; ] [ --list_versions ] [ --set_active_version &lt;version&gt;] [ --delete_oldest ] [--git &lt;options|config_file&gt;] [ --force ] [-h | --help] [npm_username] [npm_password]</code></div>
 </div>
 </div>    <p>
     <span style="color: #222222;">
@@ -1119,11 +1129,21 @@ The ID of the organization the application belongs to. You only need to this par
     <tr>
             <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-<tt class=" ">--set_active_version &lt;VERSION&gt;</tt>    </p>
+<tt class=" ">--set_active_version &lt;VERSION&gt;     </tt>    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
 Set the currently deployed and active version of the application to <tt class=" ">version</tt>.    </p>
+            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class=" ">--delete_oldest</tt>    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+Delete the oldest version if published versions reached max number of versions    </p>
             </td>
         </tr>
     <tr>
@@ -1262,7 +1282,7 @@ Show help information for this command.    </p>
     <p>
     <span style="color: #222222;">
 The     </span>
-<tt class=" ">server</tt>    <span style="color: #222222;">
+ <tt class=" ">server</tt>     <span style="color: #222222;">
  command configures the server container size of the application. If your application is already published after changing the container size, you will need to republish the application.    </span>
     </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
@@ -1339,7 +1359,7 @@ Displays help information of the command    </p>
             </div>
     <p>
     <span style="color: #222222;">
-<br/>    </span>
+ <br/>     </span>
     </p>
     </div>
     <div class="section section-3 " id="43299782_ArrowCloudCommand-LineInterfaceReference-unpublish">
@@ -1347,9 +1367,9 @@ Displays help information of the command    </p>
     <p>
     <span style="color: #222222;">
 By default, unpublishes the currently deployed and active application, shutting the application down and deleting it from the Node.ACS cloud. You can also unpublish a specific version with the     </span>
-<tt class=" ">--ver</tt>    <span style="color: #222222;">
+ <tt class=" ">--ver</tt>     <span style="color: #222222;">
  option, regardless of whether it is deployed or not.     </span>
-    <span style="color: #222222;">
+     <span style="color: #222222;">
 The local application directory is not removed after an unpublish operation, so you can republish the application again with the     </span>
 publish     <span style="color: #222222;">
 command.    </span>
@@ -1408,7 +1428,7 @@ The ID of the organization the application belongs to. This parameter is require
             </div>
     <p>
     <span style="color: #222222;">
-<br/>    </span>
+ <br/>     </span>
     </p>
     </div>
     <div class="section section-3 " id="43299782_ArrowCloudCommand-LineInterfaceReference-usage">
@@ -1490,7 +1510,7 @@ Ending date for retrieving usage logs    </p>
     <tr>
             <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-<tt class=" ">--page_number &lt;</tt><i class=" ">page_number&gt;</i>    </p>
+<tt class=" ">--page_number &lt;</tt> <i class=" ">page_number&gt;</i>    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
@@ -1500,7 +1520,7 @@ Page of usage log output to display, where 1 is the most recent    </p>
     <tr>
             <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-<tt class=" ">--per_page &lt;</tt><i class=" ">per_page&gt;</i>    </p>
+<tt class=" ">--per_page &lt;</tt> <i class=" ">per_page&gt;</i>    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
