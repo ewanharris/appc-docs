@@ -65,9 +65,9 @@
         <h2 class="heading "><span>Introduction</span></h2>
     <p>
     <span style="color: #222222;">
-Arrow Cloud provides a simple command-line interface,     </span>
- <strong class=" ">acs</strong>     <span style="color: #222222;">
-, for creating and administering applications in the Arrow Cloud environment.  By default, the Appcelerator CLI or Studio handles the installation of the <tt class=" ">acs</tt> CLI tool.    </span>
+Arrow Cloud provides a simple command-line interface     </span>
+(<strong class=" ">acs</strong>)    <span style="color: #222222;">
+ for creating and administering applications in the Arrow Cloud environment.  By default, the Appcelerator CLI or Studio handles the installation of the <tt class=" ">acs</tt> CLI tool.    </span>
     </p>
     </div>
     <div class="section section-2 " id="43299782_ArrowCloudCommand-LineInterfaceReference-Setup">
@@ -142,7 +142,7 @@ Id of the server which the logs from. An app may be deployed to multiple servers
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-Show server ID in logs    </p>
+Show server ID in logs.    </p>
             </td>
         </tr>
     <tr>
@@ -158,7 +158,7 @@ Starting date for retrieving logs.    </p>
     <tr>
             <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-<tt class=" ">--end_date &lt;end_date&gt;</tt>    </p>
+<tt class=" ">--end_date &lt;end_date&gt;    </tt>    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
@@ -217,8 +217,8 @@ Dates are specified as YYYY-MM-DD or &quot;YYYY-MM-DD HH:MM&quot;. Note that if 
     <p>
     <span style="color: #222222;">
 Adds a new route or service to an existing application. The     </span>
- <i class=" ">name</i>     <span style="color: #222222;">
- parameter specifies the new the route's name, as well as the name of the handler function.    </span>
+<i class=" ">name</i>     <span style="color: #222222;">
+parameter specifies the new the route's name, as well as the name of the handler function.    </span>
     </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
@@ -253,7 +253,7 @@ Name of the new route/service to add.    </p>
     <tr>
             <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-<tt class=" ">-d</tt>, <tt class=" ">--dir</tt> <tt class=" ">&lt;app_directory&gt;</tt>    </p>
+<tt class=" ">-d</tt>, <tt class=" ">--dir </tt><tt class=" ">&lt;app_directory&gt;</tt>    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
@@ -272,10 +272,6 @@ Show help information for this command.    </p>
         </tr>
 </tbody>        </table>
             </div>
-    <p>
-    <span style="color: #222222;">
- <br/>     </span>
-    </p>
     </div>
     <div class="section section-3 " id="43299782_ArrowCloudCommand-LineInterfaceReference-config">
         <h3 class="heading "><span>config</span></h3>
@@ -369,7 +365,7 @@ Sets an environment variable.    </p>
     <p>
 To set more than one variable, comma separate the key-value pairs.    </p>
     <p>
-To access the variable in the application, prefix the variable with the <tt class=" ">process.env</tt> namepsace.    </p>
+To access the variable in the application, prefix the variable with the <tt class=" ">process.env</tt> namespace.    </p>
             </td>
         </tr>
     <tr>
@@ -409,7 +405,7 @@ Unsets the specified environment variable.    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-Boolean (default is true). Enables or disables app resource usage email notification    </p>
+Boolean (default is true). Enables or disables app resource usage email notification.    </p>
             </td>
         </tr>
     <tr>
@@ -429,7 +425,7 @@ The ID of the organization the application belongs to. This parameter only is re
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-Displays help information of the command    </p>
+Displays help information of the command.    </p>
             </td>
         </tr>
 </tbody>        </table>
@@ -505,8 +501,8 @@ The ID of the organization the application belongs to. This parameter only is re
     <p>
     <span style="color: #222222;">
 Binds a domain to a published application, so that the application can be accessed using a custom domain as an alias for the application's     </span>
- <tt class=" ">cloud.appcelerator.com</tt>     <span style="color: #222222;">
- URL.    </span>
+<tt class=" ">cloud.appcelerator.com</tt>    <span style="color: #222222;">
+URL.    </span>
     </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
@@ -535,7 +531,7 @@ Description    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-The name of the app to set domain for. If omitted, the command needs to be run in application's root directory, or specify the application's directory with '-d' option.    </p>
+The name of the app to set domain for. If omitted, the command needs to be run in application's root directory, or specify the application's directory with <tt class=" ">-d</tt> option.    </p>
             </td>
         </tr>
     <tr>
@@ -663,10 +659,6 @@ Show help information for this command.    </p>
         </tr>
 </tbody>        </table>
             </div>
-    <p>
-    <span style="color: #222222;">
- <br/>     </span>
-    </p>
     </div>
     <div class="section section-3 " id="43299782_ArrowCloudCommand-LineInterfaceReference-logcat">
         <h3 class="heading "><span>logcat</span></h3>
@@ -843,7 +835,7 @@ appname    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-The name of the app to retrieve and show runtime logs for. If omitted, you must run the command in the application's root directory, or specify the application's directory with '-d' option.    </p>
+The name of the app to retrieve and show runtime logs for. If omitted, you must run the command in the application's root directory, or specify the application's directory with <tt class=" ">-d</tt> option.    </p>
             </td>
         </tr>
     <tr>
@@ -863,7 +855,7 @@ ID of the server to retrieve logs from. An application may be deployed to multip
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-Show server ID in logs    </p>
+Show server ID in logs.    </p>
             </td>
         </tr>
     <tr>
@@ -1143,7 +1135,7 @@ Set the currently deployed and active version of the application to <tt class=" 
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-Delete the oldest version if published versions reached max number of versions    </p>
+Delete the oldest version if published versions reached max number of versions.    </p>
             </td>
         </tr>
     <tr>
@@ -1186,7 +1178,7 @@ Description    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-The name of the app to remove. If omitted, you must run the command in the application's root directory, or specify the application's directory with '-d' option.    </p>
+The name of the app to remove. If omitted, you must run the command in the application's root directory, or specify the application's directory with <tt class=" ">-d</tt> option.    </p>
             </td>
         </tr>
     <tr>
@@ -1282,8 +1274,8 @@ Show help information for this command.    </p>
     <p>
     <span style="color: #222222;">
 The     </span>
- <tt class=" ">server</tt>     <span style="color: #222222;">
- command configures the server container size of the application. If your application is already published after changing the container size, you will need to republish the application.    </span>
+<tt class=" ">server</tt>     <span style="color: #222222;">
+command configures the server container size of the application. If your application is already published after changing the container size, you will need to republish the application.    </span>
     </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
@@ -1352,15 +1344,11 @@ The ID of the organization the application belongs to. This parameter only is re
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-Displays help information of the command    </p>
+Displays help information of the command.    </p>
             </td>
         </tr>
 </tbody>        </table>
             </div>
-    <p>
-    <span style="color: #222222;">
- <br/>     </span>
-    </p>
     </div>
     <div class="section section-3 " id="43299782_ArrowCloudCommand-LineInterfaceReference-unpublish">
         <h3 class="heading "><span>unpublish</span></h3>
@@ -1369,7 +1357,7 @@ Displays help information of the command    </p>
 By default, unpublishes the currently deployed and active application, shutting the application down and deleting it from the Node.ACS cloud. You can also unpublish a specific version with the     </span>
  <tt class=" ">--ver</tt>     <span style="color: #222222;">
  option, regardless of whether it is deployed or not.     </span>
-     <span style="color: #222222;">
+    <span style="color: #222222;">
 The local application directory is not removed after an unpublish operation, so you can republish the application again with the     </span>
 publish     <span style="color: #222222;">
 command.    </span>
@@ -1397,7 +1385,7 @@ Description    </p>
 </thead><tfoot class=" "/><tbody class=" ">    <tr>
             <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-<tt class=" ">&lt;appname&gt;</tt>    </p>
+<tt class=" ">&lt;appname&gt;     </tt>    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
@@ -1411,7 +1399,7 @@ Name of the app to be unpublished. If omitted, the command needs to be run in ap
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-Unpublishes the version of the application specified by <i class=" ">version</i>. If not specified, the currently deployed version is unpublished.    </p>
+Un-publishes the version of the application specified by <i class=" ">version</i>. If not specified, the currently deployed version is unpublished.    </p>
             </td>
         </tr>
     <tr>
@@ -1426,10 +1414,6 @@ The ID of the organization the application belongs to. This parameter is require
         </tr>
 </tbody>        </table>
             </div>
-    <p>
-    <span style="color: #222222;">
- <br/>     </span>
-    </p>
     </div>
     <div class="section section-3 " id="43299782_ArrowCloudCommand-LineInterfaceReference-usage">
         <h3 class="heading "><span>usage</span></h3>
@@ -1464,7 +1448,7 @@ appname    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-The name of the app to retrieve and show system resource usage for. If omitted, the command needs to be run in application's root directory, or specify the application's directory with '-d' option.    </p>
+The name of the app to retrieve and show system resource usage for. If omitted, the command needs to be run in application's root directory, or specify the application's directory with <tt class=" ">-d</tt> option.    </p>
             </td>
         </tr>
     <tr>
@@ -1484,7 +1468,7 @@ Id of the server which the logs from. An app may be deployed to multiple servers
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-Show server ID in logs    </p>
+Show server ID in logs.    </p>
             </td>
         </tr>
     <tr>
@@ -1494,7 +1478,7 @@ Show server ID in logs    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-Starting date for retrieving usage logs    </p>
+Starting date for retrieving usage logs.    </p>
             </td>
         </tr>
     <tr>
@@ -1504,7 +1488,7 @@ Starting date for retrieving usage logs    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-Ending date for retrieving usage logs    </p>
+Ending date for retrieving usage logs.    </p>
             </td>
         </tr>
     <tr>
@@ -1514,7 +1498,7 @@ Ending date for retrieving usage logs    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-Page of usage log output to display, where 1 is the most recent    </p>
+Page of usage log output to display, where 1 is the most recent.    </p>
             </td>
         </tr>
     <tr>
@@ -1554,7 +1538,7 @@ The ID of the organization the application belongs to. This parameter is require
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-Show help information of the command    </p>
+Show help information of the command.    </p>
             </td>
         </tr>
 </tbody>        </table>

@@ -47,6 +47,18 @@ In Alloy, use the <tt class=" ">formFactor</tt> attribute to distinguish between
 <div class="line"><code class="plain">    &lt;/Window&gt;</code></div>
 <div class="line"><code class="plain">&lt;/Alloy&gt;</code></div>
 </div>
+</div>    <p>
+As of 5.0.0 of the SDK, you can create an event that can prevent accidental closure of the app due to hitting the back button to many times.    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">var win = Ti.UI.createWindow(</code></div>
+<div class="line"><code class="plain">	{ </code><code class="comments">// some code... }</code></div>
+<div class="line"><code class="plain">);</code></div>
+<div class="line"><code class="comments">// more code</code></div>
+<div class="line"><code class="plain">win.addEventListener(</code><code class="string">"windows:back"</code><code class="plain">, function()</code></div>
+<div class="line"><code class="plain">	{ alert(</code><code class="string">"Back pressed"</code><code class="plain">); }</code></div>
+<div class="line"><code class="plain">);</code></div>
+</div>
 </div>    </div>
     <div class="section section-2 " id="43309475_WindowsUIComponentsandConventions-CommandBar">
         <h2 class="heading "><span>Command Bar</span></h2>
