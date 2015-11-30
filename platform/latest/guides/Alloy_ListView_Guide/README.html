@@ -134,7 +134,7 @@ Calling <tt class=" ">setItems()</tt> method clears the list before setting its 
     <div class="section section-2 " id="40928632_AlloyListViewGuide-ListItemTemplates">
         <h2 class="heading "><span>List Item Templates</span></h2>
     <p>
-Each <tt class=" ">ListItem</tt> element has an associated <i class=" ">template</i> that determines how the data for that row is displayed. A template consists of standard UI elements &ndash; Label, ImageView, Button, and so forth &ndash; that are bound to specific fields in the list item data set. You can use the provided <a class="document-link unresolved" href="#!/guide/Alloy_ListView_Guide">default list item template</a> (as in the previous) examples, or create a custom template that you can apply to all list items, or apply to individual list items. On iOS, you can also use one of the additional built-in templates.    </p>
+Each <tt class=" ">ListItem</tt> element has an associated <i class=" ">template</i> that determines how the data for that row is displayed. A template consists of standard UI elements &ndash; Label, ImageView, Button, and so forth &ndash; that are bound to specific fields in the list item data set. You can use the provided default list item template (as in the previous) examples, or create a custom template that you can apply to all list items, or apply to individual list items. On iOS, you can also use one of the additional built-in templates.    </p>
     <div class="section section-3 " id="40928632_AlloyListViewGuide-DefaultListItemTemplate">
         <h3 class="heading "><span>Default List Item Template</span></h3>
     <p>
@@ -182,7 +182,7 @@ If the default <tt class=" ">ListItem</tt> template doesn't suit your needs, you
     <p>
 To declare a custom item template, add a  <tt class=" ">&lt;Templates/&gt;</tt>  element to the <tt class=" ">&lt;ListView/&gt;</tt> element, and then add one or more named <tt class=" ">&lt;ItemTemplate&gt;</tt> elements to the <tt class=" ">&lt;Templates/&gt;</tt> element. A <tt class=" ">&lt;Templates/&gt;</tt> element can contain multiple &lt;ItemTemplate/&gt; elements, each of which must have a <tt class=" ">name</tt> attribute that uniquely identifies it.    </p>
     <p>
-To the <tt class=" ">&lt;ItemTemplate/&gt;</tt> add any UI elements you want to appear in each list item. To enable data binding on a given view, assign a <tt class=" ">bindId</tt> attribute to the element. To apply the the custom template by default to all list items (rather than the built-in default item template)  set the ListView element's <tt class=" ">defaultItemTemplate</tt> attribute to the value of the <tt class=" ">name</tt> attribute you assigned to the <tt class=" ">&lt;ItemTemplate/&gt;</tt>. If you have more than one custom template, you can override the default item template for a given list item by setting it's <tt class=" ">template</tt> property. See <a class="document-link unresolved" href="#!/guide/Alloy_ListView_Guide">Below</a> for more information.    </p>
+To the <tt class=" ">&lt;ItemTemplate/&gt;</tt> add any UI elements you want to appear in each list item. To enable data binding on a given view, assign a <tt class=" ">bindId</tt> attribute to the element. To apply the the custom template by default to all list items (rather than the built-in default item template)  set the ListView element's <tt class=" ">defaultItemTemplate</tt> attribute to the value of the <tt class=" ">name</tt> attribute you assigned to the <tt class=" ">&lt;ItemTemplate/&gt;</tt>. If you have more than one custom template, you can override the default item template for a given list item by setting it's <tt class=" ">template</tt> property. See Below for more information.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="title">Custom item template</div>
 <div class="defaultnew syntaxhighlighter">
@@ -367,7 +367,7 @@ The following code demonstrates how this works. In your XML view, add an <tt cla
 <div class="line"><code class="plain">&lt;/ListView&gt;</code></div>
 </div>
 </div>    <p>
-You call <a class="document-link unresolved" href="#!/guide/Alloy_ListView_Guide">setMarker()</a>, passing it the list view section index and item index where you want to set a marker. For example, the following sets a marker at the 100th list item in the first section in the ListView.    </p>
+You call setMarker(), passing it the list view section index and item index where you want to set a marker. For example, the following sets a marker at the 100th list item in the first section in the ListView.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">$.infiniteList.setMarker({sectionIndex:</code><code class="value">0</code><code class="plain">,itemIndex:</code><code class="value">100</code><code class="plain">});</code></div>
@@ -419,7 +419,7 @@ When the marker event is fired, a new set of data is generated and appended to t
     <div class="section section-3 " id="40928632_AlloyListViewGuide-HandlingEventsonListItems">
         <h3 class="heading "><span>Handling Events on List Items</span></h3>
     <p>
-To handle click events on list items, you attach an <tt class=" ">onItemClick</tt> attribute to the <tt class=" ">&lt;ListView/&gt;</tt> that specifies the event function handler to invoke. The event handler is passed an <a class="document-link unresolved" href="#!/guide/Alloy_ListView_Guide">itemclick</a> event whose properties identify the clicked list item (by section and item index), as well as the <tt class=" ">bindId</tt> of of the control that generated the event, if any. For example:    </p>
+To handle click events on list items, you attach an <tt class=" ">onItemClick</tt> attribute to the <tt class=" ">&lt;ListView/&gt;</tt> that specifies the event function handler to invoke. The event handler is passed an itemclick event whose properties identify the clicked list item (by section and item index), as well as the <tt class=" ">bindId</tt> of of the control that generated the event, if any. For example:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="title">index.xml</div>
 <div class="defaultnew syntaxhighlighter">
