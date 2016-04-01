@@ -20,6 +20,8 @@
             <h1>Filtering Ruble Items Per-Platform</h1>
     <div class="section section-2 " id="30083231_FilteringRubleItemsPer-Platform-Contents">
         <h2 class="heading "><span>Contents</span></h2>
+    <p>
+    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Filtering_Ruble_Items_Per-Platform-section-30083231_FilteringRubleItemsPer-Platform-Overview">Overview</a>    </p>
 </li><li class=" ">    <p>
@@ -35,11 +37,11 @@ Sometimes you want a snippet, command, sample, or other item to only appear on c
     <div class="section section-2 " id="30083231_FilteringRubleItemsPer-Platform-Wrappinganiteminaper-platformconditional">
         <h2 class="heading "><span>Wrapping an item in a per-platform conditional</span></h2>
     <p>
-In the example below, we only want the sample to appear on OSX and Linux.    </p>
+In the example below, we only want the sample to appear on OSX.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">require </code><code class="string">'ruble'</code></div>
-<div class="line"><code class="keyword">if</code><code class="plain"> Ruble.is_mac? || Ruble.is_linux?</code></div>
+<div class="line"><code class="keyword">if</code><code class="plain"> Ruble.is_mac?</code></div>
 <div class="line"><code class="plain">  project_sample </code><code class="string">"Kitchen Sink"</code><code class="plain"> </code><code class="keyword">do</code><code class="plain"> |s|</code></div>
 <div class="line"><code class="plain">    s.id = </code><code class="string">"com.appcelerator.titanium.mobile.samples.kitchensink"</code></div>
 <div class="line"><code class="plain">    s.category = </code><code class="string">"com.appcelerator.titanium.mobile.samples.category"</code></div>
@@ -110,16 +112,6 @@ OS X    </p>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
 is_mac?    </p>
-            </td>
-        </tr>
-    <tr>
-            <td class="confluenceTd" rowspan="1" colspan="1">
-        <p>
-Linux    </p>
-            </td>
-                <td class="confluenceTd" rowspan="1" colspan="1">
-        <p>
-is_linux?    </p>
             </td>
         </tr>
     <tr>

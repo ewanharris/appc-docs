@@ -153,7 +153,7 @@ Open a web browser    </p>
 </li><li class=" ">    <p>
 Paste in the url <a class="external-link external-link" href="https://api.appcelerator.net/p/v2/release-list?name=mobilesdk&amp;v=" target="_blank">https://api.appcelerator.net/p/v2/release-list?name=mobilesdk&amp;v=</a>&lt;version&gt;&amp;limit=5&amp;os=&lt;os&gt;, substituting your operating system value, and version of <strong class=" ">Studio</strong>with only the first three version specifiers    </p>
 <ul class=" "><li class=" ">    <p>
-&lt;os&gt;: osx, win32, linux    </p>
+&lt;os&gt;: osx, win32    </p>
 </li><li class=" ">    <p>
 &lt;version&gt;: 2.0.1.2012042345 =&gt; 2.0.1    </p>
 </li></ul></li><li class=" ">    <p>
@@ -180,7 +180,7 @@ To check the current versions run the following commands:    </p>
 <pre class=" "><tt class=" ">npm list -g titanium</tt>npm list -g alloy </pre>    <p>
 If either package has a version number ending in <tt class=" ">-alpha</tt>, <tt class=" ">-beta</tt>, or <tt class=" ">-cr</tt>, you should uninstall the package manually.  To uninstall these packages:    </p>
 <pre class=" "><tt class=" ">npm remove -g titaniumnpm remove -g alloy </tt></pre>    <p>
-Note: You may need to use <tt class=" ">sudo</tt> before these terminal commands on OSX and Linux.    </p>
+Note: You may need to use <tt class=" ">sudo</tt> before these terminal commands on OSX.    </p>
     <p>
 You will be prompted to install these components when you restart Studio or to manually check for updates, from the <strong class=" ">Help</strong> menu, select <strong class=" ">Check for Titanium Updates</strong> or <strong class=" ">Check for Appcelerator Updates</strong>.    </p>
     <p>
@@ -191,7 +191,7 @@ If you should run into any issues, run <tt class=" ">npm cache clean</tt> and th
     <p>
     <span style="color: #333333;">
 If Studio prompts you to install the same Node.js packages (CLI, ACS, Alloy, etc.), despite the fact that they appear to install successfully each time, Studio may be checking a different installation path than the one you have designated to install your NPM packages.  To resolve this issue, add    </span>
- the environment variable NPM_CONFIG_PREFIX.  For example, on Mac OS X and Linux, add the following to your Bash profile (<tt class=" ">~/.bash_profile</tt>):    </p>
+ the environment variable NPM_CONFIG_PREFIX.  For example, on Mac OS X, add the following to your Bash profile (<tt class=" ">~/.bash_profile</tt>):    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">export NPM_CONFIG_PREFIX = &lt;PATH_TO_NPM&gt;</code></div>

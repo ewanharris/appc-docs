@@ -31,7 +31,7 @@
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Errors_Logging_In_to_Studio-section-30083289_ErrorsLoggingIntoStudio-ChecktheLogFileforThrownExceptions">Check the Log File for Thrown Exceptions</a>    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Errors_Logging_In_to_Studio-section-30083289_ErrorsLoggingIntoStudio-OSX/Linux">OS X/Linux</a>    </p>
+<a class="document-link " href="#!/guide/Errors_Logging_In_to_Studio-section-30083289_ErrorsLoggingIntoStudio-OSX">OS X</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Errors_Logging_In_to_Studio-section-30083289_ErrorsLoggingIntoStudio-Windows">Windows</a>    </p>
 </li></ul></li></ul></li><li class=" ">    <p>
@@ -66,8 +66,6 @@ If the above command returns success, try to run Studio from the command line an
 From Mac: open a terminal and run &quot;<strong class=" ">&lt;install_dir&gt;/AppceleratorStudio.app/Contents/MacOS/AppceleratorStudio</strong>&quot; (by default, the installation directory is &quot;/Applications/Titanium Studio&quot;)    </p>
 </li><li class=" ">    <p>
 From Windows: open a command prompt and run &quot;<strong class=" ">&lt;install_dir&gt;\AppceleratorStudio.exe -consoleLog</strong>&quot; (by default, the installation directory is &quot;C:\Users\&lt;username&gt;\AppData\Local\Titanium Studio&quot;)    </p>
-</li><li class=" ">    <p>
-From Linux: open a terminal and run &quot;<strong class=" ">&lt;install_dir&gt;/AppceleratorStudio</strong>&quot;    </p>
 </li></ol></li></ol>    </div>
     <div class="section section-3 " id="30083289_ErrorsLoggingIntoStudio-ChecktheLogFileforThrownExceptions">
         <h3 class="heading "><span>Check the Log File for Thrown Exceptions</span></h3>
@@ -75,8 +73,8 @@ From Linux: open a terminal and run &quot;<strong class=" ">&lt;install_dir&gt;/
 Check the Studio log file to see if an exception was thrown when attempting to login. (See <a class="document-link " href="#!/guide/Accessing_the_Log_File">Accessing the Log File</a> for details on how to access the log file.)    </p>
     <p>
 If the exception generated is<strong class=" "> javax.net.ssl.SSLHandshakeException</strong>, <strong class=" ">javax.net.ssl.SSLPeerUnverifiedException</strong> or <strong class=" ">&quot;PKIX path building failed&quot;</strong>, it means that the required certificate could not be added to Java's certificate store. You need to manually download and import the necessary certificates.    </p>
-    <div class="section section-4 " id="30083289_ErrorsLoggingIntoStudio-OSX/Linux">
-        <h4 class="heading "><span>OS X/Linux</span></h4>
+    <div class="section section-4 " id="30083289_ErrorsLoggingIntoStudio-OSX">
+        <h4 class="heading "><span>OS X</span></h4>
     <p>
 For <strong class=" ">Appcelerator Studio</strong>, on an OS X system, run:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
@@ -93,11 +91,7 @@ For <strong class=" ">Titanium Studio</strong>, on an OS X system, run:    </p>
 </div>
 </div>    <p>
 The first command downloads the server certificate, and the second command imports it to system Java's cacerts store.    </p>
-    <p>
-<strong class=" ">Notes</strong>:    </p>
-<ul class=" "><li class=" ">    <p>
-For Linux systems, the Java cacerts path may vary. The common location is <tt class="plain plain ">/etc/ssl/certs/java/cacerts</tt>.    </p>
-</li></ul>    </div>
+    </div>
     <div class="section section-4 " id="30083289_ErrorsLoggingIntoStudio-Windows">
         <h4 class="heading "><span>Windows</span></h4>
     <p>

@@ -39,8 +39,6 @@
 </li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Setting_up_Studio-section-37540095_SettingupStudio-installingstudioInstallingStudio">Installing Studio</a>    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Setting_up_Studio-section-37540095_SettingupStudio-Linux">Linux</a>    </p>
-</li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Setting_up_Studio-section-37540095_SettingupStudio-OSX">OS X</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Setting_up_Studio-section-37540095_SettingupStudio-Windows">Windows</a>    </p>
@@ -150,22 +148,18 @@ Windows    </p>
 1 GB (contiguous)    </p>
             </td>
         </tr>
-    <tr>
-            <td class="confluenceTd" rowspan="1" colspan="1">
-        <p>
-Latest Android SDK    </p>
-            </td>
-                <td class="confluenceTd" rowspan="1" colspan="1">
-        <p>
-Ubuntu    </p>
-            </td>
-                <td class="confluenceTd" rowspan="1" colspan="1">
-        <p>
-1.5 GB (contiguous)    </p>
-            </td>
-        </tr>
 </tbody>        </table>
             </div>
+    <p>
+    </p>
+    <div class="confbox admonition admonition-note aui-message warning shadowed information-macro">
+        
+    <p>
+    <span style="color: #707070;">
+Minimum system memory requirements is 8GB of RAM. 16GB is highly recommended.    </span>
+    </p>
+    </div>
+    
     </div>
     <div class="section section-4 " id="37540095_SettingupStudio-OperatingSystem">
         <h4 class="heading "><span>Operating System</span></h4>
@@ -203,16 +197,6 @@ Windows    </p>
 Windows 7<br/>Windows 8<br/>* Windows 8.1 is required for Windows Phone development    </p>
             </td>
         </tr>
-    <tr>
-            <td class="confluenceTd" rowspan="1" colspan="1">
-        <p>
-Linux    </p>
-            </td>
-                <td class="confluenceTd" rowspan="1" colspan="1">
-        <p>
-Ubuntu 12.04 LTS (Precise Pangolin)    </p>
-            </td>
-        </tr>
 </tbody>        </table>
             </div>
     </div>
@@ -227,47 +211,6 @@ The default and recommended software locations of a successful Titanium installa
         <h2 class="heading "><span>Installing Studio</span></h2>
     <p>
 The installation procedure for Studio differs depending on the platform.    </p>
-    <div class="section section-3 " id="37540095_SettingupStudio-Linux">
-        <h3 class="heading "><span>Linux</span></h3>
-    <p>
-Linux systems require the GTK windowing system, Node.js and the JDK to be installed before running Studio.    </p>
-    <p>
-<strong class=" ">Install prerequisite software and libraries:</strong>    </p>
-<ol class=" "><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Installing_Oracle_JDK">Install the Oracle JDK</a>.    </p>
-</li><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Installing_Node.js">Install Node.js</a>.    </p>
-</li></ol>    <p>
-Ubuntu 12.04 requires a few extra packages and configuration settings before Studio can be launched. Run the following commands from a terminal:    </p>
-<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
-<div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">sudo apt-get install libjpeg62 libwebkitgtk-</code><code class="value">1.0</code><code class="plain">-</code><code class="value">0</code></div>
-<div class="line"><code class="plain">echo </code><code class="string">'export MOZILLA_FIVE_HOME=/usr/lib/mozilla'</code><code class="plain"> &gt;&gt; ~/.bashrc</code></div>
-</div>
-</div>    <p>
-For 64-bit versions of Ubuntu, you need to also install the 32-bit libraries:    </p>
-<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
-<div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">sudo apt-get install ia32-libs</code></div>
-</div>
-</div>    <p>
-Studio does not have an installer for Linux systems.  Simply, unpack the ZIP archive and run the binary executable inside.    </p>
-    <p>
-<strong class=" ">Install and run Studio on LInux using the GUI:</strong>    </p>
-<ol class=" "><li class=" ">    <p>
-Once downloaded, unpack the Appcelerator Studio ZIP archive file by right-clicking on it and choosing the <i class=" ">Extract Here</i> menu option    </p>
-</li><li class=" ">    <p>
-Open the resulting folder, and run the <tt class=" ">AppceleratorStudio</tt> executable to launch the application.    </p>
-</li></ol>    <p>
-<strong class=" ">To install and run Studio on Linux using the CLI:</strong>    </p>
-<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
-<div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">cd ~/Downloads</code></div>
-<div class="line"><code class="plain">unzip appcelerator.linux.gtk.x86_x64.zip</code></div>
-<div class="line"><code class="plain">cd Appcelerator_Studio</code></div>
-<div class="line"><code class="plain">./AppceleratorStudio</code></div>
-</div>
-</div>    </div>
     <div class="section section-3 " id="37540095_SettingupStudio-OSX">
         <h3 class="heading "><span>OS X</span></h3>
     <p>
@@ -474,7 +417,7 @@ Open the Preferences<strong class=" "> </strong>dialog:    </p>
 <ul class=" "><li class=" ">    <p>
 On Mac OS X, press <strong class=" ">Command key-Comma (,)</strong> or <strong class=" ">Appcelerator Studio </strong>&gt; <strong class=" ">Preferences</strong> from the application menu.    </p>
 </li><li class=" ">    <p>
-On Windows and Linux, select <strong class=" ">Window &gt; Preferences</strong>.    </p>
+On Windows, select <strong class=" ">Window &gt; Preferences</strong>.    </p>
 </li></ul></li><li class=" ">    <p>
 Navigate to the <strong class=" ">Studio &gt; Platforms</strong> preferences section that contains sections for configuring each mobile platform SDK.    </p>
         <img src="images/download/attachments/37540095/Preferences.png" alt="images/download/attachments/37540095/Preferences.png" class="confluence-embedded-image"/>
@@ -585,7 +528,7 @@ Under the <strong class=" ">Windows</strong> item, you can configure:    </p>
     <div class="section section-2 " id="37540095_SettingupStudio-Troubleshooting">
         <h2 class="heading "><span>Troubleshooting</span></h2>
     <p>
-If you are having problems with any of the above steps, please see our <a class="document-link " href="#!/guide/Installation_Troubleshooting">Installation Troubleshooting</a> guide, or otherwise, seek assistance in either our <a class="external-link external-link" href="http://developer.appcelerator.com/questions/created" target="_blank">Q&amp;A</a> or one of our other help channels described in <a class="document-link " href="#!/guide/Getting_Help">Getting Help</a>.    </p>
+If you are having problems with any of the above steps, please see our <a class="document-link " href="#!/guide/Installation_Troubleshooting">Installation Troubleshooting</a> guide, or otherwise, seek assistance in either our <a class="external-link external-link" href="http://developer.appcelerator.com/questions/created" target="_blank">Q&amp;A</a> or one of our other help channels described in <a class="document-link unresolved" href="#!/guide/Setting_up_Studio">Getting Help</a>.    </p>
     </div>
     <div class="section section-2 " id="37540095_SettingupStudio-NextSteps-VerifyingStudio">
         <h2 class="heading "><span>Next Steps - Verifying Studio</span></h2>

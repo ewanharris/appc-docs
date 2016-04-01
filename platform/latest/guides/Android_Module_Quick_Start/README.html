@@ -46,6 +46,8 @@
 <a class="document-link " href="#!/guide/Android_Module_Quick_Start-section-43289022_AndroidModuleQuickStart-TesttheModule.1">Test the Module</a>    </p>
 </li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Android_Module_Quick_Start-section-43289022_AndroidModuleQuickStart-NextSteps">Next Steps</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Android_Module_Quick_Start-section-43289022_AndroidModuleQuickStart-AIDLSupport">AIDL Support</a>    </p>
 </li></ul>    <div class="section section-2 " id="43289022_AndroidModuleQuickStart-Introduction">
         <h2 class="heading "><span>Introduction</span></h2>
     <p>
@@ -86,7 +88,7 @@ From a terminal, change the current working directory to your workspace and run:
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">cd /PATH/TO/WORKSPACE</code></div>
-<div class="line"><code class="plain">appc </code><code class="keyword">new</code><code class="plain"> --n test --id com.example.test</code></div>
+<div class="line"><code class="plain">appc </code><code class="keyword">new</code><code class="plain"> --n test --id com.example.test -p Android</code></div>
 <div class="line"><code class="plain">## when prompted, select </code><code class="string">"Titanium Module"</code></div>
 </div>
 </div>    </div>
@@ -497,6 +499,19 @@ For information about how to construct the class components for your project, se
 </li><li class=" ">    <p>
 For more examples of using the module API, see the <a class="external-link external-link" href="https://github.com/appcelerator-modules/ti.moddevguide/tree/master/android" target="_blank">ti.moddevguide Github project</a>.    </p>
 </li></ul>    </div>
+    <div class="section section-2 " id="43289022_AndroidModuleQuickStart-AIDLSupport">
+        <h2 class="heading "><span>AIDL Support</span></h2>
+    <p>
+As of 5.2.0, building Android modules now supports AIDL files. To use AIDL files in your app, apply the following steps:    </p>
+<ol class=" "><li class=" ">    <p>
+Using Studio, you can generate the AIDL .java file. The AIDL file is only used to generate the Java interface code. Once that file is available, it isn't required anymore. See Android Developer's page called Preparing Your In-app Billing Application for more details.    </p>
+</li><li class=" ">    <p>
+Copy over the AIDL file into the correct namespace package folder into the src directory of the Appcelerator Studio module.    </p>
+</li></ol>    <p>
+See <a class="external-link external-link" href="https://github.com/appcelerator-modules/ti.inappbilling/blob/stable/android/src/com/android/vending/billing/IInAppBillingService.java" target="_blank">IInAppBillingService.java</a> for reference information.    </p>
+    <p>
+Note: Prior to Studio 5.2.0, you will need to use either Eclipse or Android Studio to generate the AIDL file.    </p>
+    </div>
         </div><a id="editButton" href="https://wiki.appcelerator.org/pages/editpage.action?pageId=43289022"><span>Edit</span></a>
     
         <div class="footer">

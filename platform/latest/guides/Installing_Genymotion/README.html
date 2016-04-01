@@ -31,8 +31,6 @@
 </li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Installing_Genymotion-section-37550296_InstallingGenymotion-Installation">Installation</a>    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Installing_Genymotion-section-37550296_InstallingGenymotion-Linux">Linux</a>    </p>
-</li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Installing_Genymotion-section-37550296_InstallingGenymotion-MacOSX">Mac OS X</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Installing_Genymotion-section-37550296_InstallingGenymotion-Windows">Windows</a>    </p>
@@ -72,8 +70,6 @@ To use Genymotion, you need to install Oracle VirtualBox and sign up for a Genym
     <p>
 Genymotion requires Oracle VirtualBox 4.1.1 or better. If you do not have VirtualBox installed, see the following:    </p>
 <ul class=" "><li class=" ">    <p>
-For Linux, check your repositories for VirtualBox and use your package installer to install it. If you cannot locate one, see <a class="external-link external-link" href="https://www.virtualbox.org/wiki/Linux_Downloads" target="_blank">Download VirtualBox for Linux Hosts</a> for help.    </p>
-</li><li class=" ">    <p>
 For Mac OS X, go to <a class="external-link external-link" href="https://www.virtualbox.org/wiki/Downloads" target="_blank">Download VirtualBox</a> and get the Mac OS X .dmg file. Open the .dmg file and follow the installation steps. When finished, reboot.    </p>
 </li><li class=" ">    <p>
 For Windows, Genymotion provides two installers: a ready-to-run installer that provides VirtualBox and a standard installer that does not. Genymotion recommends using the ready-to-run installer. If you want to manually install VirtualBox, go to <a class="external-link external-link" href="https://www.virtualbox.org/wiki/Downloads" target="_blank">Download VirtualBox</a> and get the Windows .exe file. Open the .exe file and follow the installation steps. When finished, reboot.    </p>
@@ -105,38 +101,6 @@ Download the appropriate Genymotion installer from <a class="external-link exter
     </div>
     <div class="section section-2 " id="37550296_InstallingGenymotion-Installation">
         <h2 class="heading "><span>Installation</span></h2>
-    <div class="section section-3 " id="37550296_InstallingGenymotion-Linux">
-        <h3 class="heading "><span>Linux</span></h3>
-<ol class=" "><li class=" ">    <p>
-Download a Linux installer package (BIN file) from Genymotion.    </p>
-</li><li class=" ">    <p>
-Run the installer and install Genymotion to your home directory, for example, <tt class=" ">/home/&lt;username&gt;</tt>.  The <tt class=" ">-d</tt> option specifies which directory to install Genymotion to.  If you omit this option, it will install itself in the current working directory.    </p>
-<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
-<div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">cd &lt;DOWNLOAD_DIR&gt;</code></div>
-<div class="line"><code class="plain">chomod +x genymotion-&lt;VERSION&gt;_&lt;ARCH&gt;.bin</code></div>
-<div class="line"><code class="plain">./genymotion-&lt;VERSION&gt;_&lt;ARCH&gt;.bin -d &lt;HOME_DIRECTORY&gt;</code></div>
-</div>
-</div></li><li class=" ">    <p>
-After the installer completes, run the <tt class=" ">genymotion</tt> executable.    </p>
-<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
-<div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">cd &lt;HOME_DIRECTORY&gt;/genymotion</code></div>
-<div class="line"><code class="plain">./genymotion</code></div>
-</div>
-</div></li><li class=" ">    <p>
-The Genymotion application starts.  A dialog prompts you to &quot;Add a first virtual device&quot;.  Click <strong class=" ">Yes</strong>.    </p>
-</li><li class=" ">    <p>
-In order to add a virtual device, you need to connect to the Genymotion Cloud service.  Click <strong class=" ">Connect</strong>.    </p>
-</li><li class=" ">    <p>
-You are prompted to enter your Genymotion Cloud account credentials.  Input your credentials, then click <strong class=" ">Connect</strong>.    </p>
-</li><li class=" ">    <p>
-After your account has been verified, select a device and click <strong class=" ">Next</strong>.    </p>
-</li><li class=" ">    <p>
-Optionally change the name of the device.  Click <strong class=" ">Next</strong>.    </p>
-</li><li class=" ">    <p>
-Click <strong class=" ">Finish</strong> after the download completes or click <strong class=" ">Add</strong> to download more virtual devices.    </p>
-</li></ol>    </div>
     <div class="section section-3 " id="37550296_InstallingGenymotion-MacOSX">
         <h3 class="heading "><span>Mac OS X</span></h3>
 <ol class=" "><li class=" ">    <p>
@@ -231,8 +195,6 @@ Path to Genymotion virtual devices    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
     <ul class=" "><li class=" ">    <p>
-Linux: <tt class=" ">/home/&lt;user&gt;/.Genymobile/Genymotion/deployed</tt>    </p>
-</li><li class=" ">    <p>
 Mac OS X: <tt class=" ">/Users/&lt;user&gt;/.Genymobile/Genymotion/deployed/</tt>    </p>
 </li><li class=" ">    <p>
 Windows: <tt class=" ">C:\Users\&lt;user&gt;\AppData\Local\Genymobile\Genymotion\deployed\</tt>    </p>
@@ -249,8 +211,6 @@ Path to Genymotion    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
     <ul class=" "><li class=" ">    <p>
-Linux: <tt class=" ">/home/&lt;user&gt;/genymotion</tt>    </p>
-</li><li class=" ">    <p>
 Mac OS X: <tt class=" ">/Applications/Genymotion.app</tt>    </p>
 </li><li class=" ">    <p>
 Windows: <tt class=" ">C:\Program Files\Genymobile\Genymotion</tt>    </p>
@@ -267,8 +227,6 @@ Path to Genymotion <tt class=" ">genymotion</tt> executable    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
     <ul class=" "><li class=" ">    <p>
-Linux: <tt class=" ">/home/&lt;user&gt;/genymotion/genymotion</tt>    </p>
-</li><li class=" ">    <p>
 Mac OS X: <tt class=" ">/Applications/Genymotion.app/Contents/MacOS/genymotion</tt>    </p>
 </li><li class=" ">    <p>
 Windows: <tt class=" ">C:\Program Files\Genymobile\Genymotion\genymotion.exe</tt>    </p>
@@ -285,10 +243,10 @@ Path to Genymotion <tt class=" ">player</tt> executable    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
     <ul class=" "><li class=" ">    <p>
-Linux: <tt class=" ">/home/&lt;user&gt;/genymotion/player</tt>    </p>
-</li><li class=" ">    <p>
-Mac OS X: <tt class=" ">/Applications/Genymotion.app/Contents/MacOS/player</tt>    </p>
-</li><li class=" ">    <p>
+Mac OS X: <tt class=" ">/Applications/Genymotion.app/Contents/MacOS/player.app/Contents/MacOS/player</tt>    </p>
+<ul class=" "><li class=" ">    <p>
+Before 2.6.0: <tt class=" ">/Applications/Genymotion.app/Contents/MacOS/player</tt>    </p>
+</li></ul></li><li class=" ">    <p>
 Windows: <tt class=" ">C:\Program Files\Genymobile\Genymotion\player.exe</tt>    </p>
 </li></ul>            </td>
         </tr>
@@ -303,7 +261,7 @@ Path to VirtualBox <tt class=" ">vboxmange</tt> executable    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
     <ul class=" "><li class=" ">    <p>
-Linux and Mac OS X: <tt class=" ">/usr/bin/vboxmanage</tt>    </p>
+Mac OS X: <tt class=" ">/usr/bin/vboxmanage</tt>    </p>
 </li><li class=" ">    <p>
 Windows: <tt class=" ">C:\Program Files\Oracle\VirtualBox\VboxManage.exe</tt>    </p>
 </li></ul>            </td>
@@ -320,7 +278,7 @@ Open Preferences:    </p>
 <ol class=" "><li class=" ">    <p>
 For Mac OS X systems, from the menu, select <strong class=" ">Appcelerator Studio</strong> &gt; <strong class=" ">Preferences</strong>.    </p>
 </li><li class=" ">    <p>
-For Linux and Windows systems, from the menu, select <strong class=" ">Windows &gt;</strong><strong class=" ">Preferences</strong>.    </p>
+For Windows systems, from the menu, select <strong class=" ">Windows &gt;</strong><strong class=" ">Preferences</strong>.    </p>
 </li></ol></li><li class=" ">    <p>
 In Preferences, navigate to<strong class=" "> Studio &gt;</strong><strong class=" ">Platforms &gt; Android</strong>.    </p>
 </li><li class=" ">    <p>
@@ -377,7 +335,7 @@ Double-check your Studio configuration settings in Preferences.    </p>
 <ol class=" "><li class=" ">    <p>
 For Mac OS X systems, from the menu, select <strong class=" ">Appcelerator Studio</strong> &gt; <strong class=" ">Preferences</strong>.    </p>
 </li><li class=" ">    <p>
-For Linux and Windows systems, from the menu, select <strong class=" ">Windows &gt;</strong><strong class=" ">Preferences</strong>.    </p>
+For Windows systems, from the menu, select <strong class=" ">Windows &gt;</strong><strong class=" ">Preferences</strong>.    </p>
 </li><li class=" ">    <p>
 Navigate to<strong class=" "> Studio &gt; </strong><strong class=" ">Platforms &gt; Android.</strong>    </p>
 </li></ol></li><li class=" ">    <p>

@@ -152,7 +152,7 @@ Use the <tt class=" ">adb devices</tt> command to get a list of connected device
     <p>
 <tt class=" ">logcat</tt> outputs in a continuous manner, meaning that the command continues to run and will output more messages as they're logged. To quit out of <tt class=" ">logcat</tt> press <tt class=" ">Ctrl+C</tt> on your keyboard. (Mac users take note, that's Control+C, not Command+C).    </p>
     <p>
-You can filter log output by using the <tt class=" ">grep</tt> command (OS X and Linux) or <tt class=" ">findstr</tt> command (Windows). Better yet, just use the built-in <tt class=" ">-s</tt> argument of the <tt class=" ">logcat</tt> command. This technique works identically on both platforms. Titanium log statements are tagged with the &quot;TiAPI&quot; tag.    </p>
+You can filter log output by using the <tt class=" ">grep</tt> command (OS X) or <tt class=" ">findstr</tt> command (Windows). Better yet, just use the built-in <tt class=" ">-s</tt> argument of the <tt class=" ">logcat</tt> command. This technique works identically on both platforms. Titanium log statements are tagged with the &quot;TiAPI&quot; tag.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">adb logcat | grep TiAPI</code></div>
@@ -169,12 +169,12 @@ Alternative, you can follow the Android docs which say to use the <i class=" ">t
     <div class="section section-4 " id="29004938_NativeAndroidDebuggingandTestingTools-Exploringthefilesystemwithadb">
         <h4 class="heading "><span>Exploring the file system with  adb</span></h4>
     <p>
-You can copy files to and from an emulator or device using <tt class=" ">adb</tt> and its commands. There isn't a built-in option to list the files on the device, but you can open a command shell and use a Linux-like <tt class=" ">ls</tt> command.    </p>
+You can copy files to and from an emulator or device using <tt class=" ">adb</tt> and its commands. There isn't a built-in option to list the files on the device, but you can open a command shell and use a Unix-like <tt class=" ">ls</tt> command.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="title">Listing files via the adb shell</div>
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">adb shell</code></div>
-<div class="line"><code class="plain"># ls -la	</code><code class="comments">// enter Linux-like commands, with or without options</code></div>
+<div class="line"><code class="plain"># ls -la	</code><code class="comments">// enter Unix-like commands, with or without options</code></div>
 <div class="line"><code class="plain"># cd /some/path	</code><code class="comments">// to change directories</code></div>
 <div class="line"><code class="plain"># exit		</code><code class="comments">// to close the adb shell</code></div>
 </div>
@@ -317,7 +317,7 @@ By default, when a new emulator is created, it only has enough space to install 
 <ol class=" "><li class=" ">    <p>
 Open the AVD configuration file with your favorite text editor.  The following are the default locations:    </p>
 <ol class=" "><li class=" ">    <p>
-On Linux and Mac OS X systems, open ~/<tt class=" ">.android/avd/&lt;AVD_name&gt;.avd/config.ini</tt>.    </p>
+On Mac OS X systems, open ~/<tt class=" ">.android/avd/&lt;AVD_name&gt;.avd/config.ini</tt>.    </p>
 </li><li class=" ">    <p>
 On Windows 7 and 8 systems, open <tt class=" ">C:\Users\&lt;user&gt;\.android\avd\&lt;AVD_name&gt;.avd\config.ini</tt>.    </p>
 </li></ol></li><li class=" ">    <p>

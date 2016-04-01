@@ -443,6 +443,16 @@ minsdk    </p>
 The is a generated value for the minimum Titanium SDK version that was used when creating your module. This is currently not used and reserved for future use.    </p>
             </td>
         </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+respackage    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+This is specific package name to generate a R.java. If you got exception like <i class=" "><tt class=" ">java.lang.NoClassDefFoundError: com.example.mypackage.R$layout</tt></i> then add the following entry to the your module manifest file: <i class=" ">respackage: <tt class=" ">com.example.mypackage</tt></i>. This will generate a corresponding java R file <tt class=" ">com.example.mypackage.R.java</tt>    </p>
+            </td>
+        </tr>
 </tbody>        </table>
             </div>
     <p>

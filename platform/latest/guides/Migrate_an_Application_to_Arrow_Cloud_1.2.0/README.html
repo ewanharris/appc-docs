@@ -18,8 +18,8 @@
 
         <div id="43309269" class="content">
             <h1>Migrate an Application to Arrow Cloud 1.2.0</h1>
-    <div class="section section-2 " id="43309269_MigrateanApplicationtoArrowCloud1.2.0-toc">
-        <h2 class="heading "><span/></h2>
+    <div class="section section-2 " id="43309269_MigrateanApplicationtoArrowCloud1.2.0-Content">
+        <h2 class="heading "><span>Content</span></h2>
 <ul class="toc-indentation "><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Migrate_an_Application_to_Arrow_Cloud_1.2.0-section-43309269_MigrateanApplicationtoArrowCloud1.2.0-Overview">Overview</a>    </p>
 </li><li class=" ">    <p>
@@ -32,15 +32,16 @@
 <a class="document-link " href="#!/guide/Migrate_an_Application_to_Arrow_Cloud_1.2.0-section-43309269_MigrateanApplicationtoArrowCloud1.2.0-InstallCustomBinaries">Install Custom Binaries</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Migrate_an_Application_to_Arrow_Cloud_1.2.0-section-43309269_MigrateanApplicationtoArrowCloud1.2.0-OptionalHealthCheck">Optional Health Check</a>    </p>
-</li></ul>    <div class="section section-3 " id="43309269_MigrateanApplicationtoArrowCloud1.2.0-Overview">
-        <h3 class="heading "><span>Overview</span></h3>
+</li></ul>    </div>
+    <div class="section section-2 " id="43309269_MigrateanApplicationtoArrowCloud1.2.0-Overview">
+        <h2 class="heading "><span>Overview</span></h2>
     <p>
-Arrow Cloud 1.2.0 uses Docker containers to host apps instead of OpenVZ.  Applications can provision their own containers and run in it as root.  This guide covers the new features available in Arrow Cloud 1.2.0.    </p>
+Arrow Cloud 1.2.0 uses Docker containers to host apps instead of OpenVZ. Applications can provision their own containers and run in it as root. This guide covers the new features available in Arrow Cloud 1.2.0.    </p>
     <p>
-You may need to make some changes to your Arrow applications before publishing them to Arrow Cloud 1.2.0.  Specifically, if you use the ACS logger utility (<tt class=" ">require('acs').logger</tt>) to log messages, you will need to update your application to use the <tt class=" ">appc-logger</tt> module.    </p>
+You may need to make some changes to your Arrow applications before publishing them to Arrow Cloud 1.2.0. Specifically, if you use the ACS logger utility (<tt class=" ">require('acs').logger</tt>) to log messages, you will need to update your application to use the <tt class=" ">appc-logger</tt> module.    </p>
     </div>
-    <div class="section section-3 " id="43309269_MigrateanApplicationtoArrowCloud1.2.0-ArrowCloudLoggingandAccessLogs">
-        <h3 class="heading "><span>Arrow Cloud Logging and Access Logs</span></h3>
+    <div class="section section-2 " id="43309269_MigrateanApplicationtoArrowCloud1.2.0-ArrowCloudLoggingandAccessLogs">
+        <h2 class="heading "><span>Arrow Cloud Logging and Access Logs</span></h2>
     <p>
 You can continue to use Node's built-in console object to log messages, that is, you can continue to use <tt class=" ">console.log()</tt> and <tt class=" ">console.error()</tt> in your application.    </p>
     <p>
@@ -106,8 +107,8 @@ In the code sample, you use the logger to log debug logs. Behind the scenes it l
 </div>    <p>
 For more detailed appc-logger usage, refer to <a class="external-link external-link" href="https://github.com/appcelerator/appc-logger" target="_blank">appc-logger Github project</a> and <a class="external-link external-link" href="https://docs.appcelerator.com/platform/latest/#!/api/Arrow.Logger" target="_blank">Arrow Logger API reference</a>.    </p>
     </div>
-    <div class="section section-3 " id="43309269_MigrateanApplicationtoArrowCloud1.2.0-NodeVersion">
-        <h3 class="heading "><span>Node Version</span></h3>
+    <div class="section section-2 " id="43309269_MigrateanApplicationtoArrowCloud1.2.0-NodeVersion">
+        <h2 class="heading "><span>Node Version</span></h2>
     <p>
 Prior to Arrow Cloud 1.2.0, the only Node versions you could use were 0.8.26 and 0.10.22.    </p>
     <p>
@@ -124,8 +125,8 @@ To specify a Node version, in the <tt class=" ">package.json</tt> file, set the 
 <div class="line"><code class="plain">}</code></div>
 </div>
 </div>    </div>
-    <div class="section section-3 " id="43309269_MigrateanApplicationtoArrowCloud1.2.0-PortBinding">
-        <h3 class="heading "><span>Port Binding</span></h3>
+    <div class="section section-2 " id="43309269_MigrateanApplicationtoArrowCloud1.2.0-PortBinding">
+        <h2 class="heading "><span>Port Binding</span></h2>
     <p>
 Starting with Arrow Cloud 1.2.0, you may explicitly set the port the application listens on.  Set the <tt class=" ">cloud.environment.PORT</tt> key in <tt class=" ">appc.json</tt> file. or use the <tt class=" ">appc cloud config --set PORT=&lt;PORT_NUMBER&gt;</tt> command to set the special environment variable PORT. If you do not set PORT explicitly before publishing your application, Arrow Cloud sets it to 80 by default.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
@@ -142,8 +143,8 @@ Starting with Arrow Cloud 1.2.0, you may explicitly set the port the application
 </div>    <p>
 Verify that the applications listens on PORT, otherwise your app cannot be connected. Use <tt class=" ">process.env.PORT</tt> in the application to verify the application is connected to a port.    </p>
     </div>
-    <div class="section section-3 " id="43309269_MigrateanApplicationtoArrowCloud1.2.0-InstallCustomBinaries">
-        <h3 class="heading "><span>Install Custom Binaries</span></h3>
+    <div class="section section-2 " id="43309269_MigrateanApplicationtoArrowCloud1.2.0-InstallCustomBinaries">
+        <h2 class="heading "><span>Install Custom Binaries</span></h2>
     <p>
 Arrow Cloud allows you to install additional binaries before your application is built.    </p>
     <p>
@@ -183,8 +184,8 @@ Prior to Release 1.3.0, you needed to create a script in your project folder (no
 </div>    <p>
 Note that from Arrow Cloud 1.3.0 and later, you can still use the above method but do not name the script <tt class=" ">install.sh</tt> or it will run twice, and only install the binaries in the project directory. Prior to Arrow Cloud 1.3.0, binaries could be installed outside the project directory.    </p>
     </div>
-    <div class="section section-3 " id="43309269_MigrateanApplicationtoArrowCloud1.2.0-OptionalHealthCheck">
-        <h3 class="heading "><span>Optional Health Check</span></h3>
+    <div class="section section-2 " id="43309269_MigrateanApplicationtoArrowCloud1.2.0-OptionalHealthCheck">
+        <h2 class="heading "><span>Optional Health Check</span></h2>
     <p>
 Starting with Arrow Cloud 1.2.0, you can optionally define a health-check endpoint, which Arrow Cloud will check to verify that the application is up and running. To create a health-check endpoint, define an endpoint called <tt class=" ">arrowPing.json</tt> that returns a 200 HTTP status code, then in the <tt class=" ">package.json</tt> file, set the <tt class=" ">healthCheck</tt> key to <tt class=" ">true</tt> to let Arrow Cloud know that the health check endpoint is defined.    </p>
     <p>
@@ -202,12 +203,7 @@ To let Arrow Cloud know that the application implemented the health-check endpoi
 <div class="line"><code class="plain"> </code><code class="string">"healthCheck"</code><code class="plain">: </code><code class="keyword">true</code></div>
 <div class="line"><code class="plain">}</code></div>
 </div>
-</div>    <p>
-    </p>
-    <p>
-    </p>
-    </div>
-    </div>
+</div>    </div>
         </div><a id="editButton" href="https://wiki.appcelerator.org/pages/editpage.action?pageId=43309269"><span>Edit</span></a>
     
         <div class="footer">

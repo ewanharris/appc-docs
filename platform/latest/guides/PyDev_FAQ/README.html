@@ -18,6 +18,8 @@
 
         <div id="30083081" class="content">
             <h1>PyDev FAQ</h1>
+    <p>
+    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
 <a class="document-link " href="#!/guide/PyDev_FAQ-section-30083081_PyDevFAQ-HowdoIReportaBUG?">How do I Report a BUG?</a>    </p>
 </li><li class=" ">    <p>
@@ -42,8 +44,6 @@
 <a class="document-link " href="#!/guide/PyDev_FAQ-section-30083081_PyDevFAQ-Mytodo-tasksarenotshowing,istheresomethingwrong?">My todo-tasks are not showing, is there something wrong?</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/PyDev_FAQ-section-30083081_PyDevFAQ-SomekeybindingsCtrl+[0-9]don'tworkunderUbuntu.WhatcanIdoaboutit?">Some keybindings Ctrl+[0-9] don't work under Ubuntu. What can I do about it?</a>    </p>
-</li><li class=" ">    <p>
-<a class="document-link " href="#!/guide/PyDev_FAQ-section-30083081_PyDevFAQ-Variablesviewdoesn'tshowlettersinGNU/Linux(whiledebugging)">Variables view doesn't show letters in GNU/Linux (while debugging)</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/PyDev_FAQ-section-30083081_PyDevFAQ-IhavealibraryinstalledandPyDevdoesnotfindit">I have a library installed and PyDev does not find it</a>    </p>
 </li><li class=" ">    <p>
@@ -83,19 +83,17 @@ When reporting a bug, the following information must be given:    </p>
     <p>
 - System (e.g windows XP)<br/>- Eclipse version (e.g. 3.5)<br/>- PyDev version (e.g. 1.5.1)<br/>- PyDev <strong class=" ">error log</strong> (if any): go to <strong class=" ">window &gt; show view &gt; other &gt; PDE Runtime &gt; Error log</strong>. (if you have the SDK installed, otherwise, you have to find the log file at <strong class=" ">your_workspace/.metadata/.log</strong>)<br/>- Eclipse install location (e.g. D:\eclipse_3\352\eclipse)<br/>- Project location where the bug appears (e.g. D:\eclipse\workspace\my project)<br/>- What were you doing when the bug appeared    </p>
     <p>
-<strong class=" ">IMPORTANT</strong>:  If you're having a bug where there's a <strong class=" ">halting condition</strong>, it's important to give the information on  the available threads when that happens and whether there's actually a deadlock.    </p>
+<strong class=" ">IMPORTANT</strong>: If you're having a bug where there's a <strong class=" ">halting condition</strong>, it's important to give the information on the available threads when that happens and whether there's actually a deadlock.    </p>
     <p>
 To get that info, start eclipse with the <strong class=" ">java executable (not javaw)</strong> and add the <strong class=" ">-Dcom.sun.management.jmxremote</strong> flag to vmargs (note that the sun java 1.6 should be used).    </p>
     <p>
 E.g.: d:\bin\eclipse_350\eclipse.exe -vm D:\bin\jdk_1_6_11\bin\java.exe -vmargs -Dcom.sun.management.jmxremote    </p>
     <p>
-Now, open up jconsole (e.g.: d:\bin\jdk_1_6_11\bin\jconsole.exe) and press 'detect deadlock' -- if a deadlock is found,  paste the info on the deadlocked threads and that should be enough.    </p>
+Now, open up jconsole (e.g.: d:\bin\jdk_1_6_11\bin\jconsole.exe) and press 'detect deadlock' -- if a deadlock is found, paste the info on the deadlocked threads and that should be enough.    </p>
     <p>
-If no deadlock is found, the bug should have the info on all the threads running attached to it  (below are instructions on how to get that info -- as it's too troublesome to pass every thread in jconsole copying it).    </p>
+If no deadlock is found, the bug should have the info on all the threads running attached to it (below are instructions on how to get that info -- as it's too troublesome to pass every thread in jconsole copying it).    </p>
     <p>
-If you're on windows, press <strong class=" ">Ctrl+Break</strong> to get a list of  all the running threads (which should be attached to the bug). Note that you may have to increase the buffer of the console to get all  info (so, in the console open the properties menu --  Alt+Space -- select the 'properties' and in 'screen buffer size: height'  raise it to something as 9999 -- and only then press Ctrl+Break)    </p>
-    <p>
-On Linux (and other unix variants) that info is gotten with <strong class=" ">kill pid --QUIT</strong>    </p>
+If you're on windows, press <strong class=" ">Ctrl+Break</strong> to get a list of all the running threads (which should be attached to the bug). Note that you may have to increase the buffer of the console to get all info (so, in the console open the properties menu -- Alt+Space -- select the 'properties' and in 'screen buffer size: height' raise it to something as 9999 -- and only then press Ctrl+Break)    </p>
     <p>
 <strong class=" ">NOTE</strong>: the <a class="external-link external-link" href="http://sourceforge.net/forum/forum.php?forum_id=293649" target="_blank">Users Forum</a> may be used for some doubts, but if you have a bug, that's not the place to go (even though, it might be useful searching it to see if what you have is not really a bug or if someone has already asked about it).    </p>
     </div>
@@ -134,24 +132,24 @@ Just go through the File &gt; New &gt; PyDev Project wizard and select as the di
     <p>
 <strong class=" ">Option 2</strong>:    </p>
     <p>
-Create the .project and .pydevproject files from the template below and  use File &gt; Import &gt; Existing Projects into Workspace to import it.   Note that this option is more a reference for people that want to  automate creating multiple projects at once.    </p>
+Create the .project and .pydevproject files from the template below and use File &gt; Import &gt; Existing Projects into Workspace to import it. Note that this option is more a reference for people that want to automate creating multiple projects at once.    </p>
     <p>
 <strong class=" ">.project</strong> contents (must replace the <strong class=" ">MyProject</strong> with the project name)    </p>
     <p>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br/>&lt;projectDescription&gt;<br/>&lt;name&gt;MyProject&lt;/name&gt;<br/>&lt;comment&gt;&lt;/comment&gt;<br/>&lt;projects&gt;<br/>&lt;/projects&gt;<br/>&lt;buildSpec&gt;<br/>&lt;buildCommand&gt;<br/>&lt;name&gt;org.python.pydev.PyDevBuilder&lt;/name&gt;<br/>&lt;arguments&gt;<br/>&lt;/arguments&gt;<br/>&lt;/buildCommand&gt;<br/>&lt;/buildSpec&gt;<br/>&lt;natures&gt;<br/>&lt;nature&gt;org.python.pydev.pythonNature&lt;/nature&gt;<br/>&lt;/natures&gt;<br/>&lt;/projectDescription&gt;    </p>
     <p>
-<strong class=" ">.pydevproject</strong> contents (must replace the path (<strong class=" ">/MyProject/src</strong>)  with the actual folders to be in the PYTHONPATH)    </p>
+<strong class=" ">.pydevproject</strong> contents (must replace the path (<strong class=" ">/MyProject/src</strong>) with the actual folders to be in the PYTHONPATH)    </p>
     <p>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br/>&lt;?eclipse-pydev version=&quot;1.0&quot;?&gt;<br/>&lt;pydev_project&gt;<br/>&lt;pydev_property name=&quot;org.python.pydev.PYTHON_PROJECT_INTERPRETER&quot;&gt;Default&lt;/pydev_property&gt;<br/>&lt;pydev_property name=&quot;org.python.pydev.PYTHON_PROJECT_VERSION&quot;&gt;python 2.7&lt;/pydev_property&gt;<br/>&lt;pydev_variables_property name=&quot;org.python.pydev.PROJECT_VARIABLE_SUBSTITUTION&quot;&gt;<br/>&lt;/pydev_variables_property&gt;<br/>&lt;pydev_pathproperty name=&quot;org.python.pydev.PROJECT_SOURCE_PATH&quot;&gt;<br/>&lt;path&gt;/MyProject/src&lt;/path&gt;<br/>&lt;/pydev_pathproperty&gt;<br/>&lt;/pydev_project&gt;    </p>
     </div>
     <div class="section section-2 " id="30083081_PyDevFAQ-HowdoIimportexistingprojects/sourcesforaDjangoprojectintoPyDev?">
         <h2 class="heading "><span>How do I import existing projects/sources for a Django project into PyDev?</span></h2>
     <p>
-Follow the same steps in the FAQ above to import a PyDev project, then  right click the project &gt; PyDev &gt; Set as Django project and  add 2 String substitution variables (on right click project &gt;  properties &gt; PyDev PYTHONPATH)    </p>
+Follow the same steps in the FAQ above to import a PyDev project, then right click the project &gt; PyDev &gt; Set as Django project and add 2 String substitution variables (on right click project &gt; properties &gt; PyDev PYTHONPATH)    </p>
     <p>
 <strong class=" ">DJANGO_MANAGE_LOCATION</strong>, which is the relative path to manage.py. i.e.: <strong class=" ">src/my_project/manage.py</strong><br/><strong class=" ">DJANGO_SETTINGS_MODULE</strong>, which is the name of the settings module. i.e.: <strong class=" ">my_project.settings</strong>    </p>
     <p>
-Note that if the .pydevproject file was created, those values could  already be added to it in the entry  org.python.pydev.PROJECT_VARIABLE_SUBSTITUTION:    </p>
+Note that if the .pydevproject file was created, those values could already be added to it in the entry org.python.pydev.PROJECT_VARIABLE_SUBSTITUTION:    </p>
     <p>
 &lt;pydev_variables_property name=&quot;org.python.pydev.PROJECT_VARIABLE_SUBSTITUTION&quot;&gt;<br/>&lt;key&gt;DJANGO_MANAGE_LOCATION&lt;/key&gt;<br/>&lt;value&gt;src/my_project/manage.py&lt;/value&gt;<br/>&lt;key&gt;DJANGO_SETTINGS_MODULE&lt;/key&gt;<br/>&lt;value&gt;my_project.settings&lt;/value&gt;<br/>&lt;/pydev_variables_property&gt;    </p>
     </div>
@@ -166,23 +164,21 @@ Please refer to the Getting Started Guide at <a class="document-link " href="#!/
 PyDev does most of its things in the java side, but some information can only be gotten from the python side (mainly builtins), so, in order to get that info, PyDev creates a shell and communicates with it through sockets.    </p>
     <p>
 The main problems when that happens are:    </p>
-    <p>
-1. There's a firewall blocking the communication to the shell    </p>
-    <p>
-2. In Linux, some kernels do not allow ipv4 utilization, which may make PyDev fail.    </p>
-    <p>
+<ul class=" "><li class=" ">    <p>
+There's a firewall blocking the communication to the shell    </p>
+</li></ul>    <p>
 To enable it, do: echo 0 &gt; /proc/sys/net/ipv6/bindv6only    </p>
-    <p>
-3. The timeout to connect is too smal.    </p>
-    <p>
-It depends upon the &quot;Timeout to connect to shell&quot; in the code-completion preferences  (window &gt; preferences &gt; PyDev &gt; Code completion)    </p>
+<ul class=" "><li class=" ">    <p>
+The timeout to connect is too smal.    </p>
+</li></ul>    <p>
+It depends upon the &quot;Timeout to connect to shell&quot; in the code-completion preferences (window &gt; preferences &gt; PyDev &gt; Code completion)    </p>
     <p>
 If nothing works, please report a bug (also, check if there is anything on the error log (window &gt; show view &gt; PDE Runtime &gt; Error log) and on the eclipse '.log', which is located at the .metadata folder of the workspace location.    </p>
     </div>
     <div class="section section-2 " id="30083081_PyDevFAQ-Whyraw_input()/input()doesnotworkcorrectlyinPyDev?">
         <h2 class="heading "><span>Why raw_input() / input() does not work correctly in PyDev?</span></h2>
     <p>
-The eclipse console is not an exact copy of a shell... one of  the changes is that when you press &lt;ENTER&gt; in a shell, it may give you a <strong class=" ">\r, \n</strong> or <strong class=" ">\r\n</strong> as an end-line char, depending on your platform.  Python does not expect this -- from the docs it says that it will remove the last <strong class=" ">\n</strong> (checked in version 2.4),  but, in some platforms that will leave a <strong class=" ">\r</strong> there.  This means that the <strong class=" ">raw_input()</strong> should usually be used as <strong class=" ">raw_input().replace('\r', '')</strong>,  and <strong class=" ">input()</strong> should be changed for: <strong class=" ">eval(raw_input().replace('\r', ''))</strong>.    </p>
+The eclipse console is not an exact copy of a shell... one of the changes is that when you press &lt;ENTER&gt; in a shell, it may give you a <strong class=" ">\r, \n</strong> or <strong class=" ">\r\n</strong> as an end-line char, depending on your platform. Python does not expect this -- from the docs it says that it will remove the last <strong class=" ">\n</strong> (checked in version 2.4), but, in some platforms that will leave a <strong class=" ">\r</strong> there. This means that the <strong class=" ">raw_input()</strong> should usually be used as <strong class=" ">raw_input().replace('\r', '')</strong>, and <strong class=" ">input()</strong> should be changed for: <strong class=" ">eval(raw_input().replace('\r', ''))</strong>.    </p>
     </div>
     <div class="section section-2 " id="30083081_PyDevFAQ-Mytodo-tasksarenotshowing,istheresomethingwrong?">
         <h2 class="heading "><span>My todo-tasks are not showing, is there something wrong?</span></h2>
@@ -198,26 +194,17 @@ And details at the PyDev bugtracker: <a class="external-link external-link" href
     <p>
 Basically, Ctrl+[0-9] does not work if a Ctrl+Shift+[0-9] is also set.    </p>
     <p>
-The proposed workaround until this is fixed is using Ctrl+/ and Ctrl+\ for comment/uncomment -- which are set  by default, and changing Ctrl+Shift+4 to Ctrl+6 -- or removing it altogether if you don't use it.    </p>
-    </div>
-    <div class="section section-2 " id="30083081_PyDevFAQ-Variablesviewdoesn'tshowlettersinGNU/Linux(whiledebugging)">
-        <h2 class="heading "><span>Variables view doesn't show letters in GNU/Linux (while debugging)</span></h2>
-    <p>
-Aparently, this bug is related only to GNOME (and no fix is provided for it).    </p>
-    <p>
-The good news is there is a work around. In gnome font prefs, set your DPI to less that 76. it works on the fly.    </p>
-    <p>
-This bug is closed in the PyDev bugtracker, but the bug was added on other places such as gnome and eclipse. The PyDev bug that points to those (and where this thread took place is <a class="external-link external-link" href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=1286315&amp;group_id=85796&amp;atid=577329" target="_blank">HERE</a>)    </p>
+The proposed workaround until this is fixed is using Ctrl+/ and Ctrl+\ for comment/uncomment -- which are set by default, and changing Ctrl+Shift+4 to Ctrl+6 -- or removing it altogether if you don't use it.    </p>
     </div>
     <div class="section section-2 " id="30083081_PyDevFAQ-IhavealibraryinstalledandPyDevdoesnotfindit">
         <h2 class="heading "><span>I have a library installed and PyDev does not find it</span></h2>
     <p>
-Well, problems have been reported on Mac and Linux, and the main reason seems to be symlinks. PyDev will only find extensions that are 'really' below the python install directory. This happens because the 'less common denominator', which in this case is windows, does not have symlinks. A workaround to this problem includes manually adding the given folder installation to the pythonpath or changing the installation of the package to be under the site-packages folder.    </p>
+Well, problems have been reported on Mac, and the main reason seems to be symlinks. PyDev will only find extensions that are 'really' below the python install directory. This happens because the 'less common denominator', which in this case is windows, does not have symlinks. A workaround to this problem includes manually adding the given folder installation to the pythonpath or changing the installation of the package to be under the site-packages folder.    </p>
     </div>
     <div class="section section-2 " id="30083081_PyDevFAQ-Whatisthat'Forcedbuiltinlibs'inthePythonInterpreterspreferences?">
         <h2 class="heading "><span>What is that 'Forced builtin libs' in the Python Interpreters preferences?</span></h2>
     <p>
-Well, some libraries once installed do not really show in code completion because they do not have a corresponding module (such as _<i class=" ">builtin</i>_ and datetime) or they do have a  corresponding module but it cannot be really used in code completion because most of its information is only gotten at runtime (such as sys and os), so, in order for code completion to get its information, you have to manually add it to those libs (and by doing so, its information is gotten with a python shell).    </p>
+Well, some libraries once installed do not really show in code completion because they do not have a corresponding module (such as _<i class=" ">builtin</i>_ and datetime) or they do have a corresponding module but it cannot be really used in code completion because most of its information is only gotten at runtime (such as sys and os), so, in order for code completion to get its information, you have to manually add it to those libs (and by doing so, its information is gotten with a python shell).    </p>
     </div>
     <div class="section section-2 " id="30083081_PyDevFAQ-HowdoIconfigureapythonshellforexperimentingwithPython?">
         <h2 class="heading "><span>How do I configure a python shell for experimenting with Python?</span></h2>
@@ -227,12 +214,12 @@ PyDev has an interactive console you can use. See: <a class="document-link " hre
     <div class="section section-2 " id="30083081_PyDevFAQ-ThePyDevbuilderistakingtoomuchofmytime,whatcanIdoaboutit?">
         <h2 class="heading "><span>The PyDev builder is taking too much of my time, what can I do about it?</span></h2>
     <p>
-Well, if you have PyLint active, you can disable it, as it is the process that takes most time when building.<br/>Another alternative is disabling the builder altogether. To do it you can go to window &gt; preferences &gt; PyDev &gt; builder  and disable it.<br/>NOTE: Disabling the builders may have many side-effects, such as code completion not working, pylint, tasks, etc. So, if you really want it, you can disable it, but do it with care.    </p>
+Well, if you have PyLint active, you can disable it, as it is the process that takes most time when building.<br/>Another alternative is disabling the builder altogether. To do it you can go to window &gt; preferences &gt; PyDev &gt; builder and disable it.<br/>NOTE: Disabling the builders may have many side-effects, such as code completion not working, pylint, tasks, etc. So, if you really want it, you can disable it, but do it with care.    </p>
     </div>
     <div class="section section-2 " id="30083081_PyDevFAQ-WhythePyDevpropertiesdonotshow?">
         <h2 class="heading "><span>Why the PyDev properties do not show?</span></h2>
     <p>
-Probably you are in the JAVA package explorer or something similar. You have to use the default navigator so that it shows its properties.<br/>Also note that you have to open a python file with PyDev in the project before it appears in the properties too  (the project python nature appears only after you do that).    </p>
+Probably you are in the JAVA package explorer or something similar. You have to use the default navigator so that it shows its properties.<br/>Also note that you have to open a python file with PyDev in the project before it appears in the properties too (the project python nature appears only after you do that).    </p>
     </div>
     <div class="section section-2 " id="30083081_PyDevFAQ-WhynothingshowsinthePyDevPackageExplorer?">
         <h2 class="heading "><span>Why nothing shows in the PyDev Package Explorer?</span></h2>
@@ -265,9 +252,9 @@ p.s. Don't forget to put it into both of your PYTHONPATHs (enviroment and in the
     <div class="section section-2 " id="30083081_PyDevFAQ-HowdoIrunamodulefromwithineclipseusingPyDev(eitherPythonorJython)?">
         <h2 class="heading "><span>How do I run a module from within eclipse using PyDev (either Python or Jython)?</span></h2>
     <p>
-To do that, the easiest way is going to the Run menu (Run &gt;  Run As &gt; Python or Jython). If it is not available in your current eclipse perspective, you can enable it by going to window &gt; customize  perspective &gt; commands and checking the &quot;Lauch&quot; item (in this way, you can go only with the keyboard).    </p>
+To do that, the easiest way is going to the Run menu (Run &gt; Run As &gt; Python or Jython). If it is not available in your current eclipse perspective, you can enable it by going to window &gt; customize perspective &gt; commands and checking the &quot;Lauch&quot; item (in this way, you can go only with the keyboard).    </p>
     <p>
-Another way to run a module is right clicking the module in the  navigator and choosing python &gt; run (when a .py file is selected).    </p>
+Another way to run a module is right clicking the module in the navigator and choosing python &gt; run (when a .py file is selected).    </p>
     </div>
     <div class="section section-2 " id="30083081_PyDevFAQ-HowdoIknowwhichisthecommand-lineandPYTHONPATHusedtomakeapythonorjythonrun?">
         <h2 class="heading "><span>How do I know which is the command-line and PYTHONPATH used to make a python or jython run?</span></h2>
@@ -277,7 +264,7 @@ If you are in doubt what is actually being passed to the run, you can go to the 
     <div class="section section-2 " id="30083081_PyDevFAQ-Codecompletionisnotworkingcorrectlyforsomelibrary">
         <h2 class="heading "><span>Code completion is not working correctly for some library</span></h2>
     <p>
-Well, code completion works by default by analyzing the source code, but, sometimes, most information is only really available at runtime (the os module and wxPython are good examples here). So, you can specify that you want to treat those as builtin libraries. For that, go to the python interpreters and add it as  a 'forced builtin lib'. More information may be found at the faq:    </p>
+Well, code completion works by default by analyzing the source code, but, sometimes, most information is only really available at runtime (the os module and wxPython are good examples here). So, you can specify that you want to treat those as builtin libraries. For that, go to the python interpreters and add it as a 'forced builtin lib'. More information may be found at the faq:    </p>
     <p>
 'What is that 'Forced builtin libs' in the Python Interpreters preferences?'    </p>
     </div>
@@ -295,11 +282,11 @@ It's basically the same thing, but works when debugging.    </p>
     <p>
 1. make sure that PyLint is correctly installed in your site-packages (try running it at least once on a command-line to make sure your installation is correct).    </p>
     <p>
-2. Check if your project and your pythonpath are correctly configured  -- pylint is only passed in files in the pythonpath for a project, so if any of those are not well configured, pylint won't work correctly.    </p>
+2. Check if your project and your pythonpath are correctly configured -- pylint is only passed in files in the pythonpath for a project, so if any of those are not well configured, pylint won't work correctly.    </p>
     <p>
 3. If your installation is all ok, try reading the <a class="document-link " href="#!/guide/PyDev_PyLint">PyLint</a> provided page to see if it is corretly configured in the eclipse side.    </p>
     <p>
-4. If everything fails, you can ask in the forum or submit a bug report for it (don't forget to add the following information: pylint installation path, pylint version and the other information requested on the  'How do I Report a BUG?' faq.    </p>
+4. If everything fails, you can ask in the forum or submit a bug report for it (don't forget to add the following information: pylint installation path, pylint version and the other information requested on the 'How do I Report a BUG?' faq.    </p>
     </div>
     <div class="section section-2 " id="30083081_PyDevFAQ-IhaveaCORBAprogramandIcannotdebugitsmethods,whatcanIdo?">
         <h2 class="heading "><span>I have a CORBA program and I cannot debug its methods, what can I do?</span></h2>
@@ -310,7 +297,7 @@ The ORB I use (omniORB) creates its own worker threads inside the python world, 
     <p>
 The solution is to explicitly set the trace function for the ORB threads.    </p>
     <p>
-1)  Open folder [eclipse sdk path]\plugins\org.python.pydev.debug_0.9.8.4\pysrc(or similar)    </p>
+1) Open folder [eclipse sdk path]\plugins\org.python.pydev.debug_0.9.8.4\pysrc(or similar)    </p>
     <p>
 2) Remove file pydevd.pyc, make a backup copy of file pydevd.py and make this change to the PyDB::run() method from file pydevd.py:    </p>
     <p>
@@ -328,7 +315,7 @@ Note 2: the trace function for the ORB worker threads MUST be set before the ORB
     <p>
 a) import this undocumented ORB function<br/>from omniORB import addWThreadHook<br/>b)add this function    </p>
     <p>
-def dbg_trace(flag=0, wt=None):<br/>&quot;&quot;&quot;This function is called whenever the ORB     creates a worker thread (i.e. when a client     calls a CORBA interface of the engine).     The ORB worker threads are not created with     the functions from the 'threading' module so,     if we want to debug them with PyDev, we need     to &quot;manually&quot; set the trace function for     them.&quot;&quot;&quot;<br/>if flag == 0: # WTHREAD_CREATED<br/>sys.settrace(pydev_trace_func)    </p>
+def dbg_trace(flag=0, wt=None):<br/>&quot;&quot;&quot;This function is called whenever the ORB creates a worker thread (i.e. when a client calls a CORBA interface of the engine). The ORB worker threads are not created with the functions from the 'threading' module so, if we want to debug them with PyDev, we need to &quot;manually&quot; set the trace function for them.&quot;&quot;&quot;<br/>if flag == 0: # WTHREAD_CREATED<br/>sys.settrace(pydev_trace_func)    </p>
     <p>
 c) finally, make these changes    </p>
     <p>
@@ -348,7 +335,7 @@ Please refer to: <a class="document-link " href="#!/guide/PyDev_Keybindings">PyD
     <div class="section section-2 " id="30083081_PyDevFAQ-HowdoIuninstallPyDev">
         <h2 class="heading "><span>How do I uninstall PyDev</span></h2>
     <p>
-To uninstall you should either go on and remove the org.python.pydev* from eclipse/plugins and eclipse/features or  you can go to help &gt; software updates &gt; manage configuration, choose the PyDev plugin and disable it (after that,  to completely remove it, you must restart Eclipse and only then select it for uninstall). Note that this process is the same for any Eclipse plugin.    </p>
+To uninstall you should either go on and remove the org.python.pydev* from eclipse/plugins and eclipse/features or you can go to help &gt; software updates &gt; manage configuration, choose the PyDev plugin and disable it (after that, to completely remove it, you must restart Eclipse and only then select it for uninstall). Note that this process is the same for any Eclipse plugin.    </p>
     </div>
         </div><a id="editButton" href="https://wiki.appcelerator.org/pages/editpage.action?pageId=30083081"><span>Edit</span></a>
     

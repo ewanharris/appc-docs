@@ -102,7 +102,7 @@ The CLI requires Node.js 0.10.13 or later. If you don't have Node installed, ins
 <ul class=" "><li class=" ">    <p>
 <a class="external-link external-link" href="http://nodejs.org/" target="_blank">nodejs.org</a>    </p>
 </li></ul>    <p>
-Before installing the CLI, you should decide where you want the Node Package Manager (<tt class=" ">npm</tt>) to install packages. By default <tt class=" ">npm</tt> installs into <tt class=" ">/usr/local</tt> on OS X and Linux, which requires that you run <tt class=" ">npm</tt> as root. This is not recommended. You can avoid having to run <tt class=" ">npm</tt> by doing one of the following:    </p>
+Before installing the CLI, you should decide where you want the Node Package Manager (<tt class=" ">npm</tt>) to install packages. By default <tt class=" ">npm</tt> installs into <tt class=" ">/usr/local</tt> on OS X, which requires that you run <tt class=" ">npm</tt> as root. This is not recommended. You can avoid having to run <tt class=" ">npm</tt> by doing one of the following:    </p>
 <ul class=" "><li class=" ">    <p>
 Make the <tt class=" ">/usr/local</tt> directory writable by all:<br/><br/><tt class=" ">sudo chmod 777 /usr/local</tt>    </p>
 </li></ul><ul class=" "><li class=" ">    <p>
@@ -143,7 +143,7 @@ If you encounter an error installing <tt class=" ">appc</tt>, see <a class="docu
     <p>
 The CLI has two components: the NPM package and the Core package, which contains the other CLI components.    </p>
     <p>
-<u class=" ">To update the NPM package</u>, run the <tt class=" ">npm install appcelerator -g</tt> command.  Note that you may need to prefix the command with <tt class=" ">sudo</tt> on Linux and OS X systems.    </p>
+<u class=" ">To update the NPM package</u>, run the <tt class=" ">npm install appcelerator -g</tt> command.  Note that you may need to prefix the command with <tt class=" ">sudo</tt> on OS X systems.    </p>
     <p>
 <u class=" ">To update the Core package</u>, run the <tt class=" ">appc setup</tt> command to download and install the latest package.    </p>
     </div>
@@ -152,13 +152,13 @@ The CLI has two components: the NPM package and the Core package, which contains
     <div class="section section-3 " id="43306725_AppceleratorCLITasks-ProxySetup">
         <h3 class="heading "><span>Proxy Setup</span></h3>
     <p>
-If you are using the Appcelerator CLI from behind a proxy, you need to configure your proxy server settings using the <tt class=" ">appc config</tt> command to set the <tt class=" ">proxyServer</tt> variable to your proxy server settings.    </p>
+If you are using the Appcelerator CLI from behind a proxy, you need to configure your proxy server settings using the <tt class=" ">appc config set</tt> command to set the <tt class=" ">proxyServer</tt> variable to your proxy server settings.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">appc config proxyServer [http|https]:</code><code class="comments">//&lt;username&gt;:&lt;password&gt;@&lt;domain&gt;:&lt;port_number&gt;</code></div>
+<div class="line"><code class="plain">appc config set proxyServer [http|https]:</code><code class="comments">//&lt;username&gt;:&lt;password&gt;@&lt;domain&gt;:&lt;port_number&gt;</code></div>
 <div class="line"><code class="plain"> </code></div>
 <div class="line"><code class="plain">## Example</code></div>
-<div class="line"><code class="plain">appc config proxyServer https:</code><code class="comments">//admin:password1234@foo.com:554</code></div>
+<div class="line"><code class="plain">appc config set proxyServer https:</code><code class="comments">//admin:password1234@foo.com:554</code></div>
 </div>
 </div>    </div>
     <div class="section section-3 " id="43306725_AppceleratorCLITasks-SettheCorePackageVersion">

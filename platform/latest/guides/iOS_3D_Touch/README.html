@@ -59,24 +59,24 @@ Press firmly on the app icon in the Home screen to reveal the Quick Actions (or 
     <p>
 To use quick actions, first create static or dynamic actions, then listen for the <tt class=" ">shortcutitemclick</tt> event to determine when the user taps a quick action.    </p>
     <p>
-<a class="external-link external-link" href="https://github.com/appcelerator-developer-relations/appc-sample-3dtouch/blob/master/docs/shortcuts.png" target="_blank">        <img src="images/github.com/appcelerator-developer-relations/appc-sample-3dtouch/raw/master/docs/shortcuts.png" alt="images/github.com/appcelerator-developer-relations/appc-sample-3dtouch/raw/master/docs/shortcuts.png" class="confluence-embedded-image confluence-external-resource"/>
-    </a>    </p>
+<a class="external-link external-link" href="https://github.com/appcelerator-developer-relations/appc-sample-3dtouch/blob/master/docs/shortcuts.png" target="_blank">         <img src="images/github.com/appcelerator-developer-relations/appc-sample-3dtouch/raw/master/docs/shortcuts.png" alt="images/github.com/appcelerator-developer-relations/appc-sample-3dtouch/raw/master/docs/shortcuts.png" class="confluence-embedded-image confluence-external-resource"/>
+     </a>    </p>
     <div class="section section-3 " id="46008174_iOS3DTouch-AddStaticShortcuts">
         <h3 class="heading "><span>Add Static Shortcuts</span></h3>
     <p>
-To define static shortcuts, add the <a class="external-link external-link" href="https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/iPhoneOSKeys.html#//apple_ref/doc/uid/TP40009252-SW36" target="_blank"><tt class=" ">UIApplicationShortcutItems</tt> </a>key to the <tt class=" ">ios/plist/dict</tt> element in the <tt class=" ">tiapp.xml</tt> file.  Set the <tt class=" ">UIApplicationShortcutItems</tt> key to an array of dict items containing  additional keys that define the shortcut.  You must specify the <tt class=" ">UIApplicationShortcutItemType</tt> and <tt class=" ">UIApplicationShortcutItemTitle</tt> keys:    </p>
+To define static shortcuts, add the <a class="external-link external-link" href="https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/iPhoneOSKeys.html#//apple_ref/doc/uid/TP40009252-SW36" target="_blank"> <tt class=" ">UIApplicationShortcutItems</tt> </a>key to the <tt class=" ">ios/plist/dict</tt> element in the <tt class=" ">tiapp.xml</tt> file.  Set the <tt class=" ">UIApplicationShortcutItems</tt> key to an array of dict items containing  additional keys that define the shortcut.  You must specify the  <tt class=" ">UIApplicationShortcutItemType</tt> and  <tt class=" ">UIApplicationShortcutItemTitle</tt> keys :    </p>
 <ul class=" "><li class=" ">    <p>
-<tt class=" ">UIApplicationShortcutItemTitle </tt>(required): title of the quick action. May be assigned an <tt class=" ">i18n</tt> localized string in the <tt class=" ">app.xml</tt> file.    </p>
+<tt class=" ">UIApplicationShortcutItemTitle </tt> (required): title of the quick action. May be assigned an <tt class=" ">i18n</tt> localized string in the <tt class=" ">app.xml</tt> file.    </p>
 </li><li class=" ">    <p>
 <tt class=" ">UIApplicationShortcutItemType</tt> (required): unique identifier of the quick action passed to the event. Use a reverse domain notation, for example, <tt class=" ">com.foocompany.fooapp.fooshortcut</tt>.    </p>
 </li><li class=" ">    <p>
 <tt class=" ">UIApplicationShortcutItemSubtitle</tt>: string to display underneath the title in the quick action. May be assigned an <tt class=" ">i18n</tt> localized string in the <tt class=" ">app.xml</tt> file.    </p>
 </li><li class=" ">    <p>
-<tt class=" ">UIApplicationShortcutItemIconType</tt>: Set to a <a class="external-link external-link" href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplicationShortcutIcon_Class/index.html#//apple_ref/c/tdef/UIApplicationShortcutIconType" target="_blank">UIApplicationShortcutIcon enum</a> to display an icon with the quick action.    </p>
+ <tt class=" ">UIApplicationShortcutItemIconType</tt>: Set to a <a class="external-link external-link" href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplicationShortcutIcon_Class/index.html#//apple_ref/c/tdef/UIApplicationShortcutIconType" target="_blank">UIApplicationShortcutIcon enum</a> to display an icon with the quick action.    </p>
 </li><li class=" ">    <p>
 <tt class=" ">UIApplicationShortcutItemIconFile</tt>: Hash of a 35 x 35 dp icon to display with the quick action. To retrieve the hash of the icon, build the project once and retrieve the hash of the corresponding image from<tt class=" "> build/iphone/Assets.xcassets.</tt>    </p>
 </li><li class=" ">    <p>
-<tt class=" ">UIApplicationShortcutItemUserInfo</tt>: custom dictionary that is passed to the event.    </p>
+   <tt class=" ">UIApplicationShortcutItemUserInfo</tt>: custom dictionary that is passed to the event.      </p>
 </li></ul>    <p>
     </p>
     <div class="confbox admonition admonition-note aui-message warning shadowed information-macro">
@@ -103,7 +103,7 @@ If you specify a custom quick action icon using the <tt class=" ">UIApplicationS
 </div>    </div>
     
     <p>
-<strong class=" ">Example:</strong>    </p>
+   <strong class=" ">Example:</strong>       </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="title">tiapp.xml</div>
 <div class="defaultnew syntaxhighlighter">
@@ -154,7 +154,7 @@ If you specify a custom quick action icon using the <tt class=" ">UIApplicationS
     <div class="section section-3 " id="46008174_iOS3DTouch-AddDynamicShortcuts">
         <h3 class="heading "><span>Add Dynamic Shortcuts</span></h3>
     <p>
-To create or remove dynamic shortcuts, use the <a class="external-link external-link" href="https://docs.appcelerator.com/platform/latest/#!/api/Titanium.UI.iOS.ApplicationShortcuts" target="_blank"><tt class=" ">Ti.UI.iOS.ApplicationShortcuts</tt> API</a>.    </p>
+To create or remove dynamic shortcuts, use the <a class="external-link external-link" href="https://docs.appcelerator.com/platform/latest/#!/api/Titanium.UI.iOS.ApplicationShortcuts" target="_blank"> <tt class=" ">Ti.UI.iOS.ApplicationShortcuts</tt> API</a>.    </p>
     <p>
 To create a dynamic shortcut:    </p>
 <ol class=" "><li class=" ">    <p>
@@ -219,8 +219,8 @@ When the user taps a Quick Action, the <tt class=" ">shortcutitemclick</tt> even
     <p>
 To use Peek and Pop, press firmly on a peek-supported view. As you start applying more force, the rest of the screen will blur and reveal the preview.  Maintaining the press will eventually open (pop) the detailed window. Swipe up while you peek to reveal any available quick actions.    </p>
     <p>
-<a class="external-link external-link" href="https://github.com/appcelerator-developer-relations/appc-sample-3dtouch/blob/master/docs/preview.png" target="_blank">        <img src="images/github.com/appcelerator-developer-relations/appc-sample-3dtouch/raw/master/docs/preview.png" alt="images/github.com/appcelerator-developer-relations/appc-sample-3dtouch/raw/master/docs/preview.png" class="confluence-embedded-image confluence-external-resource"/>
-    </a>    </p>
+<a class="external-link external-link" href="https://github.com/appcelerator-developer-relations/appc-sample-3dtouch/blob/master/docs/preview.png" target="_blank">         <img src="images/github.com/appcelerator-developer-relations/appc-sample-3dtouch/raw/master/docs/preview.png" alt="images/github.com/appcelerator-developer-relations/appc-sample-3dtouch/raw/master/docs/preview.png" class="confluence-embedded-image confluence-external-resource"/>
+     </a>    </p>
     <p>
 To enable Peek and Pop:    </p>
 <ol class=" "><li class=" ">    <p>
@@ -228,7 +228,7 @@ Use the <tt class=" ">Ti.UI.iOS.forceTouchSupported</tt> to test if the device s
 </li><li class=" ">    <p>
 Create a PreviewContext object using the <tt class=" ">Titanium.UI.iOS.createPreviewContext()</tt> method. Pass the method a dictionary with the following properties:    </p>
 <ul class=" "><li class=" ">    <p>
-<tt class=" ">preview</tt>: view object to use as the peeked view.<tt class=" "/>    </p>
+<tt class=" ">preview</tt>: view object to use as the peeked view.    </p>
 </li><li class=" ">    <p>
 <tt class=" ">pop</tt>: callback function that is invoked when the peeked view is popped.    </p>
 </li><li class=" ">    <p>
@@ -282,9 +282,9 @@ For a full example, see <a class="external-link external-link" href="https://git
     <div class="section section-2 " id="46008174_iOS3DTouch-FurtherReading">
         <h2 class="heading "><span>Further Reading</span></h2>
 <ul class=" "><li class=" ">    <p>
-<a class="external-link external-link" href="https://appcelerator.github.io/appc-docs/latest/#!/api/Titanium.UI.iOS.ApplicationShortcuts" target="_blank">Ti.UI.iOS.ApplicationShortcuts</a> API reference    </p>
+<a class="external-link external-link" href="#!/api/Titanium.UI.iOS.ApplicationShortcuts">Ti.UI.iOS.ApplicationShortcuts</a> API reference    </p>
 </li><li class=" ">    <p>
-<a class="external-link external-link" href="https://appcelerator.github.io/appc-docs/latest/#!/api/Titanium.UI.iOS.PreviewContext" target="_blank">Ti.UI.iOS.PreviewContext</a> API reference    </p>
+<a class="external-link external-link" href="#!/api/Titanium.UI.iOS.PreviewContext">Ti.UI.iOS.PreviewContext</a> API reference    </p>
 </li><li class=" ">    <p>
 Apple Human Interface Guidelines: <a class="external-link external-link" href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/3DTouch.html" target="_blank">3D Touch</a>    </p>
 </li><li class=" ">    <p>

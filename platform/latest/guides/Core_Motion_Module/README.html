@@ -39,7 +39,7 @@
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Core_Motion_Module-section-38928815_CoreMotionModule-Activity">Activity</a>    </p>
 </li><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Core_Motion_Module-section-38928815_CoreMotionModule-StepCounter">Step Counter</a>    </p>
+<a class="document-link " href="#!/guide/Core_Motion_Module-section-38928815_CoreMotionModule-Pedometer">Pedometer</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Core_Motion_Module-section-38928815_CoreMotionModule-Accelerometer">Accelerometer</a>    </p>
 </li><li class=" ">    <p>
@@ -76,7 +76,7 @@ The measurement from these three sensors provide raw data that is used to calcul
 </li><li class=" ">    <p>
 <strong class=" ">Attitude:</strong> Measurement of the orientation of the device relative to a frame of reference, represented as either Euler angles (roll, pitch and yaw), a rotation matrix, or a <a class="external-link external-link" href="http://en.wikipedia.org/wiki/Quaternion" target="_blank">quaternion</a>.    </p>
 </li><li class=" ">    <p>
-<strong class=" ">Step Counter</strong>: Measures the number of steps the user has taken with the device.    </p>
+<strong class=" ">Pedometer</strong>: Measures the number of steps the user has taken with the device.    </p>
 </li><li class=" ">    <p>
 <strong class=" ">User Acceleration:</strong> Instantaneous acceleration force the user applies to the device.    </p>
 </li></ul>    </div>
@@ -122,13 +122,16 @@ Require in the module in your JavaScript code. Use the reference to make API cal
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var CoreMotion = require(</code><code class="string">'ti.coremotion'</code><code class="plain">);</code></div>
-<div class="line"><code class="keyword">if</code><code class="plain"> (CoreMotion.isStepCountingAvailable()) {</code></div>
-<div class="line"><code class="plain">    CoreMotion.startStepCountingUpdates({stepCounts: </code><code class="value">1</code><code class="plain">}, function(e){</code></div>
-<div class="line"><code class="plain">        step_label.text = e.numberOfSteps;</code></div>
+<div class="line"><code class="plain">var Pedometer = CoreMotion.createPedometer();</code></div>
+<div class="line"><code class="keyword">if</code><code class="plain"> (Pedometer.isSupported()) {</code></div>
+<div class="line"><code class="plain">    Pedometer.startPedometerUpdates({</code></div>
+<div class="line"><code class="plain">        start: </code><code class="keyword">new</code><code class="plain"> Date(</code><code class="keyword">new</code><code class="plain"> Date().getTime() - </code><code class="value">60</code><code class="plain"> * </code><code class="value">60</code><code class="plain"> * </code><code class="value">1000</code><code class="plain">) </code><code class="comments">// 1 hr ago</code></div>
+<div class="line"><code class="plain">    }, </code></div>
+<div class="line"><code class="plain">    function(e) {</code></div>
 <div class="line"><code class="plain">        Ti.API.info(JSON.stringify(e));</code></div>
 <div class="line"><code class="plain">    });</code></div>
 <div class="line"><code class="plain">} </code><code class="keyword">else</code><code class="plain"> {</code></div>
-<div class="line"><code class="plain">    Ti.API.warn(</code><code class="string">'This device does not support counting steps.'</code><code class="plain">);</code></div>
+<div class="line"><code class="plain">    Ti.API.warn(</code><code class="string">'This device does not support the pedometer.'</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">}</code></div>
 </div>
 </div></li></ol>    </div>
@@ -141,7 +144,7 @@ The <a class="external-link external-link" href="#!/api/Modules.CoreMotion">Core
 </li><li class="p2 ">    <p>
 <strong class=" ">Activity</strong>: access the device's motion activity functionality    </p>
 </li><li class="p2 ">    <p>
-<strong class=" ">Step Counter</strong>: access the device's step counting functionality    </p>
+<strong class=" ">Pedometer</strong>: access the device's step counting functionality (replaced the in iOS 7 deprecated <strong class=" ">Step Counter</strong> by covering the same API and additional features)    </p>
 </li><li class="p2 ">    <p>
 <strong class=" ">Accelerometer</strong>: access the device's accelerometer measurements    </p>
 </li><li class="p2 ">    <p>
@@ -151,10 +154,11 @@ The <a class="external-link external-link" href="#!/api/Modules.CoreMotion">Core
 </li></ul>    <p class="p2">
 Each core motion feature follows a basic sequence.  To use a core motion feature:    </p>
 <ol class=" "><li class="p2 ">    <p>
-Query the device to see if the feature is available.  Use the feature's &quot;is available&quot; method.    </p>
+Create a new accelerometer instance and query the device to see if the feature is available.  Use the feature's &quot;is available&quot; method.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="keyword">if</code><code class="plain"> (CoreMotion.isAccelerometerAvailable()) {</code></div>
+<div class="line"><code class="plain">var Accelerometer = CoreMotion.createAccelerometer();</code></div>
+<div class="line"><code class="keyword">if</code><code class="plain"> (Accelerometer.isAccelerometerAvailable()) {</code></div>
 <div class="line"><code class="plain">   </code><code class="comments">// Start the service</code></div>
 <div class="line"><code class="plain">   accelerometer_state = </code><code class="keyword">true</code><code class="plain">;</code></div>
 <div class="line"><code class="plain">}</code></div>
@@ -166,9 +170,9 @@ If you start the service with a callback, use the feature's &quot;set interval&q
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="comments">// Send data at 1 s (1000 ms) intervals</code></div>
-<div class="line"><code class="plain">CoreMotion.setAccelerometerUpdateInterval(</code><code class="value">1000</code><code class="plain">);</code></div>
+<div class="line"><code class="plain">Accelerometer.setAccelerometerUpdateInterval(</code><code class="value">1000</code><code class="plain">);</code></div>
 <div class="line"><code class="comments">// Start with a callback</code></div>
-<div class="line"><code class="plain">CoreMotion.startAccelerometerUpdates(updateAccelData);</code></div>
+<div class="line"><code class="plain">Accelerometer.startAccelerometerUpdates(updateAccelData);</code></div>
 <div class="line"><code class="plain"> </code></div>
 <div class="line"><code class="plain">function updateAccelData (e) {</code></div>
 <div class="line"><code class="plain">    data = e.acceleration;</code></div>
@@ -182,10 +186,10 @@ If you start the service without a callback, you need to periodically check for 
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="comments">// Start without a callback and get data</code></div>
-<div class="line"><code class="plain">CoreMotion.startAccelerometerUpdates();</code></div>
+<div class="line"><code class="plain">Accelerometer.startAccelerometerUpdates();</code></div>
 <div class="line"><code class="comments">// The user manually polls for data </code></div>
 <div class="line"><code class="plain">button.addEventListener(</code><code class="string">'click'</code><code class="plain">, function(e) {</code></div>
-<div class="line"><code class="plain">    updateAccelData(CoreMotion.getAccelerometerData());</code></div>
+<div class="line"><code class="plain">    updateAccelData(Accelerometer.getAccelerometerData());</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain"> </code></div>
 <div class="line"><code class="plain">function updateAccelData (e) {</code></div>
@@ -200,7 +204,7 @@ Stop the service when the application does not need to collect data.  Use the fe
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="keyword">if</code><code class="plain"> (acceleratormeter_state) {</code></div>
-<div class="line"><code class="plain">    CoreMotion.stopAccelerometerUpdates();</code></div>
+<div class="line"><code class="plain">    Accelerometer.stopAccelerometerUpdates();</code></div>
 <div class="line"><code class="plain">    acceleratormeter_state = </code><code class="keyword">false</code><code class="plain">;</code></div>
 <div class="line"><code class="plain">}</code></div>
 </div>
@@ -254,7 +258,8 @@ The Device Motion API provides the same interface as the other Core Motion APIs 
 </li></ul><div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="comments">// Check to see if the true north reference frame is available</code></div>
-<div class="line"><code class="plain">var frames = CoreMotion.availableAttitudeReferenceFrames();</code></div>
+<div class="line"><code class="plain">var DeviceMotion = CoreMotion.createDeviceMotion();</code></div>
+<div class="line"><code class="plain">var frames = DeviceMotion.availableAttitudeReferenceFrames();</code></div>
 <div class="line"><code class="keyword">if</code><code class="plain"> (frames &amp; CoreMotion.ATTITUDE_REFERENCE_FRAME_X_TRUE_NORTH_Z_VERTICAL) {</code></div>
 <div class="line"><code class="plain">    </code><code class="keyword">return</code><code class="plain"> </code><code class="keyword">true</code><code class="plain">;</code></div>
 <div class="line"><code class="plain">} </code><code class="keyword">else</code><code class="plain"> {</code></div>
@@ -287,25 +292,7 @@ The Device Motion API uses five extra dictionaries to report the motion state of
 <tt class=" ">rotationRate:</tt> Same dictionary of values returned by the Gyroscope API.  Contains three properties: <tt class=" ">x</tt>, <tt class=" ">y</tt> and <tt class=" ">z</tt>, which provides the rotational rates in radian along the X-, Y- and Z-axes, respectively.    </p>
 </li><li class=" ">    <p>
 <tt class=" ">userAcceleration</tt>: Reports the acceleration applied by the user to the device.  Contains three properties: <tt class=" ">x</tt>, <tt class=" ">y</tt> and <tt class=" ">z</tt>, which provides the acceleration values in G's along the X-, Y- and Z-axes, respectively.    </p>
-</li></ul>    <p>
-    </p>
-    <div class="confbox admonition admonition-note aui-message warning shadowed information-macro">
-        
-    <p>
-The Core Motion module is built using hyperloop. Currently, if you try to stringify a hyperloop object that does not directly contain primitive values, that is, it contains other objects, the application freezes or crashes without reporting an error. For example:    </p>
-<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
-<div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="comments">// Succeeds</code></div>
-<div class="line"><code class="plain">JSON.stringify(attitude.rotationMatrix);</code></div>
-<div class="line"><code class="plain">JSON.stringify(attitude.quaternion);</code></div>
-<div class="line"><code class="comments">// Fails</code></div>
-<div class="line"><code class="plain">JSON.stringify(attitude);</code></div>
-</div>
-</div>    </div>
-    
-    <p>
-    </p>
-    <div class="section section-4 " id="38928815_CoreMotionModule-Example">
+</li></ul>    <div class="section section-4 " id="38928815_CoreMotionModule-Example">
         <h4 class="heading "><span>Example</span></h4>
     <p>
 The sample below initializes the Device Motion API with the specified reference frame.  If the frame is not available, the application falls back to the default frame or no frame.  If the user shakes the device for about 3 s, the application determines the direction the user is shaking, based on the user acceleration data.  The application outputs the attitude data to the display.    </p>
@@ -350,29 +337,30 @@ The sample below initializes the Device Motion API with the specified reference 
 <div class="line"><code class="plain">var ACCEL_THRESHOLD = </code><code class="value">2</code><code class="plain">;</code></div>
 <div class="line"><code class="plain">var SHAKE_THRESHOLD = </code><code class="value">5</code><code class="plain">;</code></div>
 <div class="line"><code class="plain">var CoreMotion = require(</code><code class="string">'ti.coremotion'</code><code class="plain">);</code></div>
-<div class="line"><code class="keyword">if</code><code class="plain"> (CoreMotion.isDeviceMotionAvailable()) {</code></div>
-<div class="line"><code class="plain">    CoreMotion.setDeviceMotionUpdateInterval(</code><code class="value">500</code><code class="plain">);</code></div>
-<div class="line"><code class="plain">    var frames = CoreMotion.availableAttitudeReferenceFrames();</code></div>
+<div class="line"><code class="plain">var DeviceMotion = CoreMotion.createDeviceMotion();</code></div>
+<div class="line"><code class="keyword">if</code><code class="plain"> (DeviceMotion.isDeviceMotionAvailable()) {</code></div>
+<div class="line"><code class="plain">    DeviceMotion.setDeviceMotionUpdateInterval(</code><code class="value">500</code><code class="plain">);</code></div>
+<div class="line"><code class="plain">    var frames = DeviceMotion.availableAttitudeReferenceFrames();</code></div>
 <div class="line"><code class="plain">    var ref_frame = CoreMotion.ATTITUDE_REFERENCE_FRAME_X_TRUE_NORTH_Z_VERTICAL;</code></div>
 <div class="line"><code class="plain">    </code><code class="keyword">if</code><code class="plain"> (frames &amp; ref_frame) {</code></div>
 <div class="line"><code class="plain">        </code><code class="comments">// Use the True North Frame if available</code></div>
 <div class="line"><code class="plain">        Ti.API.debug(</code><code class="string">'REFERENCE FRAME: True North'</code><code class="plain">);</code></div>
-<div class="line"><code class="plain">        CoreMotion.startDeviceMotionUpdatesUsingReferenceFrame(</code></div>
+<div class="line"><code class="plain">        DeviceMotion.startDeviceMotionUpdatesUsingReferenceFrame(</code></div>
 <div class="line"><code class="plain">            {referenceFrame: ref_frame},</code></div>
 <div class="line"><code class="plain">            updateMotionData    </code></div>
 <div class="line"><code class="plain">        );</code></div>
 <div class="line"><code class="plain">    }</code></div>
-<div class="line"><code class="plain">    </code><code class="keyword">else</code><code class="plain"> </code><code class="keyword">if</code><code class="plain"> (ref_frame = CoreMotion.getAttitudeReferenceFrame()) {</code></div>
+<div class="line"><code class="plain">    </code><code class="keyword">else</code><code class="plain"> </code><code class="keyword">if</code><code class="plain"> (ref_frame = DeviceMotion.getAttitudeReferenceFrame()) {</code></div>
 <div class="line"><code class="plain">        </code><code class="comments">// Use the default frame if it exists</code></div>
 <div class="line"><code class="plain">        Ti.API.debug(</code><code class="string">'REFERENCE FRAME: Default '</code><code class="plain"> + ref_frame);</code></div>
-<div class="line"><code class="plain">        CoreMotion.startDeviceMotionUpdatesUsingReferenceFrame(</code></div>
+<div class="line"><code class="plain">        DeviceMotion.startDeviceMotionUpdatesUsingReferenceFrame(</code></div>
 <div class="line"><code class="plain">            {referenceFrame: ref_frame},</code></div>
 <div class="line"><code class="plain">            updateMotionData    </code></div>
 <div class="line"><code class="plain">        );        </code></div>
 <div class="line"><code class="plain">    } </code><code class="keyword">else</code><code class="plain"> {</code></div>
 <div class="line"><code class="plain">        </code><code class="comments">// Do not use a reference frame</code></div>
 <div class="line"><code class="plain">        Ti.API.debug(</code><code class="string">'REFERENCE FRAME: None'</code><code class="plain">);</code></div>
-<div class="line"><code class="plain">        CoreMotion.startDeviceMotionUpdates(updateMotionData);</code></div>
+<div class="line"><code class="plain">        DeviceMotion.startDeviceMotionUpdates(updateMotionData);</code></div>
 <div class="line"><code class="plain">    }</code></div>
 <div class="line"><code class="plain">}</code></div>
 <div class="line"><code class="plain">function updateMotionData (e) {</code></div>
@@ -494,8 +482,9 @@ The following Alloy application captures the activity log of the device and disp
 <div class="line"><code class="plain">var activities = Alloy.Collections.activities;</code></div>
 <div class="line"><code class="plain">var model = Backbone.Model.extend();</code></div>
 <div class="line"><code class="plain">var CoreMotion = require(</code><code class="string">'ti.coremotion'</code><code class="plain">);</code></div>
+<div class="line"><code class="plain">var UserActivity = CoreMotion.createUserActivity();</code></div>
 <div class="line"><code class="plain">var last_activity = </code><code class="string">"unknown"</code><code class="plain">;</code></div>
-<div class="line"><code class="plain">CoreMotion.startActivityUpdates(updateActivity);</code></div>
+<div class="line"><code class="plain">UserActivity.startActivityUpdates(updateActivity);</code></div>
 <div class="line"><code class="plain">function updateActivity(e) {</code></div>
 <div class="line"><code class="plain">    var data = e.activity;</code></div>
 <div class="line"><code class="plain">    var dict = {};</code></div>
@@ -545,42 +534,42 @@ The following Alloy application captures the activity log of the device and disp
             </p>
     </div>
     </div>
-    <div class="section section-3 p1" id="38928815_CoreMotionModule-StepCounter">
-        <h3 class="heading p1"><span>Step Counter</span></h3>
+    <div class="section section-3 p1" id="38928815_CoreMotionModule-Pedometer">
+        <h3 class="heading p1"><span>Pedometer</span></h3>
     <p>
-The Step Counter API keeps track of how many steps a user takes with the device.  The Step Counter API provides the same basic interface as the other Core Motion APIs except:    </p>
+The Pedometer API keeps track of how many steps a user takes with the device.  The Pedometer API provides the same basic interface as the other Core Motion APIs except:    </p>
 <ul class=" "><li class=" ">    <p>
-The <tt class=" ">startStepCountingUpdates</tt> method requires an additional parameter.  Pass a dictionary with one key-value pair. Set the <tt class=" ">stepCounts</tt> property to a value greater than zero.  The Step Counter API starts counting steps from this value.  Pass an optional callback function as the second parameter.  Check the <tt class=" ">numberOfSteps</tt> property for the current results.    </p>
+The <tt class=" ">startPedometerUpdates</tt> method requires an additional parameter.  Pass a dictionary with one key-value pair. Set the <tt class=" ">start</tt> property to a valid date to use when gathering pedometer data.  Pedometer API starts counting steps from this date.  Pass an optional callback function as the second parameter.  Check the <tt class=" ">numberOfSteps</tt> property for the current results.    </p>
 </li><li class=" ">    <p>
-Use the <tt class=" ">queryStepCount</tt> method to retrieve the number steps taken within a time period.  Pass a dictionary with two key-value pairs as the first parameter.  Set the <tt class=" ">start</tt> property to a JavaScript Date object indicating the start time of the period and the <tt class=" ">end</tt> property to a JavaScript Date object indicating the end of the period.  Neither of these properties can be left undefined. Pass a callback to handle the query response as the second parameter.  Check the <tt class=" ">numberOfSteps</tt> property for the query results.    </p>
-</li><li class=" ">    <p>
-The Step Counter API does not have a &quot;set interval&quot; method.    </p>
+The Pedometer API does not have a &quot;set interval&quot; method.    </p>
 </li></ul>    <div class="section section-4 " id="38928815_CoreMotionModule-Example.2">
         <h4 class="heading "><span>Example</span></h4>
     <p>
-The sample code below uses the Step Counter API to measure the number of steps a user takes.  The device displays the measurement on screen.  The user presses the button to retrieve the number of steps taken within the last minute.  The application calls the <tt class=" ">queryStepCount</tt> method to retrieve the number of steps taken within the last minute.    </p>
+The sample code below uses the Pedometer API to measure the number of steps a user takes.  The device displays the measurement on screen.  The user presses the button to retrieve the number of steps taken within the last hour.  The application calls the <tt class=" ">queryStepCount</tt> method to retrieve the number of steps taken within the last minute.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var CoreMotion = require(</code><code class="string">'ti.coremotion'</code><code class="plain">);</code></div>
+<div class="line"><code class="plain">var Pedometer = CoreMotion.createPedometer();</code></div>
 <div class="line"><code class="plain">var win = Ti.UI.createWindow({backgroundColor: </code><code class="string">'white'</code><code class="plain">, layout: </code><code class="string">'vertical'</code><code class="plain">});</code></div>
 <div class="line"><code class="plain">var step_label = Ti.UI.createLabel({text: </code><code class="string">"0"</code><code class="plain">, top: </code><code class="value">25</code><code class="plain">});</code></div>
 <div class="line"><code class="plain">win.add(step_label);</code></div>
 <div class="line"><code class="plain">var step_history_label = Ti.UI.createLabel({text: </code><code class="string">"Press the button for step history."</code><code class="plain">, top: </code><code class="value">25</code><code class="plain">});</code></div>
 <div class="line"><code class="plain">win.add(step_history_label);</code></div>
-<div class="line"><code class="keyword">if</code><code class="plain"> (CoreMotion.isStepCountingAvailable()) {</code></div>
-<div class="line"><code class="plain">    CoreMotion.startStepCountingUpdates({stepCounts: </code><code class="value">1</code><code class="plain">}, function(e){</code></div>
+<div class="line"><code class="keyword">if</code><code class="plain"> (Pedometer.isStepCountingAvailable()) {</code></div>
+<div class="line"><code class="plain">    Pedometer.startPedometerUpdates({</code></div>
+<div class="line"><code class="plain">        start: </code><code class="keyword">new</code><code class="plain"> Date(</code><code class="keyword">new</code><code class="plain"> Date().getTime() - </code><code class="value">60</code><code class="plain"> * </code><code class="value">60</code><code class="plain"> * </code><code class="value">1000</code><code class="plain">)</code></div>
+<div class="line"><code class="plain">    }, function(e){</code></div>
 <div class="line"><code class="plain">        step_label.text = e.numberOfSteps;</code></div>
 <div class="line"><code class="plain">    });</code></div>
 <div class="line"><code class="plain">}</code></div>
 <div class="line"><code class="plain">var button = Ti.UI.createButton({title: </code><code class="string">"Last Minute"</code><code class="plain">, top: </code><code class="value">25</code><code class="plain">});</code></div>
 <div class="line"><code class="plain">button.addEventListener(</code><code class="string">'click'</code><code class="plain">, function(e){</code></div>
-<div class="line"><code class="plain">    CoreMotion.queryStepCount({</code></div>
+<div class="line"><code class="plain">    Pedometer.queryPedometerData({</code></div>
 <div class="line"><code class="plain">        start: </code><code class="keyword">new</code><code class="plain"> Date(</code><code class="keyword">new</code><code class="plain"> Date().getTime() - </code><code class="value">60</code><code class="plain">*</code><code class="value">1000</code><code class="plain">), </code></div>
 <div class="line"><code class="plain">        end: </code><code class="keyword">new</code><code class="plain"> Date()</code></div>
 <div class="line"><code class="plain">    }, function (e) {</code></div>
 <div class="line"><code class="plain">            step_history_label.text = </code><code class="string">"You walked "</code><code class="plain"> + e.numberOfSteps + </code><code class="string">" steps in the last minute."</code><code class="plain">;</code></div>
-<div class="line"><code class="plain">        }</code></div>
-<div class="line"><code class="plain">    );</code></div>
+<div class="line"><code class="plain">    });</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">win.add(button);</code></div>
 <div class="line"><code class="plain">win.open();</code></div>
@@ -602,9 +591,10 @@ The sample code below use the Accelerometer API to send acceleration data at 1 s
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var CoreMotion = require(</code><code class="string">'ti.coremotion'</code><code class="plain">);</code></div>
-<div class="line"><code class="keyword">if</code><code class="plain"> (CoreMotion.isAccelerometerAvailable()) {</code></div>
-<div class="line"><code class="plain">    CoreMotion.setAccelerometerUpdateInterval(</code><code class="value">1000</code><code class="plain">);</code></div>
-<div class="line"><code class="plain">    CoreMotion.startAccelerometerUpdates(updateAccelData);</code></div>
+<div class="line"><code class="plain">var Accelerometer = CoreMotion.createAccelerometer();</code></div>
+<div class="line"><code class="keyword">if</code><code class="plain"> (Accelerometer.isAccelerometerAvailable()) {</code></div>
+<div class="line"><code class="plain">    Accelerometer.setAccelerometerUpdateInterval(</code><code class="value">1000</code><code class="plain">);</code></div>
+<div class="line"><code class="plain">    Accelerometer.startAccelerometerUpdates(updateAccelData);</code></div>
 <div class="line"><code class="plain">} </code><code class="keyword">else</code><code class="plain"> {</code></div>
 <div class="line"><code class="plain">	alert(</code><code class="string">"Device does not have an accelerometer."</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">}</code></div>
@@ -653,9 +643,11 @@ The sample code below use the Gyroscope API to send rotation rate data at 1 s in
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var CoreMotion = require(</code><code class="string">'ti.coremotion'</code><code class="plain">);</code></div>
-<div class="line"><code class="keyword">if</code><code class="plain"> (CoreMotion.isGyroAvailable()) {</code></div>
-<div class="line"><code class="plain">    CoreMotion.setGyroUpdateInterval(</code><code class="value">1000</code><code class="plain">);</code></div>
-<div class="line"><code class="plain">    CoreMotion.startGyroUpdates(updateGyroData);</code></div>
+<div class="line"><code class="plain">var Gyroscope = CoreMotion.createGyroscope();</code></div>
+<div class="line"><code class="plain"> </code></div>
+<div class="line"><code class="keyword">if</code><code class="plain"> (Gyroscope.isGyroAvailable()) {</code></div>
+<div class="line"><code class="plain">    Gyroscope.setGyroUpdateInterval(</code><code class="value">1000</code><code class="plain">);</code></div>
+<div class="line"><code class="plain">    Gyroscope.startGyroUpdates(updateGyroData);</code></div>
 <div class="line"><code class="plain">} </code><code class="keyword">else</code><code class="plain"> {</code></div>
 <div class="line"><code class="plain">	alert(</code><code class="string">"Device does not have an gyroscope."</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">}</code></div>
@@ -712,8 +704,10 @@ The sample code below uses the Magnetometer API to take magnetic field measureme
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var CoreMotion = require(</code><code class="string">'ti.coremotion'</code><code class="plain">);</code></div>
-<div class="line"><code class="keyword">if</code><code class="plain"> (CoreMotion.isMagnetometerAvailable()) {</code></div>
-<div class="line"><code class="plain">    CoreMotion.startMagnetometerUpdates();</code></div>
+<div class="line"><code class="plain">var Magnetometer = CoreMotion.createMagnetometer();</code></div>
+<div class="line"><code class="plain"> </code></div>
+<div class="line"><code class="keyword">if</code><code class="plain"> (Magnetometer.isMagnetometerAvailable()) {</code></div>
+<div class="line"><code class="plain">    Magnetometer.startMagnetometerUpdates();</code></div>
 <div class="line"><code class="plain">} </code><code class="keyword">else</code><code class="plain"> {</code></div>
 <div class="line"><code class="plain">    alert(</code><code class="string">"Device does not have a magnetometer."</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">}</code></div>
@@ -728,7 +722,7 @@ The sample code below uses the Magnetometer API to take magnetic field measureme
 <div class="line"><code class="plain">win.add(totalMag);</code></div>
 <div class="line"><code class="plain">var button = Ti.UI.createButton({title: </code><code class="string">"Update Values"</code><code class="plain">, top: </code><code class="value">25</code><code class="plain">});</code></div>
 <div class="line"><code class="plain">button.addEventListener(</code><code class="string">'click'</code><code class="plain">, function(e){</code></div>
-<div class="line"><code class="plain">    updateMagnetometerData(CoreMotion.getMagnetometerData());</code></div>
+<div class="line"><code class="plain">    updateMagnetometerData(Magnetometer.getMagnetometerData());</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">win.add(button);</code></div>
 <div class="line"><code class="plain">function updateMagnetometerData (e) {</code></div>

@@ -213,7 +213,7 @@ To create an English language localization file, run the following command:    <
 <div class="line"><code class="plain">appc alloy extract-i18n --apply</code></div>
 </div>
 </div>    <p>
-This generates <tt class=" ">i18n/en/strings.xml</tt> in your project directory, if it doesn't exist. The contents of the generated XML file would appear as follows:    </p>
+This generates <tt class=" ">app/i18n/en/strings.xml</tt> or (before Alloy 1.8.0)  <tt class=" ">i18n/en/strings.xml</tt> in your project directory, if it doesn't exist. The contents of the generated XML file would appear as follows:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">&lt;?xml version=</code><code class="string">"1.0"</code><code class="plain"> encoding=</code><code class="string">"UTF-8"</code><code class="plain">?&gt;&lt;resources&gt;</code></div>
@@ -225,7 +225,7 @@ This generates <tt class=" ">i18n/en/strings.xml</tt> in your project directory,
 </div>    <p>
 If you later add more localization functions to your code and run the same command again, the new entries would be added to strings.xml. Existing entries are left untouched.    </p>
     <p>
-To generate a strings.xml for a specific language, pass the two-letter language code as a parameter. For example, the following command creates a strings.xml file for Spanish language locales (<tt class=" ">i18n/es/strings.xml</tt>):    </p>
+To generate a strings.xml for a specific language, pass the two-letter language code as a parameter. For example, the following command creates a strings.xml file for Spanish language locales (<tt class=" ">app/i18n/es/strings.xml</tt> or - before Alloy 1.8.0 - <tt class=" ">i18n/es/strings.xml</tt>):    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain"> appc alloy extract-i18n es --apply</code></div>

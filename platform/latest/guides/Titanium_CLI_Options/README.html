@@ -161,14 +161,6 @@
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Titanium_CLI_Options-section-37549003_TitaniumCLIOptions-java.home">java.home</a>    </p>
 </li></ul></li><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Titanium_CLI_Options-section-37549003_TitaniumCLIOptions-Linux">Linux</a>    </p>
-<ul class="toc-indentation "><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Titanium_CLI_Options-section-37549003_TitaniumCLIOptions-linux.dpkg">linux.dpkg</a>    </p>
-</li><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Titanium_CLI_Options-section-37549003_TitaniumCLIOptions-linux.dpkgquery">linux.dpkgquery</a>    </p>
-</li><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Titanium_CLI_Options-section-37549003_TitaniumCLIOptions-linux.rpm">linux.rpm</a>    </p>
-</li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Titanium_CLI_Options-section-37549003_TitaniumCLIOptions-OSX">OS X</a>    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Titanium_CLI_Options-section-37549003_TitaniumCLIOptions-osx.executables.gperf">osx.executables.gperf</a>    </p>
@@ -468,7 +460,7 @@ If set to true, the CLI creates symlinks in the build folder to the Resource fil
     <p>
 If set to false, the CLI copies the Resource files to the build folder.    </p>
     <p>
-Only available for Linux and Mac OS X.    </p>
+Only available for Mac OS X.    </p>
     <p>
 <strong class=" ">Default:</strong> true    </p>
     </div>
@@ -658,7 +650,7 @@ These settings configure the Intel Hardware Accelerated Execution Manager.    </
     <p>
 Path to the Intel HAXM plist file.    </p>
     <p>
-<strong class=" ">Default</strong>: &quot;/Library/Preferences/com.intel.kext.haxm.plist&quot; on OS X, nothing on Windows and Linux    </p>
+<strong class=" ">Default</strong>: &quot;/Library/Preferences/com.intel.kext.haxm.plist&quot; on OS X, nothing on Windows.    </p>
     </div>
     </div>
     <div class="section section-3 li1" id="37549003_TitaniumCLIOptions-iOS">
@@ -722,26 +714,6 @@ Path to the JDK <tt class=" ">keytool</tt> executable (including the executable 
 Path to the JDK directory.    </p>
     <p>
 <strong class=" ">Defaults:</strong> JAVA_HOME environment variable if defined.    </p>
-    </div>
-    </div>
-    <div class="section section-3 li1" id="37549003_TitaniumCLIOptions-Linux">
-        <h3 class="heading li1"><span>Linux</span></h3>
-    <p>
-Configuration settings for the CLI when running on a Linux OS.  The CLI will attempt to use the PATH environment variable to determine the location of the binaries.    </p>
-    <div class="section section-4 " id="37549003_TitaniumCLIOptions-linux.dpkg">
-        <h4 class="heading "><span>linux.dpkg</span></h4>
-    <p>
-Path to the <tt class=" ">dpkg</tt> executable (including the executable name).    </p>
-    </div>
-    <div class="section section-4 " id="37549003_TitaniumCLIOptions-linux.dpkgquery">
-        <h4 class="heading "><span>linux.dpkgquery</span></h4>
-    <p>
-Path to the <tt class=" ">dpkg-query</tt> executable (including the executable name).    </p>
-    </div>
-    <div class="section section-4 " id="37549003_TitaniumCLIOptions-linux.rpm">
-        <h4 class="heading "><span>linux.rpm</span></h4>
-    <p>
-Path to the <tt class=" ">rpm</tt> executable (including the executable name).    </p>
     </div>
     </div>
     <div class="section section-3 li1" id="37549003_TitaniumCLIOptions-OSX">
@@ -820,10 +792,6 @@ Path to the location of where to install the Titanium SDKs.  The defaults vary b
     <p>
 <strong class=" ">Defaults:</strong>    </p>
 <ul class=" "><li class="li1 ">    <p>
-<strong class=" ">Linux</strong>    </p>
-<ul class=" "><li class="li1 ">    <p>
-<tt class=" ">~/.titanium</tt> (default)    </p>
-</li></ul></li><li class="li1 ">    <p>
 <strong class=" ">Mac OS X</strong>    </p>
 <ul class=" "><li class="li1 ">    <p>
 <tt class=" ">~/Library/Application Support/Titanium</tt> (default)    </p>

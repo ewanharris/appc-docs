@@ -130,6 +130,8 @@
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-UIStatusBarStyle">UIStatusBarStyle</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-UnsupportedInfo.plistKeys">Unsupported Info.plist Keys</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-iOS9SecurityandcanOpenUrl">iOS9 Security and canOpenUrl</a>    </p>
 </li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-run-on-main-thread">run-on-main-thread</a>    </p>
 </li><li class=" ">    <p>
@@ -163,8 +165,20 @@
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-manifest.1">manifest</a>    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
-<a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-Addcapabilities">Add capabilities</a>    </p>
-</li></ul></li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-AddCapabilities">Add Capabilities</a>    </p>
+<ul class="toc-indentation "><li class=" ">    <p>
+<a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-InternetCapability">Internet Capability</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-LocationCapability">Location Capability</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-UserInformationCapability">User Information Capability</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-BackgroundAudioCapability">Background Audio Capability</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-AudioRecorder">Audio Recorder</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-PhotoGallery">Photo Gallery</a>    </p>
+</li></ul></li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-Windows-specificapplicationproperties">Windows-specific application properties</a>    </p>
 </li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-Cloud">Cloud</a>    </p>
@@ -484,7 +498,7 @@ The special property <tt class=" ">appc-security-jailbreak-detect</tt> can be us
 <div class="line"><code class="plain">&lt;property name=</code><code class="string">"appc-security-jailbreak-detect"</code><code class="plain">&gt;</code><code class="keyword">true</code><code class="plain">&lt;/property&gt;</code></div>
 </div>
 </div>    <p>
-This feature is enabled by default.    </p>
+This feature is disabled by default. If you enable this feature, you will be required to set the property of <tt class=" ">remote</tt> for <tt class=" ">appc-sourcecode-encryption-policy</tt> in order for it to work. Note: there is no default behavior for <tt class=" ">appc_sourcecode-encryption-policy</tt>. You must explicitly set this value.    </p>
     <p>
 Setting this property to <strong class=" ">false</strong> will allow your application to run on devices that have been jailbroken or rooted.    </p>
     </div>
@@ -497,7 +511,7 @@ The special property <tt class=" ">appc-security-debugger-detect</tt> can be use
 <div class="line"><code class="plain">&lt;property name=</code><code class="string">"appc-security-debugger-detect"</code><code class="plain">&gt;</code><code class="keyword">true</code><code class="plain">&lt;/property&gt;</code></div>
 </div>
 </div>    <p>
-This feature is enabled by default.    </p>
+This feature is disabled by default. If you enable this feature, you will be required to set the property of <tt class=" ">remote</tt> for <tt class=" ">appc-sourcecode-encryption-policy</tt> in order for it to work. Note: there is no default behavior for <tt class=" ">appc_sourcecode-encryption-policy</tt>. You must explicitly set this value.    </p>
     <p>
 Setting this property to <strong class=" ">false</strong> will allow debug applications to connect to your mobile app.    </p>
     </div>
@@ -1410,10 +1424,29 @@ CFBundlePackageType    </p>
 </li><li class=" ">    <p>
 CFBundleSignature    </p>
 </li><li class=" ">    <p>
-CFBundleVersion    </p>
+CFBundleVersion (until Titanium 4.1.0)    </p>
 </li><li class=" ">    <p>
-CFBundleShortVersionString    </p>
+CFBundleShortVersionString (until Titanium 4.1.0)    </p>
 </li></ul>    </div>
+    <div class="section section-4 " id="29004921_tiapp.xmlandtimodule.xmlReference-iOS9SecurityandcanOpenUrl">
+        <h4 class="heading "><span>iOS9 Security and canOpenUrl</span></h4>
+    <p>
+With some of the new security features of iOS9, SDK 5.1.2's <strong class=" ">canOpenUrl</strong> might fail without adding in the proper properties in the <tt class=" ">info.plist</tt> file. For example,    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">&lt;key&gt;LSApplicationQueriesSchemes&lt;/key&gt;</code></div>
+<div class="line"><code class="plain">    &lt;array&gt;</code></div>
+<div class="line"><code class="plain">        &lt;string&gt;fbapi&lt;/string&gt;</code></div>
+<div class="line"><code class="plain">        &lt;string&gt;fbauth2&lt;/string&gt;</code></div>
+<div class="line"><code class="plain">        &lt;string&gt;fbshareextension&lt;/string&gt;</code></div>
+<div class="line"><code class="plain">        &lt;string&gt;fb-messenger-api&lt;/string&gt;</code></div>
+<div class="line"><code class="plain">        &lt;string&gt;twitter&lt;/string&gt;</code></div>
+<div class="line"><code class="plain">        &lt;string&gt;whatsapp&lt;/string&gt;</code></div>
+<div class="line"><code class="plain">        &lt;string&gt;instagram&lt;/string&gt;</code></div>
+<div class="line"><code class="plain">        &lt;string&gt;comgooglemaps&lt;/string&gt;</code></div>
+<div class="line"><code class="plain">    &lt;/array&gt;</code></div>
+</div>
+</div>    </div>
     </div>
     <div class="section section-3 " id="29004921_tiapp.xmlandtimodule.xmlReference-run-on-main-thread">
         <h3 class="heading "><span>run-on-main-thread</span></h3>
@@ -1458,7 +1491,7 @@ Because images are store in the Asset Catalog, image files cannot be accessed fr
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">&lt;ti:app&gt;</code></div>
 <div class="line"><code class="plain">  &lt;ios&gt;</code></div>
-<div class="line"><code class="plain">    &lt;property name=</code><code class="string">"use-app-thinning"</code><code class="plain">&gt;</code><code class="keyword">true</code><code class="plain">&lt;/property&gt;</code></div>
+<div class="line"><code class="plain">    &lt;use-app-thinning&gt;</code><code class="keyword">true</code><code class="plain">&lt;/use-app-thinning&gt;</code></div>
 <div class="line"><code class="plain">  &lt;/ios&gt;</code></div>
 <div class="line"><code class="plain">&lt;/ti:app&gt;</code></div>
 </div>
@@ -1631,15 +1664,143 @@ Only supports the following elements:    </p>
 <tt class=" ">&lt;Properties&gt;</tt>    </p>
 </li><li class=" ">    <p>
 <tt class=" ">&lt;Resources&gt;</tt>    </p>
-</li></ul>    <div class="section section-4 " id="29004921_tiapp.xmlandtimodule.xmlReference-Addcapabilities">
-        <h4 class="heading "><span>Add capabilities</span></h4>
+</li></ul>    <div class="section section-4 " id="29004921_tiapp.xmlandtimodule.xmlReference-AddCapabilities">
+        <h4 class="heading "><span>Add Capabilities</span></h4>
     <p>
-The following example request access to connect to the Internet if the application is published as a Phone or Store application, access to the device's location if the application is published as a Phone application, and access to the USB bus if the application is published as a Store application.    </p>
+Some Titanium features require capability definitions in order for them to function. These can be defined in the <i class=" ">tiapp.xml</i> under the platform specific <i class=" ">&lt;windows&gt;</i> tag.    </p>
+    <div class="section section-5 " id="29004921_tiapp.xmlandtimodule.xmlReference-InternetCapability">
+        <h5 class="heading "><span>Internet Capability</span></h5>
+    <p>
+Enabled by default, required for <i class=" ">Titanium.Network.*</i>    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">&lt;</code><code class="keyword">ti</code><code class="plain">:app&gt;</code></div>
+<div class="line"><code class="plain">  ...</code></div>
+<div class="line"><code class="plain">  &lt;</code><code class="keyword">windows</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">    &lt;</code><code class="keyword">manifest</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">      &lt;</code><code class="keyword">Capabilities</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">        &lt;</code><code class="keyword">Capability</code><code class="plain"> </code><code class="color1">Name</code><code class="plain">=</code><code class="string">"internetClient"</code><code class="plain"> /&gt;</code></div>
+<div class="line"><code class="plain">      &lt;/</code><code class="keyword">Capabilities</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">    &lt;/</code><code class="keyword">manifest</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">  &lt;/</code><code class="keyword">windows</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">  ...</code></div>
+<div class="line"><code class="plain">&lt;/</code><code class="keyword">ti</code><code class="plain">:app&gt;</code></div>
+</div>
+</div>    </div>
+    <div class="section section-5 " id="29004921_tiapp.xmlandtimodule.xmlReference-LocationCapability">
+        <h5 class="heading "><span>Location Capability</span></h5>
+    <p>
+Required for <i class=" ">Titanium.Geolocation</i>    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">&lt;</code><code class="keyword">ti</code><code class="plain">:app&gt;</code></div>
+<div class="line"><code class="plain">  ...</code></div>
+<div class="line"><code class="plain">  &lt;</code><code class="keyword">windows</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">    ...</code></div>
+<div class="line"><code class="plain">    &lt;</code><code class="keyword">manifest</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">      &lt;</code><code class="keyword">Capabilities</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">        &lt;</code><code class="keyword">DeviceCapability</code><code class="plain"> </code><code class="color1">Name</code><code class="plain">=</code><code class="string">"location"</code><code class="plain"> /&gt;</code></div>
+<div class="line"><code class="plain">      &lt;/</code><code class="keyword">Capabilities</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">    &lt;/</code><code class="keyword">manifest</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">    ...</code></div>
+<div class="line"><code class="plain">  &lt;/</code><code class="keyword">windows</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">  ...</code></div>
+<div class="line"><code class="plain">&lt;/</code><code class="keyword">ti</code><code class="plain">:app&gt;</code></div>
+</div>
+</div>    </div>
+    <div class="section section-5 " id="29004921_tiapp.xmlandtimodule.xmlReference-UserInformationCapability">
+        <h5 class="heading "><span>User Information Capability</span></h5>
+    <p>
+Required for <i class=" ">Titanium.Platform.username</i>    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">&lt;</code><code class="keyword">ti</code><code class="plain">:app&gt;</code></div>
+<div class="line"><code class="plain">  ...</code></div>
+<div class="line"><code class="plain">  &lt;</code><code class="keyword">windows</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">    ...</code></div>
+<div class="line"><code class="plain">    &lt;</code><code class="keyword">Capabilities</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">      &lt;</code><code class="keyword">uap</code><code class="plain">:Capability </code><code class="color1">Name</code><code class="plain">=</code><code class="string">"userAccountInformation"</code><code class="plain"> /&gt;</code></div>
+<div class="line"><code class="plain">    &lt;/</code><code class="keyword">Capabilities</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">    ...</code></div>
+<div class="line"><code class="plain">  &lt;/</code><code class="keyword">windows</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">  ...</code></div>
+<div class="line"><code class="plain">&lt;/</code><code class="keyword">ti</code><code class="plain">:app&gt;</code></div>
+</div>
+</div>    </div>
+    <div class="section section-5 " id="29004921_tiapp.xmlandtimodule.xmlReference-BackgroundAudioCapability">
+        <h5 class="heading "><span>Background Audio Capability</span></h5>
+    <p>
+Required for <i class=" ">Titanium.Media.AudioPlayer</i> background audio functionality    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">&lt;</code><code class="keyword">ti</code><code class="plain">:app&gt;</code></div>
+<div class="line"><code class="plain">  ...</code></div>
+<div class="line"><code class="plain">  &lt;</code><code class="keyword">windows</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">    ...</code></div>
+<div class="line"><code class="plain">    &lt;</code><code class="keyword">manifest</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">      &lt;</code><code class="keyword">Extensions</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">        &lt;</code><code class="keyword">Extension</code><code class="plain"> </code><code class="color1">Category</code><code class="plain">=</code><code class="string">"windows.backgroundTasks"</code><code class="plain"> </code><code class="color1">Executable</code><code class="plain">=</code><code class="string">"$targetnametoken$.exe"</code><code class="plain"> </code><code class="color1">EntryPoint</code><code class="plain">=</code><code class="string">"TitaniumWindows_Media.AudioBackground"</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">          &lt;</code><code class="keyword">BackgroundTasks</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">            &lt;</code><code class="keyword">Task</code><code class="plain"> </code><code class="color1">Type</code><code class="plain">=</code><code class="string">"audio"</code><code class="plain"> /&gt;</code></div>
+<div class="line"><code class="plain">          &lt;/</code><code class="keyword">BackgroundTasks</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">        &lt;/</code><code class="keyword">Extension</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">      &lt;/</code><code class="keyword">Extensions</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">    &lt;/</code><code class="keyword">manifest</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">    ...</code></div>
+<div class="line"><code class="plain">  &lt;/</code><code class="keyword">windows</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">  ...</code></div>
+<div class="line"><code class="plain">&lt;/</code><code class="keyword">ti</code><code class="plain">:app&gt;</code></div>
+</div>
+</div>    </div>
+    <div class="section section-5 " id="29004921_tiapp.xmlandtimodule.xmlReference-AudioRecorder">
+        <h5 class="heading "><span>Audio Recorder</span></h5>
+    <p>
+Required for <i class=" ">Titanium.Media.AudioRecorder</i> functionality    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">&lt;</code><code class="keyword">ti</code><code class="plain">:app&gt;</code></div>
+<div class="line"><code class="plain">  ...</code></div>
+<div class="line"><code class="plain">  &lt;</code><code class="keyword">windows</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">    ...</code></div>
+<div class="line"><code class="plain">    &lt;</code><code class="keyword">Capabilities</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">        &lt;</code><code class="keyword">uap</code><code class="plain">:Capability </code><code class="color1">Name</code><code class="plain">=</code><code class="string">"musicLibrary"</code><code class="plain"> /&gt;</code></div>
+<div class="line"><code class="plain">        &lt;</code><code class="keyword">DeviceCapability</code><code class="plain"> </code><code class="color1">Name</code><code class="plain">=</code><code class="string">"microphone"</code><code class="plain"> /&gt;</code></div>
+<div class="line"><code class="plain">        &lt;</code><code class="keyword">DeviceCapability</code><code class="plain"> </code><code class="color1">Name</code><code class="plain">=</code><code class="string">"webcam"</code><code class="plain"> /&gt;</code></div>
+<div class="line"><code class="plain">    &lt;/</code><code class="keyword">Capabilities</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">    ...</code></div>
+<div class="line"><code class="plain">  &lt;/</code><code class="keyword">windows</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">  ...</code></div>
+<div class="line"><code class="plain">&lt;/</code><code class="keyword">ti</code><code class="plain">:app&gt;</code></div>
+</div>
+</div>    </div>
+    <div class="section section-5 " id="29004921_tiapp.xmlandtimodule.xmlReference-PhotoGallery">
+        <h5 class="heading "><span>Photo Gallery</span></h5>
+    <p>
+Required for <i class=" ">Titanium.Media.openPhotoGallery</i> functionality    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">&lt;</code><code class="keyword">ti</code><code class="plain">:app&gt;</code></div>
+<div class="line"><code class="plain">  ...</code></div>
+<div class="line"><code class="plain">  &lt;</code><code class="keyword">windows</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">    ...</code></div>
+<div class="line"><code class="plain">    &lt;</code><code class="keyword">Capabilities</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">        &lt;</code><code class="keyword">Capability</code><code class="plain"> </code><code class="color1">Name</code><code class="plain">=</code><code class="string">"picturesLibrary"</code><code class="plain"> /&gt;</code></div>
+<div class="line"><code class="plain">    &lt;/</code><code class="keyword">Capabilities</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">    ...</code></div>
+<div class="line"><code class="plain">  &lt;/</code><code class="keyword">windows</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">  ...</code></div>
+<div class="line"><code class="plain">&lt;/</code><code class="keyword">ti</code><code class="plain">:app&gt;</code></div>
+</div>
+</div>    <p>
+    </p>
+    <p>
+Capabilities can also be set independently for <i class=" ">store</i> or <i class=" ">phone</i> applications by specifying the <i class=" ">target</i>.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">&lt;ti:app&gt;</code></div>
+<div class="line"><code class="plain">  ...</code></div>
 <div class="line"><code class="plain">  &lt;windows&gt;</code></div>
-<div class="line"><code class="plain">    &lt;id&gt;12345FooInc.FooApp&lt;/id&gt;</code></div>
+<div class="line"><code class="plain">    ...</code></div>
 <div class="line"><code class="plain">    &lt;manifest target=</code><code class="string">"phone"</code><code class="plain">&gt;</code></div>
 <div class="line"><code class="plain">      &lt;Capabilities&gt;</code></div>
 <div class="line"><code class="plain">        &lt;DeviceCapability Name=</code><code class="string">"location"</code><code class="plain"> /&gt;</code></div>
@@ -1647,19 +1808,17 @@ The following example request access to connect to the Internet if the applicati
 <div class="line"><code class="plain">    &lt;/manifest&gt;</code></div>
 <div class="line"><code class="plain">    &lt;manifest target=</code><code class="string">"store"</code><code class="plain">&gt;</code></div>
 <div class="line"><code class="plain">      &lt;Capabilities&gt;</code></div>
-<div class="line"><code class="plain">        &lt;DeviceCapability Name=</code><code class="string">"usb"</code><code class="plain"> /&gt;</code></div>
-<div class="line"><code class="plain">      &lt;/Capabilities&gt;</code></div>
-<div class="line"><code class="plain">    &lt;/manifest&gt;</code></div>
-<div class="line"><code class="plain">    &lt;manifest&gt;</code></div>
-<div class="line"><code class="plain">      &lt;Capabilities&gt;</code></div>
 <div class="line"><code class="plain">        &lt;Capability Name=</code><code class="string">"internetClient"</code><code class="plain"> /&gt;</code></div>
 <div class="line"><code class="plain">      &lt;/Capabilities&gt;</code></div>
 <div class="line"><code class="plain">    &lt;/manifest&gt;</code></div>
+<div class="line"><code class="plain">    ...</code></div>
 <div class="line"><code class="plain">  &lt;/windows&gt;</code></div>
+<div class="line"><code class="plain">  ...</code></div>
 <div class="line"><code class="plain">&lt;/ti:app&gt;</code></div>
 </div>
 </div>    <p>
-    </p>
+For more information regarding Windows App capabilities refer to <a class="external-link external-link" href="https://msdn.microsoft.com/en-us/library/windows/apps/hh464936.aspx" target="_blank">https://msdn.microsoft.com/en-us/library/windows/apps/hh464936.aspx</a>    </p>
+    </div>
     </div>
     </div>
     <div class="section section-3 " id="29004921_tiapp.xmlandtimodule.xmlReference-Windows-specificapplicationproperties">
