@@ -27,6 +27,14 @@
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Audio_APIs-section-29004910_AudioAPIs-Hands-onPractice">Hands-on Practice</a>    </p>
 </li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Audio_APIs-section-29004910_AudioAPIs-WindowsDevelopmentConsiderations">Windows Development Considerations</a>    </p>
+<ul class="toc-indentation "><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Audio_APIs-section-29004910_AudioAPIs-Grantaccesstobackgroundaudio">Grant access to background audio</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Audio_APIs-section-29004910_AudioAPIs-Grantaccesstovideostreamandaudiostream">Grant access to video stream and audio stream</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Audio_APIs-section-29004910_AudioAPIs-Grantaccesstomusiclibrary">Grant access to music library</a>    </p>
+</li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Audio_APIs-section-29004910_AudioAPIs-ReferencesandFurtherReading">References and Further Reading</a>    </p>
 </li></ul>    <div class="section section-2 " id="29004910_AudioAPIs-Objective">
         <h2 class="heading "><span>Objective</span></h2>
@@ -158,6 +166,74 @@ Add an event listener to the tab group that monitors the <tt class=" ">focus</tt
 </li><li class=" ">    <p>
 Build and test the app in the simulator/emulator.    </p>
 </li></ol>    </div>
+    </div>
+    <div class="section section-3 " id="29004910_AudioAPIs-WindowsDevelopmentConsiderations">
+        <h3 class="heading "><span>Windows Development Considerations</span></h3>
+    <p>
+In order to enable background audio for Windows Phone, you need to provide appropriate Capabilities in your <tt class=" ">tiapp.xml</tt>. Windows Phone users are prompted to grant or deny permission when your application attempt to use background audio.    </p>
+    <div class="section section-4 " id="29004910_AudioAPIs-Grantaccesstobackgroundaudio">
+        <h4 class="heading "><span>Grant access to background audio</span></h4>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">&lt;</code><code class="keyword">ti</code><code class="plain">:app&gt;</code></div>
+<div class="line"><code class="plain">  ...</code></div>
+<div class="line"><code class="plain">  &lt;</code><code class="keyword">windows</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">    ...</code></div>
+<div class="line"><code class="plain">    &lt;</code><code class="keyword">manifest</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">      &lt;</code><code class="keyword">Extensions</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">       </code></div>
+<div class="line"><code class="plain"> &lt;</code><code class="keyword">Extension</code><code class="plain"> </code><code class="color1">Category</code><code class="plain">=</code><code class="string">"windows.backgroundTasks"</code><code class="plain"> </code></div>
+<div class="line"><code class="color1">Executable</code><code class="plain">=</code><code class="string">"$targetnametoken$.exe"</code><code class="plain"> </code></div>
+<div class="line"><code class="color1">EntryPoint</code><code class="plain">=</code><code class="string">"TitaniumWindows_Media.AudioBackground"</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">          &lt;</code><code class="keyword">BackgroundTasks</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">            &lt;</code><code class="keyword">Task</code><code class="plain"> </code><code class="color1">Type</code><code class="plain">=</code><code class="string">"audio"</code><code class="plain"> /&gt;</code></div>
+<div class="line"><code class="plain">          &lt;/</code><code class="keyword">BackgroundTasks</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">        &lt;/</code><code class="keyword">Extension</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">      &lt;/</code><code class="keyword">Extensions</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">    &lt;/</code><code class="keyword">manifest</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">    ...</code></div>
+<div class="line"><code class="plain">  &lt;/</code><code class="keyword">windows</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">  ...</code></div>
+<div class="line"><code class="plain">&lt;/</code><code class="keyword">ti</code><code class="plain">:app&gt;</code></div>
+</div>
+</div>    </div>
+    <div class="section section-4 " id="29004910_AudioAPIs-Grantaccesstovideostreamandaudiostream">
+        <h4 class="heading "><span>Grant access to video stream and audio stream</span></h4>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">&lt;</code><code class="keyword">ti</code><code class="plain">:app&gt;</code></div>
+<div class="line"><code class="plain">  ...</code></div>
+<div class="line"><code class="plain">  &lt;</code><code class="keyword">windows</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">    ...</code></div>
+<div class="line"><code class="plain">    &lt;</code><code class="keyword">Capabilities</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">        &lt;</code><code class="keyword">DeviceCapability</code><code class="plain"> </code><code class="color1">Name</code><code class="plain">=</code><code class="string">"microphone"</code><code class="plain"> /&gt;</code></div>
+<div class="line"><code class="plain">        &lt;</code><code class="keyword">DeviceCapability</code><code class="plain"> </code><code class="color1">Name</code><code class="plain">=</code><code class="string">"webcam"</code><code class="plain"> /&gt;</code></div>
+<div class="line"><code class="plain">    &lt;/</code><code class="keyword">Capabilities</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">    ...</code></div>
+<div class="line"><code class="plain">  &lt;/</code><code class="keyword">windows</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">  ...</code></div>
+<div class="line"><code class="plain">&lt;/</code><code class="keyword">ti</code><code class="plain">:app&gt;</code></div>
+</div>
+</div>    </div>
+    <div class="section section-4 " id="29004910_AudioAPIs-Grantaccesstomusiclibrary">
+        <h4 class="heading "><span>Grant access to music library</span></h4>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">&lt;</code><code class="keyword">ti</code><code class="plain">:app&gt;</code></div>
+<div class="line"><code class="plain">  ...</code></div>
+<div class="line"><code class="plain">  &lt;</code><code class="keyword">windows</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">    ...</code></div>
+<div class="line"><code class="plain">    &lt;</code><code class="keyword">Capabilities</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">        &lt;</code><code class="keyword">Capability</code><code class="plain"> </code><code class="color1">Name</code><code class="plain">=</code><code class="string">"musicLibrary"</code><code class="plain"> /&gt;</code></div>
+<div class="line"><code class="plain">    &lt;/</code><code class="keyword">Capabilities</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">    ...</code></div>
+<div class="line"><code class="plain">  &lt;/</code><code class="keyword">windows</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">  ...</code></div>
+<div class="line"><code class="plain">&lt;/</code><code class="keyword">ti</code><code class="plain">:app&gt;</code></div>
+</div>
+</div>    <p>
+For more information about audio configuration in <tt class=" ">tiapp.xml</tt>, see <a class="external-link external-link" href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-Windows-specificsection">Windows-specific section</a> in <a class="external-link external-link" href="#!/guide/tiapp.xml_and_timodule.xml_Reference">tiapp.xml and timodule.xml Reference</a>.    </p>
+    </div>
     </div>
     <div class="section section-3 " id="29004910_AudioAPIs-ReferencesandFurtherReading">
         <h3 class="heading "><span>References and Further Reading</span></h3>

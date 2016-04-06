@@ -26,6 +26,8 @@
 <a class="document-link " href="#!/guide/Tracking_Position_and_Heading-section-29004915_TrackingPositionandHeading-AndroidDevelopmentConsiderations">Android Development Considerations</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Tracking_Position_and_Heading-section-29004915_TrackingPositionandHeading-MobileWebconsiderations">Mobile Web considerations</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Tracking_Position_and_Heading-section-29004915_TrackingPositionandHeading-WindowsDevelopmentconsiderations">Windows Development considerations</a>    </p>
 </li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Tracking_Position_and_Heading-section-29004915_TrackingPositionandHeading-UsingLocationServicesinyourApp">Using Location Services in your App</a>    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
@@ -161,6 +163,29 @@ Once you've set the mock location, you must grant your app permissions to read t
         <h4 class="heading "><span>Mobile Web considerations</span></h4>
     <p>
 For geolocation to work with Mobile Web, the user must be running a browser that supports the W3C's <a class="external-link external-link" href="http://www.w3.org/TR/geolocation-API/" target="_blank">Geolocation API</a>. The actual implementation of geolocation, and accuracy provided, is also a function of the user's browser as well as the device on which they're running that browser. As with iOS, Mobile Web apps will prompt users to grant permission to access your location. However, you cannot change the message displayed to users. That message is dependent on the browser he or she uses, but typically follows the form &quot;www.example.com Would like to use your current location.&quot;    </p>
+    </div>
+    <div class="section section-4 " id="29004915_TrackingPositionandHeading-WindowsDevelopmentconsiderations">
+        <h4 class="heading "><span>Windows Development considerations</span></h4>
+    <p>
+In order to enable location service for Windows Phone, you need to provide appropriate <tt class=" ">location</tt> Capability in your <tt class=" ">tiapp.xml</tt>. Windows Phone users are prompted to grant or deny permission when your application attempt to use geolocation information. In any cases Windows Phone user should enable location service on their device preliminarily (<tt class=" ">Settings -&gt; location</tt> on Windows Phone 8.1, <tt class=" ">Settings -&gt; Privacy -&gt; Location</tt> on Windows 10 Mobile).    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">&lt;ti:app&gt;</code></div>
+<div class="line"><code class="plain">  ...</code></div>
+<div class="line"><code class="plain">  &lt;windows&gt;</code></div>
+<div class="line"><code class="plain">    ...</code></div>
+<div class="line"><code class="plain">    &lt;manifest&gt;</code></div>
+<div class="line"><code class="plain">      &lt;Capabilities&gt;</code></div>
+<div class="line"><code class="plain">        &lt;DeviceCapability Name=</code><code class="string">"location"</code><code class="plain"> /&gt;</code></div>
+<div class="line"><code class="plain">      &lt;/Capabilities&gt;</code></div>
+<div class="line"><code class="plain">    &lt;/manifest&gt;</code></div>
+<div class="line"><code class="plain">    ...</code></div>
+<div class="line"><code class="plain">  &lt;/windows&gt;</code></div>
+<div class="line"><code class="plain">  ...</code></div>
+<div class="line"><code class="plain">&lt;/ti:app&gt;</code></div>
+</div>
+</div>    <p>
+For more information about geolocation configuration in <tt class=" ">tiapp.xml,</tt> see <a class="external-link external-link" href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-Windows-specificsection">Windows-specific section</a> in <a class="external-link external-link" href="#!/guide/tiapp.xml_and_timodule.xml_Reference">tiapp.xml and timodule.xml Reference</a>.    </p>
     </div>
     </div>
     <div class="section section-3 " id="29004915_TrackingPositionandHeading-UsingLocationServicesinyourApp">

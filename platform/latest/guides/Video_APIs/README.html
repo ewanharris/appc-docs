@@ -25,6 +25,12 @@
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Video_APIs-section-29004911_VideoAPIs-Hands-onPractice">Hands-on Practice</a>    </p>
 </li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Video_APIs-section-29004911_VideoAPIs-WindowsDevelopmentConsiderations">Windows Development Considerations</a>    </p>
+<ul class="toc-indentation "><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Video_APIs-section-29004911_VideoAPIs-Grantaccesstovideostreamandaudiostream">Grant access to video stream and audio stream</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Video_APIs-section-29004911_VideoAPIs-Grantaccesstomusiclibrary">Grant access to music library</a>    </p>
+</li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Video_APIs-section-29004911_VideoAPIs-ReferencesandFurtherReading">References and Further Reading</a>    </p>
 </li></ul>    <div class="section section-2 " id="29004911_VideoAPIs-Objective">
         <h2 class="heading "><span>Objective</span></h2>
@@ -129,6 +135,48 @@ Rotate the iPhone simulator by pressing Command and either the left or right arr
     
     </div>
     </div>
+    <div class="section section-3 " id="29004911_VideoAPIs-WindowsDevelopmentConsiderations">
+        <h3 class="heading "><span>Windows Development Considerations</span></h3>
+    <p>
+In order to enable camera and audio recording for Windows Phone, you need to provide appropriate Capabilities in your <tt class=" ">tiapp.xml.</tt> Windows Phone users are prompted to grant or deny permission when your application attempt to use it.    </p>
+    <div class="section section-4 " id="29004911_VideoAPIs-Grantaccesstovideostreamandaudiostream">
+        <h4 class="heading "><span>Grant access to video stream and audio stream</span></h4>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">&lt;</code><code class="keyword">ti</code><code class="plain">:app&gt;</code></div>
+<div class="line"><code class="plain">  ...</code></div>
+<div class="line"><code class="plain">  &lt;</code><code class="keyword">windows</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">    ...</code></div>
+<div class="line"><code class="plain">    &lt;</code><code class="keyword">Capabilities</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">        &lt;</code><code class="keyword">DeviceCapability</code><code class="plain"> </code><code class="color1">Name</code><code class="plain">=</code><code class="string">"microphone"</code><code class="plain"> /&gt;</code></div>
+<div class="line"><code class="plain">        &lt;</code><code class="keyword">DeviceCapability</code><code class="plain"> </code><code class="color1">Name</code><code class="plain">=</code><code class="string">"webcam"</code><code class="plain"> /&gt;</code></div>
+<div class="line"><code class="plain">    &lt;/</code><code class="keyword">Capabilities</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">    ...</code></div>
+<div class="line"><code class="plain">  &lt;/</code><code class="keyword">windows</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">  ...</code></div>
+<div class="line"><code class="plain">&lt;/</code><code class="keyword">ti</code><code class="plain">:app&gt;</code></div>
+</div>
+</div>    </div>
+    <div class="section section-4 " id="29004911_VideoAPIs-Grantaccesstomusiclibrary">
+        <h4 class="heading "><span>Grant access to music library</span></h4>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">&lt;</code><code class="keyword">ti</code><code class="plain">:app&gt;</code></div>
+<div class="line"><code class="plain">  ...</code></div>
+<div class="line"><code class="plain">  &lt;</code><code class="keyword">windows</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">    ...</code></div>
+<div class="line"><code class="plain">    &lt;</code><code class="keyword">Capabilities</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">        &lt;</code><code class="keyword">Capability</code><code class="plain"> </code><code class="color1">Name</code><code class="plain">=</code><code class="string">"musicLibrary"</code><code class="plain"> /&gt;</code></div>
+<div class="line"><code class="plain">    &lt;/</code><code class="keyword">Capabilities</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">    ...</code></div>
+<div class="line"><code class="plain">  &lt;/</code><code class="keyword">windows</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">  ...</code></div>
+<div class="line"><code class="plain">&lt;/</code><code class="keyword">ti</code><code class="plain">:app&gt;</code></div>
+</div>
+</div>    <p>
+For more information about audio configuration in <tt class=" ">tiapp.xml</tt>, see <a class="external-link external-link" href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-Windows-specificsection">Windows-specific section</a> in <a class="external-link external-link" href="#!/guide/tiapp.xml_and_timodule.xml_Reference">tiapp.xml and timodule.xml Reference</a>.    </p>
+    </div>
+    </div>
     <div class="section section-3 " id="29004911_VideoAPIs-ReferencesandFurtherReading">
         <h3 class="heading "><span>References and Further Reading</span></h3>
 <ul class=" "><li class=" ">    <p>
@@ -139,6 +187,8 @@ Rotate the iPhone simulator by pressing Command and either the left or right arr
 <a class="external-link external-link" href="http://developer.apple.com/library/ios/#documentation/Miscellaneous/Conceptual/iPhoneOSTechOverview/MediaLayer/MediaLayer.html" target="_blank">iOS Developer Docs: Supported video formats</a>    </p>
 </li><li class=" ">    <p>
 <a class="external-link external-link" href="http://developer.android.com/guide/appendix/media-formats.html" target="_blank">Android Developer Docs: Supported media formats</a>    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://msdn.microsoft.com/windows/uwp/audio-video-camera/index" target="_blank">Windows 10: Audio, video, and camera</a>    </p>
 </li></ul>    </div>
     </div>
     <div class="section section-2 " id="29004911_VideoAPIs-Summary">
