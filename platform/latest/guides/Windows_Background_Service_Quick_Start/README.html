@@ -200,9 +200,9 @@ Open the <tt class=" ">tiapp.xml</tt> and update the <tt class=" ">&lt;modules/&
     <div class="section section-3 " id="46248264_WindowsBackgroundServiceQuickStart-LoadtheModuleandMakeModuleAPICalls">
         <h3 class="heading "><span>Load the Module and Make Module API Calls</span></h3>
     <p>
-Open the <tt class=" ">app/alloy.js</tt> file and replace the code with the following, which invokes background service API calls to the module:    </p>
+Open the <tt class=" ">app.js</tt> file and replace the code with the following, which invokes background service API calls to the module:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
-<div class="title">app/alloy.js</div>
+<div class="title">app.js</div>
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var win = Ti.UI.createWindow();</code></div>
 <div class="line"><code class="plain">var task;</code></div>
@@ -352,7 +352,7 @@ In this example we saves count value to <tt class=" ">&quot;ComExampleTest.Backg
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="title">app.js</div>
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain"> </code><code class="keyword">var</code><code class="plain"> win = Ti.UI.createWindow();</code></div>
+<div class="line"><code class="keyword">var</code><code class="plain"> win = Ti.UI.createWindow();</code></div>
 <div class="line"><code class="keyword">var</code><code class="plain"> task;</code></div>
 <div class="line"><code class="plain">win.addEventListener(</code><code class="string">'open'</code><code class="plain">, </code><code class="keyword">function</code><code class="plain">() {</code></div>
 <div class="line"><code class="plain">  </code><code class="comments">// Let's print out task execution count</code></div>
