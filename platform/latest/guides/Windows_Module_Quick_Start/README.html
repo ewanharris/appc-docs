@@ -267,7 +267,7 @@ A Module is a key/value store like an Object. Without any modification, you can 
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="title">ComExampleTest.hpp</div>
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="keyword">class</code><code class="plain"> COMEXAMPLETEST_EXPORT Test : </code><code class="keyword">public</code><code class="plain"> JSExportObject, </code><code class="keyword">public</code><code class="plain"> JSExport&lt;Test&gt;</code></div>
+<div class="line"><code class="keyword">class</code><code class="plain"> COMEXAMPLETEST_EXPORT Test : </code><code class="keyword">public</code><code class="plain"> Titanium::ModuleObject, </code><code class="keyword">public</code><code class="plain"> JSExport&lt;Test&gt;</code></div>
 <div class="line"><code class="plain">{</code></div>
 <div class="line"><code class="plain">    </code><code class="keyword">public</code><code class="plain">:</code></div>
 <div class="line"><code class="plain">        ...</code></div>
@@ -325,7 +325,7 @@ In order to add JavaScript function to Module, modify the default module class f
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="title">ComExampleTest.hpp</div>
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="keyword">class</code><code class="plain"> COMEXAMPLETEST_EXPORT Test : </code><code class="keyword">public</code><code class="plain"> JSExportObject, </code><code class="keyword">public</code><code class="plain"> JSExport&lt;Test&gt;</code></div>
+<div class="line"><code class="keyword">class</code><code class="plain"> COMEXAMPLETEST_EXPORT Test : </code><code class="keyword">public</code><code class="plain"> Titanium::Module, </code><code class="keyword">public</code><code class="plain"> JSExport&lt;Test&gt;</code></div>
 <div class="line"><code class="plain">{</code></div>
 <div class="line"><code class="plain">    </code><code class="keyword">public</code><code class="plain">:</code></div>
 <div class="line"><code class="plain">        ...</code></div>
