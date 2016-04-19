@@ -278,7 +278,7 @@ A Module is a key/value store like an Object. Without any modification, you can 
 <div class="line"><code class="plain">};</code></div>
 </div>
 </div>    <p>
-Next, modify the example setter and getter to actually set and get the variable you just declared. These methods are already declared in the <tt class=" ">ComExampleTestModule.cpp</tt> file but not implemented. TitaniumKit provides useful macro to declare setter and getter, which is <tt class=" ">TITANIUM_PROPERTY_GETTER</tt> and <tt class=" ">TITANIUM_PROPERTY_GETTER</tt>. TitaniumKit requires property value being treated as an <tt class=" ">JSValue</tt> datatype.    </p>
+Next, modify the example setter and getter to actually set and get the variable you just declared. These methods are already declared in the <tt class=" ">ComExampleTestModule.cpp</tt> file but not implemented. TitaniumKit provides useful macro to declare setter and getter, which is <tt class=" ">TITANIUM_PROPERTY_GETTER</tt> and <tt class=" ">TITANIUM_PROPERTY_GETTER</tt>. TitaniumKit requires property value being treated as an <tt class=" ">JSValue</tt> datatype. Once you implement the method, register it using <tt class=" ">TITANIUM_ADD_FUNCTION</tt> in <tt class=" ">JSExportInitialize</tt>.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="title">ComExampleTest.cpp</div>
 <div class="defaultnew syntaxhighlighter">
@@ -316,6 +316,14 @@ Next, modify the example setter and getter to actually set and get the variable 
 <div class="line"><code class="plain">    </code><code class="comments">//</code></div>
 <div class="line"><code class="plain">    </code><code class="keyword">return</code><code class="plain"> </code><code class="keyword">true</code><code class="plain">;</code></div>
 <div class="line"><code class="plain">}</code></div>
+<div class="line"><code class="keyword">void</code><code class="plain"> Test::JSExportInitialize()</code></div>
+<div class="line"><code class="plain">{</code></div>
+<div class="line"><code class="plain">    JSExport&lt;Test&gt;::SetClassVersion(1);</code></div>
+<div class="line"><code class="plain">    JSExport&lt;Test&gt;::SetParent(JSExport&lt;JSExportObject&gt;::Class());</code></div>
+<div class="line"><code class="plain">    </code><code class="comments">// register example function</code></div>
+<div class="line"><code class="plain">    TITANIUM_ADD_FUNCTION(Test, example);</code></div>
+<div class="line"><code class="plain">...</code></div>
+<div class="line"><code class="plain">}</code></div>
 </div>
 </div>    </div>
     <div class="section section-3 " id="46248212_WindowsModuleQuickStart-AddaFunction">
@@ -334,7 +342,7 @@ In order to add JavaScript function to Module, modify the default module class f
 <div class="line"><code class="plain">};</code></div>
 </div>
 </div>    <p>
-Next, modify the example function to actually return variable you just declared. These methods are already declared in the <tt class=" ">ComExampleTestModule.cpp</tt> file but not implemented. TitaniumKit provides useful macro to declare JavaScript function, which is <tt class=" ">TITANIUM_FUNCTION</tt>. <tt class=" ">TITANIUM_FUNCTION</tt> should return <tt class=" ">JSValue</tt> datatype.    </p>
+Next, modify the example function to actually return variable you just declared. These methods are already declared in the <tt class=" ">ComExampleTestModule.cpp</tt> file but not implemented. TitaniumKit provides useful macro to declare JavaScript function, which is <tt class=" ">TITANIUM_FUNCTION</tt>. <tt class=" ">TITANIUM_FUNCTION</tt> should return <tt class=" ">JSValue</tt> datatype. Once you implement the method, register it using <tt class=" ">TITANIUM_ADD_PROPERTY</tt> in <tt class=" ">JSExportInitialize</tt>.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="title">ComExampleTest.cpp</div>
 <div class="defaultnew syntaxhighlighter">
@@ -362,6 +370,14 @@ Next, modify the example function to actually return variable you just declared.
 <div class="line"><code class="plain">    </code><code class="comments">// </code></div>
 <div class="line"><code class="plain">    </code><code class="comments">// Let's return exampleProp value for now</code></div>
 <div class="line"><code class="plain">    </code><code class="keyword">return</code><code class="plain"> get_context().CreateString(exampleProp__);</code></div>
+<div class="line"><code class="plain">}</code></div>
+<div class="line"><code class="keyword">void</code><code class="plain"> Test::JSExportInitialize()</code></div>
+<div class="line"><code class="plain">{</code></div>
+<div class="line"><code class="plain">    JSExport&lt;Test&gt;::SetClassVersion(1);</code></div>
+<div class="line"><code class="plain">    JSExport&lt;Test&gt;::SetParent(JSExport&lt;JSExportObject&gt;::Class());</code></div>
+<div class="line"><code class="plain">    </code><code class="comments">// register exampleProp property</code></div>
+<div class="line"><code class="plain">    TITANIUM_ADD_PROPERTY(Test, exampleProp);</code></div>
+<div class="line"><code class="plain">...</code></div>
 <div class="line"><code class="plain">}</code></div>
 </div>
 </div>    </div>

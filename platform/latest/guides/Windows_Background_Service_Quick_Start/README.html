@@ -200,7 +200,7 @@ Open the <tt class=" ">tiapp.xml</tt> and update the <tt class=" ">&lt;modules/&
     <div class="section section-3 " id="46248264_WindowsBackgroundServiceQuickStart-LoadtheModuleandMakeModuleAPICalls">
         <h3 class="heading "><span>Load the Module and Make Module API Calls</span></h3>
     <p>
-Open the <tt class=" ">app.js</tt> file and replace the code with the following, which invokes background service API calls to the module:    </p>
+Open the <tt class=" ">app.js</tt> file and replace the code with the following, which invokes background service API calls to the module. In this example we use <tt class=" ">registerTimerTask</tt> to register <a class="external-link external-link" href="https://msdn.microsoft.com/en-us/library/windows/apps/windows.applicationmodel.background.timetrigger.aspx" target="_blank">Windows::ApplicationModel::Background::TimeTrigger</a> which is invoked for each 15 minutes interval.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="title">app.js</div>
 <div class="defaultnew syntaxhighlighter">
