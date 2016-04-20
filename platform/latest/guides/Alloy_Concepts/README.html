@@ -98,14 +98,14 @@ Titanium.UI.* Objects<br/>Titanium.Android.Menu<br/>Titanium.Facebook.LoginButto
 </div>            </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
     <ul class=" "><li class=" ">    <p>
-XML element. Remove the namespace. For some elements, you may need to assign the <tt class=" ">ns</tt> attribute. For more information, refer to <a class="document-link " href="#!/guide/Alloy_XML_Markup-section-35621528_AlloyXMLMarkup-Namespace">Alloy XML Markup: Namespace</a>.    </p>
+XML element. Remove the namespace. For some elements, you may need to assign the  <tt class=" ">ns</tt>  attribute. For more information, refer to  <a class="document-link " href="#!/guide/Alloy_XML_Markup-section-46248608_AlloyXMLMarkup-Namespace">Alloy XML Markup: Namespace</a>.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">&lt;!-- Creates a button --&gt;</code></div>
 <div class="line"><code class="plain">&lt;Button /&gt;</code></div>
 </div>
 </div></li><li class=" ">    <p>
-TSS element. Remove the namespace. If the object belongs to another namespace besides <tt class=" ">Titanium.UI</tt> and is not implicitly assigned a namespace by Alloy, you cannot create a style based on the element name. Instead, create a style based on a selector (XML <tt class=" ">class</tt> attribute) or id (XML <tt class=" ">id</tt> attribute). For a list of objects that Alloy implicitly assigns a namespace, refer to <a class="document-link " href="#!/guide/Alloy_XML_Markup-section-35621528_AlloyXMLMarkup-Namespace">Alloy XML Markup: Namespace</a>.    </p>
+TSS element. Remove the namespace. If the object belongs to another namespace besides <tt class=" ">Titanium.UI</tt> and is not implicitly assigned a namespace by Alloy, you cannot create a style based on the element name. Instead, create a style based on a selector (XML <tt class=" ">class</tt> attribute) or id (XML <tt class=" ">id</tt> attribute). For a list of objects that Alloy implicitly assigns a namespace, refer to  <a class="document-link " href="#!/guide/Alloy_XML_Markup-section-46248608_AlloyXMLMarkup-Namespace">Alloy XML Markup: Namespace</a>.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="comments">// Does not create a button.  Used to style all Button objects in the associated view.</code></div>
@@ -130,7 +130,7 @@ Titanium Object properties    </p>
 </div>            </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
     <ul class=" "><li class=" ">    <p>
-XML attribute if the property can be expressed as a string, number or Titanium SDK constant. Some properties that take Titanium objects can be expressed inline using XML tags. For more information, refer to <a class="document-link " href="#!/guide/Alloy_XML_Markup-section-35621528_AlloyXMLMarkup-PropertyMapping">Alloy XML Markup: Property Mapping</a>.    </p>
+XML attribute if the property can be expressed as a string, number or Titanium SDK constant. Some properties that take Titanium objects can be expressed inline using XML tags. For more information, refer to <a class="document-link " href="#!/guide/Alloy_XML_Markup-section-46248608_AlloyXMLMarkup-PropertyMapping">Alloy XML Markup: Property Mapping</a>.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">&lt;Button title=</code><code class="string">"Foobar"</code><code class="plain"> top=</code><code class="string">"0"</code><code class="plain"> width=</code><code class="string">"Ti.UI.SIZE"</code><code class="plain">/&gt; </code></div>
@@ -320,7 +320,7 @@ Since Alloy 1.8.0 platform resources are sourced from <tt class=" ">app/platform
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-Like the <tt class=" ">app/lib</tt> folder except it is only used if the deploy type is <strong class=" ">not</strong> production (since <u class=" "><strong class=" ">Alloy 1.2.0</strong></u>).<br/>See <a class="document-link " href="#!/guide/Alloy_Controllers-section-34636384_AlloyControllers-LibraryCodeandCommonJSModules">Library Code</a> for more information.    </p>
+Like the <tt class=" ">app/lib</tt> folder except it is only used if the deploy type is <strong class=" ">not</strong> production (since <u class=" "> <strong class=" ">Alloy 1.2.0</strong> </u>).<br/>See  <a class="document-link " href="#!/guide/Alloy_Controllers-section-34636384_AlloyControllers-LibraryCodeandCommonJSModules">Library Code</a>  for more information.    </p>
             </td>
         </tr>
     <tr>
@@ -370,7 +370,7 @@ Contains widget files. Each widget will have its own <tt class=" ">app</tt>-like
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-Since Alloy 1.8.0 and Titanium 5.2.0 <a class="document-link " href="#!/guide/Internationalization">Language Strings</a> are sourced from <tt class=" ">app/i18n</tt> and Alloy will generate the <tt class=" ">i18n</tt> folder in the project root. Before Alloy 1.8.0 and Titanium 5.2.0 you were expected to manage the <tt class=" ">i18n</tt> folder in the project root, just like you do without Alloy.    </p>
+Since Alloy 1.8.0 and Titanium 5.2.0  <a class="document-link " href="#!/guide/Internationalization">Language Strings</a>   are sourced from  <tt class=" ">app/i18n</tt>  and Alloy will generate the  <tt class=" ">i18n</tt>  folder in the project root. Before Alloy 1.8.0 and Titanium 5.2.0 you were expected to manage the  <tt class=" ">i18n</tt>  folder in the project root, just like you do without Alloy.    </p>
             </td>
         </tr>
     <tr>
@@ -414,7 +414,7 @@ index.xml    </p>
 </li></ul></li><li class=" ">    <p>
 index.xml    </p>
 </li></ul></li></ul></li></ul>    <p>
-Alternatively, you can use special conditional code and attributes inside the controllers, views and styles to apply platform-specific code and components. Refer to <a class="document-link " href="#!/guide/Alloy_Controllers-section-34636384_AlloyControllers-ConditionalCode">Controller Conditional Code</a> and <a class="document-link " href="#!/guide/Alloy_XML_Markup-section-35621528_AlloyXMLMarkup-ConditionalCode">View Conditional Code</a> for more details.    </p>
+Alternatively, you can use special conditional code and attributes inside the controllers, views and styles to apply platform-specific code and components. Refer to <a class="document-link " href="#!/guide/Alloy_Controllers-section-34636384_AlloyControllers-ConditionalCode">Controller Conditional Code</a> and <a class="document-link " href="#!/guide/Alloy_XML_Markup-section-46248608_AlloyXMLMarkup-ConditionalCode">View Conditional Code</a> for more details.    </p>
     <p>
 Additionally, the <tt class=" ">assets</tt> folder is laid out the same way as the 'Resources' folder in a Titanium project for platform-specific files and density-specific images. Refer to <a class="document-link " href="#!/guide/Supporting_Multiple_Platforms_in_a_Single_Codebase-section-29004890_SupportingMultiplePlatformsinaSingleCodebase-Platform-specificresources">Platform-Specific Resources</a> for more information.    </p>
     </div>
@@ -424,13 +424,13 @@ Additionally, the <tt class=" ">assets</tt> folder is laid out the same way as t
     <p>
 Widgets are self-contained components that can be easily dropped into Alloy-powered Titanium projects. They were conceived as a way to reuse code in multiple applications or to be used multiple times in the same application. Widgets have their own models, views, controllers, styles and assets and are laid out the same as the <tt class=" ">app</tt> directory in the Alloy project.    </p>
 <ul class=" "><li class=" ">    <p>
-For information on using widgets in a project, see <a class="document-link " href="#!/guide/Alloy_XML_Markup-section-35621528_AlloyXMLMarkup-ImportingWidgets">Importing Widgets</a>.    </p>
+For information on using widgets in a project, see <a class="document-link " href="#!/guide/Alloy_XML_Markup-section-46248608_AlloyXMLMarkup-ImportingWidgets">Importing Widgets</a>.    </p>
 </li><li class=" ">    <p>
 For information on creating widgets, see <a class="document-link " href="#!/guide/Alloy_Widgets-section-35621514_AlloyWidgets-CreatingWidgets">Creating Widgets</a>.    </p>
 </li><li class=" ">    <p>
 To search publicly available widgets, visit    <span style="color: #222222;">
      </span>
-<a class="external-link external-link" href="http://gitt.io/" target="_blank">gitTio</a>    <span style="color: #222222;">
+ <a class="external-link external-link" href="http://gitt.io/" target="_blank">gitTio</a>     <span style="color: #222222;">
 .    </span>
     </p>
 </li></ul>    </div>
