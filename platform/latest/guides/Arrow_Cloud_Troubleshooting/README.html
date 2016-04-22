@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Arrow Cloud Troubleshooting</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta content="Scroll EclipseHelp Exporter" name="generator"/>
+
+    <link type="text/css" rel="stylesheet"/>
+    <link type="text/css" rel="stylesheet"/>
+    <link type="text/css" rel="stylesheet" media="print"/>
+</head>
+<body>
+    <div class="container">
+        <div class="header"/>
+
+        <div id="46245598" class="content">
+            <h1>Arrow Cloud Troubleshooting</h1>
+<ul class=" "><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Arrow_Cloud_Troubleshooting-section-46245598_ArrowCloudTroubleshooting-Exceptionsthrownupondeployment">Exceptions thrown upon deployment</a>    </p>
+<ul class=" "><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Arrow_Cloud_Troubleshooting-section-46245598_ArrowCloudTroubleshooting-Exceptioninapp.jsoutsidestart()method">Exception in app.js outside start() method</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Arrow_Cloud_Troubleshooting-section-46245598_ArrowCloudTroubleshooting-Exceptioninsideapp.jsstart()method">Exception inside app.js start() method</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Arrow_Cloud_Troubleshooting-section-46245598_ArrowCloudTroubleshooting-Exceptioninacontroller,outsideafunction">Exception in a controller, outside a function</a>    </p>
+</li></ul></li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Arrow_Cloud_Troubleshooting-section-46245598_ArrowCloudTroubleshooting-Exceptionsthrownatruntime">Exceptions thrown at runtime</a>    </p>
+<ul class=" "><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Arrow_Cloud_Troubleshooting-section-46245598_ArrowCloudTroubleshooting-Exceptioninsynchronouscallshandlingrequests">Exception in synchronous calls handling requests</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Arrow_Cloud_Troubleshooting-section-46245598_ArrowCloudTroubleshooting-Exceptioninasynchronouscallbackshandlingrequests(orbackgroundjobs)">Exception in asynchronous callbacks handling requests (or background jobs)</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Arrow_Cloud_Troubleshooting-section-46245598_ArrowCloudTroubleshooting-Applicationcrasheswhilehandlingrequests">Application crashes while handling requests</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Arrow_Cloud_Troubleshooting-section-46245598_ArrowCloudTroubleshooting-Applicationcrasheswhilerunningbackgroundjobs">Application crashes while running background jobs</a>    </p>
+</li></ul></li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Arrow_Cloud_Troubleshooting-section-46245598_ArrowCloudTroubleshooting-Installationerrors">Installation errors</a>    </p>
+<ul class=" "><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Arrow_Cloud_Troubleshooting-section-46245598_ArrowCloudTroubleshooting-Error:ENOENT,nosuchfileordirectory">Error: ENOENT, no such file or directory</a>    </p>
+</li></ul></li></ul>    <p>
+This document summarizes the kinds of exceptions you may encounter when deploying or running a Arrow Cloud application, or when installing or upgrading the <tt class=" ">acs</tt> NPM package on your system.    </p>
+    <p>
+The <tt class=" ">appc cloud list</tt> and <tt class=" ">appc cloud loglist</tt> CLI commands are used to troubleshoot deployment or runtime issues. Note that <tt class=" ">appc cloud loglist</tt> may not immediately retrieve the latest logs from the server; you may need to wait a few seconds and try running the command again.    </p>
+    <div class="section section-2 " id="46245598_ArrowCloudTroubleshooting-Exceptionsthrownupondeployment">
+        <h2 class="heading "><span>Exceptions thrown upon deployment</span></h2>
+    <div class="section section-3 " id="46245598_ArrowCloudTroubleshooting-Exceptioninapp.jsoutsidestart()method">
+        <h3 class="heading "><span>Exception in app.js outside start() method</span></h3>
+    <p>
+The following code references an undefined variable outside application's <tt class=" ">start()</tt> method.    </p>
+    <p>
+    </p>
+    <div class="tablewrap">
+        <table class="confluenceTable">
+        <thead class=" "/><tfoot class=" "/><tbody class=" ">    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class="jscript comments ">// initialize app</tt><tt class="jscript keyword ">function</tt> <tt class="jscript plain ">start(app, express) {</tt><tt class="jscript spaces ">    </tt><tt class="jscript plain ">app.use(express.favicon(__dirname + </tt><tt class="jscript string ">'/public/images/favicon.ico'</tt><tt class="jscript plain ">));     </tt><tt class="jscript comments ">//set favicon</tt><tt class="jscript plain ">}</tt> <tt class="jscript plain ">adsgasdg;   </tt><tt class="jscript comments ">// This line causes exception.</tt> <tt class="jscript comments ">// release resources</tt><tt class="jscript keyword ">function</tt> <tt class="jscript plain ">stop() {</tt><tt class="jscript plain ">}</tt>    </p>
+            </td>
+        </tr>
+</tbody>        </table>
+            </div>
+    <p>
+    </p>
+    <p>
+In this scenario the <strong class=" ">Message</strong> field of <tt class=" ">appc cloud list</tt> and <tt class=" ">appc acs loglist</tt> output indicates a <tt class=" ">ReferenceError</tt> and the name and location of the reference. The <strong class=" ">Status</strong> field of the <tt class=" ">appc cloud list</tt> command is set to <strong class=" ">&quot;Failed to deploy&quot;</strong>.    </p>
+    <p>
+    </p>
+    <div class="tablewrap">
+        <table class="confluenceTable">
+        <thead class=" "/><tfoot class=" "/><tbody class=" ">    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class="jscript plain ">$ appc cloud list testapp</tt><tt class="jscript plain ">App name: testapp</tt><tt class="jscript plain ">-- URL: http:</tt><tt class="jscript comments ">//a3110b813195ca3a774913a767e49a1ce5f17e63.cloud-services.appcelerator.com</tt><tt class="jscript plain ">-- Created at: Tue Dec 24 2013 21:15:19 GMT+0800 (CST)</tt><tt class="jscript plain ">-- Node Version: 0.10.22</tt><tt class="jscript plain ">-- Maximum allowed number of servers: 1</tt><tt class="jscript plain ">-- Desired number of servers: 1</tt><tt class="jscript plain ">-- Active version: 0.1.0</tt><tt class="jscript plain ">-- Published at: Thu Dec 26 2013 09:18:26 GMT+0800 (CST)</tt><tt class="jscript plain ">-- Status: Failed to deploy</tt><tt class="jscript plain ">-- Message: ReferenceError: adsgasdg is not defined at /app.js:6:1</tt> <tt class="jscript plain ">$ acs loglist testapp</tt><tt class="jscript plain ">12/26/2013 05:18:030.335 [INFO] [4454] ------------ Run MVC App ------------</tt><tt class="jscript plain ">12/26/2013 05:18:030.635 [ERROR] [4454] Failed to load main script. ReferenceError: adsgasdg is not defined</tt><tt class="jscript plain ">at /app.js:6:1</tt><tt class="jscript plain ">12/26/2013 05:18:030.636 [ERROR] [4454] ReferenceError: adsgasdg is not defined</tt><tt class="jscript plain ">at /app.js:6:1</tt>    </p>
+            </td>
+        </tr>
+</tbody>        </table>
+            </div>
+    <p>
+    </p>
+    </div>
+    <div class="section section-3 " id="46245598_ArrowCloudTroubleshooting-Exceptioninsideapp.jsstart()method">
+        <h3 class="heading "><span>Exception inside app.js start() method</span></h3>
+    <p>
+The following code references an undefined variable inside application's <tt class=" ">start()</tt> method.    </p>
+    <p>
+    </p>
+    <div class="tablewrap">
+        <table class="confluenceTable">
+        <thead class=" "/><tfoot class=" "/><tbody class=" ">    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class="jscript comments ">// initialize app</tt><tt class="jscript keyword ">function</tt> <tt class="jscript plain ">start(app, express) {</tt> <tt class="jscript spaces ">    </tt><tt class="jscript plain ">adsgasdg;   </tt><tt class="jscript comments ">// This line causes exception.</tt> <tt class="jscript spaces ">    </tt><tt class="jscript plain ">app.use(express.favicon(__dirname + </tt><tt class="jscript string ">'/public/images/favicon.ico'</tt><tt class="jscript plain ">));     </tt><tt class="jscript comments ">//set favicon</tt><tt class="jscript plain ">}</tt> <tt class="jscript comments ">// release resources</tt><tt class="jscript keyword ">function</tt> <tt class="jscript plain ">stop() {</tt><tt class="jscript plain ">}</tt>    </p>
+            </td>
+        </tr>
+</tbody>        </table>
+            </div>
+    <p>
+    </p>
+    <p>
+    </p>
+    <p>
+In this scenario the <strong class=" ">Message</strong> field of <tt class=" ">appc cloud list</tt> and <tt class=" ">appc cloud loglist</tt> output indicates a <tt class=" ">ReferenceError</tt> and the name and location of the exception. The <strong class=" ">Status</strong> field of the <tt class=" ">appc cloud list</tt> command is set to <strong class=" ">&quot;Failed to deploy&quot;</strong>.    </p>
+    <p>
+    </p>
+    <div class="tablewrap">
+        <table class="confluenceTable">
+        <thead class=" "/><tfoot class=" "/><tbody class=" ">    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class="jscript plain ">$ appc acs list testapp</tt><tt class="jscript plain ">App name: testapp</tt><tt class="jscript plain ">-- URL: http:</tt><tt class="jscript comments ">//a3110b813195ca3a774913a767e49a1ce5f17e63.cloud-services.appcelerator.com</tt><tt class="jscript plain ">-- Created at: Tue Dec 24 2013 21:15:19 GMT+0800 (CST)</tt><tt class="jscript plain ">-- Node Version: 0.10.22</tt><tt class="jscript plain ">-- Maximum allowed number of servers: 1</tt><tt class="jscript plain ">-- Desired number of servers: 1</tt><tt class="jscript plain ">-- Active version: 0.1.0</tt><tt class="jscript plain ">-- Published at: Thu Dec 26 2013 09:20:40 GMT+0800 (CST)</tt><tt class="jscript plain ">-- Status: Failed to deploy</tt><tt class="jscript plain ">-- Message: ReferenceError: adsgasdg is not defined</tt><tt class="jscript plain ">at Object.start (/app.js:4:5)</tt> <tt class="jscript plain ">$ acs loglist testapp</tt><tt class="jscript plain ">12/26/2013 05:20:043.923 [INFO] [4488] ------------ Run MVC App ------------</tt><tt class="jscript plain ">info: socket.io started</tt><tt class="jscript plain ">12/26/2013 05:20:044.224 [ERROR] [4488] Failed to run start(). ReferenceError: adsgasdg is not defined</tt><tt class="jscript plain ">at Object.start (/app.js:4:5)</tt> <tt class="jscript plain ">12/26/2013 05:20:044.225 [ERROR] [4488] ReferenceError: adsgasdg is not defined</tt><tt class="jscript plain ">at Object.start (/app.js:4:5)</tt>    </p>
+            </td>
+        </tr>
+</tbody>        </table>
+            </div>
+    <p>
+    </p>
+    </div>
+    <div class="section section-3 " id="46245598_ArrowCloudTroubleshooting-Exceptioninacontroller,outsideafunction">
+        <h3 class="heading "><span>Exception in a controller, outside a function</span></h3>
+    <p>
+The following code references an undefined variable inside a controller, outside any function definition:    </p>
+    <p>
+    </p>
+    <div class="tablewrap">
+        <table class="confluenceTable">
+        <thead class=" "/><tfoot class=" "/><tbody class=" ">    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class="jscript keyword ">function</tt> <tt class="jscript plain ">index(req, res) {</tt><tt class="jscript spaces ">    </tt><tt class="jscript plain ">res.render(</tt><tt class="jscript string ">'index'</tt><tt class="jscript plain ">, { title: </tt><tt class="jscript string ">'Welcome to Node.ACS! '</tt> <tt class="jscript plain ">+ process.version });</tt><tt class="jscript plain ">}</tt> <tt class="jscript plain ">asgasg;dkg;as   </tt><tt class="jscript comments ">// This line causes exception.</tt>    </p>
+            </td>
+        </tr>
+</tbody>        </table>
+            </div>
+    <p>
+    </p>
+    <p>
+When accessing the application and hitting the controller over HTTP, it returns the following error:    </p>
+    <p>
+    </p>
+    <div class="tablewrap">
+        <table class="confluenceTable">
+        <thead class=" "/><tfoot class=" "/><tbody class=" ">    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class="jscript plain ">Cannot get /</tt>    </p>
+            </td>
+        </tr>
+</tbody>        </table>
+            </div>
+    <p>
+    </p>
+    <p>
+In this scenario the <tt class=" ">appc cloud list</tt> output doesn't indicate a problem, but <tt class=" ">appc cloud loglist</tt> indicates a <tt class=" ">ReferenceError</tt> and the name and location of the exception.    </p>
+    <p>
+    </p>
+    <div class="tablewrap">
+        <table class="confluenceTable">
+        <thead class=" "/><tfoot class=" "/><tbody class=" ">    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class="jscript plain ">$ appc cloud list testapp</tt><tt class="jscript plain ">App name: testapp</tt><tt class="jscript plain ">-- URL: http:</tt><tt class="jscript comments ">//a3110b813195ca3a774913a767e49a1ce5f17e63.cloud-services.appcelerator.com</tt><tt class="jscript plain ">-- Created at: Tue Dec 24 2013 21:15:19 GMT+0800 (CST)</tt><tt class="jscript plain ">-- Node Version: 0.10.22</tt><tt class="jscript plain ">-- Maximum allowed number of servers: 1</tt><tt class="jscript plain ">-- Desired number of servers: 1</tt><tt class="jscript plain ">-- Current number of deployed servers: 1</tt><tt class="jscript plain ">-- Active version: 0.1.0</tt><tt class="jscript plain ">-- Published at: Thu Dec 26 2013 09:24:54 GMT+0800 (CST)</tt><tt class="jscript plain ">-- Servers:</tt><tt class="jscript plain ">No. 1 ID: 52b81468754c4184e58e8789 Status: Deployed</tt> <tt class="jscript plain ">$ acs loglist testapp</tt><tt class="jscript plain ">12/26/2013 05:24:059.035 [INFO] [4503] ------------ Run MVC App ------------</tt><tt class="jscript plain ">info: socket.io started</tt><tt class="jscript plain ">12/26/2013 05:24:059.427 [ERROR] [4503] Failed to load controller </tt><tt class="jscript string ">&quot;application.js&quot;</tt><tt class="jscript plain ">.</tt><tt class="jscript spaces ">    </tt><tt class="jscript plain ">ReferenceError: asgasg is not defined at /controllers/application.js:5:1</tt>    </p>
+            </td>
+        </tr>
+</tbody>        </table>
+            </div>
+    <p>
+    </p>
+    </div>
+    </div>
+    <div class="section section-2 " id="46245598_ArrowCloudTroubleshooting-Exceptionsthrownatruntime">
+        <h2 class="heading "><span>Exceptions thrown at runtime</span></h2>
+    <div class="section section-3 " id="46245598_ArrowCloudTroubleshooting-Exceptioninsynchronouscallshandlingrequests">
+        <h3 class="heading "><span>Exception in synchronous calls handling requests</span></h3>
+    <p>
+The following code references an undefined variable inside a controller function.    </p>
+    <p>
+    </p>
+    <div class="tablewrap">
+        <table class="confluenceTable">
+        <thead class=" "/><tfoot class=" "/><tbody class=" ">    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class="jscript keyword ">function</tt> <tt class="jscript plain ">index(req, res) {</tt> <tt class="jscript spaces ">   </tt><tt class="jscript plain ">asgasg;dkg;as    </tt><tt class="jscript comments ">// This line causes exception.</tt> <tt class="jscript spaces ">   </tt><tt class="jscript plain ">res.render(</tt><tt class="jscript string ">'index'</tt><tt class="jscript plain ">, { title: </tt><tt class="jscript string ">'Welcome to Arrow Cloud! '</tt> <tt class="jscript plain ">+ process.version });</tt><tt class="jscript plain ">}</tt>    </p>
+            </td>
+        </tr>
+</tbody>        </table>
+            </div>
+    <p>
+    </p>
+    <p>
+In this scenario the <tt class=" ">appc cloud list</tt> output doesn't indicate a problem, but <tt class=" ">appc cloud loglist</tt> indicates a <tt class=" ">ReferenceError</tt> and the name and location of the exception.    </p>
+    <p>
+    </p>
+    <div class="tablewrap">
+        <table class="confluenceTable">
+        <thead class=" "/><tfoot class=" "/><tbody class=" ">    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class="jscript plain ">$ appc cloud list testapp</tt><tt class="jscript plain ">App name: testapp</tt><tt class="jscript plain ">-- URL: http:</tt><tt class="jscript comments ">//a3110b813195ca3a774913a767e49a1ce5f17e63.cloud-services.appcelerator.com</tt><tt class="jscript plain ">-- Created at: Tue Dec 24 2013 21:15:19 GMT+0800 (CST)</tt><tt class="jscript plain ">-- Node Version: 0.10.22</tt><tt class="jscript plain ">-- Maximum allowed number of servers: 1</tt><tt class="jscript plain ">-- Desired number of servers: 1</tt><tt class="jscript plain ">-- Current number of deployed servers: 1</tt><tt class="jscript plain ">-- Active version: 0.1.0</tt><tt class="jscript plain ">-- Published at: Thu Dec 26 2013 09:29:52 GMT+0800 (CST)</tt><tt class="jscript plain ">-- Servers:</tt><tt class="jscript plain ">No. 1 ID: 52b81468754c4184e58e8789 Status: Deployed</tt> <tt class="jscript plain ">$ acs loglist testapp</tt><tt class="jscript plain ">12/26/2013 05:33:003.721 [INFO] [4541] ------------ Run MVC App ------------</tt><tt class="jscript plain ">info: socket.io started</tt><tt class="jscript plain ">12/26/2013 05:33:004.122 [INFO] [4541] App started</tt><tt class="jscript plain ">ReferenceError: asgasg is not defined at index (/controllers/application.js:3:5)</tt><tt class="jscript plain ">[PERF] GET / 9 ms</tt>    </p>
+            </td>
+        </tr>
+</tbody>        </table>
+            </div>
+    <p>
+    </p>
+    <p>
+The response when accessing the application and hitting that function indicates the name and location of the reference error:    </p>
+    <p>
+    </p>
+    <div class="tablewrap">
+        <table class="confluenceTable">
+        <thead class=" "/><tfoot class=" "/><tbody class=" ">    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class="jscript plain ">ReferenceError: asgasg is not defined</tt><tt class="jscript spaces ">    </tt><tt class="jscript plain ">at index (/controllers/application.js:2:4)</tt>    </p>
+            </td>
+        </tr>
+</tbody>        </table>
+            </div>
+    <p>
+    </p>
+    </div>
+    <div class="section section-3 " id="46245598_ArrowCloudTroubleshooting-Exceptioninasynchronouscallbackshandlingrequests(orbackgroundjobs)">
+        <h3 class="heading "><span>Exception in asynchronous callbacks handling requests (or background jobs)</span></h3>
+    <p>
+The following code sample uses the <tt class=" ">setTimeout()</tt> method to asynchronously call a function that contains an exception.    </p>
+    <p>
+    </p>
+    <div class="tablewrap">
+        <table class="confluenceTable">
+        <thead class=" "/><tfoot class=" "/><tbody class=" ">    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class="jscript keyword ">function</tt> <tt class="jscript plain ">index(req, res) {</tt><tt class="jscript spaces ">    </tt><tt class="jscript plain ">setTimeout(</tt><tt class="jscript keyword ">function</tt><tt class="jscript plain ">(){</tt><tt class="jscript spaces ">        </tt><tt class="jscript plain ">respond(res);</tt><tt class="jscript spaces ">    </tt><tt class="jscript plain ">}, 2000);</tt><tt class="jscript plain ">}</tt><tt class="jscript keyword ">function</tt> <tt class="jscript plain ">respond(res) {</tt><tt class="jscript spaces ">    </tt><tt class="jscript plain ">asgasg;af   </tt><tt class="jscript comments ">//This line causes exception.</tt><tt class="jscript spaces ">    </tt><tt class="jscript plain ">res.render(</tt><tt class="jscript string ">'index'</tt><tt class="jscript plain ">, { title: </tt><tt class="jscript string ">'Welcome to Node.ACS! '</tt> <tt class="jscript plain ">+ process.version });</tt><tt class="jscript plain ">}</tt>    </p>
+            </td>
+        </tr>
+</tbody>        </table>
+            </div>
+    <p>
+    </p>
+    <p class="prettyprint prettyprinted">
+In this scenario when accessing the application over HTTP and hitting the function, the following error is returned:    </p>
+    <p>
+    </p>
+    <div class="tablewrap">
+        <table class="confluenceTable">
+        <thead class=" "/><tfoot class=" "/><tbody class=" ">    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class="jscript plain ">An error has occurred: {</tt><tt class="jscript string ">&quot;code&quot;</tt><tt class="jscript plain ">:</tt><tt class="jscript string ">&quot;ECONNRESET&quot;</tt><tt class="jscript plain ">}</tt>    </p>
+            </td>
+        </tr>
+</tbody>        </table>
+            </div>
+    <p>
+    </p>
+    <p>
+In this scenario <tt class=" ">appc cloud loglist</tt> indicates a <tt class=" ">ReferenceError</tt> and the corresponding stack trace; <tt class=" ">appc cloud list</tt> does not indicate any problem.    </p>
+    <p>
+    </p>
+    <div class="tablewrap">
+        <table class="confluenceTable">
+        <thead class=" "/><tfoot class=" "/><tbody class=" ">    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class="jscript plain ">$ appc cloud loglist testapp</tt><tt class="jscript plain ">12/26/2013 05:44:043.639 [INFO] [4606] ------------ Run MVC App ------------</tt> <tt class="jscript plain ">info: socket.io started</tt><tt class="jscript plain ">12/26/2013 05:44:044.054 [INFO] [4606] App started</tt><tt class="jscript plain ">12/26/2013 05:44:053.999 [ERROR] [4606] ReferenceError: asgasg is not defined</tt><tt class="jscript plain ">at respond (/controllers/application.js:8:5)</tt><tt class="jscript plain ">at </tt><tt class="jscript keyword ">null</tt><tt class="jscript plain ">._onTimeout (/controllers/application.js:3:9)</tt><tt class="jscript plain ">at Timer.listOnTimeout [as ontimeout] (timers.js:110:15)</tt> <tt class="jscript plain ">12/26/2013 05:44:059.627 [INFO] [4614] ------------ Run MVC App ------------</tt><tt class="jscript plain ">info: socket.io started</tt><tt class="jscript plain ">12/26/2013 05:45:000.029 [INFO] [4614] App started</tt> <tt class="jscript plain ">$ acs list testapp</tt><tt class="jscript plain ">App name: testapp</tt><tt class="jscript plain ">-- URL: http:</tt><tt class="jscript comments ">//a3110b813195ca3a774913a767e49a1ce5f17e63.cloud-services.appcelerator.com</tt><tt class="jscript plain ">-- Created at: Tue Dec 24 2013 21:15:19 GMT+0800 (CST)</tt><tt class="jscript plain ">-- Node Version: 0.10.22</tt><tt class="jscript plain ">-- Maximum allowed number of servers: 1</tt><tt class="jscript plain ">-- Desired number of servers: 1</tt><tt class="jscript plain ">-- Current number of deployed servers: 1</tt><tt class="jscript plain ">-- Active version: 0.1.0</tt><tt class="jscript plain ">-- Published at: Thu Dec 26 2013 09:29:52 GMT+0800 (CST)</tt><tt class="jscript plain ">-- Servers:</tt><tt class="jscript plain ">No. 1 ID: 52b81468754c4184e58e8789 Status: Deployed</tt>    </p>
+            </td>
+        </tr>
+</tbody>        </table>
+            </div>
+    <p>
+    </p>
+    </div>
+    <div class="section section-3 " id="46245598_ArrowCloudTroubleshooting-Applicationcrasheswhilehandlingrequests">
+        <h3 class="heading "><span>Application crashes while handling requests</span></h3>
+    <p>
+The following code has request handler that quickly uses up available memory, causing the application to crash.    </p>
+    <p>
+    </p>
+    <div class="tablewrap">
+        <table class="confluenceTable">
+        <thead class=" "/><tfoot class=" "/><tbody class=" ">    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class="jscript keyword ">function</tt> <tt class="jscript plain ">index(req, res) {</tt><tt class="jscript spaces ">    </tt><tt class="jscript plain ">respond(res);</tt><tt class="jscript plain ">}</tt> <tt class="jscript keyword ">function</tt> <tt class="jscript plain ">respond(res) {</tt><tt class="jscript spaces ">    </tt><tt class="jscript keyword ">var</tt> <tt class="jscript plain ">cur = 167772160;</tt><tt class="jscript spaces ">    </tt><tt class="jscript keyword ">var</tt> <tt class="jscript plain ">bcast = 184549375;</tt><tt class="jscript spaces ">    </tt><tt class="jscript keyword ">var</tt> <tt class="jscript plain ">addresses = [];</tt><tt class="jscript spaces ">    </tt><tt class="jscript keyword ">while</tt> <tt class="jscript plain ">(cur &lt;= bcast){</tt><tt class="jscript spaces ">        </tt><tt class="jscript plain ">cur += 1;</tt><tt class="jscript spaces ">        </tt><tt class="jscript plain ">addresses.push(cur);</tt><tt class="jscript spaces ">    </tt><tt class="jscript plain ">}</tt><tt class="jscript spaces ">    </tt><tt class="jscript plain ">console.log(addresses.length);</tt><tt class="jscript spaces ">    </tt><tt class="jscript plain ">console.log(addresses); </tt><tt class="jscript comments ">// memory goes from a few megs to over a gig in seconds when trying to print this</tt><tt class="jscript spaces ">    </tt><tt class="jscript plain ">res.send(addresses);</tt><tt class="jscript plain ">}</tt>    </p>
+            </td>
+        </tr>
+</tbody>        </table>
+            </div>
+    <p>
+    </p>
+    <p>
+The <tt class=" ">appc cloud loglist</tt> output indicates &quot;FATAL ERROR: JS Allocation failed - process out of memory&quot;; <tt class=" ">appc cloud list</tt> doesn't indicate any problem.    </p>
+    <p>
+    </p>
+    <div class="tablewrap">
+        <table class="confluenceTable">
+        <thead class=" "/><tfoot class=" "/><tbody class=" ">    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class="jscript plain ">$ acs loglist testapp</tt><tt class="jscript plain ">12/26/2013 05:58:042.432 [INFO] [4628] ------------ Run MVC App ------------</tt><tt class="jscript plain ">info: socket.io started</tt><tt class="jscript plain ">12/26/2013 05:58:042.828 [INFO] [4628] App started</tt><tt class="jscript plain ">FATAL ERROR: JS Allocation failed - process out of memory</tt><tt class="jscript plain ">12/26/2013 05:59:000.030 [INFO] [4636] ------------ Run MVC App ------------</tt><tt class="jscript plain ">info: socket.io started</tt><tt class="jscript plain ">12/26/2013 05:59:000.434 [INFO] [4636] App started</tt> <tt class="jscript plain ">$ acs list testapp</tt><tt class="jscript plain ">App name: testapp</tt><tt class="jscript plain ">-- URL: http:</tt><tt class="jscript comments ">//a3110b813195ca3a774913a767e49a1ce5f17e63.cloud-services.appcelerator.com</tt><tt class="jscript plain ">-- Created at: Tue Dec 24 2013 21:15:19 GMT+0800 (CST)</tt><tt class="jscript plain ">-- Node Version: 0.10.22</tt><tt class="jscript plain ">-- Maximum allowed number of servers: 1</tt><tt class="jscript plain ">-- Desired number of servers: 1</tt><tt class="jscript plain ">-- Current number of deployed servers: 1</tt><tt class="jscript plain ">-- Active version: 0.1.0</tt><tt class="jscript plain ">-- Published at: Thu Dec 26 2013 09:29:52 GMT+0800 (CST)</tt><tt class="jscript plain ">-- Servers:</tt><tt class="jscript plain ">No. 1 ID: 52b81468754c4184e58e8789 Status: Deployed</tt>    </p>
+            </td>
+        </tr>
+</tbody>        </table>
+            </div>
+    <p>
+    </p>
+    </div>
+    <div class="section section-3 " id="46245598_ArrowCloudTroubleshooting-Applicationcrasheswhilerunningbackgroundjobs">
+        <h3 class="heading "><span>Application crashes while running background jobs</span></h3>
+    <p>
+The following code causes the application to run out of memory and crash while processing a <tt class=" ">setTimeout()</tt> function call.    </p>
+    <p>
+    </p>
+    <div class="tablewrap">
+        <table class="confluenceTable">
+        <thead class=" "/><tfoot class=" "/><tbody class=" ">    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class="jscript comments ">// initialize app</tt><tt class="jscript keyword ">function</tt> <tt class="jscript plain ">start(app, express) {</tt><tt class="jscript spaces ">    </tt><tt class="jscript plain ">app.use(express.favicon(__dirname + </tt><tt class="jscript string ">'/public/images/favicon.ico'</tt><tt class="jscript plain ">));     </tt><tt class="jscript comments ">//set favicon</tt><tt class="jscript spaces ">    </tt><tt class="jscript plain ">setTimeout(dosth, 5000);</tt><tt class="jscript plain ">}</tt> <tt class="jscript comments ">// release resources</tt><tt class="jscript keyword ">function</tt> <tt class="jscript plain ">stop() {</tt><tt class="jscript plain ">}</tt>  <tt class="jscript keyword ">function</tt> <tt class="jscript plain ">dosth() {</tt><tt class="jscript spaces ">    </tt><tt class="jscript keyword ">var</tt> <tt class="jscript plain ">cur = 167772160;</tt><tt class="jscript spaces ">    </tt><tt class="jscript keyword ">var</tt> <tt class="jscript plain ">bcast = 184549375;</tt><tt class="jscript spaces ">    </tt><tt class="jscript keyword ">var</tt> <tt class="jscript plain ">addresses = [];</tt><tt class="jscript spaces ">    </tt><tt class="jscript keyword ">while</tt> <tt class="jscript plain ">(cur &lt;= bcast){</tt><tt class="jscript spaces ">        </tt><tt class="jscript plain ">cur += 1;</tt><tt class="jscript spaces ">        </tt><tt class="jscript plain ">addresses.push(cur);</tt><tt class="jscript spaces ">    </tt><tt class="jscript plain ">}</tt><tt class="jscript spaces ">    </tt><tt class="jscript plain ">console.log(addresses.length);</tt><tt class="jscript spaces ">    </tt><tt class="jscript plain ">console.log(addresses); </tt><tt class="jscript comments ">// memory goes from a few megs to over a gig in seconds when trying to print this</tt><tt class="jscript plain ">}</tt>    </p>
+            </td>
+        </tr>
+</tbody>        </table>
+            </div>
+    <p>
+    </p>
+    <p>
+The <tt class=" ">appc cloud loglist</tt> output indicates &quot;FATAL ERROR: JS Allocation failed - process out of memory&quot;; <tt class=" ">appc cloud list</tt> doesn't indicate any problem.    </p>
+    <p>
+    </p>
+    <div class="tablewrap">
+        <table class="confluenceTable">
+        <thead class=" "/><tfoot class=" "/><tbody class=" ">    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class="jscript plain ">$ appc cloud loglist testapp</tt><tt class="jscript plain ">12/26/2013 06:04:043.934 [INFO] [4667] ------------ Run MVC App ------------</tt><tt class="jscript plain ">info: socket.io started</tt><tt class="jscript plain ">12/26/2013 06:04:044.332 [INFO] [4667] App started</tt><tt class="jscript plain ">FATAL ERROR: JS Allocation failed - process out of memory</tt><tt class="jscript plain ">12/26/2013 06:05:000.529 [INFO] [4671] ------------ Run MVC App ------------</tt><tt class="jscript plain ">info: socket.io started</tt><tt class="jscript plain ">12/26/2013 06:05:000.927 [INFO] [4671] App started</tt><tt class="jscript plain ">FATAL ERROR: JS Allocation failed - process out of memory</tt> <tt class="jscript plain ">$ acs list testapp</tt><tt class="jscript plain ">App name: testapp</tt><tt class="jscript plain ">-- URL: http:</tt><tt class="jscript comments ">//a3110b813195ca3a774913a767e49a1ce5f17e63.cloud-services.appcelerator.com</tt><tt class="jscript plain ">-- Created at: Tue Dec 24 2013 21:15:19 GMT+0800 (CST)</tt><tt class="jscript plain ">-- Node Version: 0.10.22</tt><tt class="jscript plain ">-- Maximum allowed number of servers: 1</tt><tt class="jscript plain ">-- Desired number of servers: 1</tt><tt class="jscript plain ">-- Current number of deployed servers: 1</tt><tt class="jscript plain ">-- Active version: 0.1.0</tt><tt class="jscript plain ">-- Published at: Thu Dec 26 2013 09:29:52 GMT+0800 (CST)</tt><tt class="jscript plain ">-- Servers:</tt><tt class="jscript plain ">No. 1 ID: 52b81468754c4184e58e8789 Status: Deployed</tt>    </p>
+            </td>
+        </tr>
+</tbody>        </table>
+            </div>
+    <p>
+    </p>
+    </div>
+    </div>
+    <div class="section section-2 " id="46245598_ArrowCloudTroubleshooting-Installationerrors">
+        <h2 class="heading "><span>Installation errors</span></h2>
+    <p>
+This section describes issues you may encounter when installing or upgrading Arrow Cloud using NPM.    </p>
+    <div class="section section-3 " id="46245598_ArrowCloudTroubleshooting-Error:ENOENT,nosuchfileordirectory">
+        <h3 class="heading "><span>Error: ENOENT, no such file or directory</span></h3>
+    <p>
+Arrow Cloud installation fails with the following error:    </p>
+    <p>
+    </p>
+    <div class="tablewrap">
+        <table class="confluenceTable">
+        <thead class=" "/><tfoot class=" "/><tbody class=" ">    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class="jscript plain ">...</tt><tt class="jscript plain ">fs.js:427</tt><tt class="jscript spaces ">  </tt><tt class="jscript keyword ">return</tt> <tt class="jscript plain ">binding.open(pathModule._makeLong(path), stringToFlags(flags), mode);</tt><tt class="jscript spaces ">                 </tt><tt class="jscript plain ">^</tt><tt class="jscript plain ">Error: ENOENT, no such file or directory </tt><tt class="jscript string ">'/usr/local/lib/node_modules/acs/bin/acsx'</tt><tt class="jscript spaces ">    </tt><tt class="jscript plain ">at Object.fs.openSync (fs.js:427:18)</tt><tt class="jscript spaces ">    </tt><tt class="jscript plain ">at Object.fs.readFileSync (fs.js:284:15)</tt><tt class="jscript spaces ">    </tt><tt class="jscript plain ">at Object.&lt;anonymous&gt; (/usr/local/lib/node_modules/acs/scripts/config.js:21:19)</tt><tt class="jscript spaces ">    </tt><tt class="jscript plain ">at Module._compile (module.js:456:26)</tt><tt class="jscript spaces ">    </tt><tt class="jscript plain ">at Object.Module._extensions..js (module.js:474:10)</tt><tt class="jscript spaces ">    </tt><tt class="jscript plain ">at Module.load (module.js:356:32)</tt><tt class="jscript spaces ">    </tt><tt class="jscript plain ">at Function.Module._load (module.js:312:12)</tt><tt class="jscript spaces ">    </tt><tt class="jscript plain ">at Function.Module.runMain (module.js:497:10)</tt><tt class="jscript spaces ">    </tt><tt class="jscript plain ">at startup (node.js:119:16)</tt><tt class="jscript spaces ">    </tt><tt class="jscript plain ">at node.js:902:3</tt>    </p>
+            </td>
+        </tr>
+</tbody>        </table>
+            </div>
+    <p>
+    </p>
+    <p>
+To resolve, try deleting your <tt class=" ">~/.npm</tt> folder and cleaning the NPM cache, then re-installing:    </p>
+    <p>
+    </p>
+    <div class="tablewrap">
+        <table class="confluenceTable">
+        <thead class=" "/><tfoot class=" "/><tbody class=" ">    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class="jscript plain ">rm -rf ~/.npm</tt><tt class="jscript plain ">npm cache clear</tt><tt class="jscript plain ">sudo npm -g install acs</tt>    </p>
+            </td>
+        </tr>
+</tbody>        </table>
+            </div>
+    </div>
+    </div>
+        </div><a id="editButton" href="https://wiki.appcelerator.org/pages/editpage.action?pageId=46245598"><span>Edit</span></a>
+    
+        <div class="footer">
+            Created with <a href="http://k15t.com/display/web/Scroll-Wiki-EclipseHelp-Exporter-for-Confluence" target="_blank">Scroll EclipseHelp Exporter for Confluence</a>.
+        </div>
+    </div>
+</body>
+</html>
