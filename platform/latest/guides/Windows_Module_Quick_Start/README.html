@@ -320,8 +320,8 @@ Next, modify the example setter and getter to actually set and get the variable 
 <div class="line"><code class="plain">{</code></div>
 <div class="line"><code class="plain">    JSExport&lt;Test&gt;::SetClassVersion(1);</code></div>
 <div class="line"><code class="plain">    JSExport&lt;Test&gt;::SetParent(JSExport&lt;JSExportObject&gt;::Class());</code></div>
-<div class="line"><code class="plain">    </code><code class="comments">// register example function</code></div>
-<div class="line"><code class="plain">    TITANIUM_ADD_FUNCTION(Test, example);</code></div>
+<div class="line"><code class="plain">    </code><code class="comments">// register exampleProp property</code></div>
+<div class="line"><code class="plain">    TITANIUM_ADD_PROPERTY(Test, exampleProp);</code></div>
 <div class="line"><code class="plain">...</code></div>
 <div class="line"><code class="plain">}</code></div>
 </div>
@@ -375,8 +375,8 @@ Next, modify the example function to actually return variable you just declared.
 <div class="line"><code class="plain">{</code></div>
 <div class="line"><code class="plain">    JSExport&lt;Test&gt;::SetClassVersion(1);</code></div>
 <div class="line"><code class="plain">    JSExport&lt;Test&gt;::SetParent(JSExport&lt;JSExportObject&gt;::Class());</code></div>
-<div class="line"><code class="plain">    </code><code class="comments">// register exampleProp property</code></div>
-<div class="line"><code class="plain">    TITANIUM_ADD_PROPERTY(Test, exampleProp);</code></div>
+<div class="line"><code class="plain">    </code><code class="comments">// register example function</code></div>
+<div class="line"><code class="plain">    TITANIUM_ADD_FUNCTION(Test, example);</code></div>
 <div class="line"><code class="plain">...</code></div>
 <div class="line"><code class="plain">}</code></div>
 </div>
