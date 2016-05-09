@@ -195,11 +195,25 @@ A special file used by Xcode when your module is compiled in an end-user Titaniu
     <tr>
             <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-iphone/platform    </p>
+iphone/platform<br/>    <span style="color: #ff0000;">
+(removed in 5.2.0.GA)     </span>
+    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-Directory for platform-specific assets. This is analogous to the <tt class=" ">platform</tt> directory in a standard Titanium application project, and contains platform-specific assets that are not processed by Titanium but copied over to the module's package. For example, place any third-party frameworks you want to use with the module in this folder.    </p>
+Directory for platform-specific assets. This is analogous to the <tt class=" ">platform</tt> directory in a standard Titanium application project, and contains platform-specific assets that are not processed by Titanium but copied over to the module's package. For example, place any third-party frameworks you want to use with the module in this folder    <span style="color: #ff0000;">
+ (removed in 5.2.0.GA, please use the Resources directory instead and create it if not existing).    </span>
+    </p>
+            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+iphone/Resources    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+Directory for platform-specific assets. This is analogous to the <tt class=" ">app/platform</tt> directory in a standard Titanium application project, and contains platform-specific assets that are not processed by Titanium but copied over to the module's package. For example, place any third-party frameworks or bundles you want to use with the module in this folder. <i class=" ">Note</i>: This directory will only be recognized in Titanium Mobile 5.2.0.GA and later.    </p>
             </td>
         </tr>
     <tr>
@@ -239,7 +253,7 @@ A special file used by Xcode when your module is compiled when building your mod
     <div class="confbox admonition admonition-note aui-message warning shadowed information-macro">
         
     <p>
-Starting with Release 3.3.0, the CLI generates a module project containing multiple platforms.  The module contains platform folders, for example, <tt class=" ">iphone</tt>, that contain platform-specific resources and common folders for assets, documentation and examples.    </p>
+Starting with Release 3.3.0, the CLI generates a module project containing multiple platforms.  The module contains platform-dependent folders, for example, <tt class=" ">iphone</tt>, that contain platform-specific resources and common folders for assets, documentation and examples.    </p>
     <p>
 Prior to Release 3.3.0, none of the previous listed folder are contained in an <tt class=" ">iphone</tt> folder.    </p>
     </div>
@@ -421,7 +435,7 @@ To create a new module project, run the following Titanium CLI command:    </p>
 <div class="line"><code class="plain">### Example</code></div>
 <div class="line"><code class="plain">$ ti create -d . -n test --id com.example.test</code></div>
 <div class="line"><code class="plain">Appcelerator Command-Line Interface, version </code><code class="value">0.2</code><code class="plain">.</code><code class="value">230</code></div>
-<div class="line"><code class="plain">Copyright (c) </code><code class="value">2014</code><code class="plain">-</code><code class="value">2015</code><code class="plain">, Appcelerator, Inc.  All Rights Reserved.</code></div>
+<div class="line"><code class="plain">Copyright (c) </code><code class="value">2014</code><code class="plain">-</code><code class="value">2016</code><code class="plain">, Appcelerator, Inc.  All Rights Reserved.</code></div>
 <div class="line"><code class="plain">? What type of project are you creating? </code></div>
 <div class="line"><code class="plain">  Native App </code></div>
 <div class="line"><code class="plain">  Arrow App </code></div>
@@ -433,11 +447,11 @@ If you omit any of the options, the CLI will prompt you to enter them.    </p>
     <div class="section section-3 " id="43288810_iOSModuleProject-BuildandPackagetheModule">
         <h3 class="heading "><span>Build and Package the Module</span></h3>
     <p>
-To build and package a module, run the <tt class=" ">build.py</tt> script in the <tt class=" ">iphone</tt> directory.    </p>
+To build and package a module, run the <tt class=" ">ti build</tt> command inside the <tt class=" ">iphone</tt> directory.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">cd /&lt;PATH_TO_MODULE_PROJECT&gt;/&lt;MODULE_NAME&gt;/iphone</code></div>
-<div class="line"><code class="plain">python build.py</code></div>
+<div class="line"><code class="plain">ti build -p ios --build-only</code></div>
 </div>
 </div>    <p>
 After the build completes, you should have a ZIP file in the <tt class=" ">iphone</tt> directory and see the following message in the console:    </p>
