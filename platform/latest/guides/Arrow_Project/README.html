@@ -268,8 +268,8 @@ For example, the following <tt class=" ">server.app.use</tt> call forces the cli
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="title">app.js</div>
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">var Arrow = require(</code><code class="string">'arrow'</code><code class="plain">),</code></div>
-<div class="line"><code class="plain">        server = </code><code class="keyword">new</code><code class="plain"> Arrow();</code></div>
+<div class="line"><code class="plain">var Arrow = require(</code><code class="string">'arrow'</code><code class="plain">);</code></div>
+<div class="line"><code class="plain">var server = </code><code class="keyword">new</code><code class="plain"> Arrow();</code></div>
 <div class="line"><code class="plain">server.on(</code><code class="string">'starting'</code><code class="plain">, function () {</code></div>
 <div class="line"><code class="plain">    server.logger.debug(</code><code class="string">'server is starting!'</code><code class="plain">);</code></div>
 <div class="line"><code class="plain"> </code></div>
@@ -289,8 +289,8 @@ For example, the following <tt class=" ">server.app.use</tt> call forces the cli
 This example sets a custom 404 page for your application.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">var Arrow = require(</code><code class="string">'arrow'</code><code class="plain">),</code></div>
-<div class="line"><code class="plain">    server = </code><code class="keyword">new</code><code class="plain"> Arrow();</code></div>
+<div class="line"><code class="plain">var Arrow = require(</code><code class="string">'arrow'</code><code class="plain">);</code></div>
+<div class="line"><code class="plain">var server = </code><code class="keyword">new</code><code class="plain"> Arrow();</code></div>
 <div class="line"><code class="plain">server.on(</code><code class="string">'starting'</code><code class="plain">, function () {</code></div>
 <div class="line"><code class="plain">    server.logger.debug(</code><code class="string">'server is starting!'</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">    </code><code class="comments">// make an exception for /arrow, /apidoc and /api</code></div>
