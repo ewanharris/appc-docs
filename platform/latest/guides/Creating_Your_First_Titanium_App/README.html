@@ -41,10 +41,8 @@
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Creating_Your_First_Titanium_App-section-37541502_CreatingYourFirstTitaniumApp-Allowusertoaddbooks">Allow user to add books</a>    </p>
 </li><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Creating_Your_First_Titanium_App-section-37541502_CreatingYourFirstTitaniumApp-NextSteps">Next Steps</a>    </p>
-</li></ul>    <p>
-    </p>
-    <div class="section section-2 " id="37541502_CreatingYourFirstTitaniumApp-Introduction">
+<a class="document-link " href="#!/guide/Creating_Your_First_Titanium_App-section-37541502_CreatingYourFirstTitaniumApp-Nextsteps">Next steps</a>    </p>
+</li></ul>    <div class="section section-2 " id="37541502_CreatingYourFirstTitaniumApp-Introduction">
         <h2 class="heading "><span>Introduction</span></h2>
     <p>
 This tutorial walks you through the process of building a simple Titanium application for iPhone and Android that lets users enter and view their favorite books. It touches on the following topics:    </p>
@@ -59,7 +57,7 @@ Using platform-specific resources and styles    </p>
 </li><li class=" ">    <p>
 Handling events    </p>
 </li></ul>    <p>
-<a class="external-link external-link" href="https://github.com/appcelerator-developer-relations/FaveBooks" target="_blank">Download</a> a completed version of the project.    </p>
+You can<strong class=" "> <a class="external-link external-link" href="https://github.com/appcelerator-developer-relations/FaveBooks" target="_blank">download</a></strong> a completed version of the project.    </p>
     <div class="tablewrap">
         <table class="confluenceTable">
         <thead class=" "/><tfoot class=" "/><tbody class=" ">    <tr>
@@ -171,13 +169,7 @@ Now that our application has some data, let&rsquo;s display it in a table.    </
     <div class="section section-2 " id="37541502_CreatingYourFirstTitaniumApp-AddaTableView">
         <h2 class="heading "><span>Add a TableView</span></h2>
     <p>
-    <span style="color: #484848;">
-In Alloy, collection data can be <a class="external-link external-link" href="#!/guide/Alloy_Data_Binding">synchronized</a> to a view object, or a single model can be bound to a view component. At runtime, Alloy monitors your application's collections for changes and     <span style="color: #484848;">
-updates any synchronized view objects with the new data.    </span>
- Specifically, t    </span>
-     <span style="color: #484848;">
-he Backbone <tt class=" ">add</tt>, <tt class=" ">change</tt>, <tt class=" ">destroy</tt>, <tt class=" ">fetch</tt>, <tt class=" ">remove</tt>, and <tt class=" ">reset</tt> events are monitored for changes. In this case, each time we call the <tt class=" ">add()</tt> method on the <tt class=" ">myBooks</tt> collection the view is synchronized with the new data.    </span>
-    </p>
+In Alloy, collection data can be <a class="external-link external-link" href="#!/guide/Alloy_Data_Binding">synchronized</a> to a view object, or a single model can be bound to a view component. At runtime, Alloy monitors your application's collections for changes and updates any synchronized view objects with the new data. Specifically, the Backbone add, change, destroy, fetch, remove, and reset events are monitored for changes. In this case, each time we call the <tt class=" ">add()</tt> method on the myBooks collection the view is synchronized with the new data.    </p>
 <ol class=" "><li class=" ">    <p>
 Open <strong class=" ">views/index.xml</strong>.    </p>
 </li><li class=" ">    <p>
@@ -302,7 +294,7 @@ A JavaScript controller    </p>
 </li><li class=" ">    <p>
 A style file (a Titanium Style Sheet file)    </p>
 </li></ul>    <p>
-<strong class=" ">To create the book detail view</strong> :    </p>
+<strong class=" ">To create the book detail view</strong>:    </p>
 <ol class=" "><li class=" ">    <p>
 Right-click or Control-click on the project folder and select <strong class=" ">New &gt; Alloy Controller</strong>, or press Cmd+Shift+C (Mac) or Ctrl+Shift+C (Windows).    </p>
 </li><li class=" ">    <p>
@@ -360,7 +352,7 @@ Add an <strong class=" "> <tt class=" ">onClick</tt> </strong> attribute to the 
 <div class="line"><code class="plain">&lt;TableViewRow title=</code><code class="string">"{title}"</code><code class="plain"> author=</code><code class="string">"{author}"</code><code class="plain"> onClick=</code><code class="string">"showBook"</code><code class="plain">&gt;&lt;/TableViewRow&gt;</code></div>
 </div>
 </div><pre class=" ">    </pre></li><li class=" ">    <p>
-Open <strong class=" ">controllers/index.js</strong> and add a function named <strong class=" "> <tt class=" ">showBook()</tt> </strong> that takes a single argument called <strong class=" "> <tt class=" ">event</tt> </strong>. This is the event object passed to the function that contains information about the selected item.    </p>
+Open <strong class=" ">controllers/index.js</strong> and add a function named <strong class=" "> <tt class=" ">showBook()</tt> </strong> that takes a single argument called <strong class=" "> <tt class=" ">event</tt></strong>. This is the event object passed to the function that contains information about the selected item.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">function showBook (event) { </code></div>
@@ -376,9 +368,9 @@ First, let&rsquo;s add code to extract the title and author of the selected book
 <div class="line"><code class="plain">        title: selectedBook.title,</code></div>
 <div class="line"><code class="plain">        author: selectedBook.author</code></div>
 <div class="line"><code class="plain">    };</code></div>
-<div class="line"><code class="plain">}  </code></div>
+<div class="line"><code class="plain">}</code></div>
 </div>
-</div><pre class=" ">  </pre></li><li class=" ">    <p>
+</div><pre class=" ">    </pre></li><li class=" ">    <p>
 Lastly, we create a new instance of the Alloy bookdetails controller, passing it the <tt class=" ">args</tt> object containing the title and author data, and open the view.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
@@ -414,7 +406,7 @@ Clearly, this isn&rsquo;t what we want &ndash; the two labels are occupying at t
         <h3 class="heading "><span>Modify the book detail layout</span></h3>
     <p>
 Titanium supports three <a class="external-link external-link" href="#!/guide/Layouts,_Positioning,_and_the_View_Hierarchy-section-29004895_Layouts,Positioning,andtheViewHierarchy-Layoutmodes">layout modes</a>: composite (or absolute), vertical, and horizontal. In composite mode,     <span style="color: #484848;">
-you specify a child view's coordinates on a grid relative to its parent container's top/left or bottom/right corner. If not specified, a child view is centered on the display. In this section you'll apply a vertical layout to the book details view, and then tweak the     </span>
+you specify a child view's coordinates on a grid relative to its parent container's top/left or bottom/right corner. If not specified, a child view is centered on the display. In this section you'll apply a vertical layout to the book details view, and then tweak the style.    </span>
     </p>
 <ol class=" "><li class=" ">    <p>
 Open <strong class=" ">views/bookdetails.xml</strong>.    </p>
@@ -437,7 +429,7 @@ Add a <strong class=" "> <tt class=" ">layout</tt> </strong> attribute to the <t
 <div class="line"><code class="plain">&lt;/View&gt;</code></div>
 </div>
 </div></li><li class=" ">    <p>
-Open <strong class=" ">styles/bookdetails.tss</strong> and add the following style rules to align the labels along the left side of the screen, and to set their font sizes. We also add some padding between the two labels by    </p>
+Open <strong class=" ">styles/bookdetails.tss</strong> and add the following style rules to align the labels along the left side of the screen, and to set their font sizes. We also add some padding between the two labels by 10.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="string">"#titleLabel"</code><code class="plain">: {</code></div>
@@ -466,7 +458,15 @@ If you test the app on an Android device with a high-resolution display, you&rsq
             </p>
     <p>
 To fix this we will apply a <a class="external-link external-link" href="#!/guide/Alloy_Styles_and_Themes-section-35621526_AlloyStylesandThemes-Platform-SpecificStyles">platform-specific style</a> to the <tt class=" ">&lt;TableViewRow&gt;</tt> element. During the build process, platform-specific styles are applied only to builds on the target platform. The following is an example of a platform-specific style that makes all Labels blue in iOS builds.    </p>
-<pre class=" ">&quot;Label[platform=ios]&quot;: { <br/>  color: 'blue' <br/>}</pre>    <p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="string">"Label[platform=ios]"</code><code class="plain">: { </code></div>
+<div class="line"><code class="plain">  color: </code><code class="string">'blue'</code><code class="plain"> </code></div>
+<div class="line"><code class="plain">}</code></div>
+</div>
+</div>    <p>
+    </p>
+    <p>
 In this case we&rsquo;ll increase the font size used by each <tt class=" ">&lt;TableViewRow&gt;</tt> element, and set the height of each row to provide some space around the text.    </p>
     <p>
 <strong class=" ">To increase the table row height on Android</strong>:    </p>
@@ -504,8 +504,6 @@ In Project Explorer, create a new folder named <strong class=" ">ios</strong> in
 </li><li class=" ">    <p>
 Create a new file named <strong class=" ">index.xml</strong> in the new folder.<br/>        <img src="images/download/attachments/37541502/ios-view.png" alt="images/download/attachments/37541502/ios-view.png" class="confluence-embedded-image"/>
             </p>
-    <p>
-    </p>
 </li><li class=" ">    <p>
 Copy the contents of  <strong class=" "> <tt class=" ">views/index.xml</tt> </strong>  to  <strong class=" "> <tt class=" ">views/ios/index.xml</tt></strong>.    </p>
 </li><li class=" ">    <p>
@@ -550,7 +548,7 @@ Modify the <tt class=" ">showBook()</tt> method to account for the platform diff
 <div class="line"><code class="plain">} </code></div>
 </div>
 </div>    <p>
-As you can see, in the iOS case the handler now opens the window inside the NavigationGroup; the Android code branch uses the same code to open the window ( <tt class=" ">addview.open()</tt> ).    </p>
+As you can see, in the iOS case the handler now opens the window inside the NavigationGroup; the Android code branch uses the same code to open the window (<tt class=" ">addview.open()</tt>).    </p>
 </li><li class=" ">    <p>
 Save your changes and test again on an iPhone device or simulator.    </p>
 </li></ol>    <p>
@@ -665,10 +663,10 @@ Save your changes and test on a device or emulator.    </p>
 </li></ol>    <p>
 You should now be able to click 'Add' and add new books to the collection which persist between sessions.    </p>
     </div>
-    <div class="section section-2 " id="37541502_CreatingYourFirstTitaniumApp-NextSteps">
-        <h2 class="heading "><span>Next Steps</span></h2>
+    <div class="section section-2 " id="37541502_CreatingYourFirstTitaniumApp-Nextsteps">
+        <h2 class="heading "><span>Next steps</span></h2>
     <p>
-Review the guides in <a class="document-link " href="#!/guide/Alloy_Framework">Alloy Framework</a> to learn more about using Alloy to build your application; specifically, see the <a class="document-link " href="#!/guide/Alloy_Views">Alloy Views</a> section to learn about creating the UI for your application.  Also, review the <a class="document-link " href="#!/guide/Titanium_SDK">Titanium SDK</a> guides to learn more about specific categories of APIs, such as UI, media, geolocation, etc.    </p>
+Review the guides in <a class="document-link " href="#!/guide/Alloy_Framework">Alloy Framework</a> to learn more about using Alloy to build your application; specifically, see the <a class="document-link " href="#!/guide/Alloy_Views">Alloy Views</a> section to learn about creating the UI for your application.  Also, review the <a class="document-link " href="#!/guide/Titanium_SDK">Titanium SDK</a> guides to learn more about specific categories of APIs, such as UI, media, geolocation, and so on.    </p>
     </div>
         </div><a id="editButton" href="https://wiki.appcelerator.org/pages/editpage.action?pageId=37541502"><span>Edit</span></a>
     
