@@ -160,7 +160,9 @@ If you are using the Appcelerator CLI from behind a proxy, you need to configure
 <div class="line"><code class="plain">## Example</code></div>
 <div class="line"><code class="plain">appc config set proxyServer https:</code><code class="comments">//admin:password1234@foo.com:554</code></div>
 </div>
-</div>    </div>
+</div>    <p>
+Note: We encourage you to use <tt class=" ">appc config set cafile</tt> as a security option over <tt class=" ">appc config set strictSSL false </tt>as the latter doesn&rsquo;t do SSL key validation when making requests.    </p>
+    </div>
     <div class="section section-3 " id="43306725_AppceleratorCLITasks-SettheCorePackageVersion">
         <h3 class="heading "><span>Set the Core Package Version</span></h3>
     <p>
