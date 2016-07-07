@@ -1,8 +1,20 @@
 # ArrowDB Release Notes
 
-## Arrow Cloud 1.4.0 - 12 January 2016
+## ArrowDB 1.5.2 Release - 29 June 2016
 
-This release of Arrow Cloud includes version 1.1.0 of the CLI and 1.4.0 of the 
+This release of ArrowDB 1.5.2 includes several internal improvements and bug fixes.
+
+## ArrowDB 1.5.1 Release - 15 March 2016
+
+This release of ArrowDB 1.5.1 addresses a few internal improvements and bug fixes.
+
+## ArrowDB 1.5.0 Release - 14 February 2016
+
+This release of ArrowDB 1.5.0 addresses a few internal improvements and bug fixes.
+
+## ArrowDB 1.4.0 Release - 12 January 2016
+
+This release of ArrowDB includes version 1.1.0 of the CLI and 1.4.0 of the 
 server, and includes a new feature and improvement.
 
 **New Features and Improvements**

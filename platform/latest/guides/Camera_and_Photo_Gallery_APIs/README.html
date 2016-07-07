@@ -32,6 +32,8 @@
 <a class="document-link " href="#!/guide/Camera_and_Photo_Gallery_APIs-section-29004913_CameraandPhotoGalleryAPIs-Grantaccesstovideostreamandaudiostream">Grant access to video stream and audio stream</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Camera_and_Photo_Gallery_APIs-section-29004913_CameraandPhotoGalleryAPIs-Grantaccesstopictureslibrary">Grant access to pictures library</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Camera_and_Photo_Gallery_APIs-section-29004913_CameraandPhotoGalleryAPIs-DisplayingbuiltincameraforWindows">Displaying builtin camera for Windows</a>    </p>
 </li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Camera_and_Photo_Gallery_APIs-section-29004913_CameraandPhotoGalleryAPIs-Hands-onPractice">Hands-on Practice</a>    </p>
 </li></ul>    <div class="section section-2 " id="29004913_CameraandPhotoGalleryAPIs-Objective">
@@ -267,6 +269,50 @@ In order to enable camera and audio recording for Windows Phone, you need to pro
 </div>
 </div>    <p>
 For more information about audio configuration in <tt class=" ">tiapp.xml</tt>, see <a class="external-link external-link" href="#!/guide/tiapp.xml_and_timodule.xml_Reference-section-29004921_tiapp.xmlandtimodule.xmlReference-Windows-specificsection">Windows-specific section</a> in <a class="external-link external-link" href="#!/guide/tiapp.xml_and_timodule.xml_Reference">tiapp.xml and timodule.xml Reference</a>.    </p>
+    </div>
+    <div class="section section-4 " id="29004913_CameraandPhotoGalleryAPIs-DisplayingbuiltincameraforWindows">
+        <h4 class="heading "><span>Displaying builtin camera for Windows</span></h4>
+    <div class="section section-5 " id="29004913_CameraandPhotoGalleryAPIs-ForWindows10Mobile">
+        <h5 class="heading "><span>For Windows 10 Mobile</span></h5>
+    <p>
+As of Titanium 5.4.0, you can launch &quot;default camera UI&quot; that is builtin to the platform when you use <tt class=" ">Ti.Media.showCamera(options)</tt> without specifying <tt class=" ">overlay</tt> property. This Windows builtin camera UI provides same look &amp; feel that <a class="external-link external-link" href="https://www.microsoft.com/en-us/store/apps/windows-camera/9wzdncrfjbbg" target="_blank">Microsoft Windows Camera</a> app provides. Note that this builtin camera UI is supported as of Windows 10 apps including Mobile.    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="keyword">var</code><code class="plain"> imageView = TI.UI.createImageView();</code></div>
+<div class="line"><code class="plain">Ti.Media.showCamera({</code></div>
+<div class="line"><code class="plain">    mediaTypes: [Ti.Media.MEDIA_TYPE_PHOTO],</code></div>
+<div class="line"><code class="plain">    success: </code><code class="keyword">function</code><code class="plain"> (e) {</code></div>
+<div class="line"><code class="plain">        imageView.image = e.media;</code></div>
+<div class="line"><code class="plain">    },</code></div>
+<div class="line"><code class="plain">    error: </code><code class="keyword">function</code><code class="plain"> (e) {</code></div>
+<div class="line"><code class="plain">        Ti.API.error(JSON.stringify(e));</code></div>
+<div class="line"><code class="plain">    }</code></div>
+<div class="line"><code class="plain">});</code></div>
+</div>
+</div>    </div>
+    <div class="section section-5 " id="29004913_CameraandPhotoGalleryAPIs-ForWindowsPhone8.1">
+        <h5 class="heading "><span>For Windows Phone 8.1</span></h5>
+    <p>
+Displaying default camera UI on Windows Phone 8.1 is not supported natively, but there is a workaround for it. On Windows Phone 8.1, <tt class=" ">Ti.Media.openPhotoGallery</tt> shows builtin photo chooser from the photo gallery, and there's a button to launch builtin Windows camera.    </p>
+    <p>
+        <img src="images/download/attachments/29004913/show.png" alt="images/download/attachments/29004913/show.png" class="confluence-embedded-image" width="300"/>
+            </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="keyword">var</code><code class="plain"> imageView = TI.UI.createImageView();</code></div>
+<div class="line"><code class="plain">Ti.Media.openPhotoGallery({</code></div>
+<div class="line"><code class="plain">    mediaTypes: [Ti.Media.MEDIA_TYPE_PHOTO],</code></div>
+<div class="line"><code class="plain">    success: </code><code class="keyword">function</code><code class="plain"> (e) {</code></div>
+<div class="line"><code class="plain">        imageView.image = e.media;</code></div>
+<div class="line"><code class="plain">    },</code></div>
+<div class="line"><code class="plain">    cancel: </code><code class="keyword">function</code><code class="plain"> () {</code></div>
+<div class="line"><code class="plain">    },</code></div>
+<div class="line"><code class="plain">    error: </code><code class="keyword">function</code><code class="plain"> (e) {</code></div>
+<div class="line"><code class="plain">        Ti.API.error(JSON.stringify(e));</code></div>
+<div class="line"><code class="plain">    }</code></div>
+<div class="line"><code class="plain">});</code></div>
+</div>
+</div>    </div>
     </div>
     </div>
     <div class="section section-3 " id="29004913_CameraandPhotoGalleryAPIs-Hands-onPractice">
