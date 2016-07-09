@@ -27,6 +27,12 @@
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Arrow_Admin_Console-section-43311120_ArrowAdminConsole-APIDocs">API Docs</a>    </p>
 </li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Arrow_Admin_Console-section-43311120_ArrowAdminConsole-ArrowAPIandSwagger">Arrow API and Swagger</a>    </p>
+<ul class="toc-indentation "><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Arrow_Admin_Console-section-43311120_ArrowAdminConsole-ArrowprojectSwagger">Arrow project Swagger</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Arrow_Admin_Console-section-43311120_ArrowAdminConsole-IndividualAPIs">Individual APIs</a>    </p>
+</li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Arrow_Admin_Console-section-43311120_ArrowAdminConsole-Build">Build</a>    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Arrow_Admin_Console-section-43311120_ArrowAdminConsole-ModelType">Model Type</a>    </p>
@@ -355,10 +361,78 @@ Use the left navigation to jump between the different components of the Arrow ap
 </li></ul>    <p>
 Note that the public API Docs endpoint  (<tt class=" ">/apidocs/</tt> by default) will only include the <strong class=" ">Overview</strong> section without the <strong class=" ">Authentication</strong> section and the <strong class=" ">APIs</strong> section, including the examples, but without the ability to test them through the console.    </p>
     </div>
+    <div class="section section-2 " id="43311120_ArrowAdminConsole-ArrowAPIandSwagger">
+        <h2 class="heading "><span>Arrow API and Swagger</span></h2>
+    <p>
+Arrow APIs contain a <a class="external-link external-link" href="http://swagger.io/" target="_blank">Swagger</a> definition that can be used to programmatically import APIs using tools such as <a class="external-link external-link" href="https://www.axway.com/en/enterprise-solutions/api-management#tablist1-tab1" target="_blank">Axway API Manager</a>.    </p>
+    <div class="section section-3 " id="43311120_ArrowAdminConsole-ArrowprojectSwagger">
+        <h3 class="heading "><span>Arrow project Swagger</span></h3>
+    <p>
+Your Arrow project Swagger file describes all of the APIs in the project that can be accessed via the following URL:    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">https:</code><code class="comments">//&lt;SUB_DOMAIN_TOKEN&gt;.cloudapp-enterprise.appcelerator.com/arrow/swagger.json</code></div>
+</div>
+</div>    </div>
+    <div class="section section-3 " id="43311120_ArrowAdminConsole-IndividualAPIs">
+        <h3 class="heading "><span>Individual APIs</span></h3>
+    <p>
+Each API also has a separate Swagger definition associated with the API itself. This is convenient if you only need access to one API and not expose the entire API set by your Arrow project.    </p>
+    <p>
+For example, if you have a model and associated APIs for <i class=" ">account</i> as follows:    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">var Arrow = require(</code><code class="string">'arrow'</code><code class="plain">);</code></div>
+<div class="line"><code class="plain">var Model = Arrow.Model.reduce(</code><code class="string">'appc.salesforce/Account'</code><code class="plain">, </code><code class="string">'Account'</code><code class="plain">, {</code></div>
+<div class="line"><code class="plain">    fields: {</code></div>
+<div class="line"><code class="plain">        Name: {</code></div>
+<div class="line"><code class="plain">            type: String,</code></div>
+<div class="line"><code class="plain">            description: </code><code class="string">'Account Name'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">            maxlength: </code><code class="value">255</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">            required: </code><code class="keyword">true</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">            optional: </code><code class="keyword">false</code></div>
+<div class="line"><code class="plain">        },</code></div>
+<div class="line"><code class="plain">        Type: {</code></div>
+<div class="line"><code class="plain">            type: String,</code></div>
+<div class="line"><code class="plain">            description: </code><code class="string">'Account Type'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">            maxlength: </code><code class="value">40</code></div>
+<div class="line"><code class="plain">        },</code></div>
+<div class="line"><code class="plain">        Phone: {</code></div>
+<div class="line"><code class="plain">            type: String,</code></div>
+<div class="line"><code class="plain">            description: </code><code class="string">'Account Phone'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">            maxlength: </code><code class="value">40</code></div>
+<div class="line"><code class="plain">        }</code></div>
+<div class="line"><code class="plain">    },</code></div>
+<div class="line"><code class="plain">    actions: [</code></div>
+<div class="line"><code class="plain">        </code><code class="string">'create'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">        </code><code class="string">'read'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">        </code><code class="string">'update'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">        </code><code class="string">'delete'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">        </code><code class="string">'deleteAll'</code></div>
+<div class="line"><code class="plain">    ]</code></div>
+<div class="line"><code class="plain">});</code></div>
+<div class="line"><code class="plain">module.exports = Model;</code></div>
+</div>
+</div>    <p>
+The API documentation for this API can be found via this URL:    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">https:</code><code class="comments">//&lt;SUB_DOMAIN_TOKEN&gt;.cloudapp-enterprise.appcelerator.com/arrow/docs.html?apis/account.html</code></div>
+</div>
+</div>    <p>
+The Swagger definition for <i class=" ">account</i> can be found here:    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">https:</code><code class="comments">//&lt;SUB_DOMAIN_TOKEN&gt;.cloudapp-enterprise.appcelerator.com/arrow/docs.json?apis/account</code></div>
+</div>
+</div>    <p>
+Swagger files for the Arrow project and individual APIs can be found on the Github page <a class="external-link external-link" href="https://gist.github.com/lbrenman/0df7270473498e31dc9b817bb152d723" target="_blank">Arrow API Swagger Interface</a>.    </p>
+    </div>
+    </div>
     <div class="section section-2 " id="43311120_ArrowAdminConsole-Build">
         <h2 class="heading "><span>Build</span></h2>
     <p>
-The <strong class=" ">Build </strong>tab lets you create new models.  The model build process involves the following steps:    </p>
+The <strong class=" ">Build </strong>tab lets you create new models. The model build process involves the following steps:    </p>
 <ol class=" "><li class=" ">    <p>
 Name your model and select the model type    </p>
 </li><li class=" ">    <p>
@@ -366,33 +440,29 @@ Add fields to your model    </p>
 </li><li class=" ">    <p>
 Configure the model    </p>
 </li></ol>    <p>
-Note that you may only build models when executing the project locally (in development).  The build console will not work in production even if you enable the admin console in production.    </p>
+Note that you may only build models when executing the project locally (in development). The build console will not work in production even if you enable the admin console in production.    </p>
     <div class="section section-3 " id="43311120_ArrowAdminConsole-ModelType">
         <h3 class="heading "><span>Model Type</span></h3>
     <p>
-In the Model Type step, enter a name for your model and select a model type.  For reduced or extended models, you will need to select the parent model to base your model.  For an empty or schema-less models, you will need to select a connector to persist data to. When you are done, click <strong class=" ">Next</strong> in the top navigation to continue.<br/>        <img src="images/download/attachments/43311120/NewModel.png" alt="images/download/attachments/43311120/NewModel.png" class="confluence-embedded-image confluence-content-image-border"/>
+In the Model Type step, enter a name for your model and select a model type. For reduced or extended models, you will need to select the parent model to base your model. For an empty or schema-less models, you will need to select a connector to persist data to. When you are done, click <strong class=" ">Next</strong> in the top navigation to continue.<br/>        <img src="images/download/attachments/43311120/NewModel.png" alt="images/download/attachments/43311120/NewModel.png" class="confluence-embedded-image confluence-content-image-border"/>
             </p>
     <div class="section section-4 " id="43311120_ArrowAdminConsole-ModelName">
         <h4 class="heading "><span>Model Name</span></h4>
     <p>
-    <span style="color: #333333;">
-Enter a name for your model.  The name must be unique for all of the application's models.    </span>
-    </p>
+Enter a name for your model. The name must be unique for all of the application's models.    </p>
     </div>
     <div class="section section-4 " id="43311120_ArrowAdminConsole-ModelType.1">
         <h4 class="heading "><span>Model Type</span></h4>
     <p>
-    <span style="color: #333333;">
-Select a model type:    </span>
-    </p>
+Select a model type:    </p>
 <ul class=" "><li class=" ">    <p>
 <strong class=" ">Empty and Schema-less</strong> <strong class=" "> model</strong>: create a new model not based of an existing model, where you will need to define the fields and select a connector to persist data to    </p>
 </li><li class=" ">    <p>
-<strong class=" ">Extend an existing model</strong>: create a new model based off an existing model.  The model will inherit all of the existing fields from the source model.  You may also add new fields to the model.  You will need to select the source model to base the model on.    </p>
+<strong class=" ">Extend an existing model</strong>: create a new model based off an existing model. The model will inherit all of the existing fields from the source model.  You may also add new fields to the model. You will need to select the source model to base the model on.    </p>
 </li><li class=" ">    <p>
-<strong class=" ">Reduce an existing model</strong>: create a new model based off an existing model.  Select fields from the source model to inherit and add new fields to the model.  You will need to select the source model to base the model on.    </p>
+<strong class=" ">Reduce an existing model</strong>: create a new model based off an existing model. Select fields from the source model to inherit and add new fields to the model. You will need to select the source model to base the model on.    </p>
 </li><li class=" ">    <p>
-<strong class=" ">Composite model (no join)</strong>: create a new model by combining two or more models together.  The model data will not be joined together but present as one model.    </p>
+<strong class=" ">Composite model (no join)</strong>: create a new model by combining two or more models together. The model data will not be joined together but present as one model.    </p>
 </li><li class=" ">    <p>
 <strong class=" ">Composite model (join)</strong>: create a new model by combining two or more models together. You will need to define a join operation to combine the model data together.    </p>
 </li></ul>    </div>
@@ -411,7 +481,7 @@ The following steps appear when selecting certain models types.    </p>
     <div class="section section-3 " id="43311120_ArrowAdminConsole-ModelFields">
         <h3 class="heading "><span>Model Fields</span></h3>
     <p>
-Depending on the model type, you can either create new fields or select inherited fields to add.  After you add the fields, you can configure them by changing properties or adding validation or return logic.  When you are done, click <strong class=" ">Next</strong> in the top navigation to continue.    </p>
+Depending on the model type, you can either create new fields or select inherited fields to add. After you add the fields, you can configure them by changing properties or adding validation or return logic. When you are done, click <strong class=" ">Next</strong> in the top navigation to continue.    </p>
     <p>
         <img src="images/download/attachments/43311120/ModelFields.png" alt="images/download/attachments/43311120/ModelFields.png" class="confluence-embedded-image confluence-content-image-border"/>
             </p>
@@ -420,26 +490,26 @@ Depending on the model type, you can either create new fields or select inherite
     <p>
 For all models, you can add fields by entering a name for the field, selecting the data type, then clicking <strong class=" ">Add Field</strong>.    </p>
     <p>
-For <u class=" ">reduced models</u>, click the <strong class=" ">View Fields</strong> button to open a dialog that presents the source model's fields.  Select the fields you want to include in the model, the click <strong class=" ">Add Fields</strong>.    </p>
+For <u class=" ">reduced models</u>, click the <strong class=" ">View Fields</strong> button to open a dialog that presents the source model's fields. Select the fields you want to include in the model, the click <strong class=" ">Add Fields</strong>.    </p>
     <p>
-For <u class=" ">composite models</u>, you may add three different kinds of fields.  Select:    </p>
+For <u class=" ">composite models</u>, you may add three different kinds of fields. Select:    </p>
 <ul class=" "><li class=" ">    <p>
 <strong class=" ">Select single field from existing model </strong>to include a model field in the composite mode. Enter a model name and field name of the model, then click <strong class=" ">Add Field</strong>    </p>
 </li><li class=" ">    <p>
 <strong class=" ">Map new field to entire model</strong> to map the entire model instance to a field name in the composite model. Enter a field name and a model name, and select the data type, then click <strong class=" ">Add Field</strong>.    </p>
 </li><li class=" ">    <p>
-<strong class=" ">Create new field</strong> to add a new field to the composite model.  Enter a field name, select a data type, then click <strong class=" ">Add Field</strong>.    </p>
+<strong class=" ">Create new field</strong> to add a new field to the composite model. Enter a field name, select a data type, then click <strong class=" ">Add Field</strong>.    </p>
 </li></ul>    <p>
 If you are creating a composite model, you must add fields from at least two different models.    </p>
     </div>
     <div class="section section-4 " id="43311120_ArrowAdminConsole-ModelFieldsTable">
         <h4 class="heading "><span>Model Fields Table</span></h4>
     <p>
-Once you have added all your model fields, you can modify them by changing properties or adding custom logic to them.  Note that for extended models, you may only rename them, that is, map a different name to the source model field.    </p>
+Once you have added all your model fields, you can modify them by changing properties or adding custom logic to them. Note that for extended models, you may only rename them, that is, map a different name to the source model field.    </p>
     <p>
 To remove a field, click the red box next to the field name.    </p>
     <p>
-If the name of the field is underlined, the field is inherited and you can rename it.  Click the field name to rename the field, that is, map a different name to the source model field.    </p>
+If the name of the field is underlined, the field is inherited and you can rename it. Click the field name to rename the field, that is, map a different name to the source model field.    </p>
     <p>
 To modify a field, click the field, then:    </p>
 <ul class=" "><li class=" ">    <p>
@@ -463,15 +533,15 @@ To modify a field, click the field, then:    </p>
     <div class="section section-3 " id="43311120_ArrowAdminConsole-JoinProperties">
         <h3 class="heading "><span>Join Properties</span></h3>
     <p>
-If you are creating a composite model with a join operation, you will need to complete the <strong class=" ">Join Properties</strong> step.  In the Join Properties step, you must specify the join operation(s).  To specify a join operation, select the parent model, the join operation, then the child model to join to the parent model.    </p>
+If you are creating a composite model with a join operation, you will need to complete the <strong class=" ">Join Properties</strong> step. In the Join Properties step, you must specify the join operation(s). To specify a join operation, select the parent model, the join operation, then the child model to join to the parent model.    </p>
 <ol class=" "><li class=" ">    <p>
-In <strong class=" ">Define the Parent Model</strong>, enter the name of the parent model, the name of the field in the parent model to execute the join on, and select the join operation.  Select either <strong class=" ">Inner Join</strong> or <strong class=" ">Outer Join</strong>.  In an inner join, all parent records will be returned if there is a match or not.  In an outer join, only parent records that match the child records will be returned.    </p>
+In <strong class=" ">Define the Parent Model</strong>, enter the name of the parent model, the name of the field in the parent model to execute the join on, and select the join operation. Select either <strong class=" ">Inner Join</strong> or <strong class=" ">Outer Join</strong>. In an inner join, all parent records will be returned if there is a match or not. In an outer join, only parent records that match the child records will be returned.    </p>
 </li><li class=" ">    <p>
 In <strong class=" ">Add Child Models</strong>, enter the name of the child model to join with the parent model data and the name of the child field to match with the parent field.    </p>
 </li><li class=" ">    <p>
 Click <strong class=" ">Add Join</strong>.    </p>
 </li></ol>    <p>
-The Join Operation will be added to the Joins table below.  To remove a join operation, click the red box next to it.    </p>
+The Join Operation will be added to the Joins table below. To remove a join operation, click the red box next to it.    </p>
     <p>
 Click <strong class=" ">Next</strong> in the top navigation to continue.    </p>
     <p>
@@ -497,7 +567,7 @@ Click <strong class=" ">Next</strong> in the top navigation to continue.    </p>
     <div class="section section-3 " id="43311120_ArrowAdminConsole-ReviewandTest">
         <h3 class="heading "><span>Review and Test</span></h3>
     <p>
-In the Review &amp; Test step, you can review the code that will be generated for the model.  Click <strong class=" ">Save Model</strong>.    </p>
+In the Review &amp; Test step, you can review the code that will be generated for the model. Click <strong class=" ">Save Model</strong>.    </p>
     <p>
 Note that you may need to restart the Arrow application after creating a new model.    </p>
     </div>
@@ -518,23 +588,23 @@ In<strong class=" "> </strong>the<strong class=" "> Connector</strong> drop-down
 </li><li class=" ">    <p>
 In the top navigation, click <strong class=" ">Next</strong>    </p>
 </li></ol>    <p>
-<strong class=" "><strong class=" ">Step 2: Model Fields</strong><br/></strong>    </p>
+<strong class=" "> <strong class=" ">Step 2: Model Fields</strong> <br/> </strong>    </p>
 <ol class=" "><li class=" ">    <p>
 To add new fields, enter a field name, select the field data type, then click <strong class=" ">Add Fields</strong>    </p>
 </li><li class=" ">    <p>
 In the top navigation, click <strong class=" ">Next</strong>    </p>
 </li></ol>    <p>
-<strong class=" "><strong class=" ">Step 3: Optional Properties</strong><br/></strong>    </p>
+<strong class=" "> <strong class=" ">Step 3: Optional Properties</strong> <br/> </strong>    </p>
 <ol class=" "><li class=" ">    <p>
 Configure optional attributes for your model    </p>
 </li><li class=" ">    <p>
 In the top navigation, click <strong class=" ">Next</strong>    </p>
 </li></ol>    <p>
-<strong class=" "><strong class=" ">Step 4: Review &amp; Test</strong><br/></strong>    </p>
+<strong class=" "> <strong class=" ">Step 4: Review &amp; Test</strong> <br/> </strong>    </p>
 <ol class=" "><li class=" ">    <p>
 Click<strong class=" "> Save Model</strong>    </p>
 </li></ol>    <p>
-The following examples create a new <tt class=" ">book</tt> model by defining its own fields, which uses the memory connector.<strong class=" "><br/></strong>    </p>
+The following examples create a new <tt class=" ">book</tt> model by defining its own fields, which uses the memory connector.<strong class=" "> <br/> </strong>    </p>
     <p>
         <img src="images/download/attachments/43311120/schemalessmodel.gif" alt="images/download/attachments/43311120/schemalessmodel.gif" class="confluence-embedded-image"/>
             </p>
@@ -553,7 +623,7 @@ In<strong class=" "> Source Model, </strong>enter a name of an existing model to
 </li><li class=" ">    <p>
 In the top navigation, click <strong class=" ">Next</strong>    </p>
 </li></ol>    <p>
-<strong class=" "><strong class=" ">Step 2: Model Fields</strong><br/></strong>    </p>
+<strong class=" "> <strong class=" ">Step 2: Model Fields</strong> <br/> </strong>    </p>
 <ol class=" "><li class=" ">    <p>
 To add inherited fields, click<strong class=" "> View Fields,</strong> select the fields you want to use, then click<strong class=" "> Add Fields</strong>    </p>
 </li><li class=" ">    <p>
@@ -561,17 +631,17 @@ To add new fields, enter a field name, select the field data type, then click <s
 </li><li class=" ">    <p>
 In the top navigation, click <strong class=" ">Next</strong>    </p>
 </li></ol>    <p>
-<strong class=" "><strong class=" ">Step 3: Optional Properties</strong><br/></strong>    </p>
+<strong class=" "> <strong class=" ">Step 3: Optional Properties</strong> <br/> </strong>    </p>
 <ol class=" "><li class=" ">    <p>
 Configure optional attributes for your model    </p>
 </li><li class=" ">    <p>
 In the top navigation, click <strong class=" ">Next</strong>    </p>
 </li></ol>    <p>
-<strong class=" "><strong class=" ">Step 4: Review &amp; Test</strong><br/></strong>    </p>
+<strong class=" "> <strong class=" ">Step 4: Review &amp; Test</strong> <br/> </strong>    </p>
 <ol class=" "><li class=" ">    <p>
 Click<strong class=" "> Save Model</strong>    </p>
 </li></ol>    <p>
-The following example creates a new model called <tt class=" ">author</tt> by reducing an existing model called <tt class=" ">user</tt>.  The author model only uses the <tt class=" ">first_name</tt> and <tt class=" ">last_name</tt> fields.    </p>
+The following example creates a new model called <tt class=" ">author</tt> by reducing an existing model called <tt class=" ">user</tt>. The author model only uses the <tt class=" ">first_name</tt> and <tt class=" ">last_name</tt> fields.    </p>
     <p>
         <img src="images/download/attachments/43311120/reducemodel.gif" alt="images/download/attachments/43311120/reducemodel.gif" class="confluence-embedded-image"/>
             </p>
@@ -598,7 +668,7 @@ To add the entire model object as a field, select <strong class=" ">Map new fiel
 </li><li class=" ">    <p>
 To add an existing field from a model, select Select single field from existing model, enter the model name in the <strong class=" ">Field Source Model</strong> textfield, enter the field to include in the <strong class=" ">Model Field</strong> textfield, then click <strong class=" ">Add Field</strong>    </p>
 </li><li class=" ">    <p>
-In the top navigation, click <strong class=" ">Next</strong><strong class=" "><br/></strong>    </p>
+In the top navigation, click <strong class=" ">Next</strong> <strong class=" "> <br/> </strong>    </p>
 </li></ol>    <p>
 <strong class=" ">Step 3: Join Properties</strong>    </p>
 <ol class=" "><li class=" ">    <p>
@@ -618,16 +688,16 @@ In the top navigation, click <strong class=" ">Next</strong>    </p>
 <ol class=" "><li class=" ">    <p>
 Click<strong class=" "> Save Model</strong>    </p>
 </li></ol>    <p>
-The following example creates a new composite model by combining the previous two models (<tt class=" ">author</tt> and <tt class=" ">book</tt>).  The composite model will join the two models based on the author ID. The record will return the author's first name and last name, and the entire book record as an object. The model will only allow read operations.<strong class=" "><br/></strong>    </p>
+The following example creates a new composite model by combining the previous two models (<tt class=" ">author</tt> and <tt class=" ">book</tt>). The composite model will join the two models based on the author ID. The record will return the author's first name and last name, and the entire book record as an object. The model will only allow read operations.<strong class=" "> <br/> </strong>    </p>
     <p>
-<strong class=" ">        <img src="images/download/attachments/43311120/compositemodel.gif" alt="images/download/attachments/43311120/compositemodel.gif" class="confluence-embedded-image"/>
-    <br/></strong>    </p>
+<strong class=" ">         <img src="images/download/attachments/43311120/compositemodel.gif" alt="images/download/attachments/43311120/compositemodel.gif" class="confluence-embedded-image"/>
+     <br/> </strong>    </p>
     </div>
     </div>
     <div class="section section-2 " id="43311120_ArrowAdminConsole-Data">
         <h2 class="heading "><span>Data</span></h2>
     <p>
-The <strong class=" ">Data</strong> tab lets you manage the application's model data.  You can add, change, delete and search for model records.    </p>
+The <strong class=" ">Data</strong> tab lets you manage the application's model data. You can add, change, delete and search for model records.    </p>
     <p>
         <img src="images/download/attachments/43311120/DataTab.png" alt="images/download/attachments/43311120/DataTab.png" class="confluence-embedded-image confluence-content-image-border"/>
             </p>
@@ -660,7 +730,7 @@ Click the record to delete    </p>
 </li><li class=" ">    <p>
 Click <strong class=" ">Delete</strong>    </p>
 </li></ol>    <p>
-To search for a record, enter a search term in the search bar at the top to filter the table or click Advanced to restrict the search to a specific model field.  Use the <strong class=" ">Clear Filter</strong> button to reset the search filter.    </p>
+To search for a record, enter a search term in the search bar at the top to filter the table or click Advanced to restrict the search to a specific model field. Use the <strong class=" ">Clear Filter</strong> button to reset the search filter.    </p>
     </div>
     <div class="section section-2 " id="43311120_ArrowAdminConsole-Logs">
         <h2 class="heading "><span>Logs</span></h2>
