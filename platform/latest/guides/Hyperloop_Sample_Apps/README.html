@@ -19,7 +19,7 @@
         <div id="46253485" class="content">
             <h1>Hyperloop Sample Apps</h1>
     <p>
-The following application demonstrates using Hyperloop for direct native API access.    </p>
+This page lists information on how to use Hyperloop with existing projects and provides links to sample applications for both Android and iOS.    </p>
     <div class="section section-2 " id="46253485_HyperloopSampleApps-Requirements">
         <h2 class="heading "><span>Requirements</span></h2>
 <ul class="contains-task-list "><li class="task-list-item ">    <p>
@@ -39,9 +39,7 @@ This sample application only runs on the simulator because it uses a demo applic
     <p>
 If you&rsquo;re going to run the Hyperloop Example project, you do not need to do any additional installation to use Hyperloop. The project will allow you to run on the simulator using <tt class=" ">appc ti build -p ios</tt>.    </p>
     <p>
-If you&rsquo;d like to use Hyperloop in a new or existing Titanium project, you will need to install the Hyperloop module and plugin. You can download the distribution (the distribution includes support for both Android and iOS) from <a class="external-link external-link" href="https://s3-us-west-2.amazonaws.com/appc-labsserver/downloads/hyperloop-1.0.1b.zip" target="_blank">https://s3-us-west-2.amazonaws.com/appc-labsserver/downloads/hyperloop-1.0.1b.zip</a>.    </p>
-    <p>
-You should extract the zip file at the root level of your Titanium (or Alloy) project. Once extracted, you will need to add the following to your tiapp.xml to configure the plugin:    </p>
+If you&rsquo;d like to use Hyperloop in a new or existing Titanium project, add the following code to your tiapp.xml to configure the plugin:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">&lt;plugins&gt;</code></div>
@@ -65,16 +63,25 @@ For iOS, you&rsquo;ll need to add the following two elements as children to the 
 <div class="line"><code class="plain">	&lt;use-jscore-framework&gt;</code><code class="keyword">true</code><code class="plain">&lt;/use-jscore-framework&gt;</code></div>
 <div class="line"><code class="plain">&lt;/ios&gt;</code></div>
 </div>
+</div>    <p>
+Note: for Titanium 5.4.0 and later, you should use this iOS setting for the ios element:    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">&lt;ios&gt;</code></div>
+<div class="line"><code class="plain">	&lt;property name=</code><code class="string">"run-on-main-thread"</code><code class="plain"> type=</code><code class="string">"bool"</code><code class="plain">&gt;</code><code class="keyword">true</code><code class="plain">&lt;/property&gt;</code></div>
+<div class="line"><code class="plain">	&lt;use-jscore-framework&gt;</code><code class="keyword">true</code><code class="plain">&lt;/use-jscore-framework&gt;</code></div>
+<div class="line"><code class="plain">&lt;/ios&gt;</code></div>
+</div>
 </div>    </div>
-    <div class="section section-2 " id="46253485_HyperloopSampleApps-iOS">
-        <h2 class="heading "><span>iOS</span></h2>
-    <p>
-<strong class=" "><a class="document-link " href="#!/guide/iOS_Hyperloop_Programming_Guide">iOS Hyperloop Programming Guide</a></strong> has information on running a demo application specifically for iOS and you can learn how to use Hyperloop in your own project.    </p>
-    </div>
     <div class="section section-2 " id="46253485_HyperloopSampleApps-Android">
         <h2 class="heading "><span>Android</span></h2>
     <p>
 <strong class=" "><a class="document-link " href="#!/guide/Android_Hyperloop_Programming_Guide">Android Hyperloop Programming Guide</a></strong> has information on running a demo application specifically for Android and you can learn how to use Hyperloop in your own project.    </p>
+    </div>
+    <div class="section section-2 " id="46253485_HyperloopSampleApps-iOS">
+        <h2 class="heading "><span>iOS</span></h2>
+    <p>
+<strong class=" "><a class="document-link " href="#!/guide/iOS_Hyperloop_Programming_Guide">iOS Hyperloop Programming Guide</a></strong> has information on running a demo application specifically for iOS and you can learn how to use Hyperloop in your own project.    </p>
     </div>
         </div><a id="editButton" href="https://wiki.appcelerator.org/pages/editpage.action?pageId=46253485"><span>Edit</span></a>
     

@@ -36,10 +36,6 @@
 <a class="document-link " href="#!/guide/Android_Hyperloop_Programming_Guide-section-46253495_AndroidHyperloopProgrammingGuide-Creatingyourownclasses">Creating your own classes</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Android_Hyperloop_Programming_Guide-section-46253495_AndroidHyperloopProgrammingGuide-UsingThird-partylibraries">Using Third-party libraries</a>    </p>
-</li><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Android_Hyperloop_Programming_Guide-section-46253495_AndroidHyperloopProgrammingGuide-JARs">JARs</a>    </p>
-</li><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Android_Hyperloop_Programming_Guide-section-46253495_AndroidHyperloopProgrammingGuide-AARs">AARs</a>    </p>
 </li></ul>    <div class="section section-2 " id="46253495_AndroidHyperloopProgrammingGuide-Requirements">
         <h2 class="heading "><span>Requirements</span></h2>
     <p>
@@ -91,12 +87,10 @@ This is because <tt class=" ">generateViewId</tt> is defined as a static method.
     <div class="section section-2 " id="46253495_AndroidHyperloopProgrammingGuide-Instantiation">
         <h2 class="heading "><span>Instantiation</span></h2>
     <p>
-To instantiate a native Class and create an instance, you can use <tt class=" ">new</tt> just as you normally do in Javascript or Java:    </p>
-<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
-<div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="keyword">var</code><code class="plain"> view = </code><code class="keyword">new</code><code class="plain"> View(activity);</code></div>
-</div>
-</div>    </div>
+Please refer to our hyperloop-examples app in those code-level examples. For example, to use a View, the activity needs to be set before (see <a class="external-link external-link" href="https://github.com/appcelerator/hyperloop-examples/blob/master/app/controllers/android/animateview.js#L10" target="_blank">here</a>)    </p>
+    <p>
+    </p>
+    </div>
     <div class="section section-2 " id="46253495_AndroidHyperloopProgrammingGuide-Methodsandfields">
         <h2 class="heading "><span>Methods and fields</span></h2>
     <p>
@@ -115,9 +109,9 @@ Would map to the following in JavaScript:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">example.field = 123;</code></div>
-<div class="line"><code class="plain">Example.staticString;</code></div>
+<div class="line"><code class="plain">example.staticString;</code></div>
 <div class="line"><code class="plain">example.method(567);</code></div>
-<div class="line"><code class="keyword">var</code><code class="plain"> result = Example.staticMethod();</code></div>
+<div class="line"><code class="keyword">var</code><code class="plain"> result = example.staticMethod();</code></div>
 </div>
 </div>    </div>
     <div class="section section-2 " id="46253495_AndroidHyperloopProgrammingGuide-Methodresolution">
@@ -168,17 +162,19 @@ Currently, extending Java classes from Javascript is not supported in the latest
     <div class="section section-2 " id="46253495_AndroidHyperloopProgrammingGuide-UsingThird-partylibraries">
         <h2 class="heading "><span>Using Third-party libraries</span></h2>
     <p>
-You can use Third-party libraries in Hyperloop.    </p>
-    </div>
-    <div class="section section-2 " id="46253495_AndroidHyperloopProgrammingGuide-JARs">
-        <h2 class="heading "><span>JARs</span></h2>
+You can use Third-party libraries in Hyperloop such as JARs and AARs.    </p>
     <p>
-Simply place the JAR files into the <tt class=" ">platform/android</tt> folder of your app. Hyperloop will pick up the JAR files and will generate necessary bindings and include the JARs in your app.    </p>
-    </div>
-    <div class="section section-2 " id="46253495_AndroidHyperloopProgrammingGuide-AARs">
-        <h2 class="heading "><span>AARs</span></h2>
+    <span style="color: #333333;">
+Place the <strong class=" ">JAR files</strong> into the     </span>
+<tt class=" ">platform/android</tt>    <span style="color: #333333;">
+ folder of your app. Hyperloop will pick up the JAR files and will generate necessary bindings and include the JARs in your app.    </span>
+    </p>
     <p>
-Simply place the AAR files into the <tt class=" ">platform/android</tt> folder of your app. Hyperloop will pick up the AAR files and will generate necessary bindings, extract resources, extract and use the classes.jar, *.so file, etc.    </p>
+    <span style="color: #333333;">
+Place the <strong class=" ">AAR files</strong> into the     </span>
+<tt class=" ">platform/android</tt>    <span style="color: #333333;">
+ folder of your app. Hyperloop will pick up the AAR files and will generate necessary bindings, extract resources, extract and use the classes.jar, *.so file, etc.    </span>
+    </p>
     </div>
         </div><a id="editButton" href="https://wiki.appcelerator.org/pages/editpage.action?pageId=46253495"><span>Edit</span></a>
     
