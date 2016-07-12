@@ -445,18 +445,26 @@ If you&rsquo;d like to add a third-party framework which isn&rsquo;t distributed
 <div class="line"><code class="plain">		ios: {</code></div>
 <div class="line"><code class="plain">			xcodebuild: {</code></div>
 <div class="line"><code class="plain">				flags: {</code></div>
-<div class="line"><code class="plain">					FRAMEWORK_SEARCH_PATHS: </code><code class="string">'/path/to/framework'</code></div>
+<div class="line"><code class="plain">					FRAMEWORK_SEARCH_PATHS: </code><code class="string">'../../src'</code></div>
 <div class="line"><code class="plain">				},</code></div>
 <div class="line"><code class="plain">				frameworks: [</code></div>
 <div class="line"><code class="plain">					</code><code class="string">'FrameworkName'</code></div>
 <div class="line"><code class="plain">				]</code></div>
+<div class="line"><code class="plain">			},</code></div>
+<div class="line"><code class="plain">			thirdparty: {</code></div>
+<div class="line"><code class="plain">				</code><code class="string">'FrameworkName'</code><code class="plain">: {</code></div>
+<div class="line"><code class="plain">					source: [</code><code class="string">'src'</code><code class="plain">],</code></div>
+<div class="line"><code class="plain">					header: </code><code class="string">'src'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">					resource: </code><code class="string">'src'</code></div>
+<div class="line"><code class="plain">				}</code></div>
 <div class="line"><code class="plain">			}</code></div>
 <div class="line"><code class="plain">		}</code></div>
 <div class="line"><code class="plain">	}</code></div>
 <div class="line"><code class="plain">};</code></div>
+<div class="line"><code class="plain"> </code></div>
 </div>
 </div>    <p>
-In the above example, <tt class=" ">/path/to/framework</tt> should point the the location of the <tt class=" ">.framework</tt> file and <tt class=" ">FrameworkName</tt> should be the name of the Framework.    </p>
+In the above example, the location of the .framework file should be in the &lt;project root&gt;/src folder and FrameworkName should be the name of the Framework.    </p>
     </div>
     </div>
     <div class="section section-2 " id="46253491_iOSHyperloopProgrammingGuide-Resources">
