@@ -21,6 +21,8 @@
 <ul class="toc-indentation "><li class=" ">    <p>
 <a class="document-link " href="#!/guide/iOS_Hyperloop_Programming_Guide-section-46253491_iOSHyperloopProgrammingGuide-Requirements">Requirements</a>    </p>
 </li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/iOS_Hyperloop_Programming_Guide-section-46253491_iOSHyperloopProgrammingGuide-You’llneedtohavethefollowingminimumrequirementstouseHyperloopforiOS:">You&rsquo;ll need to have the following minimum requirements to use Hyperloop for iOS:</a>    </p>
+</li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/iOS_Hyperloop_Programming_Guide-section-46253491_iOSHyperloopProgrammingGuide-Classes">Classes</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/iOS_Hyperloop_Programming_Guide-section-46253491_iOSHyperloopProgrammingGuide-Instantiation">Instantiation</a>    </p>
@@ -54,17 +56,14 @@
 <a class="document-link " href="#!/guide/iOS_Hyperloop_Programming_Guide-section-46253491_iOSHyperloopProgrammingGuide-Resources">Resources</a>    </p>
 </li></ul>    <div class="section section-2 " id="46253491_iOSHyperloopProgrammingGuide-Requirements">
         <h2 class="heading "><span>Requirements</span></h2>
-    <p>
-You&rsquo;ll need to have the following minimum requirements to use Hyperloop for iOS:    </p>
+    </div>
+    <div class="section section-2 " id="46253491_iOSHyperloopProgrammingGuide-You&rsquo;llneedtohavethefollowingminimumrequirementstouseHyperloopforiOS:">
+        <h2 class="heading "><span>You&rsquo;ll need to have the following minimum requirements to use Hyperloop for iOS:</span></h2>
 <ul class=" "><li class=" ">    <p>
 Titanium 5.4.0+    </p>
 </li><li class=" ">    <p>
 iOS 9.0 SDK    </p>
-</li></ul>    <p>
-Hyperloop only works with Titanium applications that are registered with the platform. If you are using a Titanium project that hasn&rsquo;t yet been registered, you can register it with the following command: <tt class=" ">appc new --import</tt>.    </p>
-    <p>
-If you&rsquo;d like to experience Hyperloop on your application before registering your application, you can use the following demo GUID in your tiapp.xml: <tt class=" ">11111111-1111-1111-1111- 111111111111</tt>. However, when using a demo GUID, your application will only operate on the simulator.    </p>
-    </div>
+</li></ul>    </div>
     <div class="section section-2 " id="46253491_iOSHyperloopProgrammingGuide-Classes">
         <h2 class="heading "><span>Classes</span></h2>
     <p>
@@ -191,11 +190,13 @@ Would map to the following in JavaScript:    </p>
 <div class="line"><code class="plain">view.backgroundColor = UIColor.redColor();</code></div>
 <div class="line"><code class="plain">view.addSubview(label);</code></div>
 </div>
-</div>    </div>
+</div>    <p>
+You can also use auto-generated property-setters like <tt class=" ">view.setBackgroundColor()</tt>.    </p>
+    </div>
     <div class="section section-2 " id="46253491_iOSHyperloopProgrammingGuide-Namedmethods">
         <h2 class="heading "><span>Named methods</span></h2>
     <p>
-If you have a selector with multiple parameters, the name of the function will be slightly different since JavaScript cannot receive multiple parameters as part of a function call. For example, to send a message with the selector <tt class=" ">addAttribute:value:range:</tt> you would use the function named <tt class=" ">addAttributeValueRange</tt> instead. Hyperloop will camel case each receiver name in the selector and remove the &quot;:&quot; character to formulate the name of the method. Arguments should then be passed to the function in the same order as you would in Objective-C.    </p>
+If you have a selector with multiple parameters, the name of the function will be slightly different since JavaScript cannot receive multiple parameters as part of a function call. For example, to send a message with the selector <tt class=" ">addAttribute:value:range:</tt> you would use the function named <tt class=" ">addAttributeValueRange</tt> instead. Hyperloop will camel-case each receiver name in the selector and remove the &quot;:&quot; character to formulate the name of the method. Arguments should then be passed to the function in the same order as you would in Objective-C.    </p>
     </div>
     <div class="section section-2 " id="46253491_iOSHyperloopProgrammingGuide-Constants,EnumerationsandFunctions">
         <h2 class="heading "><span>Constants, Enumerations and Functions</span></h2>
@@ -309,7 +310,7 @@ Once you have defined your class, you would just instantiate it as normal.    </
     <div class="section section-2 column" id="46253491_iOSHyperloopProgrammingGuide-Usingthird-partylibraries">
         <h2 class="heading column"><span>Using third-party libraries</span></h2>
     <p>
-You can use Third-party libraries in Hyperloop as if they were APIs defined in Cocoa.    </p>
+You can use Third-Party libraries in Hyperloop that are available in the dependency manager CocoaPods.    </p>
     <div class="section section-3 " id="46253491_iOSHyperloopProgrammingGuide-CocoaPods">
         <h3 class="heading "><span>CocoaPods</span></h3>
     <p>
@@ -336,7 +337,7 @@ Once you have a <tt class=" ">Podfile</tt>, you can add dependencies. For exampl
 <div class="line"><code class="plain">end</code></div>
 </div>
 </div>    <p>
-Which will import the JBChartView framework as a dependency.    </p>
+Which will import the <a class="external-link external-link" href="https://github.com/Jawbone/JBChartView" target="_blank">JBChartView</a> framework as a dependency.    </p>
     <p>
 That&rsquo;s it! The Hyperloop compiler will do the rest &ndash; managing pulling down the required dependencies, compiling them and integrating them into the Xcode build.    </p>
     <p>
@@ -405,7 +406,7 @@ To provide additional compiler flags, you can add them in the <tt class=" ">xcod
     <div class="section section-3 " id="46253491_iOSHyperloopProgrammingGuide-UsingSwift">
         <h3 class="heading "><span>Using Swift</span></h3>
     <p>
-In addition to Objective-C, you can import third-party libraries written in Swift. Any <tt class=" ">*.swift</tt> files found in your <tt class=" ">source</tt> directories will automatically be compiled and available to use in your JavaScript just like Objective-C APIs.    </p>
+In addition to Objective-C, you can import third-party libraries written in Swift. Any <tt class=" ">*.swift</tt> files found in your <tt class=" ">src</tt> directories will automatically be compiled and available to use in your JavaScript just like Objective-C APIs.    </p>
     </div>
     <div class="section section-3 " id="46253491_iOSHyperloopProgrammingGuide-CustomizingyourXcodebuild">
         <h3 class="heading "><span>Customizing your Xcode build</span></h3>
