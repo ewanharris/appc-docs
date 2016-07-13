@@ -230,12 +230,12 @@ Create a PreviewContext object using the <tt class=" ">Titanium.UI.iOS.createPre
 <ul class=" "><li class=" ">    <p>
 <tt class=" ">preview</tt>: view object to use as the peeked view.    </p>
 </li><li class=" ">    <p>
-<tt class=" ">pop</tt>: callback function that is invoked when the peeked view is popped.    </p>
-</li><li class=" ">    <p>
 <tt class=" ">actions</tt>: array of <a class="external-link external-link" href="https://docs.appcelerator.com/platform/latest/#!/api/Titanium.UI.iOS.PreviewAction" target="_blank">PreviewActions</a> or <a class="external-link external-link" href="https://docs.appcelerator.com/platform/latest/#!/api/Titanium.UI.iOS.PreviewActionGroup" target="_blank">PreviewActionGroup</a> objects to use as the quick actions.    </p>
 </li><li class=" ">    <p>
 <tt class=" ">contentHeight</tt>: height of the preview window. Defaults to fill most of the screen.    </p>
 </li></ul></li><li class=" ">    <p>
+Add the <tt class=" ">peek</tt> and <tt class=" ">pop</tt> events to the created preview context to receive updates about the current preview state.    </p>
+</li><li class=" ">    <p>
 Attach the PreviewContext object to a view. Set the view's <tt class=" ">previewContext</tt> property to the PreviewContext object.    </p>
 </li></ol>    <p>
 <strong class=" ">Example:</strong>    </p>
@@ -270,6 +270,15 @@ The following example shows how to attach a PreviewContext to an ImageView in an
 <div class="line"><code class="plain">        preview: Alloy.createController(</code><code class="string">'preview'</code><code class="plain">).getView(),</code></div>
 <div class="line"><code class="plain">        pop: popView(),</code></div>
 <div class="line"><code class="plain">        actions: [share]</code></div>
+<div class="line"><code class="plain">    });</code></div>
+<div class="line"><code class="plain"> </code></div>
+<div class="line"><code class="plain">    $.peekView.previewContext.addEventListener(</code><code class="string">"peek"</code><code class="plain">, function() {</code></div>
+<div class="line"><code class="plain">        Ti.API.warn(</code><code class="string">"The view was peeked - Update the preview here if you want to"</code><code class="plain">);</code></div>
+<div class="line"><code class="plain">    });</code></div>
+<div class="line"><code class="plain"> </code></div>
+<div class="line"><code class="plain">    $.peekView.previewContext.addEventListener(</code><code class="string">"pop"</code><code class="plain">, function() {</code></div>
+<div class="line"><code class="plain">        Ti.API.warn(</code><code class="string">"The view was popped - Open the full context here"</code><code class="plain">);</code></div>
+<div class="line"><code class="plain">        popView();</code></div>
 <div class="line"><code class="plain">    });</code></div>
 <div class="line"><code class="plain">}</code></div>
 </div>
