@@ -19,7 +19,7 @@
         <div id="41845752" class="content">
             <h1>Maps</h1>
     <p>
-Demonstrates how to use the Maps module and display annotations on Android, iOS and mobile web.    </p>
+Demonstrates how to use the Maps module and display annotations on iOS and Android.    </p>
     <div class="confbox admonition admonition-info aui-message hint shadowed information-macro has-no-icon">
             <div class="title">App Folder Location</div>
         
@@ -28,7 +28,7 @@ alloy/test/apps/<strong class=" ">ui/map</strong>    </p>
     </div>
     
     <p>
-Android and iOS applications use the <a class="external-link external-link" href="#!/api/Modules.Map">Ti.Maps</a> add-on module, which is included with Titanium SDK, but needs to be added as a dependency to your project's tiapp.xml file. Mobile web targets use the built-in <a class="external-link external-link" href="#!/api/Titanium.Map">Titanium.Map</a> module, which requires no further project configuration to use.    </p>
+Android and iOS applications use the <a class="external-link external-link" href="#!/api/Modules.Map">Ti.Maps</a> add-on module, which is included with Titanium SDK, but needs to be added as a dependency to your project's tiapp.xml file.    </p>
     <p>
         <img src="images/download/attachments/41845752/ios.png" alt="images/download/attachments/41845752/ios.png" class="confluence-embedded-image" width="250"/>
             </p>
@@ -66,13 +66,13 @@ Once these steps are complete, using the Map module is the same on Android or iO
     <div class="section section-2 " id="41845752_Maps-AppConfiguration">
         <h2 class="heading "><span>App Configuration</span></h2>
     <p>
-As shown in the sample, app to use the Map module on iOS or Android, add a <tt class=" ">&lt;Module/&gt;</tt> element to your XML view with its <strong class=" "><tt class=" ">module</tt></strong> attribute set to &quot;<strong class=" ">ti.map</strong>&quot;. For mobile web build targets, add a <tt class=" ">&lt;View/&gt;</tt> element with its <tt class=" ">ns</tt> attribute set to &quot;Ti.Map&quot;. The sample app also declares several &lt;Annotation/&gt; elements with named &quot;id&quot; attributes.    </p>
+As shown in the sample, app to use the Map module on iOS or Android, add a <tt class=" ">&lt;Module/&gt;</tt> element to your XML view with its <strong class=" "><tt class=" ">module</tt></strong> attribute set to &quot;<strong class=" ">ti.map</strong>&quot;. The sample app also declares several &lt;Annotation/&gt; elements with named &quot;id&quot; attributes.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="title">app/views/index.xml</div>
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">&lt;Alloy&gt;</code></div>
 <div class="line"><code class="plain">	&lt;Window </code><code class="keyword">class</code><code class="plain">=</code><code class="string">'container'</code><code class="plain">&gt;</code></div>
-<div class="line"><code class="plain">    	&lt;Module id=</code><code class="string">"map"</code><code class="plain"> module=</code><code class="string">"ti.map"</code><code class="plain"> method=</code><code class="string">"createView"</code><code class="plain"> platform=</code><code class="string">"ios,android"</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">    	&lt;Module id=</code><code class="string">"map"</code><code class="plain"> module=</code><code class="string">"ti.map"</code><code class="plain"> method=</code><code class="string">"createView"</code><code class="plain">&gt;</code></div>
 <div class="line"><code class="plain">			&lt;!-- annotation styled via tss file --&gt;</code></div>
 <div class="line"><code class="plain">			&lt;Annotation id=</code><code class="string">"annotation1"</code><code class="plain">/&gt;</code></div>
 <div class="line"><code class="plain">			&lt;!-- annotation styles via inline style --&gt;</code></div>
@@ -89,15 +89,6 @@ As shown in the sample, app to use the Map module on iOS or Android, add a <tt c
 <div class="line"><code class="plain">			--&gt;</code></div>
 <div class="line"><code class="plain">			&lt;Require src=</code><code class="string">"overlay"</code><code class="plain"> platform=</code><code class="string">"ios"</code><code class="plain">/&gt;</code></div>
 <div class="line"><code class="plain">		&lt;/Module&gt;</code></div>
-<div class="line"><code class="plain">    	&lt;View id=</code><code class="string">"map"</code><code class="plain"> ns=</code><code class="string">"Ti.Map"</code><code class="plain"> method=</code><code class="string">"createView"</code><code class="plain"> platform=</code><code class="string">"mobileweb"</code><code class="plain">&gt;</code></div>
-<div class="line"><code class="plain">    		&lt;!--</code></div>
-<div class="line"><code class="plain">    			Mobileweb doesn't support the Ti.Map add-on module but uses the</code></div>
-<div class="line"><code class="plain">    			built-in Ti.Map object. For </code><code class="keyword">this</code><code class="plain">, we need to add the ns=</code><code class="string">"Ti.Map"</code><code class="plain"> attribute</code></div>
-<div class="line"><code class="plain">    		--&gt;</code></div>
-<div class="line"><code class="plain">			&lt;Annotation id=</code><code class="string">"annotation1"</code><code class="plain">/&gt;</code></div>
-<div class="line"><code class="plain">			&lt;Annotation title=</code><code class="string">"Palo Alto"</code><code class="plain"> latitude=</code><code class="string">"37.47"</code><code class="plain"> longitude=</code><code class="string">"-122.12"</code><code class="plain">/&gt;</code></div>
-<div class="line"><code class="plain">			&lt;Require src=</code><code class="string">"annotationView"</code><code class="plain"> title=</code><code class="string">"Sunnyvale"</code><code class="plain"> latitude=</code><code class="string">"37.37"</code><code class="plain"> longitude=</code><code class="string">"-122.03"</code><code class="plain">/&gt;</code></div>
-<div class="line"><code class="plain">		&lt;/View&gt;</code></div>
 <div class="line"><code class="plain">	&lt;/Window&gt;</code></div>
 <div class="line"><code class="plain">&lt;/Alloy&gt;</code></div>
 </div>
@@ -138,11 +129,11 @@ The index.tss file assigns values to properties of the Map object, and to the An
     <div class="section section-2 " id="41845752_Maps-SeeAlso">
         <h2 class="heading "><span>See Also</span></h2>
 <ul class=" "><li class=" ">    <p>
-<a class="document-link unresolved" href="#!/guide/Maps">Google Maps v2 for Android</a>    </p>
+<a class="external-link external-link" href="#!/guide/Google_Maps_v2_for_Android">Google Maps v2 for Android</a>    </p>
 </li><li class=" ">    <p>
-<a class="document-link unresolved" href="#!/guide/Maps">iOS Map Kit</a>    </p>
+<a class="external-link external-link" href="#!/guide/iOS_Map_Kit">iOS Map Kit</a>    </p>
 </li><li class=" ">    <p>
-<a class="document-link unresolved" href="#!/guide/Maps">Native Maps and Annotations</a>    </p>
+<a class="document-link " href="#!/guide/Native_Maps_and_Annotations">Native Maps and Annotations</a>    </p>
 </li></ul>    <p>
     </p>
     <p>
