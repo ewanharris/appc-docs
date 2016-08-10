@@ -26,8 +26,6 @@
 <a class="document-link " href="#!/guide/Hyperloop-section-46253380_Hyperloop-Requirements">Requirements</a>    </p>
 </li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Hyperloop-section-46253380_Hyperloop-Sampleprojects">Sample projects</a>    </p>
-</li><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Hyperloop-section-46253380_Hyperloop-Knownissues">Known issues</a>    </p>
 </li></ul>    <div class="section section-2 " id="46253380_Hyperloop-Introduction">
         <h2 class="heading "><span>Introduction</span></h2>
     <p>
@@ -46,17 +44,17 @@ Place the downloaded files in the correct directories In your user directory.   
 <ol class=" "><li class="li2 ">    <p>
 On macOS, that directory should be: <tt class=" ">/Users/&lt;user&gt;/Library/Application Support/Titanium</tt>    </p>
 </li></ol></li><li class="li2 ">    <p>
-Install <a class="external-link external-link" href="https://cocoapods.org/" target="_blank">cocoapods</a> version 0.39.0 (the latest version 1.0.1 is currently not supported):    </p>
+(Optionak) Install <a class="external-link external-link" href="https://cocoapods.org/" target="_blank">CocoaPods</a>, if you want to use 3rd-party libraries:    </p>
 <ol class="ol1 "><li class="li2 ">    <p>
-Install with brew by going to the terminal and executing <tt class=" ">brew search cocoapods.</tt> If cocoa pods is not shown, use <tt class=" ">brew update</tt>.    </p>
+Install with <a class="external-link external-link" href="http://brew.sh/" target="_blank">brew</a> by going to the terminal and executing <tt class=" ">brew search cocoapods.</tt> If CocoaPods is not shown, use <tt class=" ">brew update</tt>.    </p>
 </li><li class="li2 ">    <p>
-Next, run this command: <tt class=" ">brew install Caskroom/versions/cocoapods0</tt>    </p>
+Next, run this command: <tt class=" ">brew install cocoapods</tt>    </p>
 </li><li class="li2 ">    <p>
-Finally, check to confirm that you have version 0.39.0: <tt class=" ">pod &mdash;version</tt>    </p>
+Finally, check to confirm that you have the latest version, e.g. 1.0.1: <tt class=" ">pod &mdash;v</tt>    </p>
 <ol class="ol1 "><li class="li2 ">    <p>
-If the versions says 1.0.1 then use <tt class=" ">b</tt><tt class=" ">rew switch cocoapods 0.39.0</tt> to switch it to a compatible version.    </p>
+If the versions says 0.39.0, you can still use it but the usage is deprecated in favor of CocoaPods 1.x    </p>
 </li></ol></li></ol></li></ol>    <p class="li2">
-Hyperloop is available to all Pro and Enterprise users of Titanium SDK 5.4.0 and beyond.    </p>
+Hyperloop is available to all Pro- and Enterprise-users of Titanium SDK 5.4.0 and later.    </p>
     <div class="section section-3 " id="46253380_Hyperloop-Requirements">
         <h3 class="heading "><span>Requirements</span></h3>
     <p>
@@ -66,7 +64,7 @@ Titanium 5.4.0+    </p>
 </li><li class=" ">    <p>
 Alloy 1.8.0+    </p>
 </li></ul>    <p>
-Hyperloop only works with Titanium applications that are registered with the platform.    </p>
+Hyperloop works with all Titanium applications that are registered with the Appcelerator platform.    </p>
     </div>
     </div>
     <div class="section section-2 " id="46253380_Hyperloop-Sampleprojects">
@@ -74,20 +72,7 @@ Hyperloop only works with Titanium applications that are registered with the pla
     <p>
 See <a class="document-link " href="#!/guide/Hyperloop_Sample_Apps">Hyperloop Sample Apps</a> page for details on how to build a Hyperloop app.    </p>
     <p>
-Windows developers should refer to <a class="document-link " href="#!/guide/Windows_Runtime_Direct_API_Access">Windows Runtime Direct API Access</a> the Windows equivalent for Hyperloop.    </p>
-    </div>
-    <div class="section section-2 " id="46253380_Hyperloop-Knownissues">
-        <h2 class="heading "><span>Known issues</span></h2>
-    <p>
-CocoaPods version 1.0.x is not supported by Hyperloop (JIRA Issues Macro: The JIRA server returned a trusted apps error: USER_UNKNOWN;	Unknown User: {0};	[&quot;doc-robot&quot;]).    </p>
-<ul class=" "><li class=" ">    <p>
-CocoaPods 0.39 (&lt; 1.0.0): A deprecated warning is thrown during build process but should still work    </p>
-</li><li class=" ">    <p>
-CocoaPods 1.0.1 (&gt;= 1.0.0): Works    </p>
-</li><li class=" ">    <p>
-For both: The charts example (implemented using a Cocoapods-library) works    </p>
-</li></ul>    <p>
-    </p>
+Windows developers should refer to <a class="document-link " href="#!/guide/Windows_Runtime_Direct_API_Access">Windows Runtime Direct API Access</a>, the Windows equivalent for Hyperloop with C++.    </p>
     </div>
         </div><a id="editButton" href="https://wiki.appcelerator.org/pages/editpage.action?pageId=46253380"><span>Edit</span></a>
     
