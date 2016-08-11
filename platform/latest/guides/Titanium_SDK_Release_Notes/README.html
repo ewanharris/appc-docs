@@ -27,15 +27,15 @@
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Titanium_SDK_Release_Notes-section-43316487_TitaniumSDKReleaseNotes-NewFeatures">New Features</a>    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Titanium_SDK_Release_Notes-section-43316487_TitaniumSDKReleaseNotes-iOSPlatform">iOS Platform</a>    </p>
+</li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Titanium_SDK_Release_Notes-section-43316487_TitaniumSDKReleaseNotes-AndroidPlatform">Android Platform</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Titanium_SDK_Release_Notes-section-43316487_TitaniumSDKReleaseNotes-WindowsPlatform">Windows Platform</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Titanium_SDK_Release_Notes-section-43316487_TitaniumSDKReleaseNotes-Hyperloop">Hyperloop</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Titanium_SDK_Release_Notes-section-43316487_TitaniumSDKReleaseNotes-Facebook">Facebook</a>    </p>
-</li><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Titanium_SDK_Release_Notes-section-43316487_TitaniumSDKReleaseNotes-iOSPlatform">iOS Platform</a>    </p>
-</li><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Titanium_SDK_Release_Notes-section-43316487_TitaniumSDKReleaseNotes-WindowsPlatform">Windows Platform</a>    </p>
 </li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Titanium_SDK_Release_Notes-section-43316487_TitaniumSDKReleaseNotes-CommunityCredits">Community Credits</a>    </p>
 </li><li class=" ">    <p>
@@ -72,66 +72,7 @@ Added support for insertViewsAt() method    </p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23145" target="_blank">TIMOB-23145</a> - Enable run-on-main-thread by default for new projects    </p>
 <ul class=" "><li class=" ">    <p>
 Enabled run-on-main-thread to be enabled by default    </p>
-</li></ul></li></ul>    <div class="section section-4 " id="43316487_TitaniumSDKReleaseNotes-AndroidPlatform">
-        <h4 class="heading "><span>Android Platform</span></h4>
-<ul class=" "><li class=" ">    <p>
-<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-2122" target="_blank">TIMOB-2122</a> - Android: Implement Video Recording    </p>
-<ul class=" "><li class=" ">    <p>
-Implemented video recording on Android    </p>
-</li></ul></li><li class=" ">    <p>
-<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-4388" target="_blank">TIMOB-4388</a> - Implement getPressure in Android view    </p>
-<ul class=" "><li class=" ">    <p>
-Exposed getPressure value on Android    </p>
-</li></ul></li><li class=" ">    <p>
-<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-18040" target="_blank">TIMOB-18040</a> - Android: Expose &quot;gravity&quot; constants in Ti.UI.Notification    </p>
-<ul class=" "><li class=" ">    <p>
-Exposed gravity constants    </p>
-</li></ul></li><li class=" ">    <p>
-<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-19701" target="_blank">TIMOB-19701</a> - Android: Support extending native types in hyperloop    </p>
-<ul class=" "><li class=" ">    <p>
-Added support to some syntax that allows users to subclass existing native types in Hyperloop    </p>
-</li></ul></li><li class=" ">    <p>
-<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-19869" target="_blank">TIMOB-19869</a> - Android: Support adding native UI elements to Ti.UI.View subclasses    </p>
-<ul class=" "><li class=" ">    <p>
-Added ability to pass in some subclasses of android.view.View into Titanium methods that take Ti&gt;UI.View subclasses (e.g. Ti.UI.View.add())    </p>
-</li></ul></li><li class=" ">    <p>
-<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-19912" target="_blank">TIMOB-19912</a> -tintColor for Android ImageView    </p>
-<ul class=" "><li class=" ">    <p>
-Added tintColor property to Android using ImageView.setColorFilter()    </p>
-</li></ul></li><li class=" ">    <p>
-<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23140" target="_blank">TIMOB-23140</a> - Android: Add lineSpacing property to Label    </p>
-<ul class=" "><li class=" ">    <p>
-Provided support for adding lineSpacing to <a class="external-link external-link" href="https://developer.android.com/reference/android/widget/TextView.html#setLineSpacing(float,+float)" target="_blank">multiline Labels</a>    </p>
-</li></ul></li><li class=" ">    <p>
-<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23167" target="_blank">TIMOB-23167</a> - Android: Add Ti.UI.Button tintColor    </p>
-<ul class=" "><li class=" ">    <p>
-<tt class=" ">tintColor</tt> property for Ti.UI.Button is now supported for the Android platform. After setting the tintColor to a custom value, it can be reset by changing the value to &quot;null&quot;.    </p>
-</li></ul></li><li class=" ">    <p>
-<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23258" target="_blank">TIMOB-23258</a> - Android: Ti.Media.AudioPlayer: Support &quot;audioSessionId&quot;    </p>
-<ul class=" "><li class=" ">    <p>
-<tt class=" ">audioSessionId</tt> is now supported by <tt class=" ">Ti.Media.AudioPlayer</tt>    </p>
-</li></ul></li><li class=" ">    <p>
-<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23424" target="_blank">TIMOB-23424</a> - Android: Support Facebook App Invites    </p>
-<ul class=" "><li class=" ">    <p>
-Added support for Facebook App invites    </p>
-</li></ul></li></ul>    </div>
-    <div class="section section-4 " id="43316487_TitaniumSDKReleaseNotes-Hyperloop">
-        <h4 class="heading "><span>Hyperloop</span></h4>
-    <p>
-The Hyperloop Module will now give you direct access to the native APIs. As you know, we cover roughly 80% of the native APIs and make them cross-platform with our Titanium SDK today addressing the most popular APIs. This module was built for those developers who require access to even the most obscure APIs out there. You simply require the module and necessary Library and then directly access the APIs contained in it.See the <a class="document-link " href="#!/guide/Hyperloop">Hyperloop</a> documentation for more information.    </p>
-    </div>
-    <div class="section section-4 " id="43316487_TitaniumSDKReleaseNotes-Facebook">
-        <h4 class="heading "><span>Facebook</span></h4>
-    <p>
-Deferred deep linking is a term used to describe one aspect of mobile deep linking. Mobile deep linking is the process of deep linking but when the end user does not have the app installed on their mobile device, they must install the app in order to access the in-app content (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/MOD-2193" target="_blank">MOD-2193</a>).    </p>
-    <p>
-With this release, the SDK support's Facebook's App Invites (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/MOD-2200" target="_blank">MOD-2200</a>). Facebook App Invites feature allows anyone to integrate App Invites into their app when you want to invite friends to your app. When the person taps the Invite button, this feature can trigger the flow to send invites.    </p>
-    <p>
-This release also adds the ability to set Facebook login behavior in the JavaScript API (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/MOD-2242" target="_blank">MOD-2242</a>).    </p>
-    <p>
-Finally, we added support for &quot;logPurchase&quot; in Ti.Facebook module (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/MOD-2244" target="_blank">MOD-2244</a>).    </p>
-    </div>
-    <div class="section section-4 " id="43316487_TitaniumSDKReleaseNotes-iOSPlatform">
+</li></ul></li></ul>    <div class="section section-4 " id="43316487_TitaniumSDKReleaseNotes-iOSPlatform">
         <h4 class="heading "><span>iOS Platform</span></h4>
 <ul class=" "><li class=" ">    <p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-15424" target="_blank">TIMOB-15424</a> - Allow ScrollableView to set pageIndicatorColor and currentPageIndicatorColor    </p>
@@ -174,6 +115,49 @@ Added support to edit contacts on iOS9    </p>
 <ul class=" "><li class=" ">    <p>
 <tt class=" ">Ti.UI.ListView</tt> now supports disableBounce property    </p>
 </li></ul></li></ul>    </div>
+    <div class="section section-4 " id="43316487_TitaniumSDKReleaseNotes-AndroidPlatform">
+        <h4 class="heading "><span>Android Platform</span></h4>
+<ul class=" "><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-2122" target="_blank">TIMOB-2122</a> - Android: Implement Video Recording    </p>
+<ul class=" "><li class=" ">    <p>
+Implemented video recording on Android    </p>
+</li></ul></li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-4388" target="_blank">TIMOB-4388</a> - Implement getPressure in Android view    </p>
+<ul class=" "><li class=" ">    <p>
+Exposed getPressure value on Android    </p>
+</li></ul></li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-18040" target="_blank">TIMOB-18040</a> - Android: Expose &quot;gravity&quot; constants in Ti.UI.Notification    </p>
+<ul class=" "><li class=" ">    <p>
+Exposed gravity constants    </p>
+</li></ul></li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-19701" target="_blank">TIMOB-19701</a> - Android: Support extending native types in hyperloop    </p>
+<ul class=" "><li class=" ">    <p>
+Added support to some syntax that allows users to subclass existing native types in Hyperloop    </p>
+</li></ul></li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-19869" target="_blank">TIMOB-19869</a> - Android: Support adding native UI elements to Ti.UI.View subclasses    </p>
+<ul class=" "><li class=" ">    <p>
+Added ability to pass in some subclasses of android.view.View into Titanium methods that take Ti&gt;UI.View subclasses (e.g. Ti.UI.View.add())    </p>
+</li></ul></li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-19912" target="_blank">TIMOB-19912</a> -tintColor for Android ImageView    </p>
+<ul class=" "><li class=" ">    <p>
+Added tintColor property to Android using ImageView.setColorFilter()    </p>
+</li></ul></li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23140" target="_blank">TIMOB-23140</a> - Android: Add lineSpacing property to Label    </p>
+<ul class=" "><li class=" ">    <p>
+Provided support for adding lineSpacing to <a class="external-link external-link" href="https://developer.android.com/reference/android/widget/TextView.html#setLineSpacing(float,+float)" target="_blank">multiline Labels</a>    </p>
+</li></ul></li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23167" target="_blank">TIMOB-23167</a> - Android: Add Ti.UI.Button tintColor    </p>
+<ul class=" "><li class=" ">    <p>
+<tt class=" ">tintColor</tt> property for Ti.UI.Button is now supported for the Android platform. After setting the tintColor to a custom value, it can be reset by changing the value to &quot;null&quot;.    </p>
+</li></ul></li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23258" target="_blank">TIMOB-23258</a> - Android: Ti.Media.AudioPlayer: Support &quot;audioSessionId&quot;    </p>
+<ul class=" "><li class=" ">    <p>
+<tt class=" ">audioSessionId</tt> is now supported by <tt class=" ">Ti.Media.AudioPlayer</tt>    </p>
+</li></ul></li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23424" target="_blank">TIMOB-23424</a> - Android: Support Facebook App Invites    </p>
+<ul class=" "><li class=" ">    <p>
+Added support for Facebook App invites    </p>
+</li></ul></li></ul>    </div>
     <div class="section section-4 " id="43316487_TitaniumSDKReleaseNotes-WindowsPlatform">
         <h4 class="heading "><span>Windows Platform</span></h4>
 <ul class=" "><li class=" ">    <p>
@@ -193,6 +177,24 @@ Added support for background service extension by native module (C++/CX)    </p>
 <ul class=" "><li class=" ">    <p>
 Added support for <tt class=" ">titleid</tt>/<tt class=" ">textid</tt> for <tt class=" ">Label</tt>, <tt class=" ">Button</tt>, <tt class=" ">Tab</tt>, <tt class=" ">AlertDialog</tt> and <tt class=" ">OptionDialog</tt>    </p>
 </li></ul></li></ul>    </div>
+    <div class="section section-4 " id="43316487_TitaniumSDKReleaseNotes-Hyperloop">
+        <h4 class="heading "><span>Hyperloop</span></h4>
+    <p>
+The Hyperloop Module will now give you direct access to the native APIs. As you know, we cover roughly 80% of the native APIs and make them cross-platform with our Titanium SDK today addressing the most popular APIs. This module was built for those developers who require access to even the most obscure APIs out there. You simply require the module and necessary Library and then directly access the APIs contained in it.See the <a class="document-link " href="#!/guide/Hyperloop">Hyperloop</a> documentation for more information.    </p>
+    </div>
+    <div class="section section-4 " id="43316487_TitaniumSDKReleaseNotes-Facebook">
+        <h4 class="heading "><span>Facebook</span></h4>
+    <p>
+Deferred deep linking is a term used to describe one aspect of mobile deep linking. Mobile deep linking is the process of deep linking but when the end user does not have the app installed on their mobile device, they must install the app in order to access the in-app content (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/MOD-2193" target="_blank">MOD-2193</a>).    </p>
+    <p>
+With this release, the SDK support's Facebook's App Invites (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/MOD-2200" target="_blank">MOD-2200</a>). Facebook App Invites feature allows anyone to integrate App Invites into their app when you want to invite friends to your app. When the person taps the Invite button, this feature can trigger the flow to send invites.    </p>
+    <p>
+This release also adds the ability to set Facebook login behavior in the JavaScript API (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/MOD-2242" target="_blank">MOD-2242</a>).    </p>
+    <p>
+Finally, we added support for &quot;logPurchase&quot; in Ti.Facebook module (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/MOD-2244" target="_blank">MOD-2244</a>).    </p>
+    <p>
+<tt class=" "/>    </p>
+    </div>
     </div>
     <div class="section section-3 " id="43316487_TitaniumSDKReleaseNotes-CommunityCredits">
         <h3 class="heading "><span>Community Credits</span></h3>
@@ -201,7 +203,7 @@ Added support for <tt class=" ">titleid</tt>/<tt class=" ">textid</tt> for <tt c
 </li><li class=" ">    <p>
 <a class="external-link external-link" href="https://github.com/yomybaby" target="_blank">Jong Eun Lee</a> for Android Elevation disappear when set border* (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-20076" target="_blank">TIMOB-20076</a>)    </p>
 </li><li class=" ">    <p>
-<a class="external-link external-link" href="https://github.com/m1ga" target="_blank">Michael Gangold</a> for his herculean effort on    </p>
+<a class="external-link external-link" href="https://github.com/m1ga" target="_blank">Michael Gangolf</a> for his herculean effort on    </p>
 <ul class=" "><li class=" ">    <p>
 Android: Implement Video Recording (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-2122" target="_blank">TIMOB-2122</a>)    </p>
 </li><li class=" ">    <p>
@@ -211,11 +213,11 @@ Android: rgba() fixes and addition for floats (<a class="external-link external-
 </li><li class=" ">    <p>
 Android: Add lineSpacing property to Label (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23140" target="_blank">TIMOB-23140</a>)    </p>
 </li><li class=" ">    <p>
-Implement getPressure in Android view (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-4388" target="_blank">TIMOB-4388</a>)    </p>
+Android: Implement getPressure in Android view (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-4388" target="_blank">TIMOB-4388</a>)    </p>
 </li><li class=" ">    <p>
 Android: TextField setSelection(0,end) has to be called twice to select text (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-19639" target="_blank">TIMOB-19639</a>)    </p>
 </li><li class=" ">    <p>
-tintColor for Android ImageView (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-19912" target="_blank">TIMOB-19912</a>)    </p>
+Android: tintColor for Android ImageView (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-19912" target="_blank">TIMOB-19912</a>)    </p>
 </li><li class=" ">    <p>
 Android: TiHTTPClient.getAllResponseHeaders() throws NullPointerException on timeout (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-20583" target="_blank">TIMOB-20583</a>)    </p>
 </li></ul></li><li class=" ">    <p>
@@ -225,11 +227,11 @@ Android: TiHTTPClient.getAllResponseHeaders() throws NullPointerException on tim
 </li><li class=" ">    <p>
 <a class="external-link external-link" href="https://github.com/falkolab" target="_blank">Andrey Tkachenko</a> for    </p>
 <ul class=" "><li class=" ">    <p>
-Android - ScrollableView removeView(): java.lang.IndexOutOfBoundsException: Invalid index X, size is X (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-20116" target="_blank">TIMOB-20116</a>)    </p>
+Android: ScrollableView removeView(): java.lang.IndexOutOfBoundsException: Invalid index X, size is X (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-20116" target="_blank">TIMOB-20116</a>)    </p>
 </li><li class=" ">    <p>
 Android: activity indicator causing crash if exiting app right after launch (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-19325" target="_blank">TIMOB-19325</a>)    </p>
 </li></ul></li><li class=" ">    <p>
-<a class="external-link external-link" href="https://github.com/janvankampen" target="_blank">janvankampen</a> for fixing iOS: Change documentation on TableViewCellSelectionStyle (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-20438" target="_blank">TIMOB-20438</a>)    </p>
+<a class="external-link external-link" href="https://github.com/janvankampen" target="_blank">Jan van Kampen</a> for fixing iOS: Change documentation on TableViewCellSelectionStyle (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-20438" target="_blank">TIMOB-20438</a>)    </p>
 </li><li class=" ">    <p>
 <a class="external-link external-link" href="https://github.com/benbahrenburg" target="_blank">Ben Bahrenburg</a> for fixing Android missing Titanium.Database.DB.getFile() (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-20293" target="_blank">TIMOB-20293</a>)    </p>
 </li><li class=" ">    <p>
