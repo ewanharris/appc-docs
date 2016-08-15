@@ -45,8 +45,12 @@ CLI: 5.4.0+    </p>
 </li></ul>    <p>
     </p>
     <p>
-<strong class=" ">Please note:</strong> if you attempt to create an app project called &quot;Hyperloop&quot; (the App Name in the <strong class=" ">TiApp.xml</strong> file) you may experience failures in the build process. This is a known issue &ndash; use a different project name.    </p>
-    </div>
+<strong class=" ">Please note:</strong>    </p>
+<ul class=" "><li class=" ">    <p>
+If you attempt to create an app that is called &quot;Hyperloop&quot; (the app-name in the <strong class=" ">tiapp.xml</strong>) you may experience failures in the build process, because it is a reserved word. Please use a different project name for this case.    </p>
+</li><li class=" ">    <p>
+Hyperloop expects Xcode to be in <strong class=" ">/Applications/Xcode.app</strong> to reference system-libraries, so please ensure that Xcode is located at the this location.    </p>
+</li></ul>    </div>
     </div>
     <div class="section section-2 " id="46253574_EnablingHyperloop-EnablingviaCLI">
         <h2 class="heading "><span>Enabling via CLI</span></h2>
