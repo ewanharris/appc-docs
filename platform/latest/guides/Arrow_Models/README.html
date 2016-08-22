@@ -503,7 +503,7 @@ one-to-one: only one record from the secondary model matches a record in the mai
 </li><li class=" ">    <p>
 one-to-many: multiple records from the secondary model can match a record in the main model    </p>
 </li></ul>    <p>
-To define the join operation, set the <tt class=" ">metadata</tt> property to either the <tt class=" ">left_join</tt> key, which takes a object defining the left join, or <tt class=" ">inner_join</tt> key, which takes an array of objects defining the inner join.  Each object in the <tt class=" ">left_join</tt> or <tt class=" ">inner_join</tt> property defines the model to join (<tt class=" ">model</tt> property), key to join (<tt class=" ">join_properties</tt> property) and optionally if the join is one-to-one or one-to-many (<tt class=" ">multiple</tt> property).    </p>
+To define the join operation, set the <tt class=" ">metadata</tt> property to either the <tt class=" ">left_join</tt> key or <tt class=" ">inner_join</tt> key, either of which takes an array of objects defining the join.  Each object in the <tt class=" ">left_join</tt> or <tt class=" ">inner_join</tt> property defines the model to join (<tt class=" ">model</tt> property), key to join (<tt class=" ">join_properties</tt> property) and optionally if the join is one-to-one or one-to-many (<tt class=" ">multiple</tt> property).    </p>
     <p>
 <strong class=" ">Join Object Definition:</strong>    </p>
     <div class="tablewrap">

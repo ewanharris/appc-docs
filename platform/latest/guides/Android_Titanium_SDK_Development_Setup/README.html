@@ -161,6 +161,8 @@ In the same window, go through each module and remove &quot;com.android.ide.ecli
 Right click on &quot;titanium&quot; module &gt; Open Modules Settings &gt; Remove &quot;kroll-apt.jar&quot; &gt; Click on the &quot;+&quot; button at bottom left corner, choose Module Dependencies, then choose &quot;kroll-apt&quot;. Now check the export<br/>box for both &quot;kroll-apt&quot;, &quot;kroll-common&quot;, &quot;android-support-v7-cardview&quot; and &quot;android-support-v7-appcompat&quot;. Now change the scope of &quot;android-support-v7-cardview&quot; to &quot;Provided&quot;. Then go to each modules, and remove &quot;kroll-apt.jar&quot; if present.    </p>
 </li><li class=" ">    <p>
 Build -&gt; Rebuild Module, it should compile successfully.    </p>
+</li><li class=" ">    <p>
+If the build fails due to map, right click the map module &gt; Open Module Settings, and make sure the Module SDK is &quot;Android 6.0 Google APIs&quot;.    </p>
 </li></ol>    </div>
     <div class="section section-2 " id="29004964_AndroidTitaniumSDKDevelopmentSetup-CreateTestProjectsinIntelliJ">
         <h2 class="heading "><span>Create Test Projects in IntelliJ</span></h2>
