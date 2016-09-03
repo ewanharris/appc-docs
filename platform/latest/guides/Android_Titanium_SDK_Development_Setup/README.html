@@ -177,6 +177,77 @@ Run &quot;scons&quot; if you haven't already. Forgetting to scons will result in
 </li><li class=" ">    <p>
 Go to Build -&gt; Rebuild Project.    </p>
 </li></ol>    </div>
+    <div class="section section-2 " id="29004964_AndroidTitaniumSDKDevelopmentSetup-SettingupInteliJIDEAEnvironmentonWindows">
+        <h2 class="heading "><span>Setting up InteliJ IDEA Environment on Windows</span></h2>
+    <div class="section section-3 " id="29004964_AndroidTitaniumSDKDevelopmentSetup-Requirements">
+        <h3 class="heading "><span>Requirements</span></h3>
+<ul class=" "><li class=" ">    <p>
+<a class="external-link external-link" href="https://www.jetbrains.com/idea/download/" target="_blank">InteliJ IDEA</a>    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank">Java Development Kit</a>    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://developer.android.com/studio/index.html" target="_blank">Android SDK</a>    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://developer.android.com/ndk/downloads/index.html" target="_blank">Android NDK</a>    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="http://ant.apache.org/bindownload.cgi" target="_blank">Ant</a>    </p>
+</li></ul>    </div>
+    <div class="section section-3 " id="29004964_AndroidTitaniumSDKDevelopmentSetup-EnvironmentVariables">
+        <h3 class="heading "><span>Environment Variables</span></h3>
+<ul class=" "><li class=" ">    <p>
+<strong class=" ">ANDROID_SDK</strong> - Location of Android SDK <strong class=" ">with no spaces</strong> (<i class=" ">C:\PROGRA~2\Android\ANDROI~1</i>)    </p>
+</li><li class=" ">    <p>
+<strong class=" ">ANDROID_NDK</strong> - Location of Android NDK <strong class=" ">with no spaces</strong> (<i class=" ">C:\PROGRA~2\Android\ANDROI~2</i>)    </p>
+</li><li class=" ">    <p>
+<strong class=" ">ANT_HOME</strong> - Location of Ant (<i class=" ">C:\ant</i>)    </p>
+</li><li class=" ">    <p>
+<strong class=" ">JAVA_HOME</strong> - Location of JDK (<i class=" ">C:\Program Files (x86)\Java\jdk1.8.0_102\</i>)    </p>
+</li></ul>    </div>
+    <div class="section section-3 " id="29004964_AndroidTitaniumSDKDevelopmentSetup-ImportingAndroidTitaniumprojectintoInteliJ">
+        <h3 class="heading "><span>Importing Android Titanium project into InteliJ</span></h3>
+    <p>
+        <img src="images/download/attachments/29004964/import_titanium_android.gif" alt="images/download/attachments/29004964/import_titanium_android.gif" class="confluence-embedded-image" width="800"/>
+            </p>
+    </div>
+    <div class="section section-3 " id="29004964_AndroidTitaniumSDKDevelopmentSetup-FixDependencies">
+        <h3 class="heading "><span>Fix Dependencies</span></h3>
+<ol class=" "><li class=" ">    <p>
+Right click on the '<i class=" ">android</i>' project and click '<i class=" ">Open Module Settings'</i>    </p>
+</li><li class=" ">    <p>
+Click the + to add a '<i class=" ">New Project Library</i>' and click '<i class=" ">Java</i>'    </p>
+</li><li class=" ">    <p>
+Navigate to '<i class=" ">titanium\lib\aps-analytics.jar</i>' and click '<i class=" ">OK</i>'    </p>
+</li><li class=" ">    <p>
+Add this library to <i class=" ">app, locale, network and platform</i> modules    </p>
+</li><li class=" ">    <p>
+In the library list you should also see 'lib3', right click and select 'Add to Modules...'    </p>
+</li><li class=" ">    <p>
+Add this library to <i class=" ">calendar, contacts, geolocation, gesture map</i> and <i class=" ">TitaniumTest</i> modules    </p>
+</li><li class=" ">    <p>
+Again, right click 'lib1' and select 'Add to Modules...'    </p>
+</li><li class=" ">    <p>
+Add this library to <i class=" ">TitaniumTest</i>    </p>
+</li></ol>    </div>
+    <div class="section section-3 " id="29004964_AndroidTitaniumSDKDevelopmentSetup-Compilingkroll-v8onWindows">
+        <h3 class="heading "><span>Compiling kroll-v8 on Windows</span></h3>
+    <div class="section section-4 " id="29004964_AndroidTitaniumSDKDevelopmentSetup-AdditionalRequirements">
+        <h4 class="heading "><span>Additional Requirements</span></h4>
+<ul class=" "><li class=" ">    <p>
+<a class="external-link external-link" href="http://gnuwin32.sourceforge.net/packages/gzip.htm" target="_blank">gzip</a>    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="http://gnuwin32.sourceforge.net/packages/gperf.htm" target="_blank">gperf</a>    </p>
+</li></ul>    <p>
+Download the binaries, rename <i class=" ">gzip</i> into <i class=" ">gunzip</i> and place both into '<i class=" ">C:\Windows\System32</i>'    </p>
+    </div>
+    <div class="section section-4 " id="29004964_AndroidTitaniumSDKDevelopmentSetup-SCONS">
+        <h4 class="heading "><span>SCONS</span></h4>
+<ol class=" "><li class=" ">    <p>
+Open a command prompt and navigate to 'titanium_mobile/build'    </p>
+</li><li class=" ">    <p>
+Enter 'node scons.js build'    </p>
+</li></ol>    </div>
+    </div>
+    </div>
     <div class="section section-2 " id="29004964_AndroidTitaniumSDKDevelopmentSetup-Formatting">
         <h2 class="heading "><span>Formatting</span></h2>
     <p>
