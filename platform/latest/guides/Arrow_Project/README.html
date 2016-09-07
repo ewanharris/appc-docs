@@ -65,7 +65,7 @@
 <ul class="toc-indentation "><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Arrow_Project-section-43298987_ArrowProject-Diskspace">Diskspace</a>    </p>
 </li><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Arrow_Project-section-43298987_ArrowProject-ServerContainers">Server Containers</a>    </p>
+<a class="document-link " href="#!/guide/Arrow_Project-section-43298987_ArrowProject-Servercontainers">Server containers</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Arrow_Project-section-43298987_ArrowProject-ServerPorts">Server Ports</a>    </p>
 </li></ul></li></ul>    <div class="section section-2 " id="43298987_ArrowProject-Overview">
@@ -746,8 +746,8 @@ To use this feature you application uses <a class="external-link external-link" 
     <p>
 Each application can use 1.8 GB of diskspace. The application can only write files to the project's root directory and to the <tt class=" ">/tmp</tt> folder.    </p>
     </div>
-    <div class="section section-3 " id="43298987_ArrowProject-ServerContainers">
-        <h3 class="heading "><span>Server Containers</span></h3>
+    <div class="section section-3 " id="43298987_ArrowProject-Servercontainers">
+        <h3 class="heading "><span>Server containers</span></h3>
     <p>
 Each application runs in a specific container size with different resources (memory and number of CPUs). By default, when the application is published, it will run in one Dev container.    </p>
 <ul class=" "><li class=" ">    <p>
@@ -773,7 +773,7 @@ Memory    </p>
             </td>
                 <td class="confluenceTh" rowspan="1" colspan="1">
         <p>
-CPUs    </p>
+CPU Shares    </p>
             </td>
                 <td class="confluenceTh" rowspan="1" colspan="1">
         <p>
@@ -795,7 +795,7 @@ Dev    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-1    </p>
+1000    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
@@ -817,7 +817,7 @@ Small    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-1    </p>
+1000    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
@@ -839,7 +839,7 @@ Medium    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-2    </p>
+2000    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
@@ -861,7 +861,7 @@ Large    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-4    </p>
+4000    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
@@ -883,7 +883,7 @@ XLarge    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-8    </p>
+8000    </p>
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
