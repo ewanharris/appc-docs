@@ -36,6 +36,8 @@
 <a class="document-link " href="#!/guide/Internationalization-section-29004892_Internationalization-LocalizeSystemButtonsandSubmittoInternationalAppStores">Localize System Buttons and Submit to International App Stores</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Internationalization-section-29004892_Internationalization-LocalizePropertyListKeys">Localize Property List Keys</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Internationalization-section-29004892_Internationalization-Setdefaultlanguage">Set default language</a>    </p>
 </li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Internationalization-section-29004892_Internationalization-Internationalizingtheapp'sname">Internationalizing the app's name</a>    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
@@ -226,8 +228,26 @@ To localize property list key values (Info.plist keys), add <tt class=" ">string
 <div class="line"><code class="plain">    &lt;string name=</code><code class="string">"NSCalendarsUsageDescription"</code><code class="plain">&gt;Bon voyage.&lt;/string&gt;</code></div>
 <div class="line"><code class="plain">&lt;/resources&gt;</code></div>
 </div>
+</div>    </div>
+    <div class="section section-5 " id="29004892_Internationalization-Setdefaultlanguage">
+        <h5 class="heading "><span>Set default language</span></h5>
+    <p>
+The following key allows you to set the default language and region of your app which is very useful for the management of localization:    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="title">CFBundleDevelopmentRegion</div>
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">&lt;</code><code class="keyword">ios</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">    &lt;</code><code class="keyword">plist</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">        &lt;</code><code class="keyword">dict</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">            &lt;</code><code class="keyword">key</code><code class="plain">&gt;CFBundleDevelopmentRegion&lt;/</code><code class="keyword">key</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">            &lt;</code><code class="keyword">string</code><code class="plain">&gt;it_IT&lt;/</code><code class="keyword">string</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">            &lt;</code><code class="keyword">string</code><code class="plain">/&gt;</code></div>
+<div class="line"><code class="plain">        &lt;/</code><code class="keyword">dict</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">    &lt;/</code><code class="keyword">plist</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">&lt;/</code><code class="keyword">ios</code><code class="plain">&gt;</code></div>
+</div>
 </div>    <p>
-    </p>
+For more information about CFBundleDevelopmentRegion, please review <a class="external-link external-link" href="https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html" target="_blank">iOS Developer Library - Core Foundation Keys</a> and <a class="external-link external-link" href="https://developer.apple.com/library/ios/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html#//apple_ref/doc/uid/10000171i-CH15-SW6" target="_blank">iOS Developer Library - Language IDs</a>.    </p>
     </div>
     </div>
     <div class="section section-4 " id="29004892_Internationalization-Internationalizingtheapp'sname">
