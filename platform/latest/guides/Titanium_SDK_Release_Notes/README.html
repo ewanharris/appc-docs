@@ -110,15 +110,15 @@ Demo:    </p>
 <div class="line"><code class="plain">    bottom: 100</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="comments">// Available blur effects</code></div>
-<div class="line"><code class="keyword">var</code><code class="plain"> effects = </code></div>
+<div class="line"><code class="keyword">var</code><code class="plain"> effects = [</code></div>
 <div class="line"><code class="plain">    Ti.UI.iOS.BLUR_EFFECT_STYLE_EXTRA_LIGHT,</code></div>
 <div class="line"><code class="plain">    Ti.UI.iOS.BLUR_EFFECT_STYLE_LIGHT,</code></div>
 <div class="line"><code class="plain">    Ti.UI.iOS.BLUR_EFFECT_STYLE_DARK,</code></div>
 <div class="line"><code class="plain">    Ti.UI.iOS.BLUR_EFFECT_STYLE_REGULAR,</code></div>
 <div class="line"><code class="plain">    Ti.UI.iOS.BLUR_EFFECT_STYLE_PROMINENT</code></div>
-<div class="line"><code class="plain">;</code></div>
+<div class="line"><code class="plain">];</code></div>
 <div class="line"><code class="plain">tabs.addEventListener(</code><code class="string">"click"</code><code class="plain">, </code><code class="keyword">function</code><code class="plain">(e) {</code></div>
-<div class="line"><code class="plain">    blur.setEffect(effectse.index);</code></div>
+<div class="line"><code class="plain">    blur.setEffect(effects[e.index]);</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">win.add(tabs);</code></div>
 <div class="line"><code class="plain">win.add(img);</code></div>
@@ -221,15 +221,15 @@ Demo:    </p>
 <div class="line"><code class="plain">        postalCode: </code><code class="string">"95112"</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">        thoroughfare: </code><code class="string">"N 1st St"</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">        subThoroughfare: </code><code class="string">"1732"</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">        keywords: </code><code class="string">'appcelerator'</code><code class="plain">, </code><code class="string">'titanium_mobile'</code><code class="plain">, </code><code class="string">'ios10'</code><code class="plain">, </code><code class="string">'corespotlight'</code></div>
+<div class="line"><code class="plain">        keywords: [</code><code class="string">'appcelerator'</code><code class="plain">, </code><code class="string">'titanium_mobile'</code><code class="plain">, </code><code class="string">'ios10'</code><code class="plain">, </code><code class="string">'corespotlight'</code><code class="plain">]</code></div>
 <div class="line"><code class="plain">    });</code></div>
 <div class="line"><code class="plain">    </code><code class="keyword">var</code><code class="plain"> item = Ti.App.iOS.createSearchableItem({</code></div>
-<div class="line"><code class="plain">        identifier: </code><code class="string">'core-spotlight'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">        uniqueIndentifier: </code><code class="string">'core-spotlight'</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">        domainIdentifier: </code><code class="string">'ios10'</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">        attributeSet: itemAttr</code></div>
 <div class="line"><code class="plain">    });</code></div>
 <div class="line"><code class="plain">    </code><code class="keyword">var</code><code class="plain"> indexer = Ti.App.iOS.createSearchableIndex();</code></div>
-<div class="line"><code class="plain">    indexer.addToDefaultSearchableIndex(item, </code><code class="keyword">function</code><code class="plain">(e) {</code></div>
+<div class="line"><code class="plain">    indexer.addToDefaultSearchableIndex([item], </code><code class="keyword">function</code><code class="plain">(e) {</code></div>
 <div class="line"><code class="plain">        </code><code class="keyword">if</code><code class="plain"> (e.success) {</code></div>
 <div class="line"><code class="plain">            alert(</code><code class="string">'Press the home button and now search for your keywords'</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">        } </code><code class="keyword">else</code><code class="plain"> {</code></div>
