@@ -35,6 +35,8 @@
 </li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Titanium_SDK_Release_Notes-section-43316487_TitaniumSDKReleaseNotes-NewFeaturesmajor/minorreleases">New Features major/minor releases</a>    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Titanium_SDK_Release_Notes-section-43316487_TitaniumSDKReleaseNotes-Hyperloop">Hyperloop</a>    </p>
+</li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Titanium_SDK_Release_Notes-section-43316487_TitaniumSDKReleaseNotes-iOSPlatform.1">iOS Platform</a>    </p>
 </li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Titanium_SDK_Release_Notes-section-43316487_TitaniumSDKReleaseNotes-FixedIssues">Fixed Issues</a>    </p>
@@ -81,6 +83,8 @@ Ti.Media.openPhotoGallery API to access the photo gallery or Ti.Media.showCamera
     <span style="color: #000000;">
 Ti.Media.AudioRecorder API to record audio or Ti.Media.showCamera to record videos, update <strong class=" ">NSMicrophoneUsageDescription</strong>    </span>
     </p>
+</li><li class=" ">    <p>
+Ti.Media.queryMusicLibrary API to query the native music-library, update <strong class=" ">NSAppleMusicUsageDescription</strong>    </p>
 </li></ul>    <p>
     <span style="color: #000000;">
 For example:    </span>
@@ -100,6 +104,8 @@ For example:    </span>
 <div class="line"><code class="plain">            &lt;</code><code class="keyword">string</code><code class="plain">&gt;Can we save to your library?&lt;/</code><code class="keyword">string</code><code class="plain">&gt;</code></div>
 <div class="line"><code class="plain">            &lt;</code><code class="keyword">key</code><code class="plain">&gt;NSMicrophoneUsageDescription&lt;/</code><code class="keyword">key</code><code class="plain">&gt;</code></div>
 <div class="line"><code class="plain">            &lt;</code><code class="keyword">string</code><code class="plain">&gt;Can we use your microphone?&lt;/</code><code class="keyword">string</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">            &lt;</code><code class="keyword">key</code><code class="plain">&gt;NSAppleMusicUsageDescription&lt;/</code><code class="keyword">key</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">            &lt;</code><code class="keyword">string</code><code class="plain">&gt;Can we use your music library?&lt;/</code><code class="keyword">string</code><code class="plain">&gt;</code></div>
 <div class="line"><code class="plain">        &lt;/</code><code class="keyword">dict</code><code class="plain">&gt;</code></div>
 <div class="line"><code class="plain">    &lt;/</code><code class="keyword">plist</code><code class="plain">&gt;</code></div>
 <div class="line"><code class="plain">&lt;/</code><code class="keyword">ios</code><code class="plain">&gt;</code></div>
@@ -122,7 +128,7 @@ This behavior is following the one Xcode 8 provides. You can still change your m
     <div class="section section-4 p1" id="43316487_TitaniumSDKReleaseNotes-UsingFacebookmodulewithiOS10andXcode8">
         <h4 class="heading p1"><span>Using Facebook module with iOS 10 and Xcode 8</span></h4>
     <p class="p1">
-To log in using Facebook, you now have to include an entitlements file that enables Keychain Sharing Capabilities. To do this, create <tt class=" ">/platform/ios/</tt><tt class=" ">&lt;appname&gt;</tt><tt class=" ">.entitlements</tt> file with this content:    </p>
+To log in using Facebook on iOS Simulator, you now must include an entitlements file that enables Keychain Sharing Capabilities. While the entitlement file is not necessary for device builds (it is self-generated), it won't affect anything in your build. To do this, create a /platform/ios/&lt;name&gt;.entitlements file (replace &lt;name&gt; with the name element in tiapp.xml) with this content:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="title">Facebook login with iOS 10 and Xcode 8</div>
 <div class="defaultnew syntaxhighlighter">
@@ -151,6 +157,11 @@ If you use Appc CLI for development and have more than one version of Xcode inst
     </div>
     <div class="section section-3 " id="43316487_TitaniumSDKReleaseNotes-NewFeaturesmajor/minorreleases">
         <h3 class="heading "><span>New Features major/minor releases</span></h3>
+    <div class="section section-4 " id="43316487_TitaniumSDKReleaseNotes-Hyperloop">
+        <h4 class="heading "><span>Hyperloop</span></h4>
+<ul class=" "><li class=" ">    <p>
+This release includes Hyperloop 1.2.7.    </p>
+</li></ul>    </div>
     <div class="section section-4 " id="43316487_TitaniumSDKReleaseNotes-iOSPlatform.1">
         <h4 class="heading "><span>iOS Platform</span></h4>
 <ul class=" "><li class=" ">    <p>
@@ -229,7 +240,6 @@ Demo:    </p>
 <div class="line"><code class="plain">Ti.API.warn(</code><code class="string">"Has URLs:"</code><code class="plain"> + Ti.UI.Clipboard.hasURLs());</code></div>
 <div class="line"><code class="plain">Ti.API.warn(</code><code class="string">"Has images"</code><code class="plain"> + Ti.UI.Clipboard.hasImages());</code></div>
 <div class="line"><code class="plain">Ti.API.warn(</code><code class="string">"Has colors:"</code><code class="plain"> + Ti.UI.Clipboard.hasColors());</code></div>
-<div class="line"><code class="plain"> </code></div>
 <div class="line"><code class="keyword">var</code><code class="plain"> localOnly = Ti.UI.CLIPBOARD_OPTION_LOCAL_ONLY;</code></div>
 <div class="line"><code class="keyword">var</code><code class="plain"> expirationDate = Ti.UI.CLIPBOARD_OPTION_EXPIRATION_DATE;</code></div>
 <div class="line"><code class="comments">// Set mime-type based items with additional options</code></div>
@@ -283,7 +293,7 @@ Demo:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="keyword">var</code><code class="plain"> win = Ti.UI.createWindow({</code></div>
-<div class="line"><code class="plain">  backgroundColor : </code><code class="string">"#fff"</code></div>
+<div class="line"><code class="plain">	backgroundColor : </code><code class="string">"#fff"</code></div>
 <div class="line"><code class="plain">}); </code></div>
 <div class="line"><code class="keyword">var</code><code class="plain"> btn = Ti.UI.createButton({</code></div>
 <div class="line"><code class="plain">    title : </code><code class="string">"Add searchable index"</code></div>
@@ -394,10 +404,6 @@ Demo:    </p>
     <div class="section section-3 " id="43316487_TitaniumSDKReleaseNotes-FixedIssues">
         <h3 class="heading "><span>Fixed Issues</span></h3>
 <ul class=" "><li class=" ">    <p>
-<a class="external-link external-link" href="https://jira.appcelerator.org/browse/CLI-1070" target="_blank">CLI-1070</a> - If you use node 0.12.X, then you'll be unable to download the Hyperloop module through 'appc new'    </p>
-</li><li class=" ">    <p>
-<a class="external-link external-link" href="https://jira.appcelerator.org/browse/CLI-1079" target="_blank">CLI-1079</a> - Modules and plugins are not overwritten if the files already exist    </p>
-</li><li class=" ">    <p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23518" target="_blank">TIMOB-23518</a> - iOS: Cannot build with Xcode 8.0    </p>
 </li><li class=" ">    <p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23549" target="_blank">TIMOB-23549</a> - ioslib doesn't recognize global WatchOS simulators    </p>
@@ -444,7 +450,11 @@ Demo:    </p>
 </li><li class=" ">    <p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23890" target="_blank">TIMOB-23890</a> - iOS10: Facebook Login is not working    </p>
 </li><li class=" ">    <p>
-<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23894" target="_blank">TIMOB-23894</a> - iOS: we should have a watchos3-swift template    </p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23894" target="_blank">TIMOB-23894</a> - iOS: -I flag not acknowledged when selecting iOS9 and watchos2.2 using iOS sdk 10.0    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23897" target="_blank">TIMOB-23897</a> - iOS: Support Ti.Facebook 5.2.5 on Titanium SDK &lt; 5.5.0    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23900" target="_blank">TIMOB-23900</a> - ioslib: Tailing simulator log doesn't output initial contents    </p>
 </li></ul>    </div>
     <div class="section section-3 " id="43316487_TitaniumSDKReleaseNotes-Improvementspatchreleases">
         <h3 class="heading "><span>Improvements  patch releases</span></h3>
@@ -522,7 +532,7 @@ You will need to update the <tt class=" ">tiapp.xml</tt> file to be able to hand
     <div class="section section-3 " id="43316487_TitaniumSDKReleaseNotes-KnownIssues">
         <h3 class="heading "><span>Known Issues</span></h3>
 <ul class=" "><li class=" ">    <p>
-<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23726" target="_blank">TIMOB-2372</a> - iOS: Debugger for Alloy project hangs on Device with run-on-main-thread enabled - open    </p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23726" target="_blank">TIMOB-23726</a> - iOS: Debugger for Alloy project hangs on Device with run-on-main-thread enabled - open    </p>
 <ul class=" "><li class=" ">    <p>
 Running an Alloy project in Debug mode to Device causes the app to hang on &quot;The Debugger is waiting for you to launch the app on your device&quot;.    </p>
 </li><li class=" ">    <p>

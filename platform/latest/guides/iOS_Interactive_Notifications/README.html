@@ -45,6 +45,8 @@
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/iOS_Interactive_Notifications-section-40930452_iOSInteractiveNotifications-SendanInteractivePushNotification">Send an Interactive Push Notification</a>    </p>
 </li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/iOS_Interactive_Notifications-section-40930452_iOSInteractiveNotifications-PushNotificationsinXcode8+andTitaniumSDK5.5.0">Push Notifications in Xcode 8+ and Titanium SDK 5.5.0</a>    </p>
+</li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/iOS_Interactive_Notifications-section-40930452_iOSInteractiveNotifications-Example">Example</a>    </p>
 </li></ul>    <div class="section section-2 " id="40930452_iOSInteractiveNotifications-Introduction">
         <h2 class="heading "><span>Introduction</span></h2>
@@ -297,8 +299,25 @@ Appcelerator Dashboard: <a class="document-link " href="#!/guide/Sending_and_Sch
 Titanium Cloud Module (ti.cloud) APIs: <a class="external-link external-link" href="#!/api/Modules.Cloud.PushNotifications-method-notify">Cloud.PushNotifications.notify()</a> or <a class="external-link external-link" href="#!/api/Modules.Cloud.PushNotifications-method-notifyTokens">Cloud.PushNotifications.notifyTokens()</a>    </p>
 </li><li class="p4 ">    <p>
 Arrow REST APIs: <a class="external-link external-link" href="/arrowdb/latest/#!/api/PushNotifications-method-notify">PushNotification.notify</a> or <a class="external-link external-link" href="/arrowdb/latest/#!/api/PushNotifications-method-notify_token">PushNotification.notify_tokens</a>    </p>
-</li></ul>    <p class="p4">
-    </p>
+</li></ul>    </div>
+    <div class="section section-2 " id="40930452_iOSInteractiveNotifications-PushNotificationsinXcode8andTitaniumSDK5.5.0">
+        <h2 class="heading "><span>Push Notifications in Xcode 8+ and Titanium SDK 5.5.0</span></h2>
+    <p>
+In Xcode 8 and later, you need to add the push capabilities to your application manually, since Xcode does not reference them from the provisioning profile automatically any more. To do so, you need to create an entitlements file called <i class=" ">&lt;app-name&gt;</i>.entitlements, where <i class=" ">&lt;app-name&gt;</i> should be replaced with the app-name used in your <i class=" ">tiapp.xml</i>. When using Alloy, the file needs to be created in <i class=" ">app/platform/iphone/</i> and in <i class=" ">platform/ios/</i> when using a classic project. The content of that file should look like this:    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="title"><app-name>.entitlements</app-name></div>
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">&lt;?</code><code class="keyword">xml</code><code class="plain"> </code><code class="color1">version</code><code class="plain">=</code><code class="string">"1.0"</code><code class="plain"> </code><code class="color1">encoding</code><code class="plain">=</code><code class="string">"UTF-8"</code><code class="plain">?&gt;</code></div>
+<div class="line"><code class="plain">&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "</code><code class="comments">http://www.apple.com/DTDs/PropertyList-1.0.dtd</code><code class="plain">"&gt;</code></div>
+<div class="line"><code class="plain">&lt;</code><code class="keyword">plist</code><code class="plain"> </code><code class="color1">version</code><code class="plain">=</code><code class="string">"1.0"</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">&lt;</code><code class="keyword">dict</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">	&lt;</code><code class="keyword">key</code><code class="plain">&gt;aps-environment&lt;/</code><code class="keyword">key</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">	&lt;</code><code class="keyword">string</code><code class="plain">&gt;development&lt;/</code><code class="keyword">string</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">&lt;/</code><code class="keyword">dict</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">&lt;/</code><code class="keyword">plist</code><code class="plain">&gt;</code></div>
+</div>
+</div>    <p>
+Please note that you either need to specify <u class=" "><i class=" ">development</i></u> for device-builds or <u class=" "><i class=" ">production</i></u> for distribution builds on the App Store. We are working on automating that process, so the developer does not need to do additional steps. Please follow <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23908" target="_blank">TIMOB-23908</a> on JIRA for the process of that.    </p>
     </div>
     <div class="section section-2 p4" id="40930452_iOSInteractiveNotifications-Example">
         <h2 class="heading p4"><span>Example</span></h2>
