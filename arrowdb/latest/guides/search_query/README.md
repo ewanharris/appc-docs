@@ -42,6 +42,7 @@ The following parameters are available for query operations:
 
   * `count`
   * `limit` and `skip`
+  * `id` and `_id`
   * `where`
   * `order`
   * `sel`
@@ -77,6 +78,121 @@ query parameters.
 
 The number of records to fetch. The value must be greater than 0, and no greater than 
 1000, or an HTTP 400 (Bad Request) error will be returned. Default value of `limit` is 10.
+
+#### id and _id
+
+query by id or _id:
+	
+	~ curl -d 'where={"id":"54517c49dda09594270002da"}' -X GET "localhost:8082/v1/users/query.json?key=l1J36VuGo2eFMJ
+	~ curl -d 'where={"id":"54517c49dda09594270002da"}' -X GET "localhost:8082/v1/users/query.json?key=l1J36VuGo2eFMJKELNXdxAq8Z4MQIbYr&pretty_json=true"
+	{
+		"meta": {
+			"code": 200,
+			"status": "ok",
+			"method_name": "queryUsers"
+		},
+		"response": {
+			"users": [{
+				"id": "54517c49dda09594270002da",
+				"created_at": "2014-10-29T23:46:17+0000",
+				"updated_at": "2014-10-29T23:46:17+0000",
+				"external_accounts": [],
+				"confirmed_at": "2014-10-29T23:46:17+0000",
+				"username": "hmm",
+				"email": "",
+				"admin": "false",
+				"stats": {
+					"photos": {
+						"total_count": 0
+					},
+					"storage": {
+						"used": 0
+					}
+				},
+				"custom_fields": {}
+			}]
+		}
+	}
+
+	~ curl -d 'where={"_id":"54517c49dda09594270002da"}' -X GET "localhost:8082/v1/users/query.json?key=l1J36VuGo2eFMJKELNXdxAq8Z4MQIbYr&pretty_json=true"
+	{
+		"meta": {
+			"code": 200,
+			"status": "ok",
+			"method_name": "queryUsers"
+		},
+		"response": {
+			"users": [{
+				"id": "54517c49dda09594270002da",
+				"created_at": "2014-10-29T23:46:17+0000",
+				"updated_at": "2014-10-29T23:46:17+0000",
+				"external_accounts": [],
+				"confirmed_at": "2014-10-29T23:46:17+0000",
+				"username": "hmm",
+				"email": "",
+				"admin": "false",
+				"stats": {
+					"photos": {
+						"total_count": 0
+					},
+					"storage": {
+						"used": 0
+					}
+				},
+				"custom_fields": {}
+			}]
+		}
+	}
+
+Query multiple objects by using $in:
+
+	~ curl -d 'where={"_id":{"$in":["54517c49dda09594270002da","54517c33dda09594270002d5"]}}' -X GET "localhost:8082/v1/users/query.json?key=l1J36VuGo2eFMJKELNXdxAq8Z4MQIbYr&pretty_json=true"
+	{
+		"meta": {
+			"code": 200,
+			"status": "ok",
+			"method_name": "queryUsers"
+		},
+		"response": {
+			"users": [{
+				"id": "54517c49dda09594270002da",
+				"created_at": "2014-10-29T23:46:17+0000",
+				"updated_at": "2014-10-29T23:46:17+0000",
+				"external_accounts": [],
+				"confirmed_at": "2014-10-29T23:46:17+0000",
+				"username": "hmm",
+				"email": "",
+				"admin": "false",
+				"stats": {
+					"photos": {
+						"total_count": 0
+					},
+					"storage": {
+						"used": 0
+					}
+				},
+				"custom_fields": {}
+			}, {
+				"id": "54517c33dda09594270002d5",
+				"created_at": "2014-10-29T23:45:55+0000",
+				"updated_at": "2014-10-29T23:45:55+0000",
+				"external_accounts": [],
+				"confirmed_at": "2014-10-29T23:45:55+0000",
+				"username": "test",
+				"email": "",
+				"admin": "false",
+				"stats": {
+					"photos": {
+						"total_count": 0
+					},
+					"storage": {
+						"used": 0
+					}
+				},
+				"custom_fields": {}
+			}]
+		}
+	}
 
 #### new_pagination
 
