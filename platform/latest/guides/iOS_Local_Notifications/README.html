@@ -146,6 +146,14 @@ For devices running iOS 8 and later, you need to register the application to use
 If you are using interactive notifications, the application also needs to register the notification categories you want to use.  Set the <tt class=" ">categories</tt> property of the dictionary passed to the <tt class=" ">registerUserNotificationSettings()</tt> method to an array of notification category objects that the application needs to use.  For more details, see the <a class="document-link " href="#!/guide/iOS_Interactive_Notifications">iOS Interactive Notifications</a>.    </p>
     </div>
     
+    <div class="confbox admonition admonition-note aui-message warning shadowed information-macro">
+        
+    <p>
+Callbacks get called properly only when Liveview is enabled.    </p>
+    </div>
+    
+    <p>
+    </p>
     <p>
 After the application registers for notification services, iOS will prompt the user to allow the application to send notifications or not.  The user can reconfigure the notification settings later from <strong class=" ">Settings</strong>.    </p>
     <p>
