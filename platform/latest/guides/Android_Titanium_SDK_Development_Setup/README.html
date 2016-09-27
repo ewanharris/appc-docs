@@ -186,11 +186,11 @@ Right-click on <strong class=" ">titanium</strong> <strong class=" ">module</str
     <p>
 These steps assumes you already have a working test project for Eclipse, if not please follow the procedure for creating one above.    </p>
 <ol class=" "><li class=" ">    <p>
-Import your Eclipse project over: <strong class=" ">File</strong> &gt; <strong class=" ">New</strong> &gt; <strong class=" ">Module</strong> from existing sources    </p>
+Import your Eclipse project over: <strong class=" ">File</strong> &gt; <strong class=" ">New</strong> &gt; <strong class=" ">Module</strong> from existing sources. For first timers, import titanium_mobile/android/dev/TitaniumTest.    </p>
 </li><li class=" ">    <p>
 Right-click on your newly imported module, go to module settings, click on the &quot;+&quot; button on the bottom left, select &quot;Module Dependency&quot; and add everything on that list EXCEPT for <tt class=" ">kroll-common</tt>, <tt class=" ">appcompat</tt>, and <tt class=" ">cardview</tt>.    </p>
 </li><li class=" ">    <p>
-Run <strong class=" ">scons</strong> if you haven't already. Forgetting to run scons will result in runtime error.    </p>
+Run <strong class=" ">scons</strong> if you haven't already. Forgetting to run scons will result in runtime error. To run scons for titanium sdk versions 5.4.0+, navigate to titanium_mobile/build directory then run this in the terminal: npm install &amp;&amp; node scons.js build &amp;&amp; node scons.js package &amp;&amp; node scons.js install. Ensure you have latest stable versions of node and npm installed for this to work.    </p>
 </li><li class=" ">    <p>
 Go to <strong class=" ">Build</strong> &gt; <strong class=" ">Rebuild Project</strong>.    </p>
 </li></ol>    </div>
