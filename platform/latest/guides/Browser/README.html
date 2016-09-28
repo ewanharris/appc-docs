@@ -20,6 +20,8 @@
             <h1>Browser</h1>
     <div class="section section-2 " id="30083155_Browser-Actions">
         <h2 class="heading "><span>Actions</span></h2>
+    <p>
+    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Browser-section-30083155_Browser-Requirements">Requirements</a>    </p>
 </li><li class=" ">    <p>
@@ -51,11 +53,10 @@ This command is executed immediately in a synchronous way.    </p>
 When a page needs to be opened internally within Studio, use this JavaScript code to dispatch the appropriate action:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain"> </code></div>
 <div class="line"><code class="plain">dispatch($H({</code></div>
-<div class="line"><code class="plain">  controller : </code><code class="string">'portal.browser'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  action : </code><code class="string">"internalOpen"</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  args : [</code><code class="string">"http://www.appcelerator.com"</code><code class="plain">].toJSON()</code></div>
+<div class="line"><code class="plain">  controller: </code><code class="string">'portal.browser'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">  action: </code><code class="string">"internalOpen"</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">  args: [</code><code class="string">"http://www.appcelerator.com"</code><code class="plain">].toJSON()</code></div>
 <div class="line"><code class="plain">}).toJSON());</code></div>
 </div>
 </div>    </div>
@@ -65,11 +66,10 @@ When a page needs to be opened internally within Studio, use this JavaScript cod
 When a page needs to be opened externally in the OS default browser, use this JavaScript code to dispatch the appropriate action:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain"> </code></div>
 <div class="line"><code class="plain">dispatch($H({</code></div>
-<div class="line"><code class="plain">  controller : </code><code class="string">'portal.browser'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  action : </code><code class="string">"externalOpen"</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  args : [</code><code class="string">"http://www.appcelerator.com"</code><code class="plain">].toJSON()</code></div>
+<div class="line"><code class="plain">  controller: </code><code class="string">'portal.browser'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">  action: </code><code class="string">"externalOpen"</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">  args: [</code><code class="string">"http://www.appcelerator.com"</code><code class="plain">].toJSON()</code></div>
 <div class="line"><code class="plain">}).toJSON());</code></div>
 </div>
 </div>    </div>
@@ -79,10 +79,9 @@ When a page needs to be opened externally in the OS default browser, use this Ja
 Configure the Studio's browsers by detecting the installed browsers and adding them to the Eclipse Browsers preference page.<br/>The call returns a Map for the newly added browsers. The map contains mapping from a browser location to a browser name.<br/>In case no browser was added, an empty map is returned.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain"> </code></div>
 <div class="line"><code class="plain">var addedBrowsers = dispatch($H({</code></div>
-<div class="line"><code class="plain">  controller : </code><code class="string">'portal.browser'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  action : </code><code class="string">"configureBrowsers"</code></div>
+<div class="line"><code class="plain">  controller: </code><code class="string">'portal.browser'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">  action: </code><code class="string">"configureBrowsers"</code></div>
 <div class="line"><code class="plain">}).toJSON());</code></div>
 </div>
 </div>    </div>
@@ -92,10 +91,9 @@ Configure the Studio's browsers by detecting the installed browsers and adding t
 Returns the currently configured browsers in the Eclipse Browsers preference page.<br/>The call returns a Map for the detected browsers. The map contains mapping from a browser location to a browser name.<br/>&quot;null&quot; location in the result indicate the Eclipse default browser.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain"> </code></div>
 <div class="line"><code class="plain">var browsers = dispatch($H({</code></div>
-<div class="line"><code class="plain">  controller : </code><code class="string">'portal.browser'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  action : </code><code class="string">"getConfiguredBrowsers"</code></div>
+<div class="line"><code class="plain">  controller: </code><code class="string">'portal.browser'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">  action: </code><code class="string">"getConfiguredBrowsers"</code></div>
 <div class="line"><code class="plain">}).toJSON());</code></div>
 </div>
 </div>    </div>
@@ -109,9 +107,9 @@ You may place that dispatch code above inside a link listener, just like that:  
 <div class="line"><code class="plain">myLink.observe(</code><code class="string">'click'</code><code class="plain">, function(e) {</code></div>
 <div class="line"><code class="plain">  </code><code class="keyword">if</code><code class="plain"> (typeof(dispatch) !== </code><code class="string">'undefined'</code><code class="plain">) {</code></div>
 <div class="line"><code class="plain">    dispatch($H({</code></div>
-<div class="line"><code class="plain">      controller : </code><code class="string">'portal.browser'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">      action : </code><code class="string">"externalOpen"</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">      args : [</code><code class="string">"http://www.appcelerator.com"</code><code class="plain">].toJSON()</code></div>
+<div class="line"><code class="plain">      controller: </code><code class="string">'portal.browser'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">      action: </code><code class="string">"externalOpen"</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">      args: [</code><code class="string">"http://www.appcelerator.com"</code><code class="plain">].toJSON()</code></div>
 <div class="line"><code class="plain">    }).toJSON());</code></div>
 <div class="line"><code class="plain">  }</code></div>
 <div class="line"><code class="plain">  </code><code class="keyword">return</code><code class="plain"> </code><code class="keyword">false</code><code class="plain">;</code></div>

@@ -20,6 +20,8 @@
             <h1>Theme Actions</h1>
     <div class="section section-2 " id="31523365_ThemeActions-Actions">
         <h2 class="heading "><span>Actions</span></h2>
+    <p>
+    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Theme_Actions-section-31523365_ThemeActions-Requirements">Requirements</a>    </p>
 </li><li class=" ">    <p>
@@ -57,8 +59,8 @@ The following <i class=" ">dispatch</i> call will get a names array of all the a
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var allThemes = dispatch($H({</code></div>
-<div class="line"><code class="plain">  controller : </code><code class="string">'portal.themes'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  action : </code><code class="string">"getThemes"</code></div>
+<div class="line"><code class="plain">	controller: </code><code class="string">'portal.themes'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	action: </code><code class="string">"getThemes"</code></div>
 <div class="line"><code class="plain">}).toJSON()).evalJSON();</code></div>
 </div>
 </div>    <p>
@@ -71,8 +73,8 @@ The following <i class=" ">dispatch</i> call will get the active theme name stri
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var activeTheme= dispatch($H({</code></div>
-<div class="line"><code class="plain">  controller : </code><code class="string">'portal.themes'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  action : </code><code class="string">"getActiveTheme"</code></div>
+<div class="line"><code class="plain">	controller: </code><code class="string">'portal.themes'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	action: </code><code class="string">"getActiveTheme"</code></div>
 <div class="line"><code class="plain">}).toJSON()).evalJSON();</code></div>
 </div>
 </div>    </div>
@@ -83,9 +85,9 @@ The following code will set an active theme by passing a valid theme name.    </
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var result = dispatch($H({</code></div>
-<div class="line"><code class="plain">  controller : </code><code class="string">'portal.themes'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  action : </code><code class="string">"setActiveTheme"</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  args   : </code><code class="string">'["My-Theme"]'</code></div>
+<div class="line"><code class="plain">	controller: </code><code class="string">'portal.themes'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	action: </code><code class="string">"setActiveTheme"</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	args: </code><code class="string">'["My-Theme"]'</code></div>
 <div class="line"><code class="plain">}).toJSON()).evalJSON();</code></div>
 </div>
 </div>    <p>
@@ -105,16 +107,16 @@ From <i class=" "><strong class=" "><a class="external-link external-link" href=
 <div class="line"><code class="plain">render : function() {</code></div>
 <div class="line"><code class="plain">  var themeDiv = $(</code><code class="string">'themes'</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">  with (Elements.Builder) {</code></div>
-<div class="line"><code class="plain">    </code><code class="keyword">if</code><code class="plain"> ( typeof (console) !== </code><code class="string">'undefined'</code><code class="plain"> &amp;&amp; typeof (dispatch) !== </code><code class="string">'undefined'</code><code class="plain">) {</code></div>
+<div class="line"><code class="plain">    </code><code class="keyword">if</code><code class="plain"> (typeof (console) !== </code><code class="string">'undefined'</code><code class="plain"> &amp;&amp; typeof (dispatch) !== </code><code class="string">'undefined'</code><code class="plain">) {</code></div>
 <div class="line"><code class="plain">      console.log(</code><code class="string">"Dispatching the 'getThemes' action on the 'portal.themes' controller..."</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">      var allThemes = dispatch($H({</code></div>
-<div class="line"><code class="plain">        controller : </code><code class="string">'portal.themes'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">        action : </code><code class="string">"getThemes"</code></div>
+<div class="line"><code class="plain">        controller: </code><code class="string">'portal.themes'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">        action: </code><code class="string">"getThemes"</code></div>
 <div class="line"><code class="plain">      }).toJSON()).evalJSON();</code></div>
 <div class="line"><code class="plain">      console.log(</code><code class="string">"Dispatching the 'getActiveTheme' action on the 'portal.themes' controller..."</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">      var activeTheme = dispatch($H({</code></div>
-<div class="line"><code class="plain">        controller : </code><code class="string">'portal.themes'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">        action : </code><code class="string">"getActiveTheme"</code></div>
+<div class="line"><code class="plain">        controller: </code><code class="string">'portal.themes'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">        action: </code><code class="string">"getActiveTheme"</code></div>
 <div class="line"><code class="plain">      }).toJSON()).evalJSON();</code></div>
 <div class="line"><code class="plain">      themeSelectElement = select();</code></div>
 <div class="line"><code class="plain">      </code><code class="keyword">for</code><code class="plain"> (var i = </code><code class="value">0</code><code class="plain">; i &lt; allThemes.length; i++) {</code></div>
@@ -128,16 +130,16 @@ From <i class=" "><strong class=" "><a class="external-link external-link" href=
 <div class="line"><code class="plain">      themeDiv.appendChild(themeSelectElement);</code></div>
 <div class="line"><code class="plain">      </code><code class="comments">// Add a button to trigger a Theme change</code></div>
 <div class="line"><code class="plain">      var changeBt = button({</code></div>
-<div class="line"><code class="plain">        </code><code class="string">'type'</code><code class="plain"> : </code><code class="string">'button'</code></div>
+<div class="line"><code class="plain">        </code><code class="string">'type'</code><code class="plain">: </code><code class="string">'button'</code></div>
 <div class="line"><code class="plain">      }, </code><code class="string">"Change"</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">      themeDiv.appendChild(changeBt);</code></div>
 <div class="line"><code class="plain">      changeBt.observe(</code><code class="string">'click'</code><code class="plain">, function(e) {</code></div>
 <div class="line"><code class="plain">        var item = themeSelectElement.options[themeSelectElement.selectedIndex].text;</code></div>
 <div class="line"><code class="plain">        console.log(</code><code class="string">"Dispatching the 'setActiveTheme' action on the 'portal.themes' controller with the value of "</code><code class="plain"> + item + </code><code class="string">"..."</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">        dispatch($H({</code></div>
-<div class="line"><code class="plain">          controller : </code><code class="string">'portal.themes'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">          action : </code><code class="string">"setActiveTheme"</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">          args : </code><code class="string">'["'</code><code class="plain"> + item + </code><code class="string">'"]'</code></div>
+<div class="line"><code class="plain">          controller: </code><code class="string">'portal.themes'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">          action: </code><code class="string">"setActiveTheme"</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">          args: </code><code class="string">'["'</code><code class="plain"> + item + </code><code class="string">'"]'</code></div>
 <div class="line"><code class="plain">        }).toJSON()).evalJSON();</code></div>
 <div class="line"><code class="plain">        </code><code class="keyword">return</code><code class="plain"> </code><code class="keyword">false</code><code class="plain">;</code></div>
 <div class="line"><code class="plain">      });</code></div>

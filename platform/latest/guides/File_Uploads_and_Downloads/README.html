@@ -60,8 +60,8 @@ Assuming you have a server-side service which accepts file uploads, you should f
 <div class="line"><code class="plain">		xhr.open(</code><code class="string">'POST'</code><code class="plain">,</code><code class="string">'https://myserver.com/api/uploadAndPost.do'</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">		xhr.send({</code></div>
 <div class="line"><code class="plain">		    theImage:event.media,  </code><code class="comments">/* event.media holds blob from gallery */</code></div>
-<div class="line"><code class="plain">		    username:</code><code class="string">'foo'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">		    password:</code><code class="string">'bar'</code></div>
+<div class="line"><code class="plain">		    username: </code><code class="string">'foo'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">		    password: </code><code class="string">'bar'</code></div>
 <div class="line"><code class="plain">		  });</code></div>
 <div class="line"><code class="plain">	}</code></div>
 <div class="line"><code class="plain">});</code></div>
@@ -74,16 +74,16 @@ Using the <tt class=" ">xhr.onsendstream</tt> event, you can monitor upload prog
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="comments">/* Create a progress bar */</code></div>
 <div class="line"><code class="plain">var ind=Titanium.UI.createProgressBar({</code></div>
-<div class="line"><code class="plain">	width:</code><code class="value">200</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	height:</code><code class="value">50</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	min:</code><code class="value">0</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	max:</code><code class="value">1</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	value:</code><code class="value">0</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	style:Titanium.UI.iPhone.ProgressBarStyle.PLAIN,</code></div>
-<div class="line"><code class="plain">	top:</code><code class="value">10</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	message:</code><code class="string">'Uploading image'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	font:{fontSize:</code><code class="value">12</code><code class="plain">, fontWeight:</code><code class="string">'bold'</code><code class="plain">},</code></div>
-<div class="line"><code class="plain">	color:</code><code class="string">'#888'</code></div>
+<div class="line"><code class="plain">	width: </code><code class="value">200</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	height: </code><code class="value">50</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	min: </code><code class="value">0</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	max: </code><code class="value">1</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	value: </code><code class="value">0</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	style: Titanium.UI.iPhone.ProgressBarStyle.PLAIN,</code></div>
+<div class="line"><code class="plain">	top: </code><code class="value">10</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	message: </code><code class="string">'Uploading image'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	font: {fontSize: </code><code class="value">12</code><code class="plain">, fontWeight: </code><code class="string">'bold'</code><code class="plain">},</code></div>
+<div class="line"><code class="plain">	color: </code><code class="string">'#888'</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">win.add(ind);</code></div>
 <div class="line"><code class="plain">ind.show();</code></div>
@@ -104,17 +104,17 @@ Occasionally, you will also need to download and store a file from a remote serv
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var win = Ti.UI.createWindow({</code></div>
-<div class="line"><code class="plain">	backgroundColor:</code><code class="string">'#fff'</code></div>
+<div class="line"><code class="plain">	backgroundColor: </code><code class="string">'#fff'</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">var loadingLabel = Ti.UI.createLabel({</code></div>
-<div class="line"><code class="plain">	text:</code><code class="string">'Loading ...'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	top:</code><code class="value">20</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	text: </code><code class="string">'Loading ...'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	top: </code><code class="value">20</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">	left: </code><code class="value">10</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">win.add(loadingLabel);</code></div>
 <div class="line"><code class="plain">var image = Ti.UI.createImageView({</code></div>
-<div class="line"><code class="plain">	top:</code><code class="value">20</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	left:</code><code class="value">10</code></div>
+<div class="line"><code class="plain">	top: </code><code class="value">20</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	left: </code><code class="value">10</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">win.add(image);</code></div>
 <div class="line"><code class="plain">var xhr = Titanium.Network.createHTTPClient({</code></div>
@@ -122,7 +122,7 @@ Occasionally, you will also need to download and store a file from a remote serv
 <div class="line"><code class="plain">		</code><code class="comments">// first, grab a "handle" to the file where you'll store the downloaded data</code></div>
 <div class="line"><code class="plain">		var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,</code><code class="string">'mygraphic.png'</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">		f.write(</code><code class="keyword">this</code><code class="plain">.responseData); </code><code class="comments">// write to the file</code></div>
-<div class="line"><code class="plain">		Ti.App.fireEvent(</code><code class="string">'graphic_downloaded'</code><code class="plain">, {filepath:f.nativePath});</code></div>
+<div class="line"><code class="plain">		Ti.App.fireEvent(</code><code class="string">'graphic_downloaded'</code><code class="plain">, {filepath: f.nativePath});</code></div>
 <div class="line"><code class="plain">	},</code></div>
 <div class="line"><code class="plain">	timeout: </code><code class="value">10000</code></div>
 <div class="line"><code class="plain">});</code></div>

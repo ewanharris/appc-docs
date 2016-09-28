@@ -25,17 +25,17 @@ Currently Studio provides two methods of search and replace. Users can trigger t
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var window = Titanium.UI.createWindow({</code></div>
-<div class="line"><code class="plain">   backgroundColor:</code><code class="string">'red'</code></div>
+<div class="line"><code class="plain">   backgroundColor: </code><code class="string">'red'</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">window.open({</code></div>
-<div class="line"><code class="plain">   fullscreen:</code><code class="keyword">true</code></div>
+<div class="line"><code class="plain">   fullscreen: </code><code class="keyword">true</code></div>
 <div class="line"><code class="plain">});</code></div>
 </div>
 </div>    <p>
 You would have to input the following regular expression:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">var window = Titanium.UI.createWindow\(\{\n.*backgroundColor:</code><code class="string">'red'</code><code class="plain">\n\}\);\nwindow.open\(\{.*fullscreen:</code><code class="keyword">true</code><code class="plain">\n\}\);\n</code></div>
+<div class="line"><code class="plain">var window = Titanium.UI.createWindow\(\{\n.*backgroundColor: </code><code class="string">'red'</code><code class="plain">\n\}\);\nwindow.open\(\{.*fullscreen:</code><code class="keyword">true</code><code class="plain">\n\}\);\n</code></div>
 </div>
 </div>    <p>
 A bigger issue is that if the replacement string has newline characters in it, it makes it very tedious to specify a replacement string; requiring the user to specify '\n' for newline characters.    </p>

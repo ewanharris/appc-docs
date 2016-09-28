@@ -20,6 +20,8 @@
             <h1>Titanium Studio Product Update</h1>
     <div class="section section-2 " id="30083164_TitaniumStudioProductUpdate-Actions">
         <h2 class="heading "><span>Actions</span></h2>
+    <p>
+    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Titanium_Studio_Product_Update-section-30083164_TitaniumStudioProductUpdate-Requirements">Requirements</a>    </p>
 </li><li class=" ">    <p>
@@ -53,8 +55,8 @@ This is the <i class=" ">dispatch</i> call for the check for updates.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">dispatch($H({</code></div>
-<div class="line"><code class="plain">  controller : </code><code class="string">'portal.titanium.studio.update'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  action : </code><code class="string">"checkForUpdate"</code></div>
+<div class="line"><code class="plain">	controller: </code><code class="string">'portal.titanium.studio.update'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	action: </code><code class="string">"checkForUpdate"</code></div>
 <div class="line"><code class="plain">}).toJSON());</code></div>
 </div>
 </div>    <p>
@@ -75,7 +77,7 @@ The portal should handle this by defining an <strong class=" "><i class=" ">even
 <div class="line"><code class="plain">  initialize: function() {</code></div>
 <div class="line"><code class="plain">    </code><code class="comments">// Create the UI parts and render them</code></div>
 <div class="line"><code class="plain">    </code><code class="keyword">this</code><code class="plain">.updates = </code><code class="keyword">new</code><code class="plain"> Updates();</code></div>
-<div class="line"><code class="plain">    </code><code class="keyword">this</code><code class="plain">.updates .render();</code></div>
+<div class="line"><code class="plain">    </code><code class="keyword">this</code><code class="plain">.updates.render();</code></div>
 <div class="line"><code class="plain">    </code><code class="comments">// Add a Mobile SDKs observer to the dispatcher. Render the Mobile SDK table on a 'mobileSDK' events.</code></div>
 <div class="line"><code class="plain">    eventsDispatcher.addObserver(Events.TITANIUM_STUDIO_UPDATE , function(e) { portal.tiStudioUpdates.update(e); });</code></div>
 <div class="line"><code class="plain">  }</code></div>
@@ -149,8 +151,8 @@ When the Studio indicates that a Titanium Studio update is available, a displaye
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">dispatch($H({</code></div>
-<div class="line"><code class="plain">  controller : </code><code class="string">'portal.titanium.studio.update'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  action : </code><code class="string">"installUpdate"</code></div>
+<div class="line"><code class="plain">	controller: </code><code class="string">'portal.titanium.studio.update'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	action: </code><code class="string">"installUpdate"</code></div>
 <div class="line"><code class="plain">}).toJSON());</code></div>
 </div>
 </div>    </div>

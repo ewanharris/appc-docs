@@ -20,6 +20,8 @@
             <h1>ScriptDoc XML (SDOCML) 2.0 Specification</h1>
     <div class="section section-2 " id="30083171_ScriptDocXML(SDOCML)2.0Specification-Contents">
         <h2 class="heading "><span>Contents</span></h2>
+    <p>
+    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
 <a class="document-link " href="#!/guide/ScriptDoc_XML_(SDOCML)_2.0_Specification-section-30083171_ScriptDocXML(SDOCML)2.0Specification-Overview">Overview</a>    </p>
 </li><li class=" ">    <p>
@@ -226,20 +228,20 @@ Function(String, Number) - function with two params, first of type String, secon
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">&lt;javascript&gt;</code></div>
-<div class="line"><code class="plain"> &lt;!-- we assume </code><code class="keyword">super</code><code class="plain"> </code><code class="keyword">class</code><code class="plain"> is Object </code><code class="keyword">if</code><code class="plain"> none is defined --&gt;</code></div>
-<div class="line"><code class="plain"> &lt;</code><code class="keyword">class</code><code class="plain"> type=</code><code class="string">"MyClass"</code><code class="plain">&gt;</code></div>
-<div class="line"><code class="plain">  &lt;methods&gt;</code></div>
-<div class="line"><code class="plain">    &lt;!-- We assume methods (and properties) are instance types by </code><code class="keyword">default</code><code class="plain"> --&gt;</code></div>
-<div class="line"><code class="plain">    &lt;method name=</code><code class="string">"MyMethod"</code><code class="plain">&gt;</code></div>
-<div class="line"><code class="plain">      &lt;description&gt;Performs some amazing magic&lt;/description&gt;</code></div>
-<div class="line"><code class="plain">      &lt;parameters&gt;</code></div>
-<div class="line"><code class="plain">        &lt;!-- We assume parameters are required by </code><code class="keyword">default</code><code class="plain"> --&gt;</code></div>
-<div class="line"><code class="plain">        &lt;parameter name=</code><code class="string">"name"</code><code class="plain"> type=</code><code class="string">"String"</code><code class="plain">/&gt;</code></div>
-<div class="line"><code class="plain">        &lt;parameter name=</code><code class="string">"functions"</code><code class="plain"> type=</code><code class="string">"Array&lt;Function(String):Number&gt;"</code><code class="plain"> usage=</code><code class="string">"optional"</code><code class="plain">/&gt;</code></div>
-<div class="line"><code class="plain">      &lt;/parameters&gt;</code></div>
-<div class="line"><code class="plain">    &lt;/method&gt;</code></div>
-<div class="line"><code class="plain">  &lt;/methods&gt;</code></div>
-<div class="line"><code class="plain"> &lt;/</code><code class="keyword">class</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">	 &lt;!-- we assume </code><code class="keyword">super</code><code class="plain"> </code><code class="keyword">class</code><code class="plain"> is Object </code><code class="keyword">if</code><code class="plain"> none is defined --&gt;</code></div>
+<div class="line"><code class="plain">	 &lt;</code><code class="keyword">class</code><code class="plain"> type=</code><code class="string">"MyClass"</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">		&lt;methods&gt;</code></div>
+<div class="line"><code class="plain">		&lt;!-- We assume methods (and properties) are instance types by </code><code class="keyword">default</code><code class="plain"> --&gt;</code></div>
+<div class="line"><code class="plain">			&lt;method name=</code><code class="string">"MyMethod"</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">				&lt;description&gt;Performs some amazing magic&lt;/description&gt;</code></div>
+<div class="line"><code class="plain">				&lt;parameters&gt;</code></div>
+<div class="line"><code class="plain">					&lt;!-- We assume parameters are required by </code><code class="keyword">default</code><code class="plain"> --&gt;</code></div>
+<div class="line"><code class="plain">					&lt;parameter name=</code><code class="string">"name"</code><code class="plain"> type=</code><code class="string">"String"</code><code class="plain">/&gt;</code></div>
+<div class="line"><code class="plain">					&lt;parameter name=</code><code class="string">"functions"</code><code class="plain"> type=</code><code class="string">"Array&lt;Function(String):Number&gt;"</code><code class="plain"> usage=</code><code class="string">"optional"</code><code class="plain">/&gt;</code></div>
+<div class="line"><code class="plain">				&lt;/parameters&gt;</code></div>
+<div class="line"><code class="plain">			&lt;/method&gt;</code></div>
+<div class="line"><code class="plain">		&lt;/methods&gt;</code></div>
+<div class="line"><code class="plain">	&lt;/</code><code class="keyword">class</code><code class="plain">&gt;</code></div>
 <div class="line"><code class="plain">&lt;/javascript&gt;</code></div>
 </div>
 </div>    </div>
@@ -596,7 +598,8 @@ The <tt class=" ">constructors</tt> element holds the <tt class=" ">constructor<
 <div class="line"><code class="plain">	&lt;constructor scope=</code><code class="string">"instance"</code><code class="plain">&gt;</code></div>
 <div class="line"><code class="plain">		&lt;description&gt;Creates a </code><code class="keyword">new</code><code class="plain"> instance of URIError.&lt;/description&gt;</code></div>
 <div class="line"><code class="plain">		&lt;parameters&gt;</code></div>
-<div class="line"><code class="plain">			&lt;parameter name=</code><code class="string">"message"</code><code class="plain"> type=</code><code class="string">"String"</code><code class="plain"> usage=</code><code class="string">"optional"</code><code class="plain">&gt;					&lt;description&gt;Error message that provides information about the exception.&lt;/description&gt;</code></div>
+<div class="line"><code class="plain">			&lt;parameter name=</code><code class="string">"message"</code><code class="plain"> type=</code><code class="string">"String"</code><code class="plain"> usage=</code><code class="string">"optional"</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">				&lt;description&gt;Error message that provides information about the exception.&lt;/description&gt;</code></div>
 <div class="line"><code class="plain">			&lt;/parameter&gt;</code></div>
 <div class="line"><code class="plain">		&lt;/parameters&gt;</code></div>
 <div class="line"><code class="plain">		&lt;</code><code class="keyword">return</code><code class="plain">-types&gt;</code></div>
@@ -648,7 +651,8 @@ The <tt class=" ">constructors</tt> element holds the <tt class=" ">constructor<
 <div class="line"><code class="plain">	&lt;constructor scope=</code><code class="string">"instance"</code><code class="plain">&gt;</code></div>
 <div class="line"><code class="plain">		&lt;description&gt;Creates a </code><code class="keyword">new</code><code class="plain"> instance of URIError.&lt;/description&gt;</code></div>
 <div class="line"><code class="plain">		&lt;parameters&gt;</code></div>
-<div class="line"><code class="plain">			&lt;parameter name=</code><code class="string">"message"</code><code class="plain"> type=</code><code class="string">"String"</code><code class="plain"> usage=</code><code class="string">"optional"</code><code class="plain">&gt;					&lt;description&gt;Error message that provides information about the exception.&lt;/description&gt;</code></div>
+<div class="line"><code class="plain">			&lt;parameter name=</code><code class="string">"message"</code><code class="plain"> type=</code><code class="string">"String"</code><code class="plain"> usage=</code><code class="string">"optional"</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">				&lt;description&gt;Error message that provides information about the exception.&lt;/description&gt;</code></div>
 <div class="line"><code class="plain">			&lt;/parameter&gt;</code></div>
 <div class="line"><code class="plain">		&lt;/parameters&gt;</code></div>
 <div class="line"><code class="plain">		&lt;</code><code class="keyword">return</code><code class="plain">-types&gt;</code></div>
@@ -745,10 +749,10 @@ Contains the text description of a code sample. Also contains the code sample it
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">&lt;example&gt;</code></div>
-<div class="line"><code class="plain">&amp;lt;h3&amp;gt;Example: Examining the source code of an array&amp;lt;/h3&amp;gt;</code></div>
-<div class="line"><code class="plain">&amp;lt;p&amp;gt;To examine the source code of an array:&amp;lt;/p&amp;gt;</code></div>
-<div class="line"><code class="plain">&amp;lt;pre&amp;gt;alpha = </code><code class="keyword">new</code><code class="plain"> Array(</code><code class="string">"a"</code><code class="plain">, </code><code class="string">"b"</code><code class="plain">, </code><code class="string">"c"</code><code class="plain">)</code></div>
-<div class="line"><code class="plain">alpha.toSource() </code><code class="comments">//returns ["a", "b", "c"]&amp;lt;/pre&amp;gt;</code></div>
+<div class="line"><code class="plain">&lt;h3&gt;Example: Examining the source code of an array&lt;/h3&gt;</code></div>
+<div class="line"><code class="plain">&lt;p&gt;To examine the source code of an array:&lt;/p&gt;</code></div>
+<div class="line"><code class="plain">&lt;pre&gt;alpha = </code><code class="keyword">new</code><code class="plain"> Array(</code><code class="string">"a"</code><code class="plain">, </code><code class="string">"b"</code><code class="plain">, </code><code class="string">"c"</code><code class="plain">)</code></div>
+<div class="line"><code class="plain">alpha.toSource() </code><code class="comments">//returns ["a", "b", "c"]&lt;/pre&gt;</code></div>
 <div class="line"><code class="plain">&lt;/example&gt;</code></div>
 </div>
 </div>    </div>
@@ -1019,14 +1023,15 @@ The <tt class=" ">method</tt> element holds the description of a method.    </p>
 <div class="line"><code class="plain">          &lt;specification name=</code><code class="string">"ECMAScript v3"</code><code class="plain">/&gt;</code></div>
 <div class="line"><code class="plain">        &lt;/availability&gt;</code></div>
 <div class="line"><code class="plain">        &lt;example&gt;</code></div>
-<div class="line"><code class="plain">          &amp;lt;h3&amp;gt;Concatenating two arrays&amp;lt;/h3&amp;gt;&amp;lt;p&amp;gt;The following code concatenates two arrays:&amp;lt;/p&amp;gt;</code></div>
-<div class="line"><code class="plain">		  &amp;lt;pre&amp;gt;alpha = </code><code class="keyword">new</code><code class="plain"> Array(</code><code class="string">"a"</code><code class="plain">, </code><code class="string">"b"</code><code class="plain">, </code><code class="string">"c"</code><code class="plain">);&amp;lt;/pre&amp;gt</code></div>
+<div class="line"><code class="plain">          &lt;h3&gt;Concatenating two arrays&lt;/h3&gt;</code></div>
+<div class="line"><code class="plain">		  &lt;p&gt;The following code concatenates two arrays:&lt;/p&gt;</code></div>
+<div class="line"><code class="plain">		  &lt;pre&gt;alpha = </code><code class="keyword">new</code><code class="plain"> Array(</code><code class="string">"a"</code><code class="plain">, </code><code class="string">"b"</code><code class="plain">, </code><code class="string">"c"</code><code class="plain">);&lt;/pre&gt;</code></div>
 <div class="line"><code class="plain">        &lt;/example&gt;</code></div>
 <div class="line"><code class="plain">        &lt;remarks&gt;</code></div>
-<div class="line"><code class="plain">          &amp;lt;p&amp;gt;&amp;lt;code&amp;gt;concat&amp;lt;/code&amp;gt; does not alter the original</code></div>
+<div class="line"><code class="plain">          &lt;p&gt;&lt;code&gt;concat&lt;/code&gt; does not alter the original</code></div>
 <div class="line"><code class="plain">          arrays, but returns a </code><code class="string">"one level deep"</code><code class="plain"> copy that contains</code></div>
 <div class="line"><code class="plain">          copies of the same elements combined from the original</code></div>
-<div class="line"><code class="plain">          arrays.</code></div>
+<div class="line"><code class="plain">          arrays.&lt;/p&gt;</code></div>
 <div class="line"><code class="plain">        &lt;/remarks&gt;</code></div>
 <div class="line"><code class="plain">      &lt;/method&gt;</code></div>
 <div class="line"><code class="plain">      &lt;method name=</code><code class="string">"every"</code><code class="plain"> scope=</code><code class="string">"instance"</code><code class="plain"> visibility=</code><code class="string">""</code><code class="plain">&gt;</code></div>
@@ -1045,9 +1050,9 @@ The <tt class=" ">method</tt> element holds the description of a method.    </p>
 <div class="line"><code class="plain">		&lt;specification name=</code><code class="string">"JavaScript 1.5"</code><code class="plain">/&gt;</code></div>
 <div class="line"><code class="plain">		&lt;specification name=</code><code class="string">"Gecko 1.8b2"</code><code class="plain">/&gt;</code></div>
 <div class="line"><code class="plain">	&lt;/availability&gt;</code></div>
-<div class="line"><code class="plain">	&lt;example&gt;&amp;lt;h3&amp;gt;Example: Testing size of all array elements &amp;lt;/h3&amp;gt;</code></div>
-<div class="line"><code class="plain">&amp;lt;p&amp;gt;The following example tests whether all elements in the array are bigger than </code><code class="value">10</code><code class="plain">.&amp;lt;/p&amp;gt;&lt;/example&gt;</code></div>
-<div class="line"><code class="plain">	&lt;remarks&gt;&amp;lt;p&amp;gt;&amp;lt;code&amp;gt;every&amp;lt;/code&amp;gt; executes the provided function (&amp;lt;code&amp;gt;callback&amp;lt;/code&amp;gt;) once </code><code class="keyword">for</code><code class="plain"> each element present in the array until it finds one where &amp;lt;code&amp;gt;callback&amp;lt;/code&amp;gt; returns a </code><code class="keyword">false</code><code class="plain"> value.&lt;/remarks&gt;</code></div>
+<div class="line"><code class="plain">	&lt;example&gt;&lt;h3&gt;Example: Testing size of all array elements &lt;/h3&gt;</code></div>
+<div class="line"><code class="plain">&lt;p&gt;The following example tests whether all elements in the array are bigger than </code><code class="value">10</code><code class="plain">.&lt;/p&gt;&lt;/example&gt;</code></div>
+<div class="line"><code class="plain">	&lt;remarks&gt;&lt;p&gt;&lt;code&gt;every&lt;/code&gt; executes the provided function (&lt;code&gt;callback&lt;/code&gt;) once </code><code class="keyword">for</code><code class="plain"> each element present in the array until it finds one where &lt;code&gt;callback&lt;/code&gt; returns a </code><code class="keyword">false</code><code class="plain"> value.&lt;/remarks&gt;</code></div>
 <div class="line"><code class="plain">	&lt;description&gt;Returns </code><code class="keyword">true</code><code class="plain"> </code><code class="keyword">if</code><code class="plain"> every element in an array meets the specified criteria.&lt;/description&gt;</code></div>
 <div class="line"><code class="plain">	&lt;browsers&gt;</code></div>
 <div class="line"><code class="plain">		&lt;browser platform=</code><code class="string">"Mozilla"</code><code class="plain"> version=</code><code class="string">"1.0+"</code><code class="plain">/&gt;</code></div>
@@ -1263,11 +1268,11 @@ The <tt class=" ">parameter</tt> element holds information about a parameter for
 <div class="line"><code class="plain">          &lt;specification name=</code><code class="string">"ECMAScript v3"</code><code class="plain">/&gt;</code></div>
 <div class="line"><code class="plain">        &lt;/availability&gt;</code></div>
 <div class="line"><code class="plain">        &lt;example&gt;</code></div>
-<div class="line"><code class="plain">          &amp;lt;h3&amp;gt;Concatenating two arrays&amp;lt;/h3&amp;gt;&amp;lt;p&amp;gt;The following code concatenates two arrays:&amp;lt;/p&amp;gt;</code></div>
-<div class="line"><code class="plain">		  &amp;lt;pre&amp;gt;alpha = </code><code class="keyword">new</code><code class="plain"> Array(</code><code class="string">"a"</code><code class="plain">, </code><code class="string">"b"</code><code class="plain">, </code><code class="string">"c"</code><code class="plain">);&amp;lt;/pre&amp;gt</code></div>
+<div class="line"><code class="plain">          &lt;h3&gt;Concatenating two arrays&lt;/h3&gt;&lt;p&gt;The following code concatenates two arrays:&lt;/p&gt;</code></div>
+<div class="line"><code class="plain">		  &lt;pre&gt;alpha = </code><code class="keyword">new</code><code class="plain"> Array(</code><code class="string">"a"</code><code class="plain">, </code><code class="string">"b"</code><code class="plain">, </code><code class="string">"c"</code><code class="plain">);&lt;/pre&gt;</code></div>
 <div class="line"><code class="plain">        &lt;/example&gt;</code></div>
 <div class="line"><code class="plain">        &lt;remarks&gt;</code></div>
-<div class="line"><code class="plain">          &amp;lt;p&amp;gt;&amp;lt;code&amp;gt;concat&amp;lt;/code&amp;gt; does not alter the original</code></div>
+<div class="line"><code class="plain">          &lt;p&gt;&lt;code&gt;concat&lt;/code&gt; does not alter the original</code></div>
 <div class="line"><code class="plain">          arrays, but returns a </code><code class="string">"one level deep"</code><code class="plain"> copy that contains</code></div>
 <div class="line"><code class="plain">          copies of the same elements combined from the original</code></div>
 <div class="line"><code class="plain">          arrays.</code></div>
@@ -1289,9 +1294,9 @@ The <tt class=" ">parameter</tt> element holds information about a parameter for
 <div class="line"><code class="plain">		&lt;specification name=</code><code class="string">"JavaScript 1.5"</code><code class="plain">/&gt;</code></div>
 <div class="line"><code class="plain">		&lt;specification name=</code><code class="string">"Gecko 1.8b2"</code><code class="plain">/&gt;</code></div>
 <div class="line"><code class="plain">	&lt;/availability&gt;</code></div>
-<div class="line"><code class="plain">	&lt;example&gt;&amp;lt;h3&amp;gt;Example: Testing size of all array elements &amp;lt;/h3&amp;gt;</code></div>
-<div class="line"><code class="plain">&amp;lt;p&amp;gt;The following example tests whether all elements in the array are bigger than </code><code class="value">10</code><code class="plain">.&amp;lt;/p&amp;gt;&lt;/example&gt;</code></div>
-<div class="line"><code class="plain">	&lt;remarks&gt;&amp;lt;p&amp;gt;&amp;lt;code&amp;gt;every&amp;lt;/code&amp;gt; executes the provided function (&amp;lt;code&amp;gt;callback&amp;lt;/code&amp;gt;) once </code><code class="keyword">for</code><code class="plain"> each element present in the array until it finds one where &amp;lt;code&amp;gt;callback&amp;lt;/code&amp;gt; returns a </code><code class="keyword">false</code><code class="plain"> value.&lt;/remarks&gt;</code></div>
+<div class="line"><code class="plain">	&lt;example&gt;&lt;h3&gt;Example: Testing size of all array elements &lt;/h3&gt;</code></div>
+<div class="line"><code class="plain">&lt;p&gt;The following example tests whether all elements in the array are bigger than </code><code class="value">10</code><code class="plain">.&lt;/p&gt;&lt;/example&gt;</code></div>
+<div class="line"><code class="plain">	&lt;remarks&gt;&lt;p&gt;&lt;code&gt;every&lt;/code&gt; executes the provided function (&lt;code&gt;callback&lt;/code&gt;) once </code><code class="keyword">for</code><code class="plain"> each element present in the array until it finds one where &lt;code&gt;callback&lt;/code&gt; returns a </code><code class="keyword">false</code><code class="plain"> value.&lt;/remarks&gt;</code></div>
 <div class="line"><code class="plain">	&lt;description&gt;Returns </code><code class="keyword">true</code><code class="plain"> </code><code class="keyword">if</code><code class="plain"> every element in an array meets the specified criteria.&lt;/description&gt;</code></div>
 <div class="line"><code class="plain">	&lt;browsers&gt;</code></div>
 <div class="line"><code class="plain">		&lt;browser platform=</code><code class="string">"Mozilla"</code><code class="plain"> version=</code><code class="string">"1.0+"</code><code class="plain">/&gt;</code></div>
@@ -1384,11 +1389,11 @@ The <tt class=" ">parameters</tt> element is a container for the individual para
 <div class="line"><code class="plain">          &lt;specification name=</code><code class="string">"ECMAScript v3"</code><code class="plain">/&gt;</code></div>
 <div class="line"><code class="plain">        &lt;/availability&gt;</code></div>
 <div class="line"><code class="plain">        &lt;example&gt;</code></div>
-<div class="line"><code class="plain">          &amp;lt;h3&amp;gt;Concatenating two arrays&amp;lt;/h3&amp;gt;&amp;lt;p&amp;gt;The following code concatenates two arrays:&amp;lt;/p&amp;gt;</code></div>
-<div class="line"><code class="plain">		  &amp;lt;pre&amp;gt;alpha = </code><code class="keyword">new</code><code class="plain"> Array(</code><code class="string">"a"</code><code class="plain">, </code><code class="string">"b"</code><code class="plain">, </code><code class="string">"c"</code><code class="plain">);&amp;lt;/pre&amp;gt</code></div>
+<div class="line"><code class="plain">          &lt;h3&gt;Concatenating two arrays&lt;/h3&gt;&lt;p&gt;The following code concatenates two arrays:&lt;/p&gt;</code></div>
+<div class="line"><code class="plain">		  &lt;pre&gt;alpha = </code><code class="keyword">new</code><code class="plain"> Array(</code><code class="string">"a"</code><code class="plain">, </code><code class="string">"b"</code><code class="plain">, </code><code class="string">"c"</code><code class="plain">);&lt;/pre&gt;</code></div>
 <div class="line"><code class="plain">        &lt;/example&gt;</code></div>
 <div class="line"><code class="plain">        &lt;remarks&gt;</code></div>
-<div class="line"><code class="plain">          &amp;lt;p&amp;gt;&amp;lt;code&amp;gt;concat&amp;lt;/code&amp;gt; does not alter the original</code></div>
+<div class="line"><code class="plain">          &lt;p&gt;&lt;code&gt;concat&lt;/code&gt; does not alter the original</code></div>
 <div class="line"><code class="plain">          arrays, but returns a </code><code class="string">"one level deep"</code><code class="plain"> copy that contains</code></div>
 <div class="line"><code class="plain">          copies of the same elements combined from the original</code></div>
 <div class="line"><code class="plain">          arrays.</code></div>
@@ -1410,9 +1415,9 @@ The <tt class=" ">parameters</tt> element is a container for the individual para
 <div class="line"><code class="plain">		&lt;specification name=</code><code class="string">"JavaScript 1.5"</code><code class="plain">/&gt;</code></div>
 <div class="line"><code class="plain">		&lt;specification name=</code><code class="string">"Gecko 1.8b2"</code><code class="plain">/&gt;</code></div>
 <div class="line"><code class="plain">	&lt;/availability&gt;</code></div>
-<div class="line"><code class="plain">	&lt;example&gt;&amp;lt;h3&amp;gt;Example: Testing size of all array elements &amp;lt;/h3&amp;gt;</code></div>
-<div class="line"><code class="plain">&amp;lt;p&amp;gt;The following example tests whether all elements in the array are bigger than </code><code class="value">10</code><code class="plain">.&amp;lt;/p&amp;gt;&lt;/example&gt;</code></div>
-<div class="line"><code class="plain">	&lt;remarks&gt;&amp;lt;p&amp;gt;&amp;lt;code&amp;gt;every&amp;lt;/code&amp;gt; executes the provided function (&amp;lt;code&amp;gt;callback&amp;lt;/code&amp;gt;) once </code><code class="keyword">for</code><code class="plain"> each element present in the array until it finds one where &amp;lt;code&amp;gt;callback&amp;lt;/code&amp;gt; returns a </code><code class="keyword">false</code><code class="plain"> value.&lt;/remarks&gt;</code></div>
+<div class="line"><code class="plain">	&lt;example&gt;&lt;h3&gt;Example: Testing size of all array elements &lt;/h3&gt;</code></div>
+<div class="line"><code class="plain">&lt;p&gt;The following example tests whether all elements in the array are bigger than </code><code class="value">10</code><code class="plain">.&lt;/p&gt;&lt;/example&gt;</code></div>
+<div class="line"><code class="plain">	&lt;remarks&gt;&lt;p&gt;&lt;code&gt;every&lt;/code&gt; executes the provided function (&lt;code&gt;callback&lt;/code&gt;) once </code><code class="keyword">for</code><code class="plain"> each element present in the array until it finds one where &lt;code&gt;callback&lt;/code&gt; returns a </code><code class="keyword">false</code><code class="plain"> value.&lt;/remarks&gt;</code></div>
 <div class="line"><code class="plain">	&lt;description&gt;Returns </code><code class="keyword">true</code><code class="plain"> </code><code class="keyword">if</code><code class="plain"> every element in an array meets the specified criteria.&lt;/description&gt;</code></div>
 <div class="line"><code class="plain">	&lt;browsers&gt;</code></div>
 <div class="line"><code class="plain">		&lt;browser platform=</code><code class="string">"Mozilla"</code><code class="plain"> version=</code><code class="string">"1.0+"</code><code class="plain">/&gt;</code></div>
@@ -1630,14 +1635,14 @@ Contains text remarks about a class, constructor, method, or property. Remarks a
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">&lt;remarks&gt;</code></div>
-<div class="line"><code class="plain">          &amp;lt;p&amp;gt;The value of the &amp;lt;code&amp;gt;length&amp;lt;/code&amp;gt; property is an</code></div>
+<div class="line"><code class="plain">          &lt;p&gt;The value of the &lt;code&gt;length&lt;/code&gt; property is an</code></div>
 <div class="line"><code class="plain">          integer with a positive sign and a value less than </code><code class="value">2</code><code class="plain"> to</code></div>
-<div class="line"><code class="plain">          the </code><code class="value">32</code><code class="plain"> power (</code><code class="value">2</code><code class="plain">&amp;lt;sup&amp;gt;</code><code class="value">32</code><code class="plain">&amp;lt;/sup&amp;gt;).&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;You can set the &amp;lt;code&amp;gt;length&amp;lt;/code&amp;gt; property to</code></div>
+<div class="line"><code class="plain">          the </code><code class="value">32</code><code class="plain"> power (</code><code class="value">2</code><code class="plain">&lt;sup&gt;</code><code class="value">32</code><code class="plain">&lt;/sup&gt;).&lt;/p&gt;&lt;p&gt;You can set the &lt;code&gt;length&lt;/code&gt; property to</code></div>
 <div class="line"><code class="plain">          truncate an array at any time. When you extend an array</code></div>
-<div class="line"><code class="plain">          by changing its &amp;lt;code&amp;gt;length&amp;lt;/code&amp;gt; property, the number</code></div>
+<div class="line"><code class="plain">          by changing its &lt;code&gt;length&lt;/code&gt; property, the number</code></div>
 <div class="line"><code class="plain">          of actual elements does not increase; </code><code class="keyword">for</code><code class="plain"> example, </code><code class="keyword">if</code><code class="plain"> you</code></div>
-<div class="line"><code class="plain">          set &amp;lt;code&amp;gt;length&amp;lt;/code&amp;gt; to </code><code class="value">3</code><code class="plain"> when it is currently </code><code class="value">2</code><code class="plain">, the</code></div>
-<div class="line"><code class="plain">          array still contains only </code><code class="value">2</code><code class="plain"> elements.&amp;lt;/p&amp;gt;</code></div>
+<div class="line"><code class="plain">          set &lt;code&gt;length&lt;/code&gt; to </code><code class="value">3</code><code class="plain"> when it is currently </code><code class="value">2</code><code class="plain">, the</code></div>
+<div class="line"><code class="plain">          array still contains only </code><code class="value">2</code><code class="plain"> elements.&lt;/p&gt;</code></div>
 <div class="line"><code class="plain">&lt;/remarks&gt;</code></div>
 </div>
 </div>    </div>
@@ -1838,7 +1843,7 @@ An element that specifies the mapping of one type to another.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">&lt;type-maps&gt;</code></div>
-<div class="line"><code class="plain">      &lt;type-map sourceType=</code><code class="string">"jQuery"</code><code class="plain"> destinationType=</code><code class="string">"Function&amp;lt;jQuery&amp;gt;"</code><code class="plain">/&gt;</code></div>
+<div class="line"><code class="plain">      &lt;type-map sourceType=</code><code class="string">"jQuery"</code><code class="plain"> destinationType=</code><code class="string">"Function&lt;jQuery&gt;"</code><code class="plain">/&gt;</code></div>
 <div class="line"><code class="plain">&lt;/type-maps&gt;</code></div>
 </div>
 </div>    <p>
@@ -1861,7 +1866,7 @@ A container for all type-map elements.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">&lt;type-maps&gt;</code></div>
-<div class="line"><code class="plain">      &lt;type-map sourceType=</code><code class="string">"jQuery"</code><code class="plain"> destinationType=</code><code class="string">"Function&amp;lt;jQuery&amp;gt;"</code><code class="plain">/&gt;</code></div>
+<div class="line"><code class="plain">      &lt;type-map sourceType=</code><code class="string">"jQuery"</code><code class="plain"> destinationType=</code><code class="string">"Function&lt;jQuery&gt;"</code><code class="plain">/&gt;</code></div>
 <div class="line"><code class="plain">&lt;/type-maps&gt;</code></div>
 </div>
 </div>    <p>
@@ -1916,15 +1921,15 @@ Contains a valid value for an attribute for a parameter for a method.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">&lt;parameters&gt;</code></div>
-<div class="line"><code class="plain">          &lt;parameter name=</code><code class="string">"code"</code><code class="plain"> type=</code><code class="string">"Number"</code><code class="plain"> usage=</code><code class="string">"required"</code><code class="plain">&gt;</code></div>
-<div class="line"><code class="plain">            &lt;description&gt;Code </code><code class="keyword">for</code><code class="plain"> the parameter.&lt;/description&gt;</code></div>
-<div class="line"><code class="plain">            &lt;values&gt;</code></div>
-<div class="line"><code class="plain">              &lt;value name=</code><code class="string">"0"</code><code class="plain"> description=</code><code class="string">"Boolean"</code><code class="plain"> /&gt;</code></div>
-<div class="line"><code class="plain">              &lt;value name=</code><code class="string">"1"</code><code class="plain"> description=</code><code class="string">"String"</code><code class="plain"> /&gt;</code></div>
-<div class="line"><code class="plain">              &lt;value name=</code><code class="string">"2"</code><code class="plain"> description=</code><code class="string">"Number"</code><code class="plain"> /&gt;</code></div>
-<div class="line"><code class="plain">            &lt;/values&gt;</code></div>
-<div class="line"><code class="plain">          &lt;/parameter&gt;</code></div>
-<div class="line"><code class="plain">        &lt;/parameters&gt;</code></div>
+<div class="line"><code class="plain">	&lt;parameter name=</code><code class="string">"code"</code><code class="plain"> type=</code><code class="string">"Number"</code><code class="plain"> usage=</code><code class="string">"required"</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">		&lt;description&gt;Code </code><code class="keyword">for</code><code class="plain"> the parameter.&lt;/description&gt;</code></div>
+<div class="line"><code class="plain">		&lt;values&gt;</code></div>
+<div class="line"><code class="plain">			&lt;value name=</code><code class="string">"0"</code><code class="plain"> description=</code><code class="string">"Boolean"</code><code class="plain"> /&gt;</code></div>
+<div class="line"><code class="plain">            &lt;value name=</code><code class="string">"1"</code><code class="plain"> description=</code><code class="string">"String"</code><code class="plain"> /&gt;</code></div>
+<div class="line"><code class="plain">            &lt;value name=</code><code class="string">"2"</code><code class="plain"> description=</code><code class="string">"Number"</code><code class="plain"> /&gt;</code></div>
+<div class="line"><code class="plain">		&lt;/values&gt;</code></div>
+<div class="line"><code class="plain">	&lt;/parameter&gt;</code></div>
+<div class="line"><code class="plain">&lt;/parameters&gt;</code></div>
 </div>
 </div>    </div>
     <div class="section section-3 " id="30083171_ScriptDocXML(SDOCML)2.0Specification-values">
@@ -1968,15 +1973,15 @@ Container node for the individual value nodes for a parameter.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">&lt;parameters&gt;</code></div>
-<div class="line"><code class="plain">          &lt;parameter name=</code><code class="string">"code"</code><code class="plain"> type=</code><code class="string">"Number"</code><code class="plain"> usage=</code><code class="string">"required"</code><code class="plain">&gt;</code></div>
-<div class="line"><code class="plain">            &lt;description&gt;Code </code><code class="keyword">for</code><code class="plain"> the parameter.&lt;/description&gt;</code></div>
-<div class="line"><code class="plain">            &lt;values&gt;</code></div>
-<div class="line"><code class="plain">              &lt;value name=</code><code class="string">"0"</code><code class="plain"> description=</code><code class="string">"Boolean"</code><code class="plain"> /&gt;</code></div>
-<div class="line"><code class="plain">              &lt;value name=</code><code class="string">"1"</code><code class="plain"> description=</code><code class="string">"String"</code><code class="plain"> /&gt;</code></div>
-<div class="line"><code class="plain">              &lt;value name=</code><code class="string">"2"</code><code class="plain"> description=</code><code class="string">"Number"</code><code class="plain"> /&gt;</code></div>
-<div class="line"><code class="plain">            &lt;/values&gt;</code></div>
-<div class="line"><code class="plain">          &lt;/parameter&gt;</code></div>
-<div class="line"><code class="plain">        &lt;/parameters&gt;</code></div>
+<div class="line"><code class="plain">	&lt;parameter name=</code><code class="string">"code"</code><code class="plain"> type=</code><code class="string">"Number"</code><code class="plain"> usage=</code><code class="string">"required"</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">		&lt;description&gt;Code </code><code class="keyword">for</code><code class="plain"> the parameter.&lt;/description&gt;</code></div>
+<div class="line"><code class="plain">		&lt;values&gt;</code></div>
+<div class="line"><code class="plain">			&lt;value name=</code><code class="string">"0"</code><code class="plain"> description=</code><code class="string">"Boolean"</code><code class="plain"> /&gt;</code></div>
+<div class="line"><code class="plain">            &lt;value name=</code><code class="string">"1"</code><code class="plain"> description=</code><code class="string">"String"</code><code class="plain"> /&gt;</code></div>
+<div class="line"><code class="plain">            &lt;value name=</code><code class="string">"2"</code><code class="plain"> description=</code><code class="string">"Number"</code><code class="plain"> /&gt;</code></div>
+<div class="line"><code class="plain">		&lt;/values&gt;</code></div>
+<div class="line"><code class="plain">	&lt;/parameter&gt;</code></div>
+<div class="line"><code class="plain">&lt;/parameters&gt;</code></div>
 </div>
 </div>    </div>
     </div>

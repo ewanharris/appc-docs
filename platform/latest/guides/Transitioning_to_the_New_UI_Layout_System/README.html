@@ -20,6 +20,8 @@
             <h1>Transitioning to the New UI Layout System</h1>
     <div class="section section-2 " id="30088148_TransitioningtotheNewUILayoutSystem-Contents">
         <h2 class="heading "><span>Contents</span></h2>
+    <p>
+    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Transitioning_to_the_New_UI_Layout_System-section-30088148_TransitioningtotheNewUILayoutSystem-Overview">Overview</a>    </p>
 </li><li class=" ">    <p>
@@ -386,7 +388,7 @@ Used to position the view horizontally when neither <tt class=" ">left</tt> or <
             </td>
                 <td class="confluenceTd" rowspan="1" colspan="1">
         <p>
-If <tt class=" ">height</tt> is defined, it takes precedence and the positioning pins are not used to determine the view's height.<br/><br/>If <tt class=" ">height</tt> is not defined, and at least two vertical positioning pins are defined, the height is determined implicitly from the pins. If all three vertical pins are defined, the height is determined by the  <tt class=" ">top</tt> and <tt class=" ">center.y</tt> pins. If height cannot be implicitly calculated it follows the view's default sizing behavior.    </p>
+If <tt class=" ">height</tt> is defined, it takes precedence and the positioning pins are not used to determine the view's height.<br/><br/>If <tt class=" ">height</tt> is not defined, and at least two vertical positioning pins are defined, the height is determined implicitly from the pins. If all three vertical pins are defined, the height is determined by the <tt class=" ">top</tt> and <tt class=" ">center.y</tt> pins. If height cannot be implicitly calculated it follows the view's default sizing behavior.    </p>
             </td>
         </tr>
     <tr>
@@ -451,8 +453,6 @@ To avoid this, you can batch layout updates, so multiple layout changes only res
 </div>    <div class="confbox admonition admonition-note aui-message warning shadowed information-macro">
         
     <p>
-    </p>
-    <p>
 The <tt class=" ">applyProperties</tt> method is new in Release 3.0. When working with 2.X releases of the Titanium SDK, <a class="external-link external-link" href="#!/api/Titanium.UI.View-method-updateLayout">updateLayout</a> can be used in place of <tt class=" ">applyProperties</tt> in the above code sample.    </p>
     <p>
 The <tt class=" ">applyProperties</tt> method can be used to bulk-update properties on <i class=" ">any</i> Titanium object, while <tt class=" ">updateLayout</tt> does the same thing, but only works on view objects. So <tt class=" ">updateLayout</tt> is deprecated in Release 3.0 in favor of the more general <tt class=" ">applyProperties</tt>.    </p>
@@ -462,7 +462,7 @@ The <tt class=" ">applyProperties</tt> method can be used to bulk-update propert
     <div class="section section-3 " id="30088148_TransitioningtotheNewUILayoutSystem-ControlSizeandPositionandPost-LayoutEvent">
         <h3 class="heading "><span>Control Size and Position and Post-Layout Event</span></h3>
     <p>
-In previous releases, there was no reliable means to determine the size and position of a control after it was laid out. In this release, the  <a class="external-link external-link" href="#!/api/Titanium.UI.View-property-rect">rect</a> and <a class="external-link external-link" href="#!/api/Titanium.UI.View-property-size">size</a> properties can be used to determine the size and position of the view.    </p>
+In previous releases, there was no reliable means to determine the size and position of a control after it was laid out. In this release, the <a class="external-link external-link" href="#!/api/Titanium.UI.View-property-rect">rect</a> and <a class="external-link external-link" href="#!/api/Titanium.UI.View-property-size">size</a> properties can be used to determine the size and position of the view.    </p>
     <p>
 Because layout can occur asynchronously, it is sometimes difficult to determine the actual size of a control after it has been laid out. To address this issue, a new <tt class=" ">postlayout</tt> event has been added that is fired when a layout cycle completes. For example:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
@@ -626,8 +626,6 @@ With <tt class=" ">horizontalWrap</tt> set to <tt class=" ">false</tt>, all chil
     <div class="confbox admonition admonition-note aui-message warning shadowed information-macro">
         
     <p>
-    </p>
-    <p>
 Prior to Release 2.1, horizontal layout behavior was not consistent across platforms. In particular:    </p>
 <ul class=" "><li class=" ">    <p>
 Mobile Web did not wrap to a second row and aligned all children to the top of the parent view if no <tt class=" ">top</tt> or <tt class=" ">bottom</tt> pins were defined.    </p>
@@ -670,8 +668,8 @@ iOS now follows the same behavior as Android, and clips child views to the bound
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var win = Ti.UI.createWindow({});</code></div>
 <div class="line"><code class="comments">//Clipping.</code></div>
-<div class="line"><code class="plain">var parent = Ti.UI.createView(\{backgroundColor:</code><code class="string">'red'</code><code class="plain">,width:</code><code class="string">'100'</code><code class="plain">,height:</code><code class="string">'100'</code><code class="plain">\})</code></div>
-<div class="line"><code class="plain">var child = Ti.UI.createView(\{backgroundColor:</code><code class="string">'green'</code><code class="plain">,width:</code><code class="value">150</code><code class="plain">,height:</code><code class="value">150</code><code class="plain">,left:</code><code class="value">5</code><code class="plain">,top:</code><code class="value">5</code><code class="plain">\});</code></div>
+<div class="line"><code class="plain">var parent = Ti.UI.createView(\{backgroundColor: </code><code class="string">'red'</code><code class="plain">, width: </code><code class="string">'100'</code><code class="plain">, height: </code><code class="string">'100'</code><code class="plain">\})</code></div>
+<div class="line"><code class="plain">var child = Ti.UI.createView(\{backgroundColor: </code><code class="string">'green'</code><code class="plain">, width: </code><code class="value">150</code><code class="plain">, height: </code><code class="value">150</code><code class="plain">, left: </code><code class="value">5</code><code class="plain">, top: </code><code class="value">5</code><code class="plain">\});</code></div>
 <div class="line"><code class="plain">parent.add(child);</code></div>
 <div class="line"><code class="plain">win.add(parent);</code></div>
 <div class="line"><code class="plain">win.open();</code></div>
@@ -714,14 +712,12 @@ When width or height parameters are specified as &quot;auto&quot;, components wi
 <div class="line"><code class="plain">var win = Ti.UI.createWindow({});</code></div>
 <div class="line"><code class="comments">//parent will follow SIZE in 1_8_X, FILL in 2_0_X</code></div>
 <div class="line"><code class="plain">var parent = Ti.UI.createView({ backgroundColor: </code><code class="string">'red'</code><code class="plain">, width: </code><code class="string">'auto'</code><code class="plain">, height: </code><code class="string">'auto'</code><code class="plain"> })</code></div>
-<div class="line"><code class="plain">var child = Ti.UI.createView( {backgroundColor: </code><code class="string">'green'</code><code class="plain">, width: </code><code class="value">100</code><code class="plain">, height: </code><code class="value">100</code><code class="plain">, left: </code><code class="value">5</code><code class="plain">, right: </code><code class="value">5</code><code class="plain">, top: </code><code class="value">5</code><code class="plain">, bottom:</code><code class="value">5</code><code class="plain"> });</code></div>
+<div class="line"><code class="plain">var child = Ti.UI.createView( {backgroundColor: </code><code class="string">'green'</code><code class="plain">, width: </code><code class="value">100</code><code class="plain">, height: </code><code class="value">100</code><code class="plain">, left: </code><code class="value">5</code><code class="plain">, right: </code><code class="value">5</code><code class="plain">, top: </code><code class="value">5</code><code class="plain">, bottom: </code><code class="value">5</code><code class="plain"> });</code></div>
 <div class="line"><code class="plain">parent.add(child);</code></div>
 <div class="line"><code class="plain">win.add(parent);</code></div>
 <div class="line"><code class="plain">win.open();</code></div>
 </div>
-</div>    <p>
-    </p>
-    <div class="tablewrap">
+</div>    <div class="tablewrap">
         <table class="confluenceTable">
         <thead class=" ">    <tr>
             <td class="confluenceTh" rowspan="1" colspan="1">
@@ -763,7 +759,7 @@ The following excerpt shows a label with undefined size and no position pins. In
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var win = Ti.UI.createWindow({});</code></div>
-<div class="line"><code class="plain">var label = Ti.UI.createLabel({text:</code><code class="string">'I am label'</code><code class="plain">, backgroundColor:</code><code class="string">'red'</code><code class="plain">});</code></div>
+<div class="line"><code class="plain">var label = Ti.UI.createLabel({text: </code><code class="string">'I am label'</code><code class="plain">, backgroundColor: </code><code class="string">'red'</code><code class="plain">});</code></div>
 <div class="line"><code class="plain">win.add(label);</code></div>
 <div class="line"><code class="plain">win.open();</code></div>
 </div>
@@ -799,8 +795,8 @@ The following excerpt shows a label with undefined size and position pins. In 1.
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var win = Ti.UI.createWindow({});</code></div>
 <div class="line"><code class="comments">//Implicit width calculation in 2_0_X</code></div>
-<div class="line"><code class="plain">var parent = Ti.UI.createView({backgroundColor:</code><code class="string">'red'</code><code class="plain">,width:</code><code class="string">'100'</code><code class="plain">,height:</code><code class="string">'100'</code><code class="plain">})</code></div>
-<div class="line"><code class="plain">var child = Ti.UI.createView({backgroundColor:</code><code class="string">'green'</code><code class="plain">,left:</code><code class="value">5</code><code class="plain">,top:</code><code class="value">5</code><code class="plain">,center:{x:</code><code class="value">20</code><code class="plain">,y:</code><code class="value">20</code><code class="plain">}});</code></div>
+<div class="line"><code class="plain">var parent = Ti.UI.createView({backgroundColor: </code><code class="string">'red'</code><code class="plain">, width: </code><code class="string">'100'</code><code class="plain">, height: </code><code class="string">'100'</code><code class="plain">})</code></div>
+<div class="line"><code class="plain">var child = Ti.UI.createView({backgroundColor: </code><code class="string">'green'</code><code class="plain">, left: </code><code class="value">5</code><code class="plain">, top: </code><code class="value">5</code><code class="plain">, center: {x: </code><code class="value">20</code><code class="plain">, y: </code><code class="value">20</code><code class="plain">}});</code></div>
 <div class="line"><code class="plain">parent.add(child);</code></div>
 <div class="line"><code class="plain">win.add(parent);</code></div>
 <div class="line"><code class="plain">win.open();</code></div>
@@ -847,9 +843,8 @@ The following excerpt creates a view that has conflicting position pins. In Rele
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var win = Ti.UI.createWindow({});</code></div>
-<div class="line"><code class="plain">var parent = Ti.UI.createView({backgroundColor:</code><code class="string">'red'</code><code class="plain">,width:</code><code class="string">'100'</code><code class="plain">,height:</code><code class="string">'100'</code><code class="plain">})</code></div>
-<div class="line"><code class="plain">var child = Ti.UI.createView({backgroundColor:</code><code class="string">'green'</code><code class="plain">,width:</code><code class="value">50</code><code class="plain">,height:</code><code class="value">50</code><code class="plain">,left:</code><code class="value">5</code><code class="plain">,top:</code><code class="value">5</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">center:{x:</code><code class="value">60</code><code class="plain">,y:</code><code class="value">60</code><code class="plain">}});</code></div>
+<div class="line"><code class="plain">var parent = Ti.UI.createView({backgroundColor: </code><code class="string">'red'</code><code class="plain">, width: </code><code class="string">'100'</code><code class="plain">, height: </code><code class="string">'100'</code><code class="plain">})</code></div>
+<div class="line"><code class="plain">var child = Ti.UI.createView({backgroundColor: </code><code class="string">'green'</code><code class="plain">, width: </code><code class="value">50</code><code class="plain">, height: </code><code class="value">50</code><code class="plain">, left: </code><code class="value">5</code><code class="plain">, top: </code><code class="value">5</code><code class="plain">, center: {x: </code><code class="value">60</code><code class="plain">, y: </code><code class="value">60</code><code class="plain">}});</code></div>
 <div class="line"><code class="plain">parent.add(child);</code></div>
 <div class="line"><code class="plain">win.add(parent);</code></div>
 <div class="line"><code class="plain">win.open();</code></div>
@@ -897,9 +892,9 @@ Note that there are still inconsistencies between Android, iOS and Mobile Web in
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var win = Ti.UI.createWindow({});</code></div>
 <div class="line"><code class="comments">//Horizontal Layout behavior. Green child centered vertically (No positioning pins)</code></div>
-<div class="line"><code class="plain">var parent = Ti.UI.createView({backgroundColor:</code><code class="string">'red'</code><code class="plain">,layout:</code><code class="string">'horizontal'</code><code class="plain">,width:</code><code class="value">100</code><code class="plain">, height:</code><code class="value">100</code><code class="plain">})</code></div>
-<div class="line"><code class="plain">var child1 = Ti.UI.createView({backgroundColor:</code><code class="string">'green'</code><code class="plain">,height:</code><code class="value">20</code><code class="plain">,width:</code><code class="value">50</code><code class="plain">});</code></div>
-<div class="line"><code class="plain">var child2 = Ti.UI.createView({backgroundColor:</code><code class="string">'blue'</code><code class="plain">,height:</code><code class="value">40</code><code class="plain">,width:</code><code class="value">50</code><code class="plain">});</code></div>
+<div class="line"><code class="plain">var parent = Ti.UI.createView({backgroundColor: </code><code class="string">'red'</code><code class="plain">, layout: </code><code class="string">'horizontal'</code><code class="plain">, width: </code><code class="value">100</code><code class="plain">, height: </code><code class="value">100</code><code class="plain">})</code></div>
+<div class="line"><code class="plain">var child1 = Ti.UI.createView({backgroundColor: </code><code class="string">'green'</code><code class="plain">, height: </code><code class="value">20</code><code class="plain">, width: </code><code class="value">50</code><code class="plain">});</code></div>
+<div class="line"><code class="plain">var child2 = Ti.UI.createView({backgroundColor: </code><code class="string">'blue'</code><code class="plain">, height: </code><code class="value">40</code><code class="plain">, width: </code><code class="value">50</code><code class="plain">});</code></div>
 <div class="line"><code class="plain">parent.add(child1);</code></div>
 <div class="line"><code class="plain">parent.add(child2);</code></div>
 <div class="line"><code class="plain">win.add(parent);</code></div>
@@ -940,16 +935,15 @@ The behavior changes in Android for composite layout are listed below with sampl
     <div class="section section-4 " id="30088148_TransitioningtotheNewUILayoutSystem-LayoutPrecedenceinAndroid">
         <h4 class="heading "><span>Layout Precedence in Android</span></h4>
     <p>
-In previous releases, the positioning properties would determine the width or height of a view even when width or height was specified explicitly. With the new layout rules, the specified width/height take precedence, and then positioning properties afterwards.  If one positioning property conflicts with another, properties lower in the precedence chain are ignored.    </p>
+In previous releases, the positioning properties would determine the width or height of a view even when width or height was specified explicitly. With the new layout rules, the specified width/height take precedence, and then positioning properties afterwards. If one positioning property conflicts with another, properties lower in the precedence chain are ignored.    </p>
     <p>
 <strong class=" ">Test Code</strong>    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var win = Ti.UI.createWindow({});</code></div>
-<div class="line"><code class="plain">var parent = Ti.UI.createView({backgroundColor:</code><code class="string">'red'</code><code class="plain">})</code></div>
+<div class="line"><code class="plain">var parent = Ti.UI.createView({backgroundColor: </code><code class="string">'red'</code><code class="plain">})</code></div>
 <div class="line"><code class="comments">//child width/height calculated from top/bottom/right/left properties in 1_8_X, and height/width will be 100 in 2_0_X</code></div>
-<div class="line"><code class="plain">var child = Ti.UI.createView({backgroundColor:</code><code class="string">'green'</code><code class="plain">,width:</code><code class="value">100</code><code class="plain">,height:</code><code class="value">100</code><code class="plain">,left:</code><code class="value">5</code><code class="plain">,right:</code><code class="value">5</code><code class="plain">,top:</code><code class="value">5</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">bottom:</code><code class="value">5</code><code class="plain">})</code></div>
+<div class="line"><code class="plain">var child = Ti.UI.createView({backgroundColor: </code><code class="string">'green'</code><code class="plain">, width: </code><code class="value">100</code><code class="plain">, height: </code><code class="value">100</code><code class="plain">, left: </code><code class="value">5</code><code class="plain">, right: </code><code class="value">5</code><code class="plain">, top: </code><code class="value">5</code><code class="plain">, bottom: </code><code class="value">5</code><code class="plain">})</code></div>
 <div class="line"><code class="plain">parent.add(child);</code></div>
 <div class="line"><code class="plain">win.add(parent);</code></div>
 <div class="line"><code class="plain">win.open();</code></div>
@@ -991,10 +985,10 @@ When width or height parameters are undefined, an attempt will be made to calcul
 The following excerpt shows a child view with positioning pins but no defined width or height. In 1.8, this resulted    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">var win = Ti.UI.createWindow({backgroundColor:</code><code class="string">'white'</code><code class="plain">,});</code></div>
+<div class="line"><code class="plain">var win = Ti.UI.createWindow({backgroundColor: </code><code class="string">'white'</code><code class="plain">,});</code></div>
 <div class="line"><code class="comments">//Implicit width calculation in 2_0_X</code></div>
-<div class="line"><code class="plain">var parent = Ti.UI.createView({backgroundColor:</code><code class="string">'red'</code><code class="plain">,width:</code><code class="string">'100'</code><code class="plain">,height:</code><code class="string">'100'</code><code class="plain">})</code></div>
-<div class="line"><code class="plain">var child = Ti.UI.createView({backgroundColor:</code><code class="string">'green'</code><code class="plain">,left:</code><code class="value">5</code><code class="plain">,top:</code><code class="value">5</code><code class="plain">,center:{x:</code><code class="value">20</code><code class="plain">,y:</code><code class="value">20</code><code class="plain">}});</code></div>
+<div class="line"><code class="plain">var parent = Ti.UI.createView({backgroundColor: </code><code class="string">'red'</code><code class="plain">, width: </code><code class="string">'100'</code><code class="plain">, height: </code><code class="string">'100'</code><code class="plain">})</code></div>
+<div class="line"><code class="plain">var child = Ti.UI.createView({backgroundColor: </code><code class="string">'green'</code><code class="plain">, left: </code><code class="value">5</code><code class="plain">, top: </code><code class="value">5</code><code class="plain">, center: {x: </code><code class="value">20</code><code class="plain">, y: </code><code class="value">20</code><code class="plain">}});</code></div>
 <div class="line"><code class="plain">parent.add(child);</code></div>
 <div class="line"><code class="plain">win.add(parent);</code></div>
 <div class="line"><code class="plain">win.open();</code></div>
@@ -1029,7 +1023,7 @@ The following excerpt shows a child view with positioning pins but no defined wi
     <div class="section section-4 " id="30088148_TransitioningtotheNewUILayoutSystem-PositioningPinsinAndroid">
         <h4 class="heading "><span>Positioning Pins in Android</span></h4>
     <p>
-In previous versions of the Titanium SDK, the precedence of positioning pins was (center.x, left, right, center.y, top, bottom). It now follows the precedence defined above.  When no positioning pins are defined the child is placed at the center of the parent.    </p>
+In previous versions of the Titanium SDK, the precedence of positioning pins was (center.x, left, right, center.y, top, bottom). It now follows the precedence defined above. When no positioning pins are defined the child is placed at the center of the parent.    </p>
     <p>
 <strong class=" ">Test Code</strong>    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
@@ -1037,9 +1031,8 @@ In previous versions of the Titanium SDK, the precedence of positioning pins was
 <div class="line"><code class="plain">var win = Ti.UI.createWindow({});</code></div>
 <div class="line"><code class="comments">//Positioning precedence. center used in 1_8_X. left and top used in 2_0_X</code></div>
 <div class="line"><code class="comments">//Animation child center will not work in 2_0_X because both left and top are defined</code></div>
-<div class="line"><code class="plain">var parent = Ti.UI.createView({backgroundColor:</code><code class="string">'red'</code><code class="plain">,width:</code><code class="string">'100'</code><code class="plain">,height:</code><code class="string">'100'</code><code class="plain">})</code></div>
-<div class="line"><code class="plain">var child = Ti.UI.createView({backgroundColor:</code><code class="string">'green'</code><code class="plain">,width:</code><code class="value">50</code><code class="plain">,height:</code><code class="value">50</code><code class="plain">,left:</code><code class="value">5</code><code class="plain">,top:</code><code class="value">5</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">center:{x:</code><code class="value">60</code><code class="plain">,y:</code><code class="value">60</code><code class="plain">}});</code></div>
+<div class="line"><code class="plain">var parent = Ti.UI.createView({backgroundColor: </code><code class="string">'red'</code><code class="plain">, width: </code><code class="string">'100'</code><code class="plain">,height: </code><code class="string">'100'</code><code class="plain">})</code></div>
+<div class="line"><code class="plain">var child = Ti.UI.createView({backgroundColor: </code><code class="string">'green'</code><code class="plain">, width: </code><code class="value">50</code><code class="plain">, height: </code><code class="value">50</code><code class="plain">, left: </code><code class="value">5</code><code class="plain">, top: </code><code class="value">5</code><code class="plain">, center: {x: </code><code class="value">60</code><code class="plain">, y: </code><code class="value">60</code><code class="plain">}});</code></div>
 <div class="line"><code class="plain">parent.add(child);</code></div>
 <div class="line"><code class="plain">win.add(parent);</code></div>
 <div class="line"><code class="plain">win.open();</code></div>
@@ -1075,7 +1068,7 @@ In previous versions of the Titanium SDK, the precedence of positioning pins was
     <div class="section section-3 " id="30088148_TransitioningtotheNewUILayoutSystem-MobileWebLayoutBehavior">
         <h3 class="heading "><span>Mobile Web Layout Behavior</span></h3>
     <p>
-On the Mobile Web platform, if you do not specify a height or width for a view (or define  the size implicitly using <tt class=" ">left</tt>, <tt class=" ">center</tt> or other layout properties), they use the default behavior defined above - either fill, size, or fill width.    </p>
+On the Mobile Web platform, if you do not specify a height or width for a view (or define the size implicitly using <tt class=" ">left</tt>, <tt class=" ">center</tt> or other layout properties), they use the default behavior defined above - either fill, size, or fill width.    </p>
     <p>
 If a value of 'auto' is specified for <tt class=" ">height</tt> or <tt class=" ">width</tt>, it is interpreted as <tt class=" ">Ti.UI.SIZE</tt>. This differs from the 'auto' behavior on Android and iOS. However, using either <tt class=" ">SIZE</tt> or <tt class=" ">FILL</tt> explicitly should result in the same layout on all three<br/>platforms.    </p>
     </div>

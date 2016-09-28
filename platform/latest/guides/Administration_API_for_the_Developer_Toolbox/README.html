@@ -18,6 +18,8 @@
 
         <div id="30083153" class="content">
             <h1>Administration API for the Developer Toolbox</h1>
+    <p>
+    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Administration_API_for_the_Developer_Toolbox-section-30083153_AdministrationAPIfortheDeveloperToolbox-About">About</a>    </p>
 </li><li class=" ">    <p>
@@ -149,7 +151,7 @@ Here is the structure outline of the JSON command, followed by an example:    </
 <div class="line"><code class="plain">    </code><code class="string">"os"</code><code class="plain">: {</code></div>
 <div class="line"><code class="plain">        </code><code class="string">"&lt;windows | linux | macosx | all&gt;"</code><code class="plain">: {</code></div>
 <div class="line"><code class="plain">            </code><code class="string">"action"</code><code class="plain">: </code><code class="string">"&lt;action&gt;"</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">            </code><code class="string">"attributes"</code><code class="plain">: {</code><code class="string">"&lt;key&gt;"</code><code class="plain"> : </code><code class="string">"&lt;value&gt;"</code><code class="plain"> ... },</code></div>
+<div class="line"><code class="plain">            </code><code class="string">"attributes"</code><code class="plain">: {</code><code class="string">"&lt;key&gt;"</code><code class="plain">: </code><code class="string">"&lt;value&gt;"</code><code class="plain"> ... },</code></div>
 <div class="line"><code class="plain">            </code><code class="string">"urls"</code><code class="plain">: &lt;array of strings or a single string&gt;</code></div>
 <div class="line"><code class="plain">        }</code></div>
 <div class="line"><code class="plain">    }</code></div>
@@ -164,7 +166,7 @@ Here is the structure outline of the JSON command, followed by an example:    </
 <div class="line"><code class="plain">    </code><code class="string">"os"</code><code class="plain">: {</code></div>
 <div class="line"><code class="plain">        </code><code class="string">"windows"</code><code class="plain">: {</code></div>
 <div class="line"><code class="plain">            </code><code class="string">"action"</code><code class="plain">: </code><code class="string">"install"</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">            </code><code class="string">"attributes"</code><code class="plain">: {</code><code class="string">"install_dir"</code><code class="plain"> : </code><code class="string">"C:\/Ruby"</code><code class="plain">},</code></div>
+<div class="line"><code class="plain">            </code><code class="string">"attributes"</code><code class="plain">: {</code><code class="string">"install_dir"</code><code class="plain">: </code><code class="string">"C:\/Ruby"</code><code class="plain">},</code></div>
 <div class="line"><code class="plain">            </code><code class="string">"urls"</code><code class="plain">: [</code></div>
 <div class="line"><code class="plain">                </code><code class="string">"http://rubyforge.org/frs/download.php/71492/rubyinstaller-1.8.7-p299.exe"</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">                </code><code class="string">"http://rubyforge.org/frs/download.php/66888/devkit-3.4.5r3-20091110.7z"</code></div>
@@ -196,9 +198,9 @@ Here are a couple of more examples that will install a plugin and a JavaScript l
 <div class="line"><code class="plain">    </code><code class="string">"os"</code><code class="plain">: {</code></div>
 <div class="line"><code class="plain">        </code><code class="string">"all"</code><code class="plain">: {</code></div>
 <div class="line"><code class="plain">            </code><code class="string">"attributes"</code><code class="plain">: {</code></div>
-<div class="line"><code class="plain">                </code><code class="string">"feature_id"</code><code class="plain"> : </code><code class="string">"com.aptana.php.feature"</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">                </code><code class="string">"plugin_id"</code><code class="plain"> : </code><code class="string">"com.aptana.editor.php"</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">                </code><code class="string">"plugin_version"</code><code class="plain"> : </code><code class="string">"3.0.0"</code><code class="plain">},</code></div>
+<div class="line"><code class="plain">                </code><code class="string">"feature_id"</code><code class="plain">: </code><code class="string">"com.aptana.php.feature"</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">                </code><code class="string">"plugin_id"</code><code class="plain">: </code><code class="string">"com.aptana.editor.php"</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">                </code><code class="string">"plugin_version"</code><code class="plain">: </code><code class="string">"3.0.0"</code><code class="plain">},</code></div>
 <div class="line"><code class="plain">            </code><code class="string">"action"</code><code class="plain">: </code><code class="string">"install"</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">            </code><code class="string">"urls"</code><code class="plain">: </code><code class="string">"http://download.aptana.com/studio3/plugin/install"</code></div>
 <div class="line"><code class="plain">        }</code></div>

@@ -20,6 +20,8 @@
             <h1>Adding a New Portal Dispatcher</h1>
     <div class="section section-2 " id="30083152_AddingaNewPortalDispatcher-Chapters">
         <h2 class="heading "><span>Chapters</span></h2>
+    <p>
+    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Adding_a_New_Portal_Dispatcher-section-30083152_AddingaNewPortalDispatcher-CreatingaNewDispatcher">Creating a New Dispatcher</a>    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
@@ -41,7 +43,7 @@ If you've created a portal page, you may wish to add new portal handlers to do n
 The 'magic' is done through a 'dispatch' function that is injected to the internal browser when the portal loads the content. Once the 'dispatch' is in, JavaScript code in the remote content may interact with the Studio through JSON calls. Every call is designed to invoke a specific action on a specific controller that is implemented in the Studio. Controllers and Actions are contributed through extension points inside the Studio's code, so the browser may only invoke a specific set of actions that were pre-defined (such as, plug-in installations).&lt;br&gt; For example, saving a preference key inside the Studio is done by invoking this dispatch call:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">dispatch($H({controller: </code><code class="string">'portal.preferences'</code><code class="plain">, action:</code><code class="string">'setPreferenceValue'</code><code class="plain">, args: {key: prefKey, value: val}}).toJSON());</code></div>
+<div class="line"><code class="plain">dispatch($H({controller: </code><code class="string">'portal.preferences'</code><code class="plain">, action: </code><code class="string">'setPreferenceValue'</code><code class="plain">, args: {key: prefKey, value: val}}).toJSON());</code></div>
 </div>
 </div>    <p>
 Let's break this 'dispatch' to it pieces...&lt;br&gt;The dispatch is made to call the 'portal.preferences' controller. This controller is one of the core controllers in the portal system and is already implemented.&lt;br&gt;The actions is 'setPreferencesValue', and the arguments are the preference-key and its value.    </p>
@@ -49,7 +51,7 @@ Let's break this 'dispatch' to it pieces...&lt;br&gt;The dispatch is made to cal
 All of that is held in a 'prototype' hash that is converted to JSON.  In the same way, we would call a dispatch method to retrieve a preference value:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">value = dispatch($H({controller;: </code><code class="string">'portal.preferences'</code><code class="plain">, action:</code><code class="string">'getPreferenceValue'</code><code class="plain">, args: {key: control.getAttribute(</code><code class="string">'key'</code><code class="plain">)}}).toJSON());</code></div>
+<div class="line"><code class="plain">value = dispatch($H({controller: </code><code class="string">'portal.preferences'</code><code class="plain">, action: </code><code class="string">'getPreferenceValue'</code><code class="plain">, args: {key: control.getAttribute(</code><code class="string">'key'</code><code class="plain">)}}).toJSON());</code></div>
 </div>
 </div>    <div class="section section-3 " id="30083152_AddingaNewPortalDispatcher-AddingtheJavaScriptCode">
         <h3 class="heading "><span>Adding the JavaScript Code</span></h3>
@@ -61,7 +63,7 @@ Here is an example of adding a checkbox into your content that will interact wit
 In your HTML code, add this line to mark the location of the checkbox and its text. We'll handle this later on in JavaScript when the page loads.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">&amp;lt;div id=</code><code class="string">"load_toolbox"</code><code class="plain"> </code><code class="keyword">class</code><code class="plain">=</code><code class="string">'preference checkbox'</code><code class="plain"> text=</code><code class="string">'Load the Toolbox on startup'</code><code class="plain"> key=</code><code class="string">'open_developer_toolbox'</code><code class="plain">&amp;gt;&amp;lt;/div&amp;gt;</code></div>
+<div class="line"><code class="plain">&lt;div id=</code><code class="string">"load_toolbox"</code><code class="plain"> </code><code class="keyword">class</code><code class="plain">=</code><code class="string">'preference checkbox'</code><code class="plain"> text=</code><code class="string">'Load the Toolbox on startup'</code><code class="plain"> key=</code><code class="string">'open_developer_toolbox'</code><code class="plain">&gt;&lt;/div&gt;</code></div>
 </div>
 </div>    </div>
     <div class="section section-4 " id="30083152_AddingaNewPortalDispatcher-WritetheJavaScriptHandler">
@@ -90,7 +92,7 @@ Write the JavaScript code that will handle the dispatchers. Here is an actual JS
 <div class="line"><code class="plain">            </code><code class="comments">// TODO - For now we support only 'input' (checkbox) types.</code></div>
 <div class="line"><code class="plain">            </code><code class="comments">// We should add more as needed.</code></div>
 <div class="line"><code class="plain">            </code><code class="keyword">if</code><code class="plain"> (clazz.match(</code><code class="string">'checkbox'</code><code class="plain">)) {</code></div>
-<div class="line"><code class="plain">              elm = input({</code><code class="string">'type'</code><code class="plain"> : </code><code class="string">'checkbox'</code><code class="plain">, </code><code class="string">'key'</code><code class="plain"> : control.getAttribute(</code><code class="string">'key'</code><code class="plain">)});</code></div>
+<div class="line"><code class="plain">              elm = input({</code><code class="string">'type'</code><code class="plain">: </code><code class="string">'checkbox'</code><code class="plain">, </code><code class="string">'key'</code><code class="plain">: control.getAttribute(</code><code class="string">'key'</code><code class="plain">)});</code></div>
 <div class="line"><code class="plain">              control.appendChild(elm);</code></div>
 <div class="line"><code class="plain">              control.appendChild(span(control.getAttribute(</code><code class="string">'text'</code><code class="plain">)));</code></div>
 <div class="line"><code class="plain">              </code></div>
@@ -101,7 +103,7 @@ Write the JavaScript code that will handle the dispatchers. Here is an actual JS
 <div class="line"><code class="plain">              value = </code><code class="string">'false'</code><code class="plain">;</code></div>
 <div class="line"><code class="plain">              </code><code class="comments">// Check that we have the dispatch browser function</code></div>
 <div class="line"><code class="plain">              </code><code class="keyword">if</code><code class="plain"> (typeof(dispatch) !== </code><code class="string">'undefined'</code><code class="plain">) {</code></div>
-<div class="line"><code class="plain">                value = dispatch($H({controller : </code><code class="string">'portal.preferences'</code><code class="plain">, action:</code><code class="string">"getPreferenceValue"</code><code class="plain">, args : {key : control.getAttribute(</code><code class="string">'key'</code><code class="plain">)}}).toJSON());</code></div>
+<div class="line"><code class="plain">                value = dispatch($H({controller: </code><code class="string">'portal.preferences'</code><code class="plain">, action: </code><code class="string">"getPreferenceValue"</code><code class="plain">, args: {key: control.getAttribute(</code><code class="string">'key'</code><code class="plain">)}}).toJSON());</code></div>
 <div class="line"><code class="plain">              }</code></div>
 <div class="line"><code class="plain">              </code><code class="comments">// We expect true/false for checkboxes</code></div>
 <div class="line"><code class="plain">              </code><code class="keyword">if</code><code class="plain"> (value == </code><code class="string">'true'</code><code class="plain">) {</code></div>
@@ -117,7 +119,7 @@ Write the JavaScript code that will handle the dispatchers. Here is an actual JS
 <div class="line"><code class="plain">                  val = (inputElement.getValue() == </code><code class="string">'on'</code><code class="plain">) ? </code><code class="string">'true'</code><code class="plain"> : </code><code class="string">'false'</code><code class="plain">;</code></div>
 <div class="line"><code class="plain">                  </code><code class="keyword">if</code><code class="plain"> (typeof(console) !== </code><code class="string">'undefined'</code><code class="plain"> &amp;&amp; typeof(dispatch) !== </code><code class="string">'undefined'</code><code class="plain">) {</code></div>
 <div class="line"><code class="plain">                    console.log(</code><code class="string">"Dispatching the 'setPreferenceValue' action on the 'portal.preferences' controller..."</code><code class="plain">);</code></div>
-<div class="line"><code class="plain">                    dispatch($H({controller : </code><code class="string">'portal.preferences'</code><code class="plain">, action:</code><code class="string">"setPreferenceValue"</code><code class="plain">, args : {key :prefKey, value : val}}).toJSON());</code></div>
+<div class="line"><code class="plain">                    dispatch($H({controller: </code><code class="string">'portal.preferences'</code><code class="plain">, action: </code><code class="string">"setPreferenceValue"</code><code class="plain">, args: {key: prefKey, value: val}}).toJSON());</code></div>
 <div class="line"><code class="plain">                  }</code></div>
 <div class="line"><code class="plain">                  </code><code class="keyword">return</code><code class="plain"> </code><code class="keyword">false</code><code class="plain">;</code></div>
 <div class="line"><code class="plain">                }</code></div>
@@ -131,8 +133,6 @@ Write the JavaScript code that will handle the dispatchers. Here is an actual JS
 <div class="line"><code class="plain">});</code></div>
 </div>
 </div>    <p>
-    </p>
-    <p>
 Note that the &quot;''with (Elements.Builder)&quot;'' is actually using a supporting JavaScript that helps us in building HTML elements (you can take a look at ''elements.js'' under the toolbox repo).    </p>
     <p>
 The JavaScript above renders the checkbox after locating it by the ID. It then sets the initial state by dispatching for the preference key and listens to any click events to inform the Studio with any changes. Again, through a ''dispatch ''call.    </p>
@@ -170,8 +170,6 @@ in your body tag.    </p>
 <div class="line"><code class="plain">}</code></div>
 </div>
 </div>    <p>
-    </p>
-    <p>
 And finally, our HTML will load all the needed JavaScript files and call to load this JS:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">

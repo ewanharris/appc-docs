@@ -20,6 +20,8 @@
             <h1>Titanium SDK Updates</h1>
     <div class="section section-2 " id="30083160_TitaniumSDKUpdates-Actions">
         <h2 class="heading "><span>Actions</span></h2>
+    <p>
+    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Titanium_SDK_Updates-section-30083160_TitaniumSDKUpdates-Requirements">Requirements</a>    </p>
 </li><li class=" ">    <p>
@@ -55,8 +57,8 @@ This is the <i class=" ">dispatch</i> call for the check for updates.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">dispatch($H({</code></div>
-<div class="line"><code class="plain">  controller : </code><code class="string">'portal.titanium.sdk.update'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  action : </code><code class="string">"checkForUpdate"</code></div>
+<div class="line"><code class="plain">	controller: </code><code class="string">'portal.titanium.sdk.update'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	action: </code><code class="string">"checkForUpdate"</code></div>
 <div class="line"><code class="plain">}).toJSON());</code></div>
 </div>
 </div>    <p>
@@ -77,7 +79,7 @@ The portal should handle this by defining an <strong class=" "><i class=" ">even
 <div class="line"><code class="plain">  initialize: function() {</code></div>
 <div class="line"><code class="plain">    </code><code class="comments">// Create the UI parts and render them</code></div>
 <div class="line"><code class="plain">    </code><code class="keyword">this</code><code class="plain">.updates = </code><code class="keyword">new</code><code class="plain"> Updates();</code></div>
-<div class="line"><code class="plain">    </code><code class="keyword">this</code><code class="plain">.updates .render();</code></div>
+<div class="line"><code class="plain">    </code><code class="keyword">this</code><code class="plain">.updates.render();</code></div>
 <div class="line"><code class="plain">    </code><code class="comments">// Add a Mobile SDKs observer to the dispatcher. Render the Mobile SDK table on a 'mobileSDK' events.</code></div>
 <div class="line"><code class="plain">    eventsDispatcher.addObserver(Events.TITANIUM_SDK, function(e) { portal.updates.update(e); });</code></div>
 <div class="line"><code class="plain">  }</code></div>
@@ -151,8 +153,8 @@ When the Studio indicates that a Titanium SDK update is available, a displayed l
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">dispatch($H({</code></div>
-<div class="line"><code class="plain">  controller : </code><code class="string">'portal.titanium.sdk.update'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  action : </code><code class="string">"installUpdate"</code></div>
+<div class="line"><code class="plain">	controller: </code><code class="string">'portal.titanium.sdk.update'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	action: </code><code class="string">"installUpdate"</code></div>
 <div class="line"><code class="plain">}).toJSON());</code></div>
 </div>
 </div>    </div>
@@ -163,9 +165,9 @@ You can install a specific Titanium SDK via the url. The <i class=" ">action</i>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">dispatch($H({</code></div>
-<div class="line"><code class="plain">  controller : </code><code class="string">'portal.titanium.sdk.update'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  action : </code><code class="string">"installSDK"</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  args : </code><code class="string">'["http://builds.appcelerator.com.s3.amazonaws.com/mobile/1_7_X/mobilesdk-1.7.6.v20111114104114-osx.zip"]'</code></div>
+<div class="line"><code class="plain">	controller: </code><code class="string">'portal.titanium.sdk.update'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	action: </code><code class="string">"installSDK"</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	args: </code><code class="string">'["http://builds.appcelerator.com.s3.amazonaws.com/mobile/1_7_X/mobilesdk-1.7.6.v20111114104114-osx.zip"]'</code></div>
 <div class="line"><code class="plain">}).toJSON());</code></div>
 </div>
 </div>    <p>

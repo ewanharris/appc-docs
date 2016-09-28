@@ -20,6 +20,8 @@
             <h1>Mobile SDK</h1>
     <div class="section section-2 " id="30083157_MobileSDK-Actions">
         <h2 class="heading "><span>Actions</span></h2>
+    <p>
+    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Mobile_SDK-section-30083157_MobileSDK-Requirements">Requirements</a>    </p>
 </li><li class=" ">    <p>
@@ -57,9 +59,9 @@ The following sample triggers a <strong class=" ">request</strong> for an SDK in
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">dispatch($H({</code></div>
-<div class="line"><code class="plain">  controller : </code><code class="string">'portal.mobileSDK'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  action : </code><code class="string">"getSDKInfo"</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  args : [sdk].toJSON()</code></div>
+<div class="line"><code class="plain">  controller: </code><code class="string">'portal.mobileSDK'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">  action: </code><code class="string">"getSDKInfo"</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">  args: [sdk].toJSON()</code></div>
 <div class="line"><code class="plain">}).toJSON());</code></div>
 </div>
 </div>    <p>
@@ -475,8 +477,8 @@ Android Only    </p>
 <div class="line"><code class="plain">  mobileSDKDiv = $(</code><code class="string">'mobileSDKs'</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">  with(Elements.Builder) {</code></div>
 <div class="line"><code class="plain">    androidTable = table({</code></div>
-<div class="line"><code class="plain">      </code><code class="string">"border"</code><code class="plain"> : </code><code class="string">"1"</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">      </code><code class="string">"style"</code><code class="plain"> : </code><code class="string">"border-collapse:collapse"</code></div>
+<div class="line"><code class="plain">      </code><code class="string">"border"</code><code class="plain">: </code><code class="string">"1"</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">      </code><code class="string">"style"</code><code class="plain">: </code><code class="string">"border-collapse:collapse"</code></div>
 <div class="line"><code class="plain">    }, </code></div>
 <div class="line"><code class="plain">    tbody(tr(</code></div>
 <div class="line"><code class="plain">    	td(</code><code class="string">"Installed Platforms: "</code><code class="plain">), </code></div>
@@ -530,16 +532,16 @@ Android Only    </p>
 <div class="line"><code class="plain">    </code><code class="comments">// Create a div that wraps all of it, so we can easily replace the children on</code></div>
 <div class="line"><code class="plain">    </code><code class="comments">// render calls that were made as a result of an event handling.</code></div>
 <div class="line"><code class="plain">    wrapperDiv = div({</code></div>
-<div class="line"><code class="plain">      </code><code class="string">'id'</code><code class="plain"> : </code><code class="string">'androidSDKDiv'</code></div>
+<div class="line"><code class="plain">      </code><code class="string">'id'</code><code class="plain">: </code><code class="string">'androidSDKDiv'</code></div>
 <div class="line"><code class="plain">    });</code></div>
 <div class="line"><code class="plain">    wrapperDiv.appendChild(div({</code></div>
-<div class="line"><code class="plain">      </code><code class="string">"style"</code><code class="plain"> : </code><code class="string">"color:red"</code></div>
+<div class="line"><code class="plain">      </code><code class="string">"style"</code><code class="plain">: </code><code class="string">"color: red"</code></div>
 <div class="line"><code class="plain">    }, </code><code class="string">"=== Android ==="</code><code class="plain">));</code></div>
 <div class="line"><code class="plain">    wrapperDiv.appendChild(androidTable);</code></div>
 <div class="line"><code class="plain">    </code><code class="comments">// An install/update Android link.</code></div>
 <div class="line"><code class="plain">    </code><code class="comments">// Note that for iOS we should just show install instructions.</code></div>
 <div class="line"><code class="plain">    wrapperDiv.appendChild(div({</code></div>
-<div class="line"><code class="plain">      </code><code class="string">"style"</code><code class="plain"> : </code><code class="string">"color:red"</code></div>
+<div class="line"><code class="plain">      </code><code class="string">"style"</code><code class="plain">: </code><code class="string">"color: red"</code></div>
 <div class="line"><code class="plain">    }, </code><code class="string">"=== Android Install/Update ==="</code><code class="plain">));</code></div>
 <div class="line"><code class="plain">    installOrUpdate = table(tbody(tr(td(a({</code></div>
 <div class="line"><code class="plain">      </code><code class="string">'href'</code><code class="plain"> : </code><code class="string">'#'</code></div>
@@ -555,9 +557,9 @@ Android Only    </p>
 <div class="line"><code class="plain">      </code><code class="keyword">if</code><code class="plain">( typeof (console) !== </code><code class="string">'undefined'</code><code class="plain"> &amp;&amp; typeof (dispatch) !== </code><code class="string">'undefined'</code><code class="plain">) {</code></div>
 <div class="line"><code class="plain">        console.log(</code><code class="string">"Dispatching the 'execute' action on the 'portal.mobileSDK' controller..."</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">        dispatch($H({</code></div>
-<div class="line"><code class="plain">          controller : </code><code class="string">'portal.mobileSDK'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">          action : </code><code class="string">"installOrUpdateSDK"</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">          args : [</code><code class="string">"Android"</code><code class="plain">].toJSON()</code></div>
+<div class="line"><code class="plain">          controller: </code><code class="string">'portal.mobileSDK'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">          action: </code><code class="string">"installOrUpdateSDK"</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">          args: [</code><code class="string">"Android"</code><code class="plain">].toJSON()</code></div>
 <div class="line"><code class="plain">        }).toJSON());</code></div>
 <div class="line"><code class="plain">      }</code></div>
 <div class="line"><code class="plain">      </code><code class="keyword">return</code><code class="plain"> </code><code class="keyword">false</code><code class="plain">;</code></div>
@@ -574,9 +576,9 @@ To trigger an SDK installation or Update, all that needs to be done is to call t
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">dispatch($H({</code></div>
-<div class="line"><code class="plain">  controller : </code><code class="string">'portal.mobileSDK'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  action : </code><code class="string">"installOrUpdateSDK"</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  args : [</code><code class="string">"Android"</code><code class="plain">].toJSON()</code></div>
+<div class="line"><code class="plain">  controller: </code><code class="string">'portal.mobileSDK'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">  action: </code><code class="string">"installOrUpdateSDK"</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">  args: [</code><code class="string">"Android"</code><code class="plain">].toJSON()</code></div>
 <div class="line"><code class="plain">}).toJSON());</code></div>
 </div>
 </div>    <p>
@@ -584,9 +586,9 @@ For the Android installer, you may choose to force the installer UI even when th
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">dispatch($H({</code></div>
-<div class="line"><code class="plain">  controller : </code><code class="string">'portal.mobileSDK'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  action : </code><code class="string">"installOrUpdateSDK"</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  args : [</code><code class="string">"Android"</code><code class="plain">, </code><code class="keyword">true</code><code class="plain">].toJSON()</code></div>
+<div class="line"><code class="plain">  controller: </code><code class="string">'portal.mobileSDK'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">  action: </code><code class="string">"installOrUpdateSDK"</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">  args: [</code><code class="string">"Android"</code><code class="plain">, </code><code class="keyword">true</code><code class="plain">].toJSON()</code></div>
 <div class="line"><code class="plain">}).toJSON());</code></div>
 </div>
 </div>    <p>
@@ -599,9 +601,9 @@ To trigger a 'manual' refresh for a specific SDK, all that needs to be done is t
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">dispatch($H({</code></div>
-<div class="line"><code class="plain">  controller : </code><code class="string">'portal.mobileSDK'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  action : </code><code class="string">"refreshSDK"</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  args : [</code><code class="string">"Android"</code><code class="plain">].toJSON()</code></div>
+<div class="line"><code class="plain">  controller: </code><code class="string">'portal.mobileSDK'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">  action: </code><code class="string">"refreshSDK"</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">  args: [</code><code class="string">"Android"</code><code class="plain">].toJSON()</code></div>
 <div class="line"><code class="plain">}).toJSON());</code></div>
 </div>
 </div>    </div>

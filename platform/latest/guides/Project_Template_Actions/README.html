@@ -20,6 +20,8 @@
             <h1>Project Template Actions</h1>
     <div class="section section-2 " id="30083158_ProjectTemplateActions-Actions">
         <h2 class="heading "><span>Actions</span></h2>
+    <p>
+    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Project_Template_Actions-section-30083158_ProjectTemplateActions-Requirements">Requirements</a>    </p>
 </li><li class=" ">    <p>
@@ -48,8 +50,8 @@ Gets the different types of project templates available, dispatch this call:    
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">dispatch($H({</code></div>
-<div class="line"><code class="plain">  controller : </code><code class="string">'portal.project.templates'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  action : </code><code class="string">'getTemplateTypes'</code></div>
+<div class="line"><code class="plain">	controller: </code><code class="string">'portal.project.templates'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	action: </code><code class="string">'getTemplateTypes'</code></div>
 <div class="line"><code class="plain">}).toJSON()).evalJSON();</code></div>
 </div>
 </div>    <p>
@@ -62,9 +64,9 @@ Gets the project templates that matches the project template types, dispatch thi
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">dispatch($H({</code></div>
-<div class="line"><code class="plain">  controller : </code><code class="string">'portal.project.templates'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  action : </code><code class="string">'getTemplates'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  args : </code><code class="string">'["WEB","TITANIUM_MOBILE"]'</code></div>
+<div class="line"><code class="plain">	controller: </code><code class="string">'portal.project.templates'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	action: </code><code class="string">'getTemplates'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	args: </code><code class="string">'["WEB","TITANIUM_MOBILE"]'</code></div>
 <div class="line"><code class="plain">}).toJSON()).evalJSON();</code></div>
 </div>
 </div>    <p>

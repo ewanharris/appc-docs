@@ -87,15 +87,15 @@ Call the <tt class=" ">open</tt> and <tt class=" ">send</tt> methods to initiate
 <div class="line"><code class="plain">var certificateStore = require(</code><code class="string">'com.certtest'</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">var url = </code><code class="string">"https://some.url"</code><code class="plain">;</code></div>
 <div class="line"><code class="plain">var httpClient = Ti.Network.createHTTPClient({</code></div>
-<div class="line"><code class="plain">	onload : function(e) {</code></div>
+<div class="line"><code class="plain">	onload: function(e) {</code></div>
 <div class="line"><code class="plain">		Ti.API.info(</code><code class="string">"Received text: "</code><code class="plain"> + </code><code class="keyword">this</code><code class="plain">.responseText);</code></div>
 <div class="line"><code class="plain">		alert(</code><code class="string">'success'</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">	},</code></div>
-<div class="line"><code class="plain">	onerror : function(e) {</code></div>
+<div class="line"><code class="plain">	onerror: function(e) {</code></div>
 <div class="line"><code class="plain">		Ti.API.info(</code><code class="string">"Error: "</code><code class="plain"> + e.error);</code></div>
 <div class="line"><code class="plain">		alert(</code><code class="string">'error'</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">	},</code></div>
-<div class="line"><code class="plain">	timeout : </code><code class="value">5000</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	timeout: </code><code class="value">5000</code><code class="plain">,</code></div>
 <div class="line"><code class="plain"> </code></div>
 <div class="line"><code class="plain">    </code><code class="comments">// this property must be set to true</code></div>
 <div class="line"><code class="plain">	validatesSecureCertificate: </code><code class="keyword">true</code></div>
@@ -210,15 +210,15 @@ Call the <tt class=" ">open</tt> and <tt class=" ">send</tt> methods to initiate
 <div class="line"><code class="plain">var certificateStore = require(</code><code class="string">'ti.certificatestore'</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">var url = </code><code class="string">"https://some.url"</code><code class="plain">;</code></div>
 <div class="line"><code class="plain">var httpClient = Ti.Network.createHTTPClient({</code></div>
-<div class="line"><code class="plain">    onload : function(e) {</code></div>
+<div class="line"><code class="plain">    onload: function(e) {</code></div>
 <div class="line"><code class="plain">        Ti.API.info(</code><code class="string">"Received text: "</code><code class="plain"> + </code><code class="keyword">this</code><code class="plain">.responseText);</code></div>
 <div class="line"><code class="plain">        alert(</code><code class="string">'success'</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">    },</code></div>
-<div class="line"><code class="plain">    onerror : function(e) {</code></div>
+<div class="line"><code class="plain">    onerror: function(e) {</code></div>
 <div class="line"><code class="plain">        Ti.API.info(</code><code class="string">"Error: "</code><code class="plain"> + e.error);</code></div>
 <div class="line"><code class="plain">        alert(</code><code class="string">'error'</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">    },</code></div>
-<div class="line"><code class="plain">    timeout : </code><code class="value">5000</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">    timeout: </code><code class="value">5000</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">    </code><code class="comments">// this property must be set to true</code></div>
 <div class="line"><code class="plain">    </code><code class="comments">// unless you are using a custom SSLContext</code></div>
 <div class="line"><code class="plain">	validatesSecureCertificate: </code><code class="keyword">true</code></div>

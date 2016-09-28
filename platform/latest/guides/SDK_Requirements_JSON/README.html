@@ -86,14 +86,14 @@ There are two top-level objects, once for android, one for ios. Underneath that 
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">{</code></div>
-<div class="line"><code class="plain">  </code><code class="string">"android"</code><code class="plain">:{</code></div>
-<div class="line"><code class="plain">    </code><code class="string">"macosx"</code><code class="plain">:{</code></div>
+<div class="line"><code class="plain">  </code><code class="string">"android"</code><code class="plain">: {</code></div>
+<div class="line"><code class="plain">    </code><code class="string">"macosx"</code><code class="plain">: {</code></div>
 <div class="line"><code class="plain">    },</code></div>
-<div class="line"><code class="plain">    </code><code class="string">"win32"</code><code class="plain">:{</code></div>
+<div class="line"><code class="plain">    </code><code class="string">"win32"</code><code class="plain">: {</code></div>
 <div class="line"><code class="plain">    }</code></div>
 <div class="line"><code class="plain">  },</code></div>
-<div class="line"><code class="plain">  </code><code class="string">"ios"</code><code class="plain">:{</code></div>
-<div class="line"><code class="plain">    </code><code class="string">"macosx"</code><code class="plain">:{</code></div>
+<div class="line"><code class="plain">  </code><code class="string">"ios"</code><code class="plain">: {</code></div>
+<div class="line"><code class="plain">    </code><code class="string">"macosx"</code><code class="plain">: {</code></div>
 <div class="line"><code class="plain">    }</code></div>
 <div class="line"><code class="plain">  }</code></div>
 <div class="line"><code class="plain">}</code></div>
@@ -124,16 +124,16 @@ jdkURL (Windows only): String to .zip file of latest JDK download installation  
 </li></ul></li></ul></li></ul><div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">{</code></div>
-<div class="line"><code class="plain">  </code><code class="string">"android"</code><code class="plain">:{</code></div>
-<div class="line"><code class="plain">    </code><code class="string">"linux"</code><code class="plain">:{</code></div>
-<div class="line"><code class="plain">      </code><code class="string">"requiredAddOns"</code><code class="plain">:[</code></div>
+<div class="line"><code class="plain">  </code><code class="string">"android"</code><code class="plain">: {</code></div>
+<div class="line"><code class="plain">    </code><code class="string">"linux"</code><code class="plain">: {</code></div>
+<div class="line"><code class="plain">      </code><code class="string">"requiredAddOns"</code><code class="plain">: [</code></div>
 <div class="line"><code class="plain">        </code><code class="string">"addon_google_apis_google_inc_7"</code></div>
 <div class="line"><code class="plain">      ],</code></div>
-<div class="line"><code class="plain">      </code><code class="string">"requiredPlatformTools"</code><code class="plain">:</code><code class="string">"7"</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">      </code><code class="string">"requiredPlatforms"</code><code class="plain">:[</code></div>
+<div class="line"><code class="plain">      </code><code class="string">"requiredPlatformTools"</code><code class="plain">: </code><code class="string">"7"</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">      </code><code class="string">"requiredPlatforms"</code><code class="plain">: [</code></div>
 <div class="line"><code class="plain">        </code><code class="string">"Android\\s*2\\.1.*"</code></div>
 <div class="line"><code class="plain">      ],</code></div>
-<div class="line"><code class="plain">      </code><code class="string">"requiredSDKTools"</code><code class="plain">:</code><code class="string">"13"</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">      </code><code class="string">"requiredSDKTools"</code><code class="plain">: </code><code class="string">"13"</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">      </code><code class="string">"sdkURL"</code><code class="plain">:</code><code class="string">"http://dl.google.com/android/android-sdk_r13-linux_x86.tgz"</code></div>
 <div class="line"><code class="plain">    },</code></div>
 <div class="line"><code class="plain">    ...</code></div>
@@ -149,11 +149,11 @@ iOS is a bit simpler, since we only need to verify one SDK version. Note how we 
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">{</code></div>
 <div class="line"><code class="plain">  </code><code class="string">"ios"</code><code class="plain">:{</code></div>
-<div class="line"><code class="plain">    </code><code class="string">"macosx"</code><code class="plain">:{</code></div>
-<div class="line"><code class="plain">      </code><code class="string">"requiredPlatforms"</code><code class="plain">:[</code></div>
+<div class="line"><code class="plain">    </code><code class="string">"macosx"</code><code class="plain">: {</code></div>
+<div class="line"><code class="plain">      </code><code class="string">"requiredPlatforms"</code><code class="plain">: [</code></div>
 <div class="line"><code class="plain">        </code><code class="string">"[4.0, 4.4)"</code></div>
 <div class="line"><code class="plain">      ],</code></div>
-<div class="line"><code class="plain">      </code><code class="string">"sdkURL"</code><code class="plain">:</code><code class="string">"http://itunes.apple.com/us/app/xcode/id448457090?mt=12#"</code></div>
+<div class="line"><code class="plain">      </code><code class="string">"sdkURL"</code><code class="plain">: </code><code class="string">"http://itunes.apple.com/us/app/xcode/id448457090?mt=12#"</code></div>
 <div class="line"><code class="plain">    }</code></div>
 <div class="line"><code class="plain">  }</code></div>
 <div class="line"><code class="plain">}</code></div>
@@ -166,48 +166,48 @@ A complete example of a JSON SDK requirements file.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">{</code></div>
-<div class="line"><code class="plain">  </code><code class="string">"android"</code><code class="plain">:{</code></div>
-<div class="line"><code class="plain">    </code><code class="string">"linux"</code><code class="plain">:{</code></div>
-<div class="line"><code class="plain">      </code><code class="string">"requiredAddOns"</code><code class="plain">:[</code></div>
+<div class="line"><code class="plain">  </code><code class="string">"android"</code><code class="plain">: {</code></div>
+<div class="line"><code class="plain">    </code><code class="string">"linux"</code><code class="plain">: {</code></div>
+<div class="line"><code class="plain">      </code><code class="string">"requiredAddOns"</code><code class="plain">: [</code></div>
 <div class="line"><code class="plain">        </code><code class="string">"addon_google_apis_google_inc_7"</code></div>
 <div class="line"><code class="plain">      ],</code></div>
-<div class="line"><code class="plain">      </code><code class="string">"requiredPlatformTools"</code><code class="plain">:</code><code class="string">"7"</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">      </code><code class="string">"requiredPlatforms"</code><code class="plain">:[</code></div>
+<div class="line"><code class="plain">      </code><code class="string">"requiredPlatformTools"</code><code class="plain">: </code><code class="string">"7"</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">      </code><code class="string">"requiredPlatforms"</code><code class="plain">: [</code></div>
 <div class="line"><code class="plain">        </code><code class="string">"Android\\s*2\\.1.*"</code></div>
 <div class="line"><code class="plain">      ],</code></div>
-<div class="line"><code class="plain">      </code><code class="string">"requiredSDKTools"</code><code class="plain">:</code><code class="string">"13"</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">      </code><code class="string">"requiredSDKTools"</code><code class="plain">: </code><code class="string">"13"</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">      </code><code class="string">"sdkURL"</code><code class="plain">:</code><code class="string">"http://dl.google.com/android/android-sdk_r13-linux_x86.tgz"</code></div>
 <div class="line"><code class="plain">    },</code></div>
-<div class="line"><code class="plain">    </code><code class="string">"macosx"</code><code class="plain">:{</code></div>
-<div class="line"><code class="plain">      </code><code class="string">"requiredAddOns"</code><code class="plain">:[</code></div>
+<div class="line"><code class="plain">    </code><code class="string">"macosx"</code><code class="plain">: {</code></div>
+<div class="line"><code class="plain">      </code><code class="string">"requiredAddOns"</code><code class="plain">: [</code></div>
 <div class="line"><code class="plain">        </code><code class="string">"addon_google_apis_google_inc_7"</code></div>
 <div class="line"><code class="plain">      ],</code></div>
-<div class="line"><code class="plain">      </code><code class="string">"requiredPlatformTools"</code><code class="plain">:</code><code class="string">"7"</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">      </code><code class="string">"requiredPlatforms"</code><code class="plain">:[</code></div>
+<div class="line"><code class="plain">      </code><code class="string">"requiredPlatformTools"</code><code class="plain">: </code><code class="string">"7"</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">      </code><code class="string">"requiredPlatforms"</code><code class="plain">: [</code></div>
 <div class="line"><code class="plain">        </code><code class="string">"Android\\s*2\\.1.*"</code></div>
 <div class="line"><code class="plain">      ],</code></div>
-<div class="line"><code class="plain">      </code><code class="string">"requiredSDKTools"</code><code class="plain">:</code><code class="string">"13"</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">      </code><code class="string">"requiredSDKTools"</code><code class="plain">: </code><code class="string">"13"</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">      </code><code class="string">"sdkURL"</code><code class="plain">:</code><code class="string">"http://dl.google.com/android/android-sdk_r13-mac_x86.zip"</code></div>
 <div class="line"><code class="plain">    },</code></div>
-<div class="line"><code class="plain">    </code><code class="string">"win32"</code><code class="plain">:{</code></div>
-<div class="line"><code class="plain">      </code><code class="string">"requiredAddOns"</code><code class="plain">:[</code></div>
+<div class="line"><code class="plain">    </code><code class="string">"win32"</code><code class="plain">: {</code></div>
+<div class="line"><code class="plain">      </code><code class="string">"requiredAddOns"</code><code class="plain">: [</code></div>
 <div class="line"><code class="plain">        </code><code class="string">"addon_google_apis_google_inc_7"</code></div>
 <div class="line"><code class="plain">      ],</code></div>
-<div class="line"><code class="plain">      </code><code class="string">"requiredPlatformTools"</code><code class="plain">:</code><code class="string">"7"</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">      </code><code class="string">"requiredPlatforms"</code><code class="plain">:[</code></div>
+<div class="line"><code class="plain">      </code><code class="string">"requiredPlatformTools"</code><code class="plain">: </code><code class="string">"7"</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">      </code><code class="string">"requiredPlatforms"</code><code class="plain">: [</code></div>
 <div class="line"><code class="plain">        </code><code class="string">"Android\\s*2\\.1.*"</code></div>
 <div class="line"><code class="plain">      ],</code></div>
-<div class="line"><code class="plain">      </code><code class="string">"requiredSDKTools"</code><code class="plain">:</code><code class="string">"13"</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">      </code><code class="string">"sdkURL"</code><code class="plain">:</code><code class="string">"http://dl.google.com/android/android-sdk_r13-windows.zip"</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">      </code><code class="string">"jdkURL"</code><code class="plain">:</code><code class="string">"http://download.oracle.com/otn-pub/java/jdk/6u29-b11/jdk-6u29-windows-i586.exe"</code></div>
+<div class="line"><code class="plain">      </code><code class="string">"requiredSDKTools"</code><code class="plain">: </code><code class="string">"13"</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">      </code><code class="string">"sdkURL"</code><code class="plain">: </code><code class="string">"http://dl.google.com/android/android-sdk_r13-windows.zip"</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">      </code><code class="string">"jdkURL"</code><code class="plain">: </code><code class="string">"http://download.oracle.com/otn-pub/java/jdk/6u29-b11/jdk-6u29-windows-i586.exe"</code></div>
 <div class="line"><code class="plain">    }</code></div>
 <div class="line"><code class="plain">  },</code></div>
-<div class="line"><code class="plain">  </code><code class="string">"ios"</code><code class="plain">:{</code></div>
-<div class="line"><code class="plain">    </code><code class="string">"macosx"</code><code class="plain">:{</code></div>
-<div class="line"><code class="plain">      </code><code class="string">"requiredPlatforms"</code><code class="plain">:[</code></div>
+<div class="line"><code class="plain">  </code><code class="string">"ios"</code><code class="plain">: {</code></div>
+<div class="line"><code class="plain">    </code><code class="string">"macosx"</code><code class="plain">: {</code></div>
+<div class="line"><code class="plain">      </code><code class="string">"requiredPlatforms"</code><code class="plain">: [</code></div>
 <div class="line"><code class="plain">        </code><code class="string">"[4.0, 4.4)"</code></div>
 <div class="line"><code class="plain">      ],</code></div>
-<div class="line"><code class="plain">      </code><code class="string">"sdkURL"</code><code class="plain">:</code><code class="string">"http://itunes.apple.com/us/app/xcode/id448457090?mt=12#"</code></div>
+<div class="line"><code class="plain">      </code><code class="string">"sdkURL"</code><code class="plain">: </code><code class="string">"http://itunes.apple.com/us/app/xcode/id448457090?mt=12#"</code></div>
 <div class="line"><code class="plain">    }</code></div>
 <div class="line"><code class="plain">  }</code></div>
 <div class="line"><code class="plain">}</code></div>

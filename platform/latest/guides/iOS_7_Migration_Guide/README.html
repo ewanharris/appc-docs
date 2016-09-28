@@ -378,16 +378,13 @@ You can also either set the <tt class=" ">fullscreen</tt> property to true to hi
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="comments">// Function to test if device is iOS 7 or later</code></div>
-<div class="line"><code class="plain">function isiOS7Plus()</code></div>
-<div class="line"><code class="plain">{</code></div>
+<div class="line"><code class="plain">function isiOS7Plus() {</code></div>
 <div class="line"><code class="plain">	</code><code class="comments">// iOS-specific test</code></div>
-<div class="line"><code class="plain">	</code><code class="keyword">if</code><code class="plain"> (Titanium.Platform.name == </code><code class="string">'iPhone OS'</code><code class="plain">)</code></div>
-<div class="line"><code class="plain">	{</code></div>
+<div class="line"><code class="plain">	</code><code class="keyword">if</code><code class="plain"> (Titanium.Platform.name == </code><code class="string">'iPhone OS'</code><code class="plain">) {</code></div>
 <div class="line"><code class="plain">		var version = Titanium.Platform.version.split(</code><code class="string">"."</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">		var major = parseInt(version[</code><code class="value">0</code><code class="plain">],</code><code class="value">10</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">		</code><code class="comments">// Can only test this support on a 3.2+ device</code></div>
-<div class="line"><code class="plain">		</code><code class="keyword">if</code><code class="plain"> (major &gt;= </code><code class="value">7</code><code class="plain">)</code></div>
-<div class="line"><code class="plain">		{</code></div>
+<div class="line"><code class="plain">		</code><code class="keyword">if</code><code class="plain"> (major &gt;= </code><code class="value">7</code><code class="plain">) {</code></div>
 <div class="line"><code class="plain">			</code><code class="keyword">return</code><code class="plain"> </code><code class="keyword">true</code><code class="plain">;</code></div>
 <div class="line"><code class="plain">		}</code></div>
 <div class="line"><code class="plain">	}</code></div>
@@ -395,7 +392,7 @@ You can also either set the <tt class=" ">fullscreen</tt> property to true to hi
 <div class="line"><code class="plain">}</code></div>
 <div class="line"><code class="plain">var iOS7 = isIOS7Plus();</code></div>
 <div class="line"><code class="plain">var theTop = iOS7 ? </code><code class="value">20</code><code class="plain"> : </code><code class="value">0</code></div>
-<div class="line"><code class="plain">var window = Ti.UI.createWindow({top:theTop});</code></div>
+<div class="line"><code class="plain">var window = Ti.UI.createWindow({top: theTop});</code></div>
 <div class="line"><code class="plain"> </code></div>
 <div class="line"><code class="comments">// Set the background color to non-black to see the status bar</code></div>
 <div class="line"><code class="comments">// Or set the Window statusBarStyle property to a non-default value</code></div>
@@ -824,12 +821,12 @@ The two code examples below compare and contrast how both the iOS NavigationWind
 <div class="title">Example: New NavigationWindow</div>
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="comments">// Works with Release 3.1.3 and later</code></div>
-<div class="line"><code class="plain">var rootWin = Ti.UI.createWindow({backgroundColor:</code><code class="string">'red'</code><code class="plain">});</code></div>
-<div class="line"><code class="plain">var navWin = Ti.UI.iOS.createNavigationWindow({window:rootWin});</code></div>
-<div class="line"><code class="plain">var secondWin = Ti.UI.createWindow({backgroundColor:</code><code class="string">'blue'</code><code class="plain">});</code></div>
-<div class="line"><code class="plain">var b1 = Ti.UI.createButton({title:</code><code class="string">'PUSH'</code><code class="plain">});</code></div>
+<div class="line"><code class="plain">var rootWin = Ti.UI.createWindow({backgroundColor: </code><code class="string">'red'</code><code class="plain">});</code></div>
+<div class="line"><code class="plain">var navWin = Ti.UI.iOS.createNavigationWindow({window: rootWin});</code></div>
+<div class="line"><code class="plain">var secondWin = Ti.UI.createWindow({backgroundColor: </code><code class="string">'blue'</code><code class="plain">});</code></div>
+<div class="line"><code class="plain">var b1 = Ti.UI.createButton({title: </code><code class="string">'PUSH'</code><code class="plain">});</code></div>
 <div class="line"><code class="plain">rootWin.add(b1);</code></div>
-<div class="line"><code class="plain">var b2 = Ti.UI.createButton({title:</code><code class="string">'POP'</code><code class="plain">});</code></div>
+<div class="line"><code class="plain">var b2 = Ti.UI.createButton({title: </code><code class="string">'POP'</code><code class="plain">});</code></div>
 <div class="line"><code class="plain">secondWin.add(b2);</code></div>
 <div class="line"><code class="comments">// use openWindow and closeWindow rather than open and close</code></div>
 <div class="line"><code class="plain">b1.addEventListener(</code><code class="string">'click'</code><code class="plain">,function(){ navWin.openWindow(secondWin); });</code></div>
@@ -842,13 +839,13 @@ The two code examples below compare and contrast how both the iOS NavigationWind
 <div class="line"><code class="comments">// Will no longer work after Release 3.2.0</code></div>
 <div class="line"><code class="plain">var topWin = Ti.UI.createWindow();</code></div>
 <div class="line"><code class="plain">var rootWin = Ti.UI.createWindow({backgroundColor: </code><code class="string">'red'</code><code class="plain">});</code></div>
-<div class="line"><code class="plain">var navGroup = Ti.UI.iPhone.createNavigationGroup({window:rootWin});</code></div>
-<div class="line"><code class="plain">var secondWin = Ti.UI.createWindow({backgroundColor:</code><code class="string">'blue'</code><code class="plain">});</code></div>
+<div class="line"><code class="plain">var navGroup = Ti.UI.iPhone.createNavigationGroup({window: rootWin});</code></div>
+<div class="line"><code class="plain">var secondWin = Ti.UI.createWindow({backgroundColor: </code><code class="string">'blue'</code><code class="plain">});</code></div>
 <div class="line"><code class="comments">// For NavigationGroup, you need to place it inside a top-level window</code></div>
 <div class="line"><code class="plain">topWin.add(navGroup);</code></div>
-<div class="line"><code class="plain">var b1 = Ti.UI.createButton({title:</code><code class="string">'PUSH'</code><code class="plain">});</code></div>
+<div class="line"><code class="plain">var b1 = Ti.UI.createButton({title: </code><code class="string">'PUSH'</code><code class="plain">});</code></div>
 <div class="line"><code class="plain">rootWin.add(b1);</code></div>
-<div class="line"><code class="plain">var b2 = Ti.UI.createButton({title:</code><code class="string">'POP'</code><code class="plain">});</code></div>
+<div class="line"><code class="plain">var b2 = Ti.UI.createButton({title: </code><code class="string">'POP'</code><code class="plain">});</code></div>
 <div class="line"><code class="plain">secondWin.add(b2);</code></div>
 <div class="line"><code class="comments">// open and close windows</code></div>
 <div class="line"><code class="plain">b1.addEventListener(</code><code class="string">'click'</code><code class="plain">,function(){ navGroup.open(secondWin); });</code></div>
@@ -874,27 +871,27 @@ The example below creates a tab group with three different tabs.  The first tab 
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var tabGrp = Ti.UI.createTabGroup({</code></div>
-<div class="line"><code class="plain">	backgroundColor:</code><code class="string">'white'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	backgroundColor: </code><code class="string">'white'</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">var win1 = Ti.UI.createWindow({</code></div>
-<div class="line"><code class="plain">	backgroundImage:</code><code class="string">'test_image.png'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	title:</code><code class="string">'EXTEND NONE'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	backgroundImage: </code><code class="string">'test_image.png'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	title: </code><code class="string">'EXTEND NONE'</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">var win2 = Ti.UI.createWindow({</code></div>
-<div class="line"><code class="plain">	backgroundImage:</code><code class="string">'test_image.png'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	title:</code><code class="string">'EXTEND TOP/BOTTOM'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	extendEdges:[Ti.UI.EXTEND_EDGE_TOP, Ti.UI.EXTEND_EDGE_BOTTOM]</code></div>
+<div class="line"><code class="plain">	backgroundImage: </code><code class="string">'test_image.png'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	title: </code><code class="string">'EXTEND TOP/BOTTOM'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	extendEdges: [Ti.UI.EXTEND_EDGE_TOP, Ti.UI.EXTEND_EDGE_BOTTOM]</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">var win3 = Ti.UI.createWindow({</code></div>
-<div class="line"><code class="plain">	backgroundImage:</code><code class="string">'test_image.png'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	title:</code><code class="string">'EXTEND TOP/BOTTOM OPAQUE'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	backgroundImage: </code><code class="string">'test_image.png'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	title: </code><code class="string">'EXTEND TOP/BOTTOM OPAQUE'</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">	includeOpaqueBars: </code><code class="keyword">true</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">	translucent: </code><code class="keyword">false</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	extendEdges:[Ti.UI.EXTEND_EDGE_BOTTOM, Ti.UI.EXTEND_EDGE_TOP],</code></div>
+<div class="line"><code class="plain">	extendEdges: [Ti.UI.EXTEND_EDGE_BOTTOM, Ti.UI.EXTEND_EDGE_TOP],</code></div>
 <div class="line"><code class="plain">});</code></div>
-<div class="line"><code class="plain">var tab1 = Ti.UI.createTab({window:win1,title:</code><code class="string">'TAB1'</code><code class="plain">});</code></div>
-<div class="line"><code class="plain">var tab2 = Ti.UI.createTab({window:win2,title:</code><code class="string">'TAB2'</code><code class="plain">});</code></div>
-<div class="line"><code class="plain">var tab3 = Ti.UI.createTab({window:win3,title:</code><code class="string">'TAB3'</code><code class="plain">});</code></div>
+<div class="line"><code class="plain">var tab1 = Ti.UI.createTab({window:win1,title: </code><code class="string">'TAB1'</code><code class="plain">});</code></div>
+<div class="line"><code class="plain">var tab2 = Ti.UI.createTab({window:win2,title: </code><code class="string">'TAB2'</code><code class="plain">});</code></div>
+<div class="line"><code class="plain">var tab3 = Ti.UI.createTab({window:win3,title: </code><code class="string">'TAB3'</code><code class="plain">});</code></div>
 <div class="line"><code class="plain">tabGrp.addTab(tab1);</code></div>
 <div class="line"><code class="plain">tabGrp.addTab(tab2);</code></div>
 <div class="line"><code class="plain">tabGrp.addTab(tab3);</code></div>
@@ -920,18 +917,18 @@ The example below sets the <tt class=" ">tintColor</tt> property for the Navigat
             </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">var rootWin = Ti.UI.createWindow({backgroundColor:</code><code class="string">'red'</code><code class="plain">});</code></div>
+<div class="line"><code class="plain">var rootWin = Ti.UI.createWindow({backgroundColor: </code><code class="string">'red'</code><code class="plain">});</code></div>
 <div class="line"><code class="plain">var navWin = Ti.UI.iOS.createNavigationWindow({</code></div>
-<div class="line"><code class="plain">	window:rootWin,</code></div>
+<div class="line"><code class="plain">	window: rootWin,</code></div>
 <div class="line"><code class="plain">	tintColor: </code><code class="string">'black'</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">var secondWin = Ti.UI.createWindow({</code></div>
-<div class="line"><code class="plain">	backgroundColor:</code><code class="string">'blue'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	backgroundColor: </code><code class="string">'blue'</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">	navTintColor: </code><code class="string">'purple'</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">});</code></div>
-<div class="line"><code class="plain">var b1 = Ti.UI.createButton({title:</code><code class="string">'PUSH'</code><code class="plain">});</code></div>
+<div class="line"><code class="plain">var b1 = Ti.UI.createButton({title: </code><code class="string">'PUSH'</code><code class="plain">});</code></div>
 <div class="line"><code class="plain">rootWin.add(b1);</code></div>
-<div class="line"><code class="plain">var b2 = Ti.UI.createButton({title:</code><code class="string">'POP'</code><code class="plain">});</code></div>
+<div class="line"><code class="plain">var b2 = Ti.UI.createButton({title: </code><code class="string">'POP'</code><code class="plain">});</code></div>
 <div class="line"><code class="plain">secondWin.add(b2);</code></div>
 <div class="line"><code class="plain">b1.addEventListener(</code><code class="string">'click'</code><code class="plain">,function(){ navWin.push(secondWin); });</code></div>
 <div class="line"><code class="plain">b2.addEventListener(</code><code class="string">'click'</code><code class="plain">,function(){ navWin.pop(secondWin); });</code></div>
@@ -1028,7 +1025,7 @@ iOS 7 introduces predefined font text style.  The     </span>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var win = Ti.UI.createWindow({</code></div>
-<div class="line"><code class="plain">	backgroundColor:</code><code class="string">'white'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	backgroundColor: </code><code class="string">'white'</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">	layout: </code><code class="string">'vertical'</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">var label1 = Ti.UI.createLabel({</code></div>

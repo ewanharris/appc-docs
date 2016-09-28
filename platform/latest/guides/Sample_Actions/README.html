@@ -20,6 +20,8 @@
             <h1>Sample Actions</h1>
     <div class="section section-2 " id="30083161_SampleActions-Actions">
         <h2 class="heading "><span>Actions</span></h2>
+    <p>
+    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Sample_Actions-section-30083161_SampleActions-Requirements">Requirements</a>    </p>
 </li><li class=" ">    <p>
@@ -55,8 +57,8 @@ To get the JSON list of samples, <i class=" ">dispatch</i> this call:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">samples = dispatch($H({</code></div>
-<div class="line"><code class="plain">  controller : </code><code class="string">'portal.samples'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  action : </code><code class="string">"getSamples"</code></div>
+<div class="line"><code class="plain">	controller: </code><code class="string">'portal.samples'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	action: </code><code class="string">"getSamples"</code></div>
 <div class="line"><code class="plain">}).toJSON()).evalJSON();</code></div>
 </div>
 </div>    <p>
@@ -133,9 +135,9 @@ When importing a sample, the <i class=" ">dispatch</i> call should use a <i clas
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">dispatch($H({</code></div>
-<div class="line"><code class="plain">  controller : </code><code class="string">'portal.samples'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  action : </code><code class="string">"importSample"</code><code class="plain">, </code></div>
-<div class="line"><code class="plain">  args: [sampleID].toJSON()</code></div>
+<div class="line"><code class="plain">	controller: </code><code class="string">'portal.samples'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	action: </code><code class="string">"importSample"</code><code class="plain">, </code></div>
+<div class="line"><code class="plain">	args: [sampleID].toJSON()</code></div>
 <div class="line"><code class="plain">}).toJSON());</code></div>
 </div>
 </div>    </div>

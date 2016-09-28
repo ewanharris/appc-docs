@@ -20,6 +20,8 @@
             <h1>Titanium User Information</h1>
     <div class="section section-2 " id="30083162_TitaniumUserInformation-Actions">
         <h2 class="heading "><span>Actions</span></h2>
+    <p>
+    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Titanium_User_Information-section-30083162_TitaniumUserInformation-Requirements">Requirements</a>    </p>
 </li><li class=" ">    <p>
@@ -53,8 +55,8 @@ The following <i class=" ">dispatch</i> call will get the Titanium user basic in
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">userInfo = dispatch($H({</code></div>
-<div class="line"><code class="plain">  controller : </code><code class="string">'portal.user'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  action : </code><code class="string">"getUser"</code></div>
+<div class="line"><code class="plain">	controller: </code><code class="string">'portal.user'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	action: </code><code class="string">"getUser"</code></div>
 <div class="line"><code class="plain">}).toJSON()).evalJSON();</code></div>
 </div>
 </div>    <p>
@@ -129,12 +131,12 @@ From <i class=" "><strong class=" "><a class="external-link external-link" href=
 <div class="line"><code class="plain">  </code><code class="keyword">if</code><code class="plain">( typeof (console) !== </code><code class="string">'undefined'</code><code class="plain"> &amp;&amp; typeof (dispatch) !== </code><code class="string">'undefined'</code><code class="plain">) {</code></div>
 <div class="line"><code class="plain">    console.log(</code><code class="string">"Dispatching the 'getUser' action on the 'portal.user' controller..."</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">    userInfo = dispatch($H({</code></div>
-<div class="line"><code class="plain">      controller : </code><code class="string">'portal.user'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">      action : </code><code class="string">"getUser"</code></div>
+<div class="line"><code class="plain">      controller: </code><code class="string">'portal.user'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">      action: </code><code class="string">"getUser"</code></div>
 <div class="line"><code class="plain">    }).toJSON()).evalJSON();</code></div>
 <div class="line"><code class="plain">    userTable = table({</code></div>
-<div class="line"><code class="plain">      </code><code class="string">"border"</code><code class="plain"> : </code><code class="string">"1"</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">      </code><code class="string">"style"</code><code class="plain"> : </code><code class="string">"border-collapse:collapse"</code></div>
+<div class="line"><code class="plain">      </code><code class="string">"border"</code><code class="plain">: </code><code class="string">"1"</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">      </code><code class="string">"style"</code><code class="plain">: </code><code class="string">"border-collapse:collapse"</code></div>
 <div class="line"><code class="plain">    }, tbody(</code></div>
 <div class="line"><code class="plain">    tr(</code></div>
 <div class="line"><code class="plain">      th(</code><code class="string">"ID"</code><code class="plain">), </code></div>
@@ -145,7 +147,7 @@ From <i class=" "><strong class=" "><a class="external-link external-link" href=
 <div class="line"><code class="plain">      td(userInfo[</code><code class="string">"id"</code><code class="plain">]), </code></div>
 <div class="line"><code class="plain">      td(userInfo[</code><code class="string">"name"</code><code class="plain">]), </code></div>
 <div class="line"><code class="plain">      td(userInfo[</code><code class="string">"email"</code><code class="plain">]), </code></div>
-<div class="line"><code class="plain">      td(img({</code><code class="string">"src"</code><code class="plain"> : </code><code class="string">"http://www.gravatar.com/avatar/"</code><code class="plain"> + userInfo[</code><code class="string">"hash"</code><code class="plain">]}))</code></div>
+<div class="line"><code class="plain">      td(img({</code><code class="string">"src"</code><code class="plain">: </code><code class="string">"http://www.gravatar.com/avatar/"</code><code class="plain"> + userInfo[</code><code class="string">"hash"</code><code class="plain">]}))</code></div>
 <div class="line"><code class="plain">    )</code></div>
 <div class="line"><code class="plain">    ));</code></div>
 <div class="line"><code class="plain">    userDiv.appendChild(userTable);</code></div>
