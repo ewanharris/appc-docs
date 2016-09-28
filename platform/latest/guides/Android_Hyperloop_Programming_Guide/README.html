@@ -34,7 +34,9 @@
 <a class="document-link " href="#!/guide/Android_Hyperloop_Programming_Guide-section-46253495_AndroidHyperloopProgrammingGuide-Interfaces">Interfaces</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Android_Hyperloop_Programming_Guide-section-46253495_AndroidHyperloopProgrammingGuide-Creatingyourownclasses">Creating your own classes</a>    </p>
-</li><li class=" ">    <p>
+<ul class="toc-indentation "><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Android_Hyperloop_Programming_Guide-section-46253495_AndroidHyperloopProgrammingGuide-Creatingyourownclasses.1">Creating your own classes</a>    </p>
+</li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Android_Hyperloop_Programming_Guide-section-46253495_AndroidHyperloopProgrammingGuide-UsingThird-partylibraries">Using Third-party libraries</a>    </p>
 </li></ul>    <div class="section section-2 " id="46253495_AndroidHyperloopProgrammingGuide-Requirements">
         <h2 class="heading "><span>Requirements</span></h2>
@@ -156,8 +158,37 @@ Interfaces may be implemented using a Javascript syntax similar to an anonymous 
 </div>    </div>
     <div class="section section-2 " id="46253495_AndroidHyperloopProgrammingGuide-Creatingyourownclasses">
         <h2 class="heading "><span>Creating your own classes</span></h2>
+    <div class="section section-3 " id="46253495_AndroidHyperloopProgrammingGuide-Creatingyourownclasses.1">
+        <h3 class="heading "><span>Creating your own classes</span></h3>
     <p>
-Currently, extending Java classes from Javascript is not supported in the latest version.    </p>
+Hyperloop provides you the ability to dynamically create your own Java classes at runtime. Once created, these classes can be used as normal in either Hyperloop or passed to native calls. We generate the custom subclass using the &quot;extend&quot; function of the type we want to extend, which takes a single JS Object as an argument containing the overriding method implementations (same as we did for interface implementations). The returned value is a new class type that subclasses the extended type. We can then use the constructor to generate instances of that subclass.    </p>
+    <p>
+It's easiest to understand with an example - let's create a simple custom subclass of <tt class=" ">android.view.View</tt>, and instantiate an instance of it:    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="keyword">var</code><code class="plain"> Activity = require(</code><code class="string">'android.app.Activity'</code><code class="plain">),</code></div>
+<div class="line"><code class="plain">    activity = </code><code class="keyword">new</code><code class="plain"> Activity(Ti.Android.currentActivity),</code></div>
+<div class="line"><code class="plain">    View = require(</code><code class="string">'android.view.View'</code><code class="plain">);</code></div>
+<div class="line"><code class="plain"> </code></div>
+<div class="line"><code class="keyword">var</code><code class="plain"> MyView = android.view.View.extend({</code></div>
+<div class="line"><code class="plain">    onDraw: </code><code class="keyword">function</code><code class="plain">(canvas) {</code></div>
+<div class="line"><code class="plain">        </code><code class="comments">// implementation here</code></div>
+<div class="line"><code class="plain">    }</code></div>
+<div class="line"><code class="plain">});</code></div>
+<div class="line"><code class="keyword">var</code><code class="plain"> customView = </code><code class="keyword">new</code><code class="plain"> MyView(activity);</code></div>
+<div class="line"><code class="comments">// Add your custom view to the content...</code></div>
+</div>
+</div>    <p>
+This will create a new class in the Java runtime which will extend <tt class=" ">android.view.View</tt> which is equivalent to the following code (though please note that we do <i class=" ">not</i> generate Java source, but instead generate Dalvik bytecode that gets loaded into the runtime as a class):    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="keyword">class</code><code class="plain"> MyView </code><code class="keyword">extends</code><code class="plain"> android.view.View {</code></div>
+<div class="line"><code class="plain">    </code><code class="keyword">protected</code><code class="plain"> </code><code class="keyword">void</code><code class="plain"> onDraw(Canvas canvas) {</code></div>
+<div class="line"><code class="plain">        </code><code class="comments">// implementation here</code></div>
+<div class="line"><code class="plain">    }</code></div>
+<div class="line"><code class="plain">}</code></div>
+</div>
+</div>    </div>
     </div>
     <div class="section section-2 " id="46253495_AndroidHyperloopProgrammingGuide-UsingThird-partylibraries">
         <h2 class="heading "><span>Using Third-party libraries</span></h2>

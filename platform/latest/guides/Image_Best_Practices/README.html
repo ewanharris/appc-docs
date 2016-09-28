@@ -165,47 +165,47 @@ To manually cache remote images, below is a sample utility function that you can
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var Utils = {</code></div>
-<div class="line"><code class="plain">  </code><code class="comments">/* modified version of https://gist.github.com/1243697 */</code></div>
-<div class="line"><code class="plain">  _getExtension: function(fn) {</code></div>
-<div class="line"><code class="plain">    </code><code class="comments">// from http://stackoverflow.com/a/680982/292947</code></div>
-<div class="line"><code class="plain">    var re = /(?:\.([^.]+))?$/;</code></div>
-<div class="line"><code class="plain">    var tmpext = re.exec(fn)[</code><code class="value">1</code><code class="plain">];</code></div>
-<div class="line"><code class="plain">    </code><code class="keyword">return</code><code class="plain"> (tmpext) ? tmpext : </code><code class="string">''</code><code class="plain">;</code></div>
-<div class="line"><code class="plain">  },</code></div>
-<div class="line"><code class="plain">  RemoteImage: function(a){</code></div>
-<div class="line"><code class="plain">    a = a || {};</code></div>
-<div class="line"><code class="plain">    var md5;</code></div>
-<div class="line"><code class="plain">    var needsToSave = </code><code class="keyword">false</code><code class="plain">;</code></div>
-<div class="line"><code class="plain">    var savedFile;</code></div>
-<div class="line"><code class="plain">    </code><code class="keyword">if</code><code class="plain">(a.image){</code></div>
-<div class="line"><code class="plain">      md5 = Ti.Utils.md5HexDigest(a.image)+</code><code class="keyword">this</code><code class="plain">._getExtension(a.image);</code></div>
-<div class="line"><code class="plain">      savedFile = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory,md5);</code></div>
-<div class="line"><code class="plain">      </code><code class="keyword">if</code><code class="plain">(savedFile.exists()){</code></div>
-<div class="line"><code class="plain">        a.image = savedFile;</code></div>
-<div class="line"><code class="plain">      } </code><code class="keyword">else</code><code class="plain"> {</code></div>
-<div class="line"><code class="plain">        needsToSave = </code><code class="keyword">true</code><code class="plain">;</code></div>
-<div class="line"><code class="plain">      }</code></div>
-<div class="line"><code class="plain">    }</code></div>
-<div class="line"><code class="plain">    var image = Ti.UI.createImageView(a);</code></div>
-<div class="line"><code class="plain">    </code><code class="keyword">if</code><code class="plain">(needsToSave === </code><code class="keyword">true</code><code class="plain">){</code></div>
-<div class="line"><code class="plain">      function saveImage(e){</code></div>
-<div class="line"><code class="plain">        image.removeEventListener(</code><code class="string">'load'</code><code class="plain">,saveImage);</code></div>
-<div class="line"><code class="plain">        savedFile.write(</code></div>
-<div class="line"><code class="plain">          Ti.UI.createImageView({image:image.image,width:</code><code class="string">'Ti.UI.FILL'</code><code class="plain">,height:</code><code class="string">'Ti.UI.FILL'</code><code class="plain">}).toImage()</code></div>
-<div class="line"><code class="plain">        );</code></div>
-<div class="line"><code class="plain">      }</code></div>
-<div class="line"><code class="plain">      image.addEventListener(</code><code class="string">'load'</code><code class="plain">,saveImage);</code></div>
-<div class="line"><code class="plain">    }</code></div>
-<div class="line"><code class="plain">    </code><code class="keyword">return</code><code class="plain"> image;</code></div>
-<div class="line"><code class="plain">  }</code></div>
+<div class="line"><code class="plain">	</code><code class="comments">/* modified version of https://gist.github.com/1243697 */</code></div>
+<div class="line"><code class="plain">	_getExtension: function(fn) {</code></div>
+<div class="line"><code class="plain">		</code><code class="comments">// from http://stackoverflow.com/a/680982/292947</code></div>
+<div class="line"><code class="plain">		var re = /(?:\.([^.]+))?$/;</code></div>
+<div class="line"><code class="plain">		var tmpext = re.exec(fn)[</code><code class="value">1</code><code class="plain">];</code></div>
+<div class="line"><code class="plain">		</code><code class="keyword">return</code><code class="plain"> (tmpext) ? tmpext : </code><code class="string">''</code><code class="plain">;</code></div>
+<div class="line"><code class="plain">	},</code></div>
+<div class="line"><code class="plain">	RemoteImage: function(a){</code></div>
+<div class="line"><code class="plain">		a = a || {};</code></div>
+<div class="line"><code class="plain">		var md5;</code></div>
+<div class="line"><code class="plain">		var needsToSave = </code><code class="keyword">false</code><code class="plain">;</code></div>
+<div class="line"><code class="plain">		var savedFile;</code></div>
+<div class="line"><code class="plain">		</code><code class="keyword">if</code><code class="plain">(a.image){</code></div>
+<div class="line"><code class="plain">			md5 = Ti.Utils.md5HexDigest(a.image)+</code><code class="keyword">this</code><code class="plain">._getExtension(a.image);</code></div>
+<div class="line"><code class="plain">			savedFile = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory,md5);</code></div>
+<div class="line"><code class="plain">			</code><code class="keyword">if</code><code class="plain">(savedFile.exists()){</code></div>
+<div class="line"><code class="plain">				a.image = savedFile;</code></div>
+<div class="line"><code class="plain">			} </code><code class="keyword">else</code><code class="plain"> {</code></div>
+<div class="line"><code class="plain">				needsToSave = </code><code class="keyword">true</code><code class="plain">;</code></div>
+<div class="line"><code class="plain">			}</code></div>
+<div class="line"><code class="plain">		}</code></div>
+<div class="line"><code class="plain">		var image = Ti.UI.createImageView(a);</code></div>
+<div class="line"><code class="plain">		</code><code class="keyword">if</code><code class="plain">(needsToSave === </code><code class="keyword">true</code><code class="plain">){</code></div>
+<div class="line"><code class="plain">			function saveImage(e){</code></div>
+<div class="line"><code class="plain">				image.removeEventListener(</code><code class="string">'load'</code><code class="plain">,saveImage);</code></div>
+<div class="line"><code class="plain">				savedFile.write(</code></div>
+<div class="line"><code class="plain">					Ti.UI.createImageView({image:image.image,width:</code><code class="string">'Ti.UI.FILL'</code><code class="plain">,height:</code><code class="string">'Ti.UI.FILL'</code><code class="plain">}).toImage()</code></div>
+<div class="line"><code class="plain">				);</code></div>
+<div class="line"><code class="plain">			}</code></div>
+<div class="line"><code class="plain">			image.addEventListener(</code><code class="string">'load'</code><code class="plain">,saveImage);</code></div>
+<div class="line"><code class="plain">		}</code></div>
+<div class="line"><code class="plain">		</code><code class="keyword">return</code><code class="plain"> image;</code></div>
+<div class="line"><code class="plain">	}</code></div>
 <div class="line"><code class="plain">};</code></div>
 <div class="line"><code class="comments">// example usage</code></div>
 <div class="line"><code class="plain">var image = Utils.RemoteImage({</code></div>
-<div class="line"><code class="plain">  image:</code><code class="string">'https://raw.github.com/appcelerator-developer-relations/KitchenSink/master/Resources/images/dog@2x~iphone.jpg'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  defaultImage:</code><code class="string">'KS_nav_ui.png'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  width:</code><code class="value">300</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  height:</code><code class="value">200</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">  top:</code><code class="value">20</code></div>
+<div class="line"><code class="plain">	image:</code><code class="string">'https://raw.github.com/appcelerator-developer-relations/KitchenSink/master/Resources/images/dog@2x~iphone.jpg'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	defaultImage:</code><code class="string">'KS_nav_ui.png'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	width:</code><code class="value">300</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	height:</code><code class="value">200</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	top:</code><code class="value">20</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">var win = Ti.UI.createWindow();</code></div>
 <div class="line"><code class="plain">win.add(image);</code></div>

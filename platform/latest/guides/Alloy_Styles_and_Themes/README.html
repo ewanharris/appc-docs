@@ -73,7 +73,7 @@ The following code defines a style sheet (<tt class=" ">index.tss</tt>):    </p>
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="comments">// This is applied to any element with the class attribute assigned to "container" </code></div>
 <div class="line"><code class="string">".container"</code><code class="plain">: {</code></div>
-<div class="line"><code class="plain">        backgroundColor:</code><code class="string">"white"</code></div>
+<div class="line"><code class="plain">	backgroundColor:</code><code class="string">"white"</code></div>
 <div class="line"><code class="plain">},</code></div>
 <div class="line"><code class="comments">// This is applied to all Labels in the view</code></div>
 <div class="line"><code class="string">"Label"</code><code class="plain">: {</code></div>
@@ -238,7 +238,7 @@ The controller below defines two functions that create and open an instance of t
 <div class="title">apps/controllers/index.js</div>
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">function openBar (e) {</code></div>
-<div class="line"><code class="plain">    Alloy.createController(</code><code class="string">'win2'</code><code class="plain">, {</code><code class="string">'fooBar'</code><code class="plain">: </code><code class="keyword">true</code><code class="plain">}).getView().open();</code></div>
+<div class="line"><code class="plain">	Alloy.createController(</code><code class="string">'win2'</code><code class="plain">, {</code><code class="string">'fooBar'</code><code class="plain">: </code><code class="keyword">true</code><code class="plain">}).getView().open();</code></div>
 <div class="line"><code class="plain">};</code></div>
 <div class="line"><code class="plain">function openBaz (e) {</code></div>
 <div class="line"><code class="plain">    Alloy.createController(</code><code class="string">'win2'</code><code class="plain">, {</code><code class="string">'fooBaz'</code><code class="plain">: </code><code class="keyword">true</code><code class="plain">}).getView().open();</code></div>
@@ -249,11 +249,11 @@ In the TSS file, add the conditional block and assign the <tt class=" ">if</tt> 
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="title">app/styles/win2.tss</div>
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="string">"#label[if=$.args.fooBar]"</code><code class="plain"> : {</code></div>
-<div class="line"><code class="plain">   </code><code class="string">'text'</code><code class="plain"> : </code><code class="string">'Foobar'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">    </code><code class="string">'color'</code><code class="plain"> : </code><code class="string">'blue'</code></div>
+<div class="line"><code class="string">"#label[if=$.args.fooBar]"</code><code class="plain">: {</code></div>
+<div class="line"><code class="plain">	</code><code class="string">'text'</code><code class="plain"> : </code><code class="string">'Foobar'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	</code><code class="string">'color'</code><code class="plain"> : </code><code class="string">'blue'</code></div>
 <div class="line"><code class="plain">}</code></div>
-<div class="line"><code class="string">"#label[if=$.args.fooBaz]"</code><code class="plain"> : {</code></div>
+<div class="line"><code class="string">"#label[if=$.args.fooBaz]"</code><code class="plain">: {</code></div>
 <div class="line"><code class="plain">    </code><code class="string">'text'</code><code class="plain"> : </code><code class="string">'Foobaz'</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">    </code><code class="string">'color'</code><code class="plain"> : </code><code class="string">'red'</code></div>
 <div class="line"><code class="plain">}</code></div>
@@ -304,7 +304,7 @@ In the style file, use these conditional statements to create styles for specifi
 <div class="title">app/styles/index.tss</div>
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="comments">// Default Styles</code></div>
-<div class="line"><code class="string">"#content"</code><code class="plain"> : {</code></div>
+<div class="line"><code class="string">"#content"</code><code class="plain">: {</code></div>
 <div class="line"><code class="plain">    color: </code><code class="string">'gray'</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">    top: </code><code class="string">'25dp'</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">    left: </code><code class="string">'10dp'</code><code class="plain">,</code></div>
@@ -312,14 +312,14 @@ In the style file, use these conditional statements to create styles for specifi
 <div class="line"><code class="plain">        fontSize: </code><code class="string">'12dp'</code></div>
 <div class="line"><code class="plain">    }</code></div>
 <div class="line"><code class="plain">},</code></div>
-<div class="line"><code class="string">"#info"</code><code class="plain"> : {</code></div>
+<div class="line"><code class="string">"#info"</code><code class="plain">: {</code></div>
 <div class="line"><code class="plain">    color: </code><code class="string">'gray'</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">    bottom: </code><code class="string">'20dp'</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">    font: {</code></div>
 <div class="line"><code class="plain">        fontSize: </code><code class="string">'9dp'</code></div>
 <div class="line"><code class="plain">    }</code></div>
 <div class="line"><code class="plain">},</code></div>
-<div class="line"><code class="string">"#title"</code><code class="plain"> : {</code></div>
+<div class="line"><code class="string">"#title"</code><code class="plain">: {</code></div>
 <div class="line"><code class="plain">    color: </code><code class="string">'black'</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">    top: </code><code class="string">'15dp'</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">    font: {</code></div>
@@ -327,26 +327,26 @@ In the style file, use these conditional statements to create styles for specifi
 <div class="line"><code class="plain">        fontWeight: </code><code class="string">'bold'</code></div>
 <div class="line"><code class="plain">    }</code></div>
 <div class="line"><code class="plain">},</code></div>
-<div class="line"><code class="string">"Window"</code><code class="plain"> : {</code></div>
-<div class="line"><code class="plain">    layout : </code><code class="string">'vertical'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">    backgroundColor : </code><code class="string">'white'</code></div>
+<div class="line"><code class="string">"Window"</code><code class="plain">: {</code></div>
+<div class="line"><code class="plain">    layout: </code><code class="string">'vertical'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">    backgroundColor: </code><code class="string">'white'</code></div>
 <div class="line"><code class="plain">},</code></div>
-<div class="line"><code class="string">"ScrollView"</code><code class="plain"> : {</code></div>
-<div class="line"><code class="plain">    height : </code><code class="string">'415dp'</code></div>
+<div class="line"><code class="string">"ScrollView"</code><code class="plain">: {</code></div>
+<div class="line"><code class="plain">    height: </code><code class="string">'415dp'</code></div>
 <div class="line"><code class="plain">},</code></div>
 <div class="line"><code class="comments">// Query styles</code></div>
-<div class="line"><code class="string">"#info[if=Alloy.Globals.isIos7Plus]"</code><code class="plain"> : {</code></div>
-<div class="line"><code class="plain">    font : { textStyle : Ti.UI.TEXT_STYLE_FOOTNOTE }</code></div>
+<div class="line"><code class="string">"#info[if=Alloy.Globals.isIos7Plus]"</code><code class="plain">: {</code></div>
+<div class="line"><code class="plain">    font: { textStyle : Ti.UI.TEXT_STYLE_FOOTNOTE }</code></div>
 <div class="line"><code class="plain">},</code></div>
-<div class="line"><code class="string">"#title[if=Alloy.Globals.isIos7Plus]"</code><code class="plain"> : {</code></div>
+<div class="line"><code class="string">"#title[if=Alloy.Globals.isIos7Plus]"</code><code class="plain">: {</code></div>
 <div class="line"><code class="plain">    top: </code><code class="string">'25dp'</code><code class="plain">, </code><code class="comments">// compensate for the status bar on iOS 7</code></div>
-<div class="line"><code class="plain">    font : { textStyle : Ti.UI.TEXT_STYLE_HEADLINE }</code></div>
+<div class="line"><code class="plain">    font: { textStyle : Ti.UI.TEXT_STYLE_HEADLINE }</code></div>
 <div class="line"><code class="plain">},</code></div>
-<div class="line"><code class="string">"#content[if=Alloy.Globals.isIos7Plus]"</code><code class="plain"> : {</code></div>
-<div class="line"><code class="plain">    font : { textStyle : Ti.UI.TEXT_STYLE_CAPTION1 }</code></div>
+<div class="line"><code class="string">"#content[if=Alloy.Globals.isIos7Plus]"</code><code class="plain">: {</code></div>
+<div class="line"><code class="plain">    font: { textStyle : Ti.UI.TEXT_STYLE_CAPTION1 }</code></div>
 <div class="line"><code class="plain">},</code></div>
-<div class="line"><code class="string">"ScrollView[if=Alloy.Globals.iPhoneTall]"</code><code class="plain"> : {</code></div>
-<div class="line"><code class="plain">    height : </code><code class="string">'500dp'</code></div>
+<div class="line"><code class="string">"ScrollView[if=Alloy.Globals.iPhoneTall]"</code><code class="plain">: {</code></div>
+<div class="line"><code class="plain">    height: </code><code class="string">'500dp'</code></div>
 <div class="line"><code class="plain">}</code></div>
 </div>
 </div>    </div>

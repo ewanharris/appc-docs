@@ -73,7 +73,6 @@ The following code is an example of a view file:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="title">app/views/index.xml</div>
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain"> </code></div>
 <div class="line"><code class="plain">&lt;Alloy&gt;</code></div>
 <div class="line"><code class="plain">    &lt;Window </code><code class="keyword">class</code><code class="plain">=</code><code class="string">"container"</code><code class="plain">&gt;</code></div>
 <div class="line"><code class="plain">        &lt;Label id=</code><code class="string">"label"</code><code class="plain"> onClick=</code><code class="string">"doClick"</code><code class="plain">&gt;Hello, World&lt;/Label&gt;</code></div>
@@ -491,7 +490,6 @@ The example below creates a tab group in the main view file and includes two sep
 Contents of the main view file (<tt class=" ">index.xml</tt>) that includes the rss and about views:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain"> </code></div>
 <div class="line"><code class="plain">&lt;Alloy&gt;</code></div>
 <div class="line"><code class="plain">    &lt;TabGroup&gt;</code></div>
 <div class="line"><code class="plain">        &lt;Tab id=</code><code class="string">"leftTab"</code><code class="plain">&gt;</code></div>
@@ -507,7 +505,6 @@ Contents of the main view file (<tt class=" ">index.xml</tt>) that includes the 
 Contents of the rss view file (<tt class=" ">rss.xml</tt>):    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain"> </code></div>
 <div class="line"><code class="plain">&lt;Alloy&gt;</code></div>
 <div class="line"><code class="plain">    &lt;Window id=</code><code class="string">'rssWindow'</code><code class="plain">&gt;</code></div>
 <div class="line"><code class="plain">        &lt;WebView id=</code><code class="string">'rssView'</code><code class="plain"> /&gt;</code></div>
@@ -518,7 +515,6 @@ Contents of the rss view file (<tt class=" ">rss.xml</tt>):    </p>
 Contents of the about view file (<tt class=" ">about.xml</tt>):    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain"> </code></div>
 <div class="line"><code class="plain">&lt;Alloy&gt;</code></div>
 <div class="line"><code class="plain">    &lt;Window id=</code><code class="string">'aboutWindow'</code><code class="plain">&gt;</code></div>
 <div class="line"><code class="plain">        &lt;WebView id=</code><code class="string">'aboutView'</code><code class="plain"> /&gt;</code></div>
@@ -529,7 +525,6 @@ Contents of the about view file (<tt class=" ">about.xml</tt>):    </p>
 To use UI objects from the included views, the controller needs to reference the ID specified in the <tt class=" ">Require</tt> element and use the <tt class=" ">getView</tt> function with the ID of the object as the argument: <tt class=" ">var object = $.requireId.getView('objectId')</tt>. The code below demonstrates how to access the web view object from the about view, in the previous example code, to change the URL property.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain"> </code></div>
 <div class="line"><code class="plain">var aboutView = $.aboutTab.getView(</code><code class="string">'aboutView'</code><code class="plain">); </code></div>
 <div class="line"><code class="plain">aboutView.url = </code><code class="string">'http://www.google.com'</code><code class="plain">; </code></div>
 </div>
@@ -641,7 +636,7 @@ To bind a callback to an event in a required view using the <tt class=" ">on</tt
 Parent View:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">    &lt;Require id=</code><code class="string">"fooButton"</code><code class="plain"> src=</code><code class="string">"button"</code><code class="plain"> onClick=</code><code class="string">"doClick"</code><code class="plain"> /&gt; </code></div>
+<div class="line"><code class="plain">&lt;Require id=</code><code class="string">"fooButton"</code><code class="plain"> src=</code><code class="string">"button"</code><code class="plain"> onClick=</code><code class="string">"doClick"</code><code class="plain"> /&gt; </code></div>
 </div>
 </div>    <p>
 Button View:    </p>
@@ -1380,7 +1375,6 @@ When specifying the <a class="external-link external-link" href="#!/api/Titanium
 In Alloy, events may be added in the views using a special attribute. Capitalize the first character of the event name and prefix it with 'on,' so the <tt class=" ">Ti.UI.Button</tt> object events <tt class=" ">click</tt>, <tt class=" ">dblclick</tt> and <tt class=" ">swipe</tt> events will become the attributes: <tt class=" ">onClick</tt>, <tt class=" ">onDblclick</tt>, and <tt class=" ">onSwipe</tt>, respectively. These attributes can be used to assign callbacks from the corresponding controller. For example, the view code below binds the button <tt class=" ">click</tt> event to the <tt class=" ">confirmCB</tt> callback using the <tt class=" ">onClick</tt> attribute. The <tt class=" ">confirmCB</tt> callback needs to be defined in the associated controller of the view.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain"> </code></div>
 <div class="line"><code class="plain">&lt;Alloy&gt;</code></div>
 <div class="line"><code class="plain">    &lt;Window&gt;</code></div>
 <div class="line"><code class="plain">        &lt;Button id=</code><code class="string">"confirmButton"</code><code class="plain"> onClick=</code><code class="string">"confirmCB"</code><code class="plain">&gt;OK&lt;/Button&gt;</code></div>

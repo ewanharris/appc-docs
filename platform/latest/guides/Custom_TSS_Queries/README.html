@@ -46,7 +46,7 @@ The app/styles/index.tss file uses the <tt class=" ">Alloy.Globals.someProperty<
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="title">app/styles/index.tss</div>
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="string">"Window"</code><code class="plain">:{</code></div>
+<div class="line"><code class="string">"Window"</code><code class="plain">: {</code></div>
 <div class="line"><code class="plain">    layout:</code><code class="string">"vertical"</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">    backgroundColor:</code><code class="string">'white'</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">    top:</code><code class="value">20</code></div>
@@ -56,7 +56,7 @@ The app/styles/index.tss file uses the <tt class=" ">Alloy.Globals.someProperty<
 <div class="line"><code class="plain">    color: </code><code class="string">'blue'</code></div>
 <div class="line"><code class="plain">}</code></div>
 <div class="line"><code class="comments">/* Component selector applied to all labels, though will be overridden */</code></div>
-<div class="line"><code class="string">"Label"</code><code class="plain">:{</code></div>
+<div class="line"><code class="string">"Label"</code><code class="plain">: {</code></div>
 <div class="line"><code class="plain">    top:</code><code class="value">10</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">    text: </code><code class="string">"Default label text"</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">    font: {</code></div>
@@ -64,11 +64,11 @@ The app/styles/index.tss file uses the <tt class=" ">Alloy.Globals.someProperty<
 <div class="line"><code class="plain">    }</code></div>
 <div class="line"><code class="plain">}</code></div>
 <div class="line"><code class="comments">/* Platform selector applied to all labels, but a lower priority than the custom TSS conditional */</code></div>
-<div class="line"><code class="string">"Label[platform=ios]"</code><code class="plain">:{</code></div>
+<div class="line"><code class="string">"Label[platform=ios]"</code><code class="plain">: {</code></div>
 <div class="line"><code class="plain">    text: </code><code class="string">"Alloy.Globals.someProperty!=true"</code></div>
 <div class="line"><code class="plain">}</code></div>
 <div class="line"><code class="comments">/* Custom TSS overrides component and class selectors if someProperty is true */</code></div>
-<div class="line"><code class="string">"Label[if=Alloy.Globals.someProperty]"</code><code class="plain">:{</code></div>
+<div class="line"><code class="string">"Label[if=Alloy.Globals.someProperty]"</code><code class="plain">: {</code></div>
 <div class="line"><code class="plain">    text: </code><code class="string">"Custom TSS: Alloy.Globals.someProperty==true"</code></div>
 <div class="line"><code class="plain">}</code></div>
 <div class="line"><code class="comments">/* ID selector overrides other selectors if platform is iOS */</code></div>
@@ -89,7 +89,7 @@ The app/styles/index.tss file uses the <tt class=" ">Alloy.Globals.someProperty<
 <div class="line"><code class="plain">    text: </code><code class="string">"Platform: MobileWeb, Alloy.Globals.someProperty==true"</code></div>
 <div class="line"><code class="plain">}</code></div>
 <div class="line"><code class="comments">/* ID selector overrides other selectors if platform is iOS */</code></div>
-<div class="line"><code class="string">"#title3"</code><code class="plain">:{</code></div>
+<div class="line"><code class="string">"#title3"</code><code class="plain">: {</code></div>
 <div class="line"><code class="plain">    text: </code><code class="string">"You should see this for label 3"</code></div>
 <div class="line"><code class="plain">}</code></div>
 </div>

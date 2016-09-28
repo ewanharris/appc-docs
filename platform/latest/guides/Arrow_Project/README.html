@@ -719,7 +719,7 @@ To use this feature you application uses <a class="external-link external-link" 
 <div class="line"><code class="plain">var http = require(</code><code class="string">'http'</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">var numCPUs = require(</code><code class="string">'os'</code><code class="plain">).cpus().length;</code></div>
 <div class="line"><code class="plain">cluster.setupMaster({exec: __dirname + </code><code class="string">'/child.js'</code><code class="plain">});</code></div>
-<div class="line"><code class="comments">// Fork workers.</code></div>
+<div class="line"><code class="comments">// Fork workers</code></div>
 <div class="line"><code class="keyword">for</code><code class="plain"> (var i = </code><code class="value">0</code><code class="plain">; i &lt; numCPUs; i++) {</code></div>
 <div class="line"><code class="plain">    cluster.fork();</code></div>
 <div class="line"><code class="plain">}</code></div>
@@ -922,10 +922,8 @@ Note that each container your application runs on costs a certain number of poin
     <div class="section section-3 " id="43298987_ArrowProject-ServerPorts">
         <h3 class="heading "><span>Server Ports</span></h3>
     <p>
-Currently, Arrow Cloud only supports applications opening one server listening port. There cannot be more than one TCP/HTTP server started in one application.    </p>
-    <p>
-    <span style="color: #222222;">
- <br/>     </span>
+Currently, Arrow Cloud only supports applications opening one server listening port. There cannot be more than one TCP/HTTP server started in one application.    <span style="color: #222222;">
+     </span>
     </p>
     </div>
     </div>

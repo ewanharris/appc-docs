@@ -50,27 +50,21 @@ The <tt class=" ">appc cloud list</tt> and <tt class=" ">appc cloud loglist</tt>
         <h3 class="heading "><span>Exception in app.js outside start() method</span></h3>
     <p>
 The following code references an undefined variable outside application's <tt class=" ">start()</tt> method.    </p>
-    <p>
-    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="comments">// initialize app</code></div>
 <div class="line"><code class="keyword">function</code><code class="plain"> start(app, express) {</code></div>
-<div class="line"><code class="plain">    app.use(express.favicon(__dirname + </code><code class="string">'/public/images/favicon.ico'</code><code class="plain">));     </code><code class="comments">//set favicon</code></div>
+<div class="line"><code class="plain">	app.use(express.favicon(__dirname + </code><code class="string">'/public/images/favicon.ico'</code><code class="plain">)); </code><code class="comments">//set favicon</code></div>
 <div class="line"><code class="plain">}</code></div>
 <div class="line"><code class="plain"> </code></div>
-<div class="line"><code class="plain">adsgasdg;   </code><code class="comments">// This line causes exception.</code></div>
+<div class="line"><code class="plain">adsgasdg; </code><code class="comments">// This line causes exception.</code></div>
 <div class="line"><code class="plain"> </code></div>
 <div class="line"><code class="comments">// release resources</code></div>
 <div class="line"><code class="keyword">function</code><code class="plain"> stop() {</code></div>
 <div class="line"><code class="plain">}</code></div>
 </div>
 </div>    <p>
-    </p>
-    <p>
 In this scenario the <strong class=" ">Message</strong> field of <tt class=" ">appc cloud list</tt> and <tt class=" ">appc acs loglist</tt> output indicates a <tt class=" ">ReferenceError</tt> and the name and location of the reference. The <strong class=" ">Status</strong> field of the <tt class=" ">appc cloud list</tt> command is set to <strong class=" ">&quot;Failed to deploy&quot;</strong>.    </p>
-    <p>
-    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">$ appc cloud list testapp</code></div>
@@ -92,15 +86,11 @@ In this scenario the <strong class=" ">Message</strong> field of <tt class=" ">a
 <div class="line"><code class="plain">12</code><code class="plain">/26/2013</code><code class="plain"> 05:18:030.636 [ERROR] [4454] ReferenceError: adsgasdg is not defined</code></div>
 <div class="line"><code class="plain">at </code><code class="plain">/app</code><code class="plain">.js:6:1</code></div>
 </div>
-</div>    <p>
-    </p>
-    </div>
+</div>    </div>
     <div class="section section-3 " id="46245598_ArrowCloudTroubleshooting-Exceptioninsideapp.jsstart()method">
         <h3 class="heading "><span>Exception inside app.js start() method</span></h3>
     <p>
 The following code references an undefined variable inside application's <tt class=" ">start()</tt> method.    </p>
-    <p>
-    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="comments">// initialize app</code></div>
@@ -116,11 +106,7 @@ The following code references an undefined variable inside application's <tt cla
 <div class="line"><code class="plain">}</code></div>
 </div>
 </div>    <p>
-    </p>
-    <p>
 In this scenario the <strong class=" ">Message</strong> field of <tt class=" ">appc cloud list</tt> and <tt class=" ">appc cloud loglist</tt> output indicates a <tt class=" ">ReferenceError</tt> and the name and location of the exception. The <strong class=" ">Status</strong> field of the <tt class=" ">appc cloud list</tt> command is set to <strong class=" ">&quot;Failed to deploy&quot;</strong>.    </p>
-    <p>
-    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">$ appc acs list testapp</code></div>
@@ -145,15 +131,11 @@ In this scenario the <strong class=" ">Message</strong> field of <tt class=" ">a
 <div class="line"><code class="value">12</code><code class="plain">/</code><code class="value">26</code><code class="plain">/</code><code class="value">2013</code><code class="plain"> </code><code class="value">05</code><code class="plain">:</code><code class="value">20</code><code class="plain">:</code><code class="value">044.225</code><code class="plain"> [ERROR] [</code><code class="value">4488</code><code class="plain">] ReferenceError: adsgasdg is not defined</code></div>
 <div class="line"><code class="plain">at Object.start (/app.js:</code><code class="value">4</code><code class="plain">:</code><code class="value">5</code><code class="plain">)</code></div>
 </div>
-</div>    <p>
-    </p>
-    </div>
+</div>    </div>
     <div class="section section-3 " id="46245598_ArrowCloudTroubleshooting-Exceptioninacontroller,outsideafunction">
         <h3 class="heading "><span>Exception in a controller, outside a function</span></h3>
     <p>
 The following code references an undefined variable inside a controller, outside any function definition:    </p>
-    <p>
-    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">function index(req, res) {</code></div>
@@ -163,21 +145,13 @@ The following code references an undefined variable inside a controller, outside
 <div class="line"><code class="plain">asgasg;dkg;as   </code><code class="comments">// This line causes exception.</code></div>
 </div>
 </div>    <p>
-    </p>
-    <p>
 When accessing the application and hitting the controller over HTTP, it returns the following error:    </p>
-    <p>
-    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">Cannot get / </code></div>
 </div>
 </div>    <p>
-    </p>
-    <p>
 In this scenario the <tt class=" ">appc cloud list</tt> output doesn't indicate a problem, but <tt class=" ">appc cloud loglist</tt> indicates a <tt class=" ">ReferenceError</tt> and the name and location of the exception.    </p>
-    <p>
-    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">$ appc cloud list testapp</code></div>
@@ -199,9 +173,7 @@ In this scenario the <tt class=" ">appc cloud list</tt> output doesn't indicate 
 <div class="line"><code class="value">12</code><code class="plain">/</code><code class="value">26</code><code class="plain">/</code><code class="value">2013</code><code class="plain"> </code><code class="value">05</code><code class="plain">:</code><code class="value">24</code><code class="plain">:</code><code class="value">059.427</code><code class="plain"> [ERROR] [</code><code class="value">4503</code><code class="plain">] Failed to load controller </code><code class="string">"application.js"</code><code class="plain">.</code></div>
 <div class="line"><code class="plain">    ReferenceError: asgasg is not defined at /controllers/application.js:</code><code class="value">5</code><code class="plain">:</code><code class="value">1</code><code class="plain"> </code></div>
 </div>
-</div>    <p>
-    </p>
-    </div>
+</div>    </div>
     </div>
     <div class="section section-2 " id="46245598_ArrowCloudTroubleshooting-Exceptionsthrownatruntime">
         <h2 class="heading "><span>Exceptions thrown at runtime</span></h2>
@@ -209,8 +181,6 @@ In this scenario the <tt class=" ">appc cloud list</tt> output doesn't indicate 
         <h3 class="heading "><span>Exception in synchronous calls handling requests</span></h3>
     <p>
 The following code references an undefined variable inside a controller function.    </p>
-    <p>
-    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="keyword">function</code><code class="plain"> index(req, res) {</code></div>
@@ -221,11 +191,7 @@ The following code references an undefined variable inside a controller function
 <div class="line"><code class="plain">}</code></div>
 </div>
 </div>    <p>
-    </p>
-    <p>
 In this scenario the <tt class=" ">appc cloud list</tt> output doesn't indicate a problem, but <tt class=" ">appc cloud loglist</tt> indicates a <tt class=" ">ReferenceError</tt> and the name and location of the exception.    </p>
-    <p>
-    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">$ appc cloud list testapp</code></div>
@@ -249,25 +215,17 @@ In this scenario the <tt class=" ">appc cloud list</tt> output doesn't indicate 
 <div class="line"><code class="plain">[PERF] GET / 9 ms</code></div>
 </div>
 </div>    <p>
-    </p>
-    <p>
 The response when accessing the application and hitting that function indicates the name and location of the reference error:    </p>
-    <p>
-    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">ReferenceError: asgasg is not defined</code></div>
 <div class="line"><code class="plain">    at index (/controllers/application.js:</code><code class="value">2</code><code class="plain">:</code><code class="value">4</code><code class="plain">)</code></div>
 </div>
-</div>    <p>
-    </p>
-    </div>
+</div>    </div>
     <div class="section section-3 " id="46245598_ArrowCloudTroubleshooting-Exceptioninasynchronouscallbackshandlingrequests(orbackgroundjobs)">
         <h3 class="heading "><span>Exception in asynchronous callbacks handling requests (or background jobs)</span></h3>
     <p>
 The following code sample uses the <tt class=" ">setTimeout()</tt> method to asynchronously call a function that contains an exception.    </p>
-    <p>
-    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="keyword">function</code><code class="plain"> index(req, res) {</code></div>
@@ -280,22 +238,14 @@ The following code sample uses the <tt class=" ">setTimeout()</tt> method to asy
 <div class="line"><code class="plain">    res.render(</code><code class="string">'index'</code><code class="plain">, { title: </code><code class="string">'Welcome to Node.ACS! '</code><code class="plain"> + process.version });</code></div>
 <div class="line"><code class="plain">} </code></div>
 </div>
-</div>    <p>
-    </p>
-    <p class="prettyprint prettyprinted">
+</div>    <p class="prettyprint prettyprinted">
 In this scenario when accessing the application over HTTP and hitting the function, the following error is returned:    </p>
-    <p>
-    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">An error has occurred: {</code><code class="string">"code"</code><code class="plain">:</code><code class="string">"ECONNRESET"</code><code class="plain">} </code></div>
 </div>
 </div>    <p>
-    </p>
-    <p>
 In this scenario <tt class=" ">appc cloud loglist</tt> indicates a <tt class=" ">ReferenceError</tt> and the corresponding stack trace; <tt class=" ">appc cloud list</tt> does not indicate any problem.    </p>
-    <p>
-    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">$ appc cloud loglist testapp</code></div>
@@ -325,15 +275,11 @@ In this scenario <tt class=" ">appc cloud loglist</tt> indicates a <tt class=" "
 <div class="line"><code class="plain">-- Servers:</code></div>
 <div class="line"><code class="plain">No. 1 ID: 52b81468754c4184e58e8789 Status: Deployed</code></div>
 </div>
-</div>    <p>
-    </p>
-    </div>
+</div>    </div>
     <div class="section section-3 " id="46245598_ArrowCloudTroubleshooting-Applicationcrasheswhilehandlingrequests">
         <h3 class="heading "><span>Application crashes while handling requests</span></h3>
     <p>
 The following code has request handler that quickly uses up available memory, causing the application to crash.    </p>
-    <p>
-    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="keyword">function</code><code class="plain"> index(req, res) {</code></div>
@@ -354,11 +300,7 @@ The following code has request handler that quickly uses up available memory, ca
 <div class="line"><code class="plain">} </code></div>
 </div>
 </div>    <p>
-    </p>
-    <p>
 The <tt class=" ">appc cloud loglist</tt> output indicates &quot;FATAL ERROR: JS Allocation failed - process out of memory&quot;; <tt class=" ">appc cloud list</tt> doesn't indicate any problem.    </p>
-    <p>
-    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">$ acs loglist testapp</code></div>
@@ -383,15 +325,11 @@ The <tt class=" ">appc cloud loglist</tt> output indicates &quot;FATAL ERROR: JS
 <div class="line"><code class="plain">-- Servers:</code></div>
 <div class="line"><code class="plain">No. 1 ID: 52b81468754c4184e58e8789 Status: Deployed</code></div>
 </div>
-</div>    <p>
-    </p>
-    </div>
+</div>    </div>
     <div class="section section-3 " id="46245598_ArrowCloudTroubleshooting-Applicationcrasheswhilerunningbackgroundjobs">
         <h3 class="heading "><span>Application crashes while running background jobs</span></h3>
     <p>
 The following code causes the application to run out of memory and crash while processing a <tt class=" ">setTimeout()</tt> function call.    </p>
-    <p>
-    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="comments">// initialize app</code></div>
@@ -418,11 +356,7 @@ The following code causes the application to run out of memory and crash while p
 <div class="line"><code class="plain">}</code></div>
 </div>
 </div>    <p>
-    </p>
-    <p>
 The <tt class=" ">appc cloud loglist</tt> output indicates &quot;FATAL ERROR: JS Allocation failed - process out of memory&quot;; <tt class=" ">appc cloud list</tt> doesn't indicate any problem.    </p>
-    <p>
-    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">$ appc cloud loglist testapp</code></div>
@@ -448,9 +382,7 @@ The <tt class=" ">appc cloud loglist</tt> output indicates &quot;FATAL ERROR: JS
 <div class="line"><code class="plain">-- Servers:</code></div>
 <div class="line"><code class="plain">No. 1 ID: 52b81468754c4184e58e8789 Status: Deployed </code></div>
 </div>
-</div>    <p>
-    </p>
-    </div>
+</div>    </div>
     </div>
     <div class="section section-2 " id="46245598_ArrowCloudTroubleshooting-Installationerrors">
         <h2 class="heading "><span>Installation errors</span></h2>
@@ -460,8 +392,6 @@ This section describes issues you may encounter when installing or upgrading Arr
         <h3 class="heading "><span>Error: ENOENT, no such file or directory</span></h3>
     <p>
 Arrow Cloud installation fails with the following error:    </p>
-    <p>
-    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">...</code></div>
@@ -481,11 +411,7 @@ Arrow Cloud installation fails with the following error:    </p>
 <div class="line"><code class="plain">    at node.js:902:3</code></div>
 </div>
 </div>    <p>
-    </p>
-    <p>
 To resolve, try deleting your <tt class=" ">~/.npm</tt> folder and cleaning the NPM cache, then re-installing:    </p>
-    <p>
-    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="functions">rm</code><code class="plain"> -rf ~/.npm</code></div>

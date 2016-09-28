@@ -57,7 +57,7 @@ Using platform-specific resources and styles    </p>
 </li><li class=" ">    <p>
 Handling events    </p>
 </li></ul>    <p>
-You can<strong class=" "> <a class="external-link external-link" href="https://github.com/appcelerator-developer-relations/FaveBooks" target="_blank">download</a></strong> a completed version of the project.    </p>
+You can<strong class=" "> <a class="external-link external-link" href="https://github.com/appcelerator-developer-relations/FaveBooks" target="_blank">download</a> </strong> a completed version of the project.    </p>
     <div class="tablewrap">
         <table class="confluenceTable">
         <thead class=" "/><tfoot class=" "/><tbody class=" ">    <tr>
@@ -145,7 +145,7 @@ Get a reference to our collection:    </p>
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var myBooks = Alloy.Collections.books;</code></div>
 </div>
-</div><pre class=" ">    </pre></li><li class=" ">    <p>
+</div></li><li class=" ">    <p>
 Create a new model object (book) and assign it a title and author:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
@@ -154,7 +154,7 @@ Create a new model object (book) and assign it a title and author:    </p>
 <div class="line"><code class="plain">   author: </code><code class="string">'Charles Dickens'</code><code class="plain"> </code></div>
 <div class="line"><code class="plain">});</code></div>
 </div>
-</div><pre class=" ">    </pre></li><li class=" ">    <p>
+</div></li><li class=" ">    <p>
 Add the book to the collection and persist it to the database.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
@@ -200,7 +200,7 @@ Add a <strong class=" "> <tt class=" ">&lt;Collection&gt;</tt> </strong> element
 <div class="line"><code class="plain">      &lt;/Window&gt; </code></div>
 <div class="line"><code class="plain">&lt;/Alloy&gt;</code></div>
 </div>
-</div><pre class=" ">    </pre></li><li class=" ">    <p>
+</div></li><li class=" ">    <p>
 To synchronize the collection with the view, assign <strong class=" "> <tt class=" ">books</tt> </strong> to the <tt class=" ">TableView</tt> element's <strong class=" "> <tt class=" ">dataCollection</tt> </strong> attribute.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
@@ -214,7 +214,7 @@ To synchronize the collection with the view, assign <strong class=" "> <tt class
 <div class="line"><code class="plain">    &lt;/Window&gt;</code></div>
 <div class="line"><code class="plain">&lt;/Alloy&gt;</code></div>
 </div>
-</div><pre class=" ">    </pre></li><li class=" ">    <p>
+</div></li><li class=" ">    <p>
 Using curly-bracket syntax, assign the title from each book (that is, each model in the collection) to the <tt class=" ">title</tt> attribute of the <tt class=" ">&lt;TableViewRow&gt;</tt>. The final contents of <tt class=" ">index.xml</tt> should look like the following:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
@@ -294,7 +294,7 @@ A JavaScript controller    </p>
 </li><li class=" ">    <p>
 A style file (a Titanium Style Sheet file)    </p>
 </li></ul>    <p>
-<strong class=" ">To create the book detail view</strong>:    </p>
+<strong class=" ">To create the book detail view</strong> :    </p>
 <ol class=" "><li class=" ">    <p>
 Right-click or Control-click on the project folder and select <strong class=" ">New &gt; Alloy Controller</strong>, or press Cmd+Shift+C (Mac) or Ctrl+Shift+C (Windows).    </p>
 </li><li class=" ">    <p>
@@ -316,7 +316,7 @@ Replace the <tt class=" ">&lt;View&gt;</tt> element with a <tt class=" ">&lt;Win
 <div class="line"><code class="plain">   &lt;/Window&gt; </code></div>
 <div class="line"><code class="plain">&lt;/Alloy&gt;</code></div>
 </div>
-</div><pre class=" ">    </pre></li><li class=" ">    <p>
+</div></li><li class=" ">    <p>
 Add two <tt class=" ">&lt;Label&gt;</tt> elements to the <tt class=" ">&lt;Window&gt;</tt> element. Give the first one an ID of <strong class=" ">titleLabel</strong> and the other an ID of <strong class=" ">authorLabel</strong>, as shown below.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
@@ -327,7 +327,7 @@ Add two <tt class=" ">&lt;Label&gt;</tt> elements to the <tt class=" ">&lt;Windo
 <div class="line"><code class="plain">   &lt;/Window&gt; </code></div>
 <div class="line"><code class="plain">&lt;/Alloy&gt;</code></div>
 </div>
-</div><pre class=" ">    </pre></li><li class=" ">    <p>
+</div></li><li class=" ">    <p>
 Open <strong class=" ">styles/bookdetails.tss</strong> and a background color for iOS to the <tt class=" ">.container</tt> rule:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
@@ -351,14 +351,14 @@ Add an <strong class=" "> <tt class=" ">onClick</tt> </strong> attribute to the 
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">&lt;TableViewRow title=</code><code class="string">"{title}"</code><code class="plain"> author=</code><code class="string">"{author}"</code><code class="plain"> onClick=</code><code class="string">"showBook"</code><code class="plain">&gt;&lt;/TableViewRow&gt;</code></div>
 </div>
-</div><pre class=" ">    </pre></li><li class=" ">    <p>
-Open <strong class=" ">controllers/index.js</strong> and add a function named <strong class=" "> <tt class=" ">showBook()</tt> </strong> that takes a single argument called <strong class=" "> <tt class=" ">event</tt></strong>. This is the event object passed to the function that contains information about the selected item.    </p>
+</div></li><li class=" ">    <p>
+Open <strong class=" ">controllers/index.js</strong> and add a function named <strong class=" "> <tt class=" ">showBook()</tt> </strong> that takes a single argument called <strong class=" "> <tt class=" ">event</tt> </strong>. This is the event object passed to the function that contains information about the selected item.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">function showBook (event) { </code></div>
 <div class="line"><code class="plain">}</code></div>
 </div>
-</div><pre class=" ">    </pre></li><li class=" ">    <p>
+</div></li><li class=" ">    <p>
 First, let&rsquo;s add code to extract the title and author of the selected book from the <tt class=" ">event.source</tt> object.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
@@ -370,7 +370,7 @@ First, let&rsquo;s add code to extract the title and author of the selected book
 <div class="line"><code class="plain">    };</code></div>
 <div class="line"><code class="plain">}</code></div>
 </div>
-</div><pre class=" ">    </pre></li><li class=" ">    <p>
+</div></li><li class=" ">    <p>
 Lastly, we create a new instance of the Alloy bookdetails controller, passing it the <tt class=" ">args</tt> object containing the title and author data, and open the view.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
@@ -384,7 +384,7 @@ Lastly, we create a new instance of the Alloy bookdetails controller, passing it
 <div class="line"><code class="plain">    bookview.open();</code></div>
 <div class="line"><code class="plain">}      </code></div>
 </div>
-</div><pre class=" ">    </pre></li><li class=" ">    <p>
+</div></li><li class=" ">    <p>
 Lastly, we need to update bookdetails.js to display the title and author values passed to the <tt class=" ">createController()</tt> method, or display a default title and author if none were provided:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
@@ -481,7 +481,7 @@ Open <strong class=" ">views/index.tss</strong> and add the following style rule
 <div class="line"><code class="plain">    height: </code><code class="string">'40'</code><code class="plain"> </code></div>
 <div class="line"><code class="plain">}</code></div>
 </div>
-</div><pre class=" ">    </pre></li><li class=" ">    <p>
+</div></li><li class=" ">    <p>
 Save your changes and build the application for Android. The TableView should look like the following screenshot:    </p>
     <p>
         <img src="images/download/attachments/37541502/htcone-tablerow-tall.png" alt="images/download/attachments/37541502/htcone-tablerow-tall.png" class="confluence-embedded-image"/>
@@ -505,7 +505,7 @@ In Project Explorer, create a new folder named <strong class=" ">ios</strong> in
 Create a new file named <strong class=" ">index.xml</strong> in the new folder.<br/>        <img src="images/download/attachments/37541502/ios-view.png" alt="images/download/attachments/37541502/ios-view.png" class="confluence-embedded-image"/>
             </p>
 </li><li class=" ">    <p>
-Copy the contents of  <strong class=" "> <tt class=" ">views/index.xml</tt> </strong>  to  <strong class=" "> <tt class=" ">views/ios/index.xml</tt></strong>.    </p>
+Copy the contents of  <strong class=" "> <tt class=" ">views/index.xml</tt> </strong>  to  <strong class=" "> <tt class=" ">views/ios/index.xml</tt> </strong> .    </p>
 </li><li class=" ">    <p>
 Wrap the existing <tt class=" ">&lt;Window&gt;</tt> element with a <strong class=" "> <tt class=" ">&lt;NavigationWindow&gt;</tt> </strong> element:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
@@ -518,7 +518,7 @@ Wrap the existing <tt class=" ">&lt;Window&gt;</tt> element with a <strong class
 <div class="line"><code class="plain">                &lt;TableViewRow title=</code><code class="string">"{title}"</code><code class="plain"> author=</code><code class="string">"{author}"</code><code class="plain"> onClick=</code><code class="string">"showBook"</code><code class="plain">&gt;&lt;/TableViewRow&gt;</code></div>
 <div class="line"><code class="plain">            &lt;/TableView&gt;</code></div>
 <div class="line"><code class="plain">        &lt;/Window&gt;</code></div>
-<div class="line"><code class="plain">    &lt;/NavigationWindow&gt;&gt;</code></div>
+<div class="line"><code class="plain">    &lt;/NavigationWindow&gt;</code></div>
 <div class="line"><code class="plain">&lt;/Alloy&gt;</code></div>
 </div>
 </div></li><li class=" ">    <p>
@@ -601,13 +601,13 @@ Open <strong class=" ">styles/addbook.tss</strong> and add the following styling
 <div class="line"><code class="plain">	height: </code><code class="value">40</code></div>
 <div class="line"><code class="plain">}</code></div>
 </div>
-</div><pre class=" ">    </pre></li><li class=" ">    <p>
+</div></li><li class=" ">    <p>
 Open <strong class=" ">controllers/addbook.js</strong>, remove the existing code in that file and add the following:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var myBooks = Alloy.Collections.books;</code></div>
 </div>
-</div><pre class=" ">    </pre></li><li class=" ">    <p>
+</div></li><li class=" ">    <p>
 Define a new function named <tt class=" ">addBook()</tt> with the following code:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
@@ -632,7 +632,7 @@ For iOS, open <strong class=" ">views/ios/index.xml</strong> and insert a <stron
 <div class="line"><code class="plain">    &lt;/Items&gt;</code></div>
 <div class="line"><code class="plain">&lt;/Toolbar&gt;</code></div>
 </div>
-</div><pre class=" ">    </pre></li><li class=" ">    <p>
+</div></li><li class=" ">    <p>
 For Android, open <strong class=" ">views/index.xml</strong> and add the following <strong class=" "> <tt class=" ">&lt;Menu&gt;</tt> </strong> and <strong class=" "> <tt class=" ">&lt;MenuItem&gt;</tt> </strong> elements below the <tt class=" ">&lt;TableView&gt;</tt> element:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">

@@ -216,7 +216,7 @@ It's best practice to query the platform value once, then store it in a globally
 <div class="line"><code class="plain">var osname = Ti.Platform.osname;</code></div>
 <div class="line"><code class="comments">// Booleans identifying the platforms are handy too</code></div>
 <div class="line"><code class="plain">var isAndroid = (osname==</code><code class="string">'android'</code><code class="plain">) ? </code><code class="keyword">true</code><code class="plain"> : </code><code class="keyword">false</code><code class="plain">;</code></div>
-<div class="line"><code class="keyword">if</code><code class="plain">(isAndroid) {</code></div>
+<div class="line"><code class="keyword">if</code><code class="plain"> (isAndroid) {</code></div>
 <div class="line"><code class="plain">	</code><code class="comments">// do Android specific stuff</code></div>
 <div class="line"><code class="plain">} </code><code class="keyword">else</code><code class="plain"> {</code></div>
 <div class="line"><code class="plain">	</code><code class="comments">// do iOS, mobileweb, or other platform stuff</code></div>
@@ -237,7 +237,7 @@ Keep in mind the growing list of supported platforms and don't fall prey to codi
 <div class="title">Anti-pattern!</div>
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var osname = Ti.Platform.osname;</code></div>
-<div class="line"><code class="keyword">if</code><code class="plain">(osname != </code><code class="string">'android'</code><code class="plain">) {</code></div>
+<div class="line"><code class="keyword">if</code><code class="plain"> (osname != </code><code class="string">'android'</code><code class="plain">) {</code></div>
 <div class="line"><code class="plain">   </code><code class="comments">// don't assume this means iOS! It could be mobile web or some future-supported platform.</code></div>
 <div class="line"><code class="plain">}</code></div>
 </div>

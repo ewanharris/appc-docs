@@ -416,8 +416,7 @@ For example, the migration file below is the initial version of the database tha
 <div class="line"><code class="plain">	{title: </code><code class="string">'Animal Farm'</code><code class="plain">, author:</code><code class="string">'George Orwell'</code><code class="plain">}</code></div>
 <div class="line"><code class="plain">];</code></div>
 <div class="line"><code class="plain"> </code></div>
-<div class="line"><code class="plain">migration.up = function(migrator)</code></div>
-<div class="line"><code class="plain">{</code></div>
+<div class="line"><code class="plain">migration.up = function(migrator) {</code></div>
 <div class="line"><code class="plain">    migrator.createTable({</code></div>
 <div class="line"><code class="plain">        </code><code class="string">"columns"</code><code class="plain">:</code></div>
 <div class="line"><code class="plain">        {</code></div>
@@ -430,8 +429,7 @@ For example, the migration file below is the initial version of the database tha
 <div class="line"><code class="plain">    }</code></div>
 <div class="line"><code class="plain">};</code></div>
 <div class="line"><code class="plain"> </code></div>
-<div class="line"><code class="plain">migration.down = function(migrator)</code></div>
-<div class="line"><code class="plain">{</code></div>
+<div class="line"><code class="plain">migration.down = function(migrator) {</code></div>
 <div class="line"><code class="plain">    migrator.dropTable();</code></div>
 <div class="line"><code class="plain">};</code></div>
 </div>
