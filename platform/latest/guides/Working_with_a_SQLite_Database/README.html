@@ -194,13 +194,12 @@ The result set data is available using the methods that the <a class="external-l
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var cityWeatherRS = db.execute(</code><code class="string">'SELECT id,name,continent FROM city'</code><code class="plain">);</code></div>
-<div class="line"><code class="keyword">while</code><code class="plain"> (cityWeatherRS.isValidRow())</code></div>
-<div class="line"><code class="plain">{</code></div>
-<div class="line"><code class="plain">  var cityId = cityWeatherRS.fieldByName(</code><code class="string">'id'</code><code class="plain">);</code></div>
-<div class="line"><code class="plain">  var cityName = cityWeatherRS.fieldByName(</code><code class="string">'name'</code><code class="plain">);</code></div>
-<div class="line"><code class="plain">  var cityContinent = cityWeatherRS.fieldByName(</code><code class="string">'continent'</code><code class="plain">);</code></div>
-<div class="line"><code class="plain">  Ti.API.info(cityId + </code><code class="string">' '</code><code class="plain"> + cityName + </code><code class="string">' '</code><code class="plain"> + cityContinent);</code></div>
-<div class="line"><code class="plain">  cityWeatherRS.next();</code></div>
+<div class="line"><code class="keyword">while</code><code class="plain"> (cityWeatherRS.isValidRow()) {</code></div>
+<div class="line"><code class="plain">	var cityId = cityWeatherRS.fieldByName(</code><code class="string">'id'</code><code class="plain">);</code></div>
+<div class="line"><code class="plain">	var cityName = cityWeatherRS.fieldByName(</code><code class="string">'name'</code><code class="plain">);</code></div>
+<div class="line"><code class="plain">	var cityContinent = cityWeatherRS.fieldByName(</code><code class="string">'continent'</code><code class="plain">);</code></div>
+<div class="line"><code class="plain">	Ti.API.info(cityId + </code><code class="string">' '</code><code class="plain"> + cityName + </code><code class="string">' '</code><code class="plain"> + cityContinent);</code></div>
+<div class="line"><code class="plain">	cityWeatherRS.next();</code></div>
 <div class="line"><code class="plain">}</code></div>
 <div class="line"><code class="plain">cityWeatherRS.close();</code></div>
 </div>
@@ -220,15 +219,14 @@ Of course, you can select subsets of data by providing conditions within your <t
 Notice here that the <tt class=" ">city.id</tt> and <tt class=" ">cond.id</tt> columns have been aliased. This is because the <tt class=" ">fieldByName()</tt> method would not be able to distinguish between them if you simply passed their column name, <tt class=" ">fieldByName(id)</tt>. Thus, the ResultSet code would look like this:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="keyword">while</code><code class="plain"> (cityWeatherRS.isValidRow())</code></div>
-<div class="line"><code class="plain">{</code></div>
-<div class="line"><code class="plain">  var cityId = cityWeatherRS.fieldByName(</code><code class="string">'city_id'</code><code class="plain">);</code></div>
-<div class="line"><code class="plain">  var cityName = cityWeatherRS.fieldByName(</code><code class="string">'name'</code><code class="plain">);</code></div>
-<div class="line"><code class="plain">  var cityConditionId = cityWeatherRS.fieldByName(</code><code class="string">'cond_id'</code><code class="plain">);</code></div>
-<div class="line"><code class="plain">  var cityConditionSummary = cityWeatherRS.fieldByName(</code><code class="string">'summary'</code><code class="plain">);</code></div>
-<div class="line"><code class="plain">  var cityConditionIcon = cityWeatherRS.fieldByName(</code><code class="string">'icon'</code><code class="plain">);</code></div>
-<div class="line"><code class="plain">  Ti.API.info(cityId + </code><code class="string">' '</code><code class="plain"> + cityName + </code><code class="string">' '</code><code class="plain"> + cityConditionId + </code><code class="string">' '</code><code class="plain"> + cityConditionSummary + </code><code class="string">' '</code><code class="plain"> + cityConditionIcon);</code></div>
-<div class="line"><code class="plain">  cityWeatherRS.next();</code></div>
+<div class="line"><code class="keyword">while</code><code class="plain"> (cityWeatherRS.isValidRow()) {</code></div>
+<div class="line"><code class="plain">	var cityId = cityWeatherRS.fieldByName(</code><code class="string">'city_id'</code><code class="plain">);</code></div>
+<div class="line"><code class="plain">	var cityName = cityWeatherRS.fieldByName(</code><code class="string">'name'</code><code class="plain">);</code></div>
+<div class="line"><code class="plain">	var cityConditionId = cityWeatherRS.fieldByName(</code><code class="string">'cond_id'</code><code class="plain">);</code></div>
+<div class="line"><code class="plain">	var cityConditionSummary = cityWeatherRS.fieldByName(</code><code class="string">'summary'</code><code class="plain">);</code></div>
+<div class="line"><code class="plain">	var cityConditionIcon = cityWeatherRS.fieldByName(</code><code class="string">'icon'</code><code class="plain">);</code></div>
+<div class="line"><code class="plain">	Ti.API.info(cityId + </code><code class="string">' '</code><code class="plain"> + cityName + </code><code class="string">' '</code><code class="plain"> + cityConditionId + </code><code class="string">' '</code><code class="plain"> + cityConditionSummary + </code><code class="string">' '</code><code class="plain"> + cityConditionIcon);</code></div>
+<div class="line"><code class="plain">	cityWeatherRS.next();</code></div>
 <div class="line"><code class="plain">}</code></div>
 <div class="line"><code class="plain">cityWeatherRS.close();</code></div>
 </div>
@@ -328,7 +326,7 @@ A (perhaps not so widely known) trick in the database world is to use <a class="
 <div class="line"><code class="comments">// etc.</code></div>
 <div class="line"><code class="plain">var db = Ti.Database.open(</code><code class="string">'myDatabase'</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">db.execute(</code><code class="string">'BEGIN'</code><code class="plain">); </code><code class="comments">// begin the transaction</code></div>
-<div class="line"><code class="keyword">for</code><code class="plain">(var i=</code><code class="value">0</code><code class="plain">, var j=playlist.length; i &lt; j; i++) {</code></div>
+<div class="line"><code class="keyword">for</code><code class="plain"> (var i=</code><code class="value">0</code><code class="plain">, var j=playlist.length; i &lt; j; i++) {</code></div>
 <div class="line"><code class="plain">	var item = playlist[i];</code></div>
 <div class="line"><code class="plain">	db.execute(</code><code class="string">'INSERT INTO albums (disc, artist, rating) VALUES (?, ?, ?)'</code><code class="plain">, item.disc, item.artist, item.comment);</code></div>
 <div class="line"><code class="plain">}</code></div>
@@ -350,17 +348,17 @@ Rather than shipping a large pre-populated database, you can ship a &quot;skelet
 <div class="line"><code class="plain">	</code><code class="comments">// rehydrate, loop through, and insert into your tables</code></div>
 <div class="line"><code class="plain">}</code></div>
 <div class="line"><code class="plain">buttonInstallRemote.addEventListener(</code><code class="string">'click'</code><code class="plain">, function(){</code></div>
-<div class="line"><code class="plain">  var c = Ti.Network.createHTTPClient();</code></div>
-<div class="line"><code class="plain">  c.setTimeout(</code><code class="value">10000</code><code class="plain">);</code></div>
-<div class="line"><code class="plain">  c.onload = function(e){</code></div>
-<div class="line"><code class="plain">    updateMyDatabase(</code><code class="keyword">this</code><code class="plain">.responseData);</code></div>
-<div class="line"><code class="plain">    Ti.UI.createAlertDialog({title:</code><code class="string">'Info'</code><code class="plain">, message:</code><code class="string">'Database installed'</code><code class="plain">, buttonNames: [</code><code class="string">'OK'</code><code class="plain">]}).show();</code></div>
-<div class="line"><code class="plain">  };</code></div>
-<div class="line"><code class="plain">  c.onerror = function(e){</code></div>
-<div class="line"><code class="plain">    Ti.UI.createAlertDialog({title:</code><code class="string">'Error'</code><code class="plain">, message:</code><code class="string">'Error: '</code><code class="plain"> + e.error, buttonNames: [</code><code class="string">'OK'</code><code class="plain">]}).show();</code></div>
-<div class="line"><code class="plain">  };</code></div>
-<div class="line"><code class="plain">  c.open(</code><code class="string">'GET'</code><code class="plain">,"http:</code><code class="comments">//example.com/getNewDatabaseData);</code></div>
-<div class="line"><code class="plain">  c.send();</code></div>
+<div class="line"><code class="plain">	var c = Ti.Network.createHTTPClient();</code></div>
+<div class="line"><code class="plain">	c.setTimeout(</code><code class="value">10000</code><code class="plain">);</code></div>
+<div class="line"><code class="plain">	c.onload = function(e){</code></div>
+<div class="line"><code class="plain">    	updateMyDatabase(</code><code class="keyword">this</code><code class="plain">.responseData);</code></div>
+<div class="line"><code class="plain">    	Ti.UI.createAlertDialog({title: </code><code class="string">'Info'</code><code class="plain">, message: </code><code class="string">'Database installed'</code><code class="plain">, buttonNames: [</code><code class="string">'OK'</code><code class="plain">]}).show();</code></div>
+<div class="line"><code class="plain">  	};</code></div>
+<div class="line"><code class="plain">	c.onerror = function(e){</code></div>
+<div class="line"><code class="plain">    	Ti.UI.createAlertDialog({title: </code><code class="string">'Error'</code><code class="plain">, message: </code><code class="string">'Error: '</code><code class="plain"> + e.error, buttonNames: [</code><code class="string">'OK'</code><code class="plain">]}).show();</code></div>
+<div class="line"><code class="plain">  	};</code></div>
+<div class="line"><code class="plain">  	c.open(</code><code class="string">'GET'</code><code class="plain">,"http:</code><code class="comments">//example.com/getNewDatabaseData);</code></div>
+<div class="line"><code class="plain">  	c.send();</code></div>
 <div class="line"><code class="plain">});</code></div>
 </div>
 </div>    </div>

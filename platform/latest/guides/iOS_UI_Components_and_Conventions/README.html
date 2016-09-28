@@ -43,22 +43,22 @@ Popovers provide a way for you to display additional information associated with
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var button = Ti.UI.createButton({</code></div>
-<div class="line"><code class="plain">	title:</code><code class="string">'Show popover'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	width:</code><code class="value">250</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	height:</code><code class="value">50</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	top:</code><code class="value">30</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	right:</code><code class="value">5</code></div>
+<div class="line"><code class="plain">	title: </code><code class="string">'Show popover'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	width: </code><code class="value">250</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	height: </code><code class="value">50</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	top: </code><code class="value">30</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	right: </code><code class="value">5</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">var popover = Ti.UI.iPad.createPopover({</code></div>
-<div class="line"><code class="plain">	width:</code><code class="value">300</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	height:</code><code class="value">250</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	title:</code><code class="string">'I\'m a Popover'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">		arrowDirection:Ti.UI.iPad.POPOVER_ARROW_DIRECTION_RIGHT</code></div>
+<div class="line"><code class="plain">	width: </code><code class="value">300</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	height: </code><code class="value">250</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	title: </code><code class="string">'I\'m a Popover'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">		arrowDirection: Ti.UI.iPad.POPOVER_ARROW_DIRECTION_RIGHT</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">button.addEventListener(</code><code class="string">'click'</code><code class="plain">, function(e) {</code></div>
 <div class="line"><code class="plain">	popover.show({</code></div>
-<div class="line"><code class="plain">		view:button,</code></div>
-<div class="line"><code class="plain">		animated:</code><code class="keyword">true</code></div>
+<div class="line"><code class="plain">		view: button,</code></div>
+<div class="line"><code class="plain">		animated: </code><code class="keyword">true</code></div>
 <div class="line"><code class="plain">	});</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">win.add(button);</code></div>
@@ -79,35 +79,35 @@ You cannot control the width of either of the view controllers, and the user can
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="comments">// Window shown in narrower, left "pane"</code></div>
 <div class="line"><code class="plain">var masterWin = Ti.UI.createWindow({</code></div>
-<div class="line"><code class="plain">	backgroundColor:</code><code class="string">'#fff'</code></div>
+<div class="line"><code class="plain">	backgroundColor: </code><code class="string">'#fff'</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">masterWin.add(Ti.UI.createLabel({</code></div>
-<div class="line"><code class="plain">	text:</code><code class="string">'Master View'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	top:</code><code class="value">10</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	height:</code><code class="string">'Ti.UI.SIZE'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	font:{</code></div>
-<div class="line"><code class="plain">		textAlign:</code><code class="string">'center'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">		fontWeight:</code><code class="string">'bold'</code></div>
+<div class="line"><code class="plain">	text: </code><code class="string">'Master View'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	top: </code><code class="value">10</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	height: </code><code class="string">'Ti.UI.SIZE'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	font: {</code></div>
+<div class="line"><code class="plain">		textAlign: </code><code class="string">'center'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">		fontWeight: </code><code class="string">'bold'</code></div>
 <div class="line"><code class="plain">	}</code></div>
 <div class="line"><code class="plain">}));</code></div>
 <div class="line"><code class="comments">// Window shown in wider, right "pane"</code></div>
 <div class="line"><code class="plain">var detailWin = Ti.UI.createWindow({</code></div>
-<div class="line"><code class="plain">	backgroundColor:</code><code class="string">'#dfdfdf'</code></div>
+<div class="line"><code class="plain">	backgroundColor: </code><code class="string">'#dfdfdf'</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">detailWin.add(Ti.UI.createLabel({</code></div>
-<div class="line"><code class="plain">	text:</code><code class="string">'Detail View'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	top:</code><code class="value">10</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	height:</code><code class="string">'Ti.UI.SIZE'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	font:{</code></div>
-<div class="line"><code class="plain">		textAlign:</code><code class="string">'center'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">		fontWeight:</code><code class="string">'bold'</code></div>
+<div class="line"><code class="plain">	text: </code><code class="string">'Detail View'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	top: </code><code class="value">10</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	height: </code><code class="string">'Ti.UI.SIZE'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	font: {</code></div>
+<div class="line"><code class="plain">		textAlign: </code><code class="string">'center'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">		fontWeight: </code><code class="string">'bold'</code></div>
 <div class="line"><code class="plain">	}</code></div>
 <div class="line"><code class="plain">}));</code></div>
 <div class="line"><code class="comments">// the split window</code></div>
 <div class="line"><code class="plain">var splitwin = Ti.UI.iPad.createSplitWindow({</code></div>
-<div class="line"><code class="plain">    detailView:detailWin,</code></div>
-<div class="line"><code class="plain">    masterView:masterWin,</code></div>
-<div class="line"><code class="plain">    orientationModes:[ Titanium.UI.LANDSCAPE_LEFT,Titanium.UI.LANDSCAPE_RIGHT ]</code></div>
+<div class="line"><code class="plain">    detailView: detailWin,</code></div>
+<div class="line"><code class="plain">    masterView: masterWin,</code></div>
+<div class="line"><code class="plain">    orientationModes: [ Titanium.UI.LANDSCAPE_LEFT,Titanium.UI.LANDSCAPE_RIGHT ]</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">splitwin.open();</code></div>
 </div>
@@ -131,15 +131,15 @@ To remove either a tab or app badge, set the corresponding property to <tt class
 <div class="line"><code class="plain">Ti.UI.iPhone.appBadge = </code><code class="value">23</code><code class="plain">;</code></div>
 <div class="line"><code class="plain">var tabGroup = Titanium.UI.createTabGroup();</code></div>
 <div class="line"><code class="plain">var win1 = Titanium.UI.createWindow({</code></div>
-<div class="line"><code class="plain">    title:</code><code class="string">'Window 1'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">    backgroundColor:</code><code class="string">'#fff'</code></div>
+<div class="line"><code class="plain">    title: </code><code class="string">'Window 1'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">    backgroundColor: </code><code class="string">'#fff'</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="comments">// Set the badge for this tab to 10</code></div>
 <div class="line"><code class="plain">var tab1 = Titanium.UI.createTab({</code></div>
-<div class="line"><code class="plain">    icon:</code><code class="string">'KS_nav_views.png'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">    title:</code><code class="string">'Tab 1'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">    window:win1,</code></div>
-<div class="line"><code class="plain">    badge:</code><code class="value">10</code></div>
+<div class="line"><code class="plain">    icon: </code><code class="string">'KS_nav_views.png'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">    title: </code><code class="string">'Tab 1'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">    window: win1,</code></div>
+<div class="line"><code class="plain">    badge: </code><code class="value">10</code></div>
 <div class="line"><code class="plain">});</code></div>
 </div>
 </div>    </div>

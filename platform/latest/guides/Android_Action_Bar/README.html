@@ -157,9 +157,9 @@ The following code sample creates a basic action item:    </p>
 <div class="line"><code class="plain">win1.activity.onCreateOptionsMenu = function(e) { </code></div>
 <div class="line"><code class="plain">	var menu = e.menu; </code></div>
 <div class="line"><code class="plain">	var menuItem = menu.add({ </code></div>
-<div class="line"><code class="plain">		title : </code><code class="string">"Compose"</code><code class="plain">, </code></div>
-<div class="line"><code class="plain">		icon : </code><code class="string">"images/compose_icon.png"</code><code class="plain">, </code></div>
-<div class="line"><code class="plain">		showAsAction : Ti.Android.SHOW_AS_ACTION_IF_ROOM </code></div>
+<div class="line"><code class="plain">		title: </code><code class="string">"Compose"</code><code class="plain">, </code></div>
+<div class="line"><code class="plain">		icon: </code><code class="string">"images/compose_icon.png"</code><code class="plain">, </code></div>
+<div class="line"><code class="plain">		showAsAction: Ti.Android.SHOW_AS_ACTION_IF_ROOM </code></div>
 <div class="line"><code class="plain">	}); </code></div>
 <div class="line"><code class="plain">	menuItem.addEventListener(</code><code class="string">"click"</code><code class="plain">, function(e) { </code></div>
 <div class="line"><code class="plain">		Ti.API.info(</code><code class="string">"Action Item Clicked!"</code><code class="plain">); </code></div>
@@ -198,15 +198,15 @@ Since the options menu is considered always open when the action bar is in use, 
 <div class="line"><code class="plain">            menu.clear();</code></div>
 <div class="line"><code class="plain">            </code><code class="keyword">if</code><code class="plain"> (tabGroup.activeTab == tab1) {</code></div>
 <div class="line"><code class="plain">                item = menu.add({</code></div>
-<div class="line"><code class="plain">                    title : </code><code class="string">"Tab1 Item"</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">                    icon : </code><code class="string">"images/icon1.png"</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">                    title: </code><code class="string">"Tab1 Item"</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">                    icon: </code><code class="string">"images/icon1.png"</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">                    showAsAction: Ti.Android.SHOW_AS_ACTION_ALWAYS</code></div>
 <div class="line"><code class="plain">                });</code></div>
 <div class="line"><code class="plain">            } </code><code class="keyword">else</code><code class="plain"> </code><code class="keyword">if</code><code class="plain"> (tabGroup.activeTab == tab2) {</code></div>
 <div class="line"><code class="plain">                item = menu.add({</code></div>
-<div class="line"><code class="plain">                    title : </code><code class="string">"Tab2 Item"</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">                    icon : </code><code class="string">"images/icon2.png"</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">                    showAsAction : Ti.Android.SHOW_AS_ACTION_IF_ROOM</code></div>
+<div class="line"><code class="plain">                    title: </code><code class="string">"Tab2 Item"</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">                    icon: </code><code class="string">"images/icon2.png"</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">                    showAsAction: Ti.Android.SHOW_AS_ACTION_IF_ROOM</code></div>
 <div class="line"><code class="plain">                });</code></div>
 <div class="line"><code class="plain">            }</code></div>
 <div class="line"><code class="plain">        };</code></div>
@@ -389,8 +389,6 @@ Run your test application again.    </p>
 </li></ol>    <p>
         <img src="images/download/attachments/36735509/GenymotinConfiguration.png" alt="images/download/attachments/36735509/GenymotinConfiguration.png" class="confluence-embedded-image" width="500"/>
             </p>
-    <p>
-    </p>
     <p>
 See also:    </p>
 <ul class=" "><li class=" ">    <p>

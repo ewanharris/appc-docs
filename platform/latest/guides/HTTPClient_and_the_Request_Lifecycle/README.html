@@ -107,8 +107,8 @@ Often you will need to send data to the server in the body of your request, as y
 <div class="line"><code class="plain">};</code></div>
 <div class="line"><code class="plain">xhr.open(</code><code class="string">'POST'</code><code class="plain">,</code><code class="string">'http://www.myblog.com/post.php'</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">xhr.send({</code></div>
-<div class="line"><code class="plain">	title:</code><code class="string">'My awesome blog'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	body:</code><code class="string">'Today I met Susy at the laundromat.  Best day EVAR\!'</code></div>
+<div class="line"><code class="plain">	title: </code><code class="string">'My awesome blog'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	body: </code><code class="string">'Today I met Susy at the laundromat.  Best day EVAR\!'</code></div>
 <div class="line"><code class="plain">});</code></div>
 </div>
 </div>    <p>
@@ -152,42 +152,42 @@ In code, it would look like this:    </p>
 <div class="line"><code class="plain">var xhr = Ti.Network.createHTTPClient({</code></div>
 <div class="line"><code class="plain">    onload: function(e) {</code></div>
 <div class="line"><code class="plain">		</code><code class="comments">// function called in readyState DONE (4)</code></div>
-<div class="line"><code class="plain">		Ti.API.info(</code><code class="string">'onload called, readyState = '</code><code class="plain">+</code><code class="keyword">this</code><code class="plain">.readyState);</code></div>
+<div class="line"><code class="plain">		Ti.API.info(</code><code class="string">'onload called, readyState = '</code><code class="plain"> + </code><code class="keyword">this</code><code class="plain">.readyState);</code></div>
 <div class="line"><code class="plain">    },</code></div>
 <div class="line"><code class="plain">    onerror: function(e) {</code></div>
 <div class="line"><code class="plain">		</code><code class="comments">// function called in readyState DONE (4)</code></div>
-<div class="line"><code class="plain">		Ti.API.info(</code><code class="string">'onerror called, readyState = '</code><code class="plain">+</code><code class="keyword">this</code><code class="plain">.readyState);</code></div>
+<div class="line"><code class="plain">		Ti.API.info(</code><code class="string">'onerror called, readyState = '</code><code class="plain"> + </code><code class="keyword">this</code><code class="plain">.readyState);</code></div>
 <div class="line"><code class="plain">    },</code></div>
 <div class="line"><code class="plain">    ondatastream: function(e) {</code></div>
 <div class="line"><code class="plain">		</code><code class="comments">// function called as data is downloaded</code></div>
-<div class="line"><code class="plain">		Ti.API.info(</code><code class="string">'ondatastream called, readyState = '</code><code class="plain">+</code><code class="keyword">this</code><code class="plain">.readyState);</code></div>
+<div class="line"><code class="plain">		Ti.API.info(</code><code class="string">'ondatastream called, readyState = '</code><code class="plain"> + </code><code class="keyword">this</code><code class="plain">.readyState);</code></div>
 <div class="line"><code class="plain">    },</code></div>
 <div class="line"><code class="plain">    onsendstream: function(e) {</code></div>
 <div class="line"><code class="plain">		</code><code class="comments">// function called as data is uploaded</code></div>
-<div class="line"><code class="plain">		Ti.API.info(</code><code class="string">'onsendstream called, readyState = '</code><code class="plain">+</code><code class="keyword">this</code><code class="plain">.readyState);</code></div>
+<div class="line"><code class="plain">		Ti.API.info(</code><code class="string">'onsendstream called, readyState = '</code><code class="plain"> + </code><code class="keyword">this</code><code class="plain">.readyState);</code></div>
 <div class="line"><code class="plain">    },</code></div>
 <div class="line"><code class="plain">	onreadystatechange: function(e) {</code></div>
 <div class="line"><code class="plain">		</code><code class="keyword">switch</code><code class="plain">(</code><code class="keyword">this</code><code class="plain">.readyState) {</code></div>
 <div class="line"><code class="plain">			</code><code class="keyword">case</code><code class="plain"> </code><code class="value">0</code><code class="plain">:</code></div>
 <div class="line"><code class="plain">				</code><code class="comments">// after HTTPClient declared, prior to open()</code></div>
 <div class="line"><code class="plain">				</code><code class="comments">// though Ti won't actually report on this readyState</code></div>
-<div class="line"><code class="plain">				Ti.API.info(</code><code class="string">'case 0, readyState = '</code><code class="plain">+</code><code class="keyword">this</code><code class="plain">.readyState);</code></div>
+<div class="line"><code class="plain">				Ti.API.info(</code><code class="string">'case 0, readyState = '</code><code class="plain"> + </code><code class="keyword">this</code><code class="plain">.readyState);</code></div>
 <div class="line"><code class="plain">			</code><code class="keyword">break</code><code class="plain">;</code></div>
 <div class="line"><code class="plain">			</code><code class="keyword">case</code><code class="plain"> </code><code class="value">1</code><code class="plain">:</code></div>
 <div class="line"><code class="plain">				</code><code class="comments">// open() has been called, now is the time to set headers</code></div>
-<div class="line"><code class="plain">				Ti.API.info(</code><code class="string">'case 1, readyState = '</code><code class="plain">+</code><code class="keyword">this</code><code class="plain">.readyState);</code></div>
+<div class="line"><code class="plain">				Ti.API.info(</code><code class="string">'case 1, readyState = '</code><code class="plain"> + </code><code class="keyword">this</code><code class="plain">.readyState);</code></div>
 <div class="line"><code class="plain">			</code><code class="keyword">break</code><code class="plain">;</code></div>
 <div class="line"><code class="plain">			</code><code class="keyword">case</code><code class="plain"> </code><code class="value">2</code><code class="plain">:</code></div>
 <div class="line"><code class="plain">				</code><code class="comments">// headers received, xhr.status should be available now</code></div>
-<div class="line"><code class="plain">				Ti.API.info(</code><code class="string">'case 2, readyState = '</code><code class="plain">+</code><code class="keyword">this</code><code class="plain">.readyState);</code></div>
+<div class="line"><code class="plain">				Ti.API.info(</code><code class="string">'case 2, readyState = '</code><code class="plain"> + </code><code class="keyword">this</code><code class="plain">.readyState);</code></div>
 <div class="line"><code class="plain">			</code><code class="keyword">break</code><code class="plain">;</code></div>
 <div class="line"><code class="plain">			</code><code class="keyword">case</code><code class="plain"> </code><code class="value">3</code><code class="plain">:</code></div>
 <div class="line"><code class="plain">				</code><code class="comments">// data is being received, onsendstream/ondatastream being called now</code></div>
-<div class="line"><code class="plain">				Ti.API.info(</code><code class="string">'case 3, readyState = '</code><code class="plain">+</code><code class="keyword">this</code><code class="plain">.readyState);</code></div>
+<div class="line"><code class="plain">				Ti.API.info(</code><code class="string">'case 3, readyState = '</code><code class="plain"> + </code><code class="keyword">this</code><code class="plain">.readyState);</code></div>
 <div class="line"><code class="plain">			</code><code class="keyword">break</code><code class="plain">;</code></div>
 <div class="line"><code class="plain">			</code><code class="keyword">case</code><code class="plain"> </code><code class="value">4</code><code class="plain">:</code></div>
 <div class="line"><code class="plain">				</code><code class="comments">// done, onload or onerror should be called now</code></div>
-<div class="line"><code class="plain">				Ti.API.info(</code><code class="string">'case 4, readyState = '</code><code class="plain">+</code><code class="keyword">this</code><code class="plain">.readyState);</code></div>
+<div class="line"><code class="plain">				Ti.API.info(</code><code class="string">'case 4, readyState = '</code><code class="plain"> + </code><code class="keyword">this</code><code class="plain">.readyState);</code></div>
 <div class="line"><code class="plain">			</code><code class="keyword">break</code><code class="plain">;</code></div>
 <div class="line"><code class="plain">		}</code></div>
 <div class="line"><code class="plain">	},</code></div>

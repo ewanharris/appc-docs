@@ -291,17 +291,17 @@ Functions    </p>
 <div class="line"><code class="comments"> * Assumes the existence of a `Ti.Blob Ti.createBlob(string text)` method</code></div>
 <div class="line"><code class="comments"> */</code></div>
 <div class="line"><code class="plain">var connectingSocket = Ti.Network.createTCP({</code></div>
-<div class="line"><code class="plain">	host:</code><code class="string">'www.externalhost.com'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	port:</code><code class="value">4747</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	host: </code><code class="string">'www.externalhost.com'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	port: </code><code class="value">4747</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">	connected:function(e) {</code></div>
 <div class="line"><code class="plain">		e.socket.write(Ti.createBuffer({data: </code><code class="string">"Well, hello there!"</code><code class="plain">}));</code></div>
 <div class="line"><code class="plain">	},</code></div>
 <div class="line"><code class="plain">	error:function(e) {</code></div>
 <div class="line"><code class="plain">		Ti.UI.createAlertDialog({</code></div>
-<div class="line"><code class="plain">			title:</code><code class="string">"Socket error: "</code><code class="plain">+e.errorCode,</code></div>
-<div class="line"><code class="plain">			message:e.error</code></div>
+<div class="line"><code class="plain">			title: </code><code class="string">"Socket error: "</code><code class="plain">+e.errorCode,</code></div>
+<div class="line"><code class="plain">			message: e.error</code></div>
 <div class="line"><code class="plain">		}).show();</code></div>
-<div class="line"><code class="plain">		Ti.API.info(</code><code class="string">"CONNECTION has been closed: "</code><code class="plain">+e.socket.host+</code><code class="string">":"</code><code class="plain">+e.socket.port);</code></div>
+<div class="line"><code class="plain">		Ti.API.info(</code><code class="string">"CONNECTION has been closed: "</code><code class="plain"> + e.socket.host+</code><code class="string">":"</code><code class="plain"> + e.socket.port);</code></div>
 <div class="line"><code class="plain">	}</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">connectingSocket.connect();</code></div>
@@ -322,14 +322,15 @@ Functions    </p>
 <div class="line"><code class="plain">	}</code></div>
 <div class="line"><code class="plain">};</code></div>
 <div class="line"><code class="plain">var listeningSocket = Ti.Network.createTCP({</code></div>
-<div class="line"><code class="plain">	host:Ti.Platform.address,</code></div>
-<div class="line"><code class="plain">	port:</code><code class="value">4747</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	listenQueueSize:</code><code class="value">10</code><code class="plain">,	error:function(e) {</code></div>
+<div class="line"><code class="plain">	host: Ti.Platform.address,</code></div>
+<div class="line"><code class="plain">	port: </code><code class="value">4747</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	listenQueueSize: </code><code class="value">10</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	error: function(e) {</code></div>
 <div class="line"><code class="plain">		Ti.UI.createAlertDialog({</code></div>
-<div class="line"><code class="plain">			title:</code><code class="string">"Listener error: "</code><code class="plain">+e.errorCode,</code></div>
-<div class="line"><code class="plain">			message:e.error</code></div>
+<div class="line"><code class="plain">			title: </code><code class="string">"Listener error: "</code><code class="plain"> + e.errorCode,</code></div>
+<div class="line"><code class="plain">			message: e.error</code></div>
 <div class="line"><code class="plain">		}).show();</code></div>
-<div class="line"><code class="plain">		Ti.API.info(</code><code class="string">"CONNECTION has been closed: "</code><code class="plain">+e.socket.host+</code><code class="string">":"</code><code class="plain">+e.socket.port);</code></div>
+<div class="line"><code class="plain">		Ti.API.info(</code><code class="string">"CONNECTION has been closed: "</code><code class="plain"> + e.socket.host + </code><code class="string">":"</code><code class="plain"> + e.socket.port);</code></div>
 <div class="line"><code class="plain">	},</code></div>
 <div class="line"><code class="plain">	accepted:function(e) {</code></div>
 <div class="line"><code class="plain">		var socket = e.inbound;</code></div>
@@ -337,11 +338,11 @@ Functions    </p>
 <div class="line"><code class="plain">		</code><code class="comments">// connection</code></div>
 <div class="line"><code class="plain">		var whitelisted = hostWhitelist.indexOf(socket.host);</code></div>
 <div class="line"><code class="plain">		</code><code class="keyword">if</code><code class="plain"> (whitelisted == -</code><code class="value">1</code><code class="plain">) {</code></div>
-<div class="line"><code class="plain">			Ti.API.warn(</code><code class="string">"Attempted connection from socket not on whitelist: "</code><code class="plain">+socket.host);</code></div>
+<div class="line"><code class="plain">			Ti.API.warn(</code><code class="string">"Attempted connection from socket not on whitelist: "</code><code class="plain"> + socket.host);</code></div>
 <div class="line"><code class="plain">			socket.close();</code></div>
 <div class="line"><code class="plain">		}</code></div>
 <div class="line"><code class="plain">		</code><code class="keyword">else</code><code class="plain"> {</code></div>
-<div class="line"><code class="plain">			Ti.API.info(</code><code class="string">"Accepted connection from: "</code><code class="plain">+socket.host);</code></div>
+<div class="line"><code class="plain">			Ti.API.info(</code><code class="string">"Accepted connection from: "</code><code class="plain"> + socket.host);</code></div>
 <div class="line"><code class="plain">			connections.push(socket);</code></div>
 <div class="line"><code class="plain">		}</code></div>
 <div class="line"><code class="plain">		</code><code class="comments">// Check for a maximum number of connections</code></div>
@@ -352,7 +353,7 @@ Functions    </p>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="keyword">try</code><code class="plain"> {</code></div>
 <div class="line"><code class="plain">	listeningSocket.listen();</code></div>
-<div class="line"><code class="plain">	Ti.API.info(</code><code class="string">"Now listening on: "</code><code class="plain">+listeningSocket.host+</code><code class="string">":"</code><code class="plain">+listeningSocket.port);</code></div>
+<div class="line"><code class="plain">	Ti.API.info(</code><code class="string">"Now listening on: "</code><code class="plain"> + listeningSocket.host + </code><code class="string">":"</code><code class="plain"> + listeningSocket.port);</code></div>
 <div class="line"><code class="plain">	</code><code class="comments">// NOTE: We do not block JS execution on 'accept', unlike BSD.</code></div>
 <div class="line"><code class="plain">	</code><code class="comments">// It is an asynch call which fires the 'accepted' callback when a</code></div>
 <div class="line"><code class="plain">	</code><code class="comments">// new inbound connection is available to be pulled off the queue.</code></div>
@@ -370,13 +371,13 @@ Functions    </p>
 <div class="line"><code class="plain">var connectedSockets = [];</code></div>
 <div class="line"><code class="plain">var acceptedCallbacks = {</code></div>
 <div class="line"><code class="plain">	read: function(e) {</code></div>
-<div class="line"><code class="plain">		messageLabel.text = </code><code class="string">"Read from: "</code><code class="plain">+e.socket.host;</code></div>
+<div class="line"><code class="plain">		messageLabel.text = </code><code class="string">"Read from: "</code><code class="plain"> + e.socket.host;</code></div>
 <div class="line"><code class="plain">		readLabel.text = e.data.text;</code></div>
 <div class="line"><code class="plain">	},</code></div>
-<div class="line"><code class="plain">	error : function(e) {</code></div>
+<div class="line"><code class="plain">	error: function(e) {</code></div>
 <div class="line"><code class="plain">		Ti.UI.createAlertDialog({</code></div>
-<div class="line"><code class="plain">			title:</code><code class="string">"Socket error: "</code><code class="plain">+e.socket.host,</code></div>
-<div class="line"><code class="plain">			message:e.error</code></div>
+<div class="line"><code class="plain">			title: </code><code class="string">"Socket error: "</code><code class="plain"> + e.socket.host,</code></div>
+<div class="line"><code class="plain">			message: e.error</code></div>
 <div class="line"><code class="plain">		}).show();</code></div>
 <div class="line"><code class="plain">		var index = connectedSockets.indexOf(e.socket);</code></div>
 <div class="line"><code class="plain">		</code><code class="keyword">if</code><code class="plain"> (index != -</code><code class="value">1</code><code class="plain">) {</code></div>
@@ -385,9 +386,9 @@ Functions    </p>
 <div class="line"><code class="plain">	}</code></div>
 <div class="line"><code class="plain">};</code></div>
 <div class="line"><code class="plain">var socket = Titanium.Network.createTCPSocket({</code></div>
-<div class="line"><code class="plain">	hostName:Ti.Platform.address,</code></div>
-<div class="line"><code class="plain">	port:</code><code class="value">40404</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	type:Ti.Network.TCP,</code></div>
+<div class="line"><code class="plain">	hostName: Ti.Platform.address,</code></div>
+<div class="line"><code class="plain">	port: </code><code class="value">40404</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	type: Ti.Network.TCP,</code></div>
 <div class="line"><code class="plain">	accepted: function(e) {</code></div>
 <div class="line"><code class="plain">		var sock = e.connector;</code></div>
 <div class="line"><code class="plain">		connectedSockets.push(sock);</code></div>
@@ -398,64 +399,64 @@ Functions    </p>
 <div class="line"><code class="plain">	},</code></div>
 <div class="line"><code class="plain">	error: function(e) {</code></div>
 <div class="line"><code class="plain">		Ti.UI.createAlertDialog({</code></div>
-<div class="line"><code class="plain">			title:</code><code class="string">"Listener error: "</code><code class="plain">+e.errorCode,</code></div>
-<div class="line"><code class="plain">			message:e.error</code></div>
+<div class="line"><code class="plain">			title: </code><code class="string">"Listener error: "</code><code class="plain">+e.errorCode,</code></div>
+<div class="line"><code class="plain">			message: e.error</code></div>
 <div class="line"><code class="plain">		}).show();</code></div>
 <div class="line"><code class="plain">	}</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">var messageLabel = Titanium.UI.createLabel({</code></div>
-<div class="line"><code class="plain">	text:</code><code class="string">'Socket messages'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	font:{fontSize:</code><code class="value">14</code><code class="plain">},</code></div>
-<div class="line"><code class="plain">	color:</code><code class="string">'#777'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	top:</code><code class="value">220</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	left:</code><code class="value">10</code></div>
+<div class="line"><code class="plain">	text: </code><code class="string">'Socket messages'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	font: {fontSize: </code><code class="value">14</code><code class="plain">},</code></div>
+<div class="line"><code class="plain">	color: </code><code class="string">'#777'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	top: </code><code class="value">220</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	left: </code><code class="value">10</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">win.add(messageLabel);</code></div>
 <div class="line"><code class="plain">var readLabel = Titanium.UI.createLabel({</code></div>
-<div class="line"><code class="plain">	text:</code><code class="string">'Read data'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	font:{fontSize:</code><code class="value">14</code><code class="plain">},</code></div>
-<div class="line"><code class="plain">	color:</code><code class="string">'#777'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	top:</code><code class="value">250</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	left:</code><code class="value">10</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	width:</code><code class="value">400</code></div>
+<div class="line"><code class="plain">	text: </code><code class="string">'Read data'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	font: {fontSize: </code><code class="value">14</code><code class="plain">},</code></div>
+<div class="line"><code class="plain">	color: </code><code class="string">'#777'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	top: </code><code class="value">250</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	left: </code><code class="value">10</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	width: </code><code class="value">400</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">win.add(readLabel);</code></div>
 <div class="line"><code class="plain">var connectButton = Titanium.UI.createButton({</code></div>
-<div class="line"><code class="plain">	title:</code><code class="string">'Listen on 40404'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	width:</code><code class="value">200</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	height:</code><code class="value">40</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	top:</code><code class="value">10</code></div>
+<div class="line"><code class="plain">	title: </code><code class="string">'Listen on 40404'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	width: </code><code class="value">200</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	height: </code><code class="value">40</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	top: </code><code class="value">10</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">win.add(connectButton);</code></div>
 <div class="line"><code class="plain">connectButton.addEventListener(</code><code class="string">'click'</code><code class="plain">, function() {</code></div>
 <div class="line"><code class="plain">	</code><code class="keyword">try</code><code class="plain"> {</code></div>
 <div class="line"><code class="plain">		socket.listen();</code></div>
-<div class="line"><code class="plain">		messageLabel.text = </code><code class="string">"Listening on"</code><code class="plain">+e.socket.host+</code><code class="string">":"</code><code class="plain">+e.socket.port;</code></div>
+<div class="line"><code class="plain">		messageLabel.text = </code><code class="string">"Listening on"</code><code class="plain"> + e.socket.host + </code><code class="string">":"</code><code class="plain"> + e.socket.port;</code></div>
 <div class="line"><code class="plain">		e.socket.accept(acceptedCallbacks);</code></div>
 <div class="line"><code class="plain">	} </code><code class="keyword">catch</code><code class="plain"> (e) {</code></div>
-<div class="line"><code class="plain">		messageLabel.text = </code><code class="string">'Exception: '</code><code class="plain">+e;</code></div>
+<div class="line"><code class="plain">		messageLabel.text = </code><code class="string">'Exception: '</code><code class="plain"> + e;</code></div>
 <div class="line"><code class="plain">	}</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">var closeButton = Titanium.UI.createButton({</code></div>
-<div class="line"><code class="plain">	title:</code><code class="string">'Close'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	width:</code><code class="value">200</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	height:</code><code class="value">40</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	top:</code><code class="value">60</code></div>
+<div class="line"><code class="plain">	title: </code><code class="string">'Close'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	width: </code><code class="value">200</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	height: </code><code class="value">40</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	top: </code><code class="value">60</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">win.add(closeButton);</code></div>
 <div class="line"><code class="plain">closeButton.addEventListener(</code><code class="string">'click'</code><code class="plain">, function() {</code></div>
 <div class="line"><code class="plain">	</code><code class="keyword">try</code><code class="plain"> {</code></div>
 <div class="line"><code class="plain">		socket.close();</code></div>
 <div class="line"><code class="plain">	} </code><code class="keyword">catch</code><code class="plain"> (e) {</code></div>
-<div class="line"><code class="plain">		messageLabel.text = </code><code class="string">'Exception: '</code><code class="plain">+e;</code></div>
+<div class="line"><code class="plain">		messageLabel.text = </code><code class="string">'Exception: '</code><code class="plain"> + e;</code></div>
 <div class="line"><code class="plain">	}</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">var stateButton = Titanium.UI.createButton({</code></div>
-<div class="line"><code class="plain">	title:</code><code class="string">'Socket state'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	width:</code><code class="value">200</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	height:</code><code class="value">40</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	top:</code><code class="value">110</code></div>
-<div class="line"><code class="plain">	});</code></div>
+<div class="line"><code class="plain">	title: </code><code class="string">'Socket state'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	width: </code><code class="value">200</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	height: </code><code class="value">40</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	top: </code><code class="value">110</code></div>
+<div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">win.add(validButton);</code></div>
 <div class="line"><code class="plain">validButton.addEventListener(</code><code class="string">'click'</code><code class="plain">, function() {</code></div>
 <div class="line"><code class="plain">	var stateString = </code><code class="string">"UNKNOWN"</code><code class="plain">;</code></div>
@@ -476,14 +477,14 @@ Functions    </p>
 <div class="line"><code class="plain">			stateString = </code><code class="string">"ERROR"</code><code class="plain">;</code></div>
 <div class="line"><code class="plain">			</code><code class="keyword">break</code><code class="plain">;</code></div>
 <div class="line"><code class="plain">	}</code></div>
-<div class="line"><code class="plain">	messageLabel.text = </code><code class="string">"State: "</code><code class="plain">+stateString;</code></div>
+<div class="line"><code class="plain">	messageLabel.text = </code><code class="string">"State: "</code><code class="plain"> + stateString;</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">var writeButton = Titanium.UI.createButton({</code></div>
-<div class="line"><code class="plain">	title:</code><code class="string">"Write 'Paradise Lost'"</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	width:</code><code class="value">200</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	height:</code><code class="value">40</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	top:</code><code class="value">160</code></div>
-<div class="line"><code class="plain">	});</code></div>
+<div class="line"><code class="plain">	title: </code><code class="string">"Write 'Paradise Lost'"</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	width: </code><code class="value">200</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	height: </code><code class="value">40</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	top: </code><code class="value">160</code></div>
+<div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">win.add(writeButton);</code></div>
 <div class="line"><code class="plain">writeButton.addEventListener(</code><code class="string">'click'</code><code class="plain">, function() {</code></div>
 <div class="line"><code class="plain">	var plBlob = Titanium.Filesystem.getFile(Titanium.Filesystem.resourcesDirectory, </code><code class="string">'paradise_lost.txt'</code><code class="plain">).read();</code></div>

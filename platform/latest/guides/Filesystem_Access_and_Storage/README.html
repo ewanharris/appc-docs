@@ -115,9 +115,9 @@ Reading from a file is simple enough: get a handle then call the <tt class=" ">r
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,</code><code class="string">'yourfile.txt'</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">var contents = f.read();</code></div>
-<div class="line"><code class="plain">Ti.API.info(</code><code class="string">'Output as a blob: '</code><code class="plain">+contents); </code><code class="comments">// useful if contents are binary</code></div>
-<div class="line"><code class="plain">Ti.API.info(</code><code class="string">'Output text of the file: '</code><code class="plain">+contents.text);</code></div>
-<div class="line"><code class="plain">Ti.API.info(</code><code class="string">'Output the file\'s MIME type: '</code><code class="plain">+contents.mimeType); </code><code class="comments">// e.g. text/plain</code></div>
+<div class="line"><code class="plain">Ti.API.info(</code><code class="string">'Output as a blob: '</code><code class="plain"> + contents); </code><code class="comments">// useful if contents are binary</code></div>
+<div class="line"><code class="plain">Ti.API.info(</code><code class="string">'Output text of the file: '</code><code class="plain"> + contents.text);</code></div>
+<div class="line"><code class="plain">Ti.API.info(</code><code class="string">'Output the file\'s MIME type: '</code><code class="plain"> + contents.mimeType); </code><code class="comments">// e.g. text/plain</code></div>
 </div>
 </div>    </div>
     <div class="section section-4 " id="29004902_FilesystemAccessandStorage-Writing">
@@ -126,7 +126,7 @@ Reading from a file is simple enough: get a handle then call the <tt class=" ">r
 Again, writing to files is straightforward. Get a handle, call <tt class=" ">write()</tt>. Depending on your app, what comes before that call that might be a bit more involved. For example, when saving the state of a JavaScript object, you'll call <tt class=" ">JSON.stringify()</tt> first. Later, you can read in the file and rehydrate the object with <tt class=" ">JSON.parse()</tt>.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,</code><code class="string">'emptyfile.txt'</code><code class="plain">);</code></div>
+<div class="line"><code class="plain">var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, </code><code class="string">'emptyfile.txt'</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">f.write(</code><code class="string">'The file is no longer empty!'</code><code class="plain">); </code><code class="comments">// write to the file</code></div>
 </div>
 </div>    <p>
@@ -139,10 +139,10 @@ Again, writing to files is straightforward. Get a handle, call <tt class=" ">wri
 There is no distinct (cross-platform) append method, but you can use <tt class=" ">write()</tt> to append to a file. In your statement, pass <tt class=" ">true</tt> as the second argument, as shown in the following code. The results of which are shown in the graphic to the right.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">var log = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,</code><code class="string">'logfile.txt'</code><code class="plain">);</code></div>
+<div class="line"><code class="plain">var log = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, </code><code class="string">'logfile.txt'</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">log.write(</code><code class="string">'My log file\n'</code><code class="plain">);</code></div>
-<div class="line"><code class="keyword">for</code><code class="plain">(var i=</code><code class="value">0</code><code class="plain">; i&lt;</code><code class="value">10</code><code class="plain">; i++) {</code></div>
-<div class="line"><code class="plain">	log.write(i+</code><code class="string">': new log statement\n'</code><code class="plain">, </code><code class="keyword">true</code><code class="plain">); </code><code class="comments">// Boolean argument causes write() to append</code></div>
+<div class="line"><code class="keyword">for</code><code class="plain"> (var i = </code><code class="value">0</code><code class="plain">; i &lt; </code><code class="value">10</code><code class="plain">; i++) {</code></div>
+<div class="line"><code class="plain">	log.write(i + </code><code class="string">': new log statement\n'</code><code class="plain">, </code><code class="keyword">true</code><code class="plain">); </code><code class="comments">// Boolean argument causes write() to append</code></div>
 <div class="line"><code class="plain">}</code></div>
 <div class="line"><code class="plain">alert(log.read().text);</code></div>
 </div>
@@ -154,7 +154,7 @@ Titanium makes it pretty easy to create a file. Grab a file handle, then write t
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,</code><code class="string">'nonexistent_file.txt'</code><code class="plain">);</code></div>
-<div class="line"><code class="keyword">if</code><code class="plain">(f.exists()===</code><code class="keyword">false</code><code class="plain">) {</code></div>
+<div class="line"><code class="keyword">if</code><code class="plain"> (f.exists() === </code><code class="keyword">false</code><code class="plain">) {</code></div>
 <div class="line"><code class="plain">	</code><code class="comments">// you don't need to do this, but you could...</code></div>
 <div class="line"><code class="plain">	f.createFile();</code></div>
 <div class="line"><code class="plain">}</code></div>
@@ -182,7 +182,7 @@ Renaming files follows the same format as above: get a handle, do the operation.
 <div class="line"><code class="plain">f.write(</code><code class="string">'foo'</code><code class="plain">);</code></div>
 <div class="line"><code class="comments">// rename the file</code></div>
 <div class="line"><code class="plain">var success = f.rename(</code><code class="string">'fluffernutter.txt'</code><code class="plain">);</code></div>
-<div class="line"><code class="keyword">if</code><code class="plain">(success==</code><code class="keyword">true</code><code class="plain">) {</code></div>
+<div class="line"><code class="keyword">if</code><code class="plain"> (success == </code><code class="keyword">true</code><code class="plain">) {</code></div>
 <div class="line"><code class="plain">	Ti.API.info(</code><code class="string">'File has been renamed'</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">} </code><code class="keyword">else</code><code class="plain"> {</code></div>
 <div class="line"><code class="plain">	Ti.API.info(</code><code class="string">'File has NOT been renamed'</code><code class="plain">);</code></div>
@@ -210,7 +210,7 @@ We'll end our discussion of file with a look at deleting files. As before, grab 
 <div class="line"><code class="plain">f.write(</code><code class="string">'foo'</code><code class="plain">); </code><code class="comments">// make sure there's content there so we're sure the file exists</code></div>
 <div class="line"><code class="comments">// Before deleting, maybe we could confirm the file exists and is writable</code></div>
 <div class="line"><code class="comments">// but we don't really need to as deleteFile() would just return false if it failed</code></div>
-<div class="line"><code class="keyword">if</code><code class="plain">(f.exists() &amp;&amp; f.writeable) {</code></div>
+<div class="line"><code class="keyword">if</code><code class="plain"> (f.exists() &amp;&amp; f.writeable) {</code></div>
 <div class="line"><code class="plain">	var success = f.deleteFile();</code></div>
 <div class="line"><code class="plain">	Ti.API.info((success==</code><code class="keyword">true</code><code class="plain">) ? </code><code class="string">'success'</code><code class="plain"> : </code><code class="string">'fail'</code><code class="plain">); </code><code class="comments">// outputs 'success'</code></div>
 <div class="line"><code class="plain">}</code></div>

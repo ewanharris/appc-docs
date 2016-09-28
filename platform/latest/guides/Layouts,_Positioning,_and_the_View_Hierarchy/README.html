@@ -165,36 +165,36 @@ In the following example, the red view is positioned at the 20,20 point relative
 <div class="title">Positioning</div>
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var win = Ti.UI.createWindow({</code></div>
-<div class="line"><code class="plain">	backgroundColor:</code><code class="string">'#fff'</code></div>
+<div class="line"><code class="plain">	backgroundColor: </code><code class="string">'#fff'</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">var redview = Ti.UI.createView({</code></div>
-<div class="line"><code class="plain">    top:</code><code class="value">20</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	left:</code><code class="value">20</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">    width:</code><code class="value">10</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">    height:</code><code class="value">10</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">    backgroundColor:</code><code class="string">"red"</code></div>
+<div class="line"><code class="plain">    top: </code><code class="value">20</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	left: </code><code class="value">20</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">    width: </code><code class="value">10</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">    height: </code><code class="value">10</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">    backgroundColor: </code><code class="string">"red"</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">win.add(redview);</code></div>
 <div class="line"><code class="plain">var yellowview = Ti.UI.createView({</code></div>
-<div class="line"><code class="plain">    bottom:</code><code class="value">100</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	right:</code><code class="value">100</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">    width:</code><code class="value">10</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">    height:</code><code class="value">10</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">    backgroundColor:</code><code class="string">"yellow"</code></div>
+<div class="line"><code class="plain">    bottom: </code><code class="value">100</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	right: </code><code class="value">100</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">    width: </code><code class="value">10</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">    height: </code><code class="value">10</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">    backgroundColor: </code><code class="string">"yellow"</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">win.add(yellowview);</code></div>
 <div class="line"><code class="plain">var blueview = Ti.UI.createView({</code></div>
 <div class="line"><code class="plain">	center: {x: </code><code class="value">160</code><code class="plain">, y: </code><code class="value">240</code><code class="plain">},</code></div>
-<div class="line"><code class="plain">	width:</code><code class="value">50</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	height:</code><code class="value">50</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	backgroundColor:</code><code class="string">"blue"</code></div>
+<div class="line"><code class="plain">	width: </code><code class="value">50</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	height: </code><code class="value">50</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	backgroundColor: </code><code class="string">"blue"</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">win.add(blueview);</code></div>
 <div class="line"><code class="plain">var greenview = Ti.UI.createView({</code></div>
-<div class="line"><code class="plain">    top:-</code><code class="value">20</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">    width:</code><code class="value">10</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">    height:</code><code class="value">10</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">    backgroundColor:</code><code class="string">"green"</code></div>
+<div class="line"><code class="plain">    top: -</code><code class="value">20</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">    width: </code><code class="value">10</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">    height: </code><code class="value">10</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">    backgroundColor: </code><code class="string">"green"</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">win.add(greenview);</code></div>
 <div class="line"><code class="plain">win.open();</code></div>
@@ -225,21 +225,21 @@ Here's an exmaple of these layouts in action:<br/>        <img src="images/downl
 <div class="line"><code class="plain">grid.drawgrid(</code><code class="value">20</code><code class="plain">,win);</code></div>
 <div class="line"><code class="comments">// draw a view that fills the window and set its layout property</code></div>
 <div class="line"><code class="plain">var view = Ti.UI.createView({</code></div>
-<div class="line"><code class="plain">	backgroundColor:</code><code class="string">'transparent'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	top:</code><code class="value">0</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	left:</code><code class="value">0</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	width:</code><code class="string">'100%'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	height:</code><code class="string">'100%'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	layout:</code><code class="string">'vertical'</code></div>
+<div class="line"><code class="plain">	backgroundColor: </code><code class="string">'transparent'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	top: </code><code class="value">0</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	left: </code><code class="value">0</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	width: </code><code class="string">'100%'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	height: </code><code class="string">'100%'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	layout: </code><code class="string">'vertical'</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="comments">// simple function for making colored boxes</code></div>
 <div class="line"><code class="plain">function makeView(color) {</code></div>
 <div class="line"><code class="plain">	</code><code class="keyword">return</code><code class="plain"> Ti.UI.createView({</code></div>
-<div class="line"><code class="plain">	    top:</code><code class="value">20</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">		left:</code><code class="value">20</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	    width:</code><code class="value">20</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	    height:</code><code class="value">20</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	    backgroundColor:color</code></div>
+<div class="line"><code class="plain">	    top: </code><code class="value">20</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">		left: </code><code class="value">20</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	    width: </code><code class="value">20</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	    height: </code><code class="value">20</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	    backgroundColor: color</code></div>
 <div class="line"><code class="plain">	});</code></div>
 <div class="line"><code class="plain">}</code></div>
 <div class="line"><code class="plain">view.add(makeView(</code><code class="string">'red'</code><code class="plain">));</code></div>

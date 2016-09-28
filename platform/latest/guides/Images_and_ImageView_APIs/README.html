@@ -71,9 +71,9 @@ The <tt class=" ">ImageView</tt> is Titanium's component for representing an ima
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var win = Ti.UI.createWindow({backgroundColor: </code><code class="string">'white'</code><code class="plain">});</code></div>
 <div class="line"><code class="plain">var myImage = Ti.UI.createImageView({</code></div>
-<div class="line"><code class="plain">	width:</code><code class="value">100</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	height:</code><code class="value">100</code></div>
-<div class="line"><code class="plain">	image:</code><code class="string">'foo.png'</code><code class="plain"> </code><code class="comments">/* accepts URL, local path, or Ti.Filesystem.File */</code></div>
+<div class="line"><code class="plain">	width: </code><code class="value">100</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	height: </code><code class="value">100</code></div>
+<div class="line"><code class="plain">	image: </code><code class="string">'foo.png'</code><code class="plain"> </code><code class="comments">/* accepts URL, local path, or Ti.Filesystem.File */</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="comments">/*</code></div>
 <div class="line"><code class="comments">// this would work:</code></div>
@@ -99,14 +99,14 @@ You can display flipbook-style animations with the <tt class=" ">ImageView</tt> 
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="comments">// from the Kitchen Sink, examples/image_view_animated.js</code></div>
 <div class="line"><code class="plain">var images = [];</code></div>
-<div class="line"><code class="keyword">for</code><code class="plain"> (var i=</code><code class="value">1</code><code class="plain">;i&lt;</code><code class="value">18</code><code class="plain">;i++) {</code></div>
-<div class="line"><code class="plain">	images.push(</code><code class="string">'../images/campFire'</code><code class="plain"> + ((i&lt;</code><code class="value">10</code><code class="plain">)?</code><code class="string">'0'</code><code class="plain">+i:i)+</code><code class="string">'.gif'</code><code class="plain">);</code></div>
+<div class="line"><code class="keyword">for</code><code class="plain"> (var i = </code><code class="value">1</code><code class="plain">; i &lt; </code><code class="value">18</code><code class="plain">; i++) {</code></div>
+<div class="line"><code class="plain">	images.push(</code><code class="string">'../images/campFire'</code><code class="plain"> + ((i &lt; </code><code class="value">10</code><code class="plain">) ? </code><code class="string">'0'</code><code class="plain"> + i:i)+</code><code class="string">'.gif'</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">}</code></div>
 <div class="line"><code class="plain">var imageView = Titanium.UI.createImageView({</code></div>
-<div class="line"><code class="plain">	images:images,</code></div>
-<div class="line"><code class="plain">	duration:</code><code class="value">100</code><code class="plain">, </code><code class="comments">// in milliseconds, the time before next frame is shown</code></div>
-<div class="line"><code class="plain">	repeatCount:</code><code class="value">0</code><code class="plain">,  </code><code class="comments">// 0 means animation repeats indefinitely, use &gt; 1 to control repeat count</code></div>
-<div class="line"><code class="plain">	top:</code><code class="value">0</code></div>
+<div class="line"><code class="plain">	images: images,</code></div>
+<div class="line"><code class="plain">	duration: </code><code class="value">100</code><code class="plain">, </code><code class="comments">// in milliseconds, the time before next frame is shown</code></div>
+<div class="line"><code class="plain">	repeatCount: </code><code class="value">0</code><code class="plain">,  </code><code class="comments">// 0 means animation repeats indefinitely, use &gt; 1 to control repeat count</code></div>
+<div class="line"><code class="plain">	top: </code><code class="value">0</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="comments">// imageView.stop() would stop the animation</code></div>
 <div class="line"><code class="comments">// imageView.start() would start the animation again</code></div>

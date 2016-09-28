@@ -53,10 +53,10 @@ Android devices have a hardware or software button that is used to display a men
 <div class="line"><code class="comments">// or with your heavyweight window, set here with navBarHidden</code></div>
 <div class="line"><code class="plain">var win = Titanium.UI.createWindow({</code></div>
 <div class="line"><code class="plain">	navBarHidden: </code><code class="keyword">false</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	activity : {</code></div>
-<div class="line"><code class="plain">		onCreateOptionsMenu : function(e) {</code></div>
+<div class="line"><code class="plain">	activity: {</code></div>
+<div class="line"><code class="plain">		onCreateOptionsMenu: function(e) {</code></div>
 <div class="line"><code class="plain">			var menu = e.menu;</code></div>
-<div class="line"><code class="plain">			var menuItem = menu.add({ title : </code><code class="string">'Item 1'</code><code class="plain"> });</code></div>
+<div class="line"><code class="plain">			var menuItem = menu.add({ title: </code><code class="string">'Item 1'</code><code class="plain"> });</code></div>
 <div class="line"><code class="plain">			menuItem.setIcon(</code><code class="string">"item1.png"</code><code class="plain">);</code></div>
 <div class="line"><code class="plain">			menuItem.addEventListener(</code><code class="string">'click'</code><code class="plain">, function(e) {</code></div>
 <div class="line"><code class="plain">				</code><code class="comments">// do something when the menu item is tapped</code></div>
@@ -78,9 +78,9 @@ As with the Menu button, the Android Back button is associated with Activities o
 <div class="line"><code class="comments">// must be a heavyweight window to capture the androidback event</code></div>
 <div class="line"><code class="comments">// so set something like fullscreen:false</code></div>
 <div class="line"><code class="plain">var win = Ti.UI.createWindow({</code></div>
-<div class="line"><code class="plain">	title:</code><code class="string">'Hello world'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	backgroundColor:</code><code class="string">'#fff'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	fullscreen:</code><code class="keyword">false</code></div>
+<div class="line"><code class="plain">	title: </code><code class="string">'Hello world'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	backgroundColor: </code><code class="string">'#fff'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	fullscreen: </code><code class="keyword">false</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">win.addEventListener(</code><code class="string">'androidback'</code><code class="plain">,function() {</code></div>
 <div class="line"><code class="plain">	</code><code class="comments">// do something</code></div>
@@ -102,9 +102,9 @@ Titanium Labels have the ability to use inline HTML, as well as embedded links, 
 <div class="line"><code class="plain">var label = Ti.UI.createLabel({</code></div>
 <div class="line"><code class="plain">	html: </code><code class="string">'Testing &lt;b&gt;bold&lt;/b&gt; &lt;i&gt;italic&lt;/i&gt; text'</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">	text: </code><code class="string">'This is for iOS'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	top:</code><code class="value">125</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	height:</code><code class="value">50</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	width:</code><code class="string">'100%'</code></div>
+<div class="line"><code class="plain">	top: </code><code class="value">125</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	height: </code><code class="value">50</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	width: </code><code class="string">'100%'</code></div>
 <div class="line"><code class="plain">});</code></div>
 </div>
 </div>    <p>
@@ -112,10 +112,10 @@ Android also will &quot;linkify&quot; text within your labels. Given the followi
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var lbl = Ti.UI.createLabel({</code></div>
-<div class="line"><code class="plain">	autoLink : Ti.UI.AUTOLINK_ALL, </code><code class="comments">// Prior to SDK 3.0, Ti.UI.Android.LINKIFY_ALL</code></div>
-<div class="line"><code class="plain">	left : </code><code class="value">5</code><code class="plain">, top : </code><code class="value">5</code><code class="plain">, right : </code><code class="value">5</code><code class="plain">, height : </code><code class="value">100</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	backgroundColor : </code><code class="string">'#222'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	text : </code><code class="string">'Contact\n test@test.com\n 817-555-5555\n http://bit.ly\n 440 Bernardo Ave, Mountain View, CA'</code></div>
+<div class="line"><code class="plain">	autoLink: Ti.UI.AUTOLINK_ALL, </code><code class="comments">// Prior to SDK 3.0, Ti.UI.Android.LINKIFY_ALL</code></div>
+<div class="line"><code class="plain">	left: </code><code class="value">5</code><code class="plain">, top: </code><code class="value">5</code><code class="plain">, right: </code><code class="value">5</code><code class="plain">, height: </code><code class="value">100</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	backgroundColor: </code><code class="string">'#222'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	text: </code><code class="string">'Contact\n test@test.com\n 817-555-5555\n http://bit.ly\n 440 Bernardo Ave, Mountain View, CA'</code></div>
 <div class="line"><code class="plain">});</code></div>
 </div>
 </div>    <p>
@@ -175,7 +175,7 @@ The Android status bar provides a central location for application and system no
 <div class="line"><code class="plain">var notification = Titanium.Android.createNotification({</code></div>
 <div class="line"><code class="plain">        icon: </code><code class="value">0x7f020000</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">        contentTitle: </code><code class="string">'Dial Now!'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">		contentText : </code><code class="string">'817-555-1212'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">		contentText: </code><code class="string">'817-555-1212'</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">        contentIntent: pending</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="comments">// Send the Notification to the manager, the digit is an ID you could use to later cancel the notification</code></div>

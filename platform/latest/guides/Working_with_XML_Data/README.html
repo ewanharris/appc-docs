@@ -85,7 +85,7 @@ Consider this code snippet, which parses RSS (XML) data retrieved from a blog:  
 <div class="line"><code class="plain">	var data = [];</code></div>
 <div class="line"><code class="plain">	</code><code class="comments">// blog posts are in nodes named "item"</code></div>
 <div class="line"><code class="plain">	var items = xml.documentElement.getElementsByTagName(</code><code class="string">"item"</code><code class="plain">);</code></div>
-<div class="line"><code class="plain">	</code><code class="keyword">for</code><code class="plain"> (var i=</code><code class="value">0</code><code class="plain">;i&lt;items.length;i++) {</code></div>
+<div class="line"><code class="plain">	</code><code class="keyword">for</code><code class="plain"> (var i = </code><code class="value">0</code><code class="plain">; i &lt; items.length; i++) {</code></div>
 <div class="line"><code class="plain">		data.push({</code></div>
 <div class="line"><code class="plain">			postTitle: items.item(i).getElementsByTagName(</code><code class="string">"title"</code><code class="plain">).item(</code><code class="value">0</code><code class="plain">).text,</code></div>
 <div class="line"><code class="plain">			postLink: items.item(i).getElementsByTagName(</code><code class="string">"link"</code><code class="plain">).item(</code><code class="value">0</code><code class="plain">).text</code></div>

@@ -48,12 +48,12 @@ Basic animations involve altering the properties of UI elements, such as their t
 <div class="line"><code class="comments">// box is a Ti.UI.View, when clicked, it fades out of view in 2 seconds, then fades back into view</code></div>
 <div class="line"><code class="plain">box.addEventListener(</code><code class="string">'click'</code><code class="plain">, function(){</code></div>
 <div class="line"><code class="plain">	box.animate({</code></div>
-<div class="line"><code class="plain">		opacity:</code><code class="value">0</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">		duration:</code><code class="value">2000</code></div>
+<div class="line"><code class="plain">		opacity: </code><code class="value">0</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">		duration: </code><code class="value">2000</code></div>
 <div class="line"><code class="plain">	}, function(){</code></div>
 <div class="line"><code class="plain">		box.animate({</code></div>
-<div class="line"><code class="plain">			opacity:</code><code class="value">1</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">			duration:</code><code class="value">2000</code></div>
+<div class="line"><code class="plain">			opacity: </code><code class="value">1</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">			duration: </code><code class="value">2000</code></div>
 <div class="line"><code class="plain">		});</code></div>
 <div class="line"><code class="plain">	});</code></div>
 <div class="line"><code class="plain">});</code></div>
@@ -63,12 +63,12 @@ Alternatively, you could use Animation objects to do the same thing:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var a = Ti.UI.createAnimation({</code></div>
-<div class="line"><code class="plain">	opacity:</code><code class="value">0</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	duration:</code><code class="value">2000</code></div>
+<div class="line"><code class="plain">	opacity: </code><code class="value">0</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	duration: </code><code class="value">2000</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">var b = Ti.UI.createAnimation({</code></div>
-<div class="line"><code class="plain">	opacity:</code><code class="value">1</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	duration:</code><code class="value">2000</code></div>
+<div class="line"><code class="plain">	opacity: </code><code class="value">1</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	duration: </code><code class="value">2000</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">box.addEventListener(</code><code class="string">'click'</code><code class="plain">, function(){</code></div>
 <div class="line"><code class="plain">	box.animate(a, function(){</code></div>
@@ -138,13 +138,13 @@ Transitions are another iOS-only feature. Transitions are built-in animations th
 <div class="line"><code class="plain">container.addEventListener(</code><code class="string">'click'</code><code class="plain">, function(){</code></div>
 <div class="line"><code class="plain">	</code><code class="keyword">if</code><code class="plain"> (selectedIndex%</code><code class="value">2</code><code class="plain"> == </code><code class="value">0</code><code class="plain">) {</code></div>
 <div class="line"><code class="plain">		container.animate({</code></div>
-<div class="line"><code class="plain">			view:box2,</code></div>
+<div class="line"><code class="plain">			view: box2,</code></div>
 <div class="line"><code class="plain">			transition:Ti.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT</code></div>
 <div class="line"><code class="plain">		});</code></div>
 <div class="line"><code class="plain">	}</code></div>
 <div class="line"><code class="plain">	</code><code class="keyword">else</code><code class="plain"> {</code></div>
 <div class="line"><code class="plain">		container.animate({</code></div>
-<div class="line"><code class="plain">			view:box1,</code></div>
+<div class="line"><code class="plain">			view: box1,</code></div>
 <div class="line"><code class="plain">			transition:Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT</code></div>
 <div class="line"><code class="plain">		});</code></div>
 <div class="line"><code class="plain">	}</code></div>

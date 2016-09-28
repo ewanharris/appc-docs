@@ -101,7 +101,7 @@ If you have a complex Javascript object, you can convert it to a <a class="exter
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var window = Titanium.UI.createWindow({</code></div>
-<div class="line"><code class="plain">  backgroundColor:</code><code class="string">'#999'</code></div>
+<div class="line"><code class="plain">  backgroundColor: </code><code class="string">'#999'</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">var weatherData = { </code><code class="string">"reports"</code><code class="plain"> : [ { </code><code class="string">"city"</code><code class="plain">: </code><code class="string">"Mountain View"</code><code class="plain">, </code><code class="string">"condition"</code><code class="plain">: </code><code class="string">"Cloudy"</code><code class="plain">, </code><code class="string">"icon"</code><code class="plain">: </code><code class="string">"http://www.worldweather.org/img_cartoon/pic23.gif"</code><code class="plain"> }, { </code><code class="string">"city"</code><code class="plain">: </code><code class="string">"Washington, DC"</code><code class="plain">, </code><code class="string">"condition"</code><code class="plain">: </code><code class="string">"Mostly Cloudy"</code><code class="plain">, </code><code class="string">"icon"</code><code class="plain">: </code><code class="string">"http://www.worldweather.org/img_cartoon/pic20.gif"</code><code class="plain"> }, { </code><code class="string">"city"</code><code class="plain">: </code><code class="string">"Brasilia"</code><code class="plain">, </code><code class="string">"condition"</code><code class="plain">: </code><code class="string">"Thunderstorm"</code><code class="plain">, </code><code class="string">"icon"</code><code class="plain">: </code><code class="string">"http://www.worldweather.org/img_cartoon/pic02.gif"</code><code class="plain"> } ] };</code></div>
 <div class="line"><code class="plain">Ti.App.Properties.setString(</code><code class="string">'myJSON'</code><code class="plain">, JSON.stringify(weatherData));</code></div>
@@ -113,7 +113,7 @@ If you have a complex Javascript object, you can convert it to a <a class="exter
 This will output the following to the log:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">The myJSON property contains: {</code><code class="string">"reports"</code><code class="plain">:[{</code><code class="string">"city"</code><code class="plain">:</code><code class="string">"Mountain View"</code><code class="plain">,</code><code class="string">"condition"</code><code class="plain">:</code><code class="string">"Cloudy"</code><code class="plain">,</code><code class="string">"icon"</code><code class="plain">:</code><code class="string">"http://www.worldweather.org/img_cartoon/pic23.gif"</code><code class="plain">},{</code><code class="string">"city"</code><code class="plain">:</code><code class="string">"Washington, DC"</code><code class="plain">,</code><code class="string">"condition"</code><code class="plain">:</code><code class="string">"Mostly Cloudy"</code><code class="plain">,</code><code class="string">"icon"</code><code class="plain">:</code><code class="string">"http://www.worldweather.org/img_cartoon/pic20.gif"</code><code class="plain">},{</code><code class="string">"city"</code><code class="plain">:</code><code class="string">"Brasilia"</code><code class="plain">,</code><code class="string">"condition"</code><code class="plain">:</code><code class="string">"Thunderstorm"</code><code class="plain">,</code><code class="string">"icon"</code><code class="plain">:</code><code class="string">"http://www.worldweather.org/img_cartoon/pic02.gif"</code><code class="plain">}]}</code></div>
+<div class="line"><code class="plain">The myJSON property contains: {</code><code class="string">"reports"</code><code class="plain">:[{</code><code class="string">"city"</code><code class="plain">:</code><code class="string">"Mountain View"</code><code class="plain">,</code><code class="string">"condition"</code><code class="plain">:</code><code class="string">"Cloudy"</code><code class="plain">,</code><code class="string">"icon"</code><code class="plain">:</code><code class="string">"http://www.worldweather.org/img_cartoon/pic23.gif"</code><code class="plain">},{</code><code class="string">"city"</code><code class="plain">: </code><code class="string">"Washington, DC"</code><code class="plain">,</code><code class="string">"condition"</code><code class="plain">: </code><code class="string">"Mostly Cloudy"</code><code class="plain">,</code><code class="string">"icon"</code><code class="plain">: </code><code class="string">"http://www.worldweather.org/img_cartoon/pic20.gif"</code><code class="plain">},{</code><code class="string">"city"</code><code class="plain">: </code><code class="string">"Brasilia"</code><code class="plain">,</code><code class="string">"condition"</code><code class="plain">: </code><code class="string">"Thunderstorm"</code><code class="plain">,</code><code class="string">"icon"</code><code class="plain">: </code><code class="string">"http://www.worldweather.org/img_cartoon/pic02.gif"</code><code class="plain">}]}</code></div>
 </div>
 </div>    <p>
 This stored JSON string can later be converted back to a Javascript object using <tt class=" ">JSON.parse()</tt>:    </p>
@@ -141,10 +141,28 @@ Define and assign a window to the Current Conditions tab, but you can leave that
 </li><li class=" ">    <p>
 Define and assign a window to the Units tab with the following characteristics:    </p>
 <ul class=" "><li class=" ">    <p>
-Define and add a label with these properties:<br/>color:'black'<br/>text:'Fahrenheit'<br/>font:{fontSize:22,fontFamily:'Helvetica Neue', fontWeight:'bold'}<br/>left: 10<br/>top:5<br/>height:25    </p>
-</li><li class=" ">    <p>
-Define and add a &quot;sub&quot; label with these properties:<br/>color:'black'<br/>text:'Output will be shown in Celsius'<br/>font:{fontSize:18,fontFamily:'Helvetica Neue'}<br/>left: 10<br/>top:40<br/>height:20    </p>
-</li><li class=" ">    <p>
+Define and add a label with these properties:    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">color: </code><code class="string">'black'</code><code class="plain"> </code></div>
+<div class="line"><code class="plain">text: </code><code class="string">'Fahrenheit'</code><code class="plain"> </code></div>
+<div class="line"><code class="plain">font: {fontSize:</code><code class="value">22</code><code class="plain">,fontFamily: </code><code class="string">'Helvetica Neue'</code><code class="plain">, fontWeight: </code><code class="string">'bold'</code><code class="plain">}</code></div>
+<div class="line"><code class="plain">left: </code><code class="value">10</code><code class="plain"> </code></div>
+<div class="line"><code class="plain">top: </code><code class="value">5</code><code class="plain"> </code></div>
+<div class="line"><code class="plain">height: </code><code class="value">25</code></div>
+</div>
+</div></li><li class=" ">    <p>
+Define and add a &quot;sub&quot; label with these properties:    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">color: </code><code class="string">'black'</code><code class="plain"> </code></div>
+<div class="line"><code class="plain">text: </code><code class="string">'Output will be shown in Celsius'</code><code class="plain"> </code></div>
+<div class="line"><code class="plain">font: {fontSize: </code><code class="value">18</code><code class="plain">, fontFamily: </code><code class="string">'Helvetica Neue'</code><code class="plain">}</code></div>
+<div class="line"><code class="plain">left: </code><code class="value">10</code><code class="plain"> </code></div>
+<div class="line"><code class="plain">top: </code><code class="value">40</code><code class="plain"> </code></div>
+<div class="line"><code class="plain">height: </code><code class="value">20</code></div>
+</div>
+</div></li><li class=" ">    <p>
 Define and add a switch positioned at <tt class=" ">right:10</tt>, <tt class=" ">top:5</tt> with an <tt class=" ">auto</tt> width. Its value should be a zero or one depending on the value of the <tt class=" ">units</tt> app property. If that property equals <tt class=" ">c</tt>, set the switch value to <tt class=" ">0</tt>, otherwise set it to <tt class=" ">1</tt>.    </p>
 </li></ul></li><li class=" ">    <p>
 Add an event handler to the switch: if the switch value is <tt class=" ">1</tt>, update the sub-label text to read 'Output will be shown in Fahrenheit' and set the <tt class=" ">units</tt> app property equal to <tt class=" ">f</tt>. If the value of the switch is <tt class=" ">0</tt>, update the sub-label text to read 'Output will be shown in Celsius' and set the <tt class=" ">units</tt> app property equal to <tt class=" ">c</tt>.    </p>

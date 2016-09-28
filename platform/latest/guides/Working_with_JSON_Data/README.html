@@ -52,12 +52,12 @@ Titanium has built-in support for JSON serialization in the <tt class=" ">JSON</
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="plain">var myObject = {</code></div>
-<div class="line"><code class="plain">	foo:</code><code class="string">'bar'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">	stuff:[</code><code class="value">1</code><code class="plain">,</code><code class="value">2</code><code class="plain">,</code><code class="value">3</code><code class="plain">]</code></div>
+<div class="line"><code class="plain">	foo: </code><code class="string">'bar'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	stuff: [</code><code class="value">1</code><code class="plain">,</code><code class="value">2</code><code class="plain">,</code><code class="value">3</code><code class="plain">]</code></div>
 <div class="line"><code class="plain">};</code></div>
 <div class="line"><code class="comments">//serialize</code></div>
 <div class="line"><code class="plain">var myObjectString = JSON.stringify(myObject);</code></div>
-<div class="line"><code class="comments">// returns '{"foo":"bar","stuff":[1,2,3]}'</code></div>
+<div class="line"><code class="comments">// returns '{"foo": "bar","stuff": [1,2,3]}'</code></div>
 <div class="line"><code class="comments">//deserialize...</code></div>
 <div class="line"><code class="plain">var myNewObject = JSON.parse(myObjectString);</code></div>
 <div class="line"><code class="comments">// myNewObject.stuff[1] === 2</code></div>
