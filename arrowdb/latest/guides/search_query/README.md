@@ -322,6 +322,8 @@ For non-exact matches, `where` supports these options:
     </tr>
 </table>
 
+##### Geographic coordinates
+
 For querying geographic coordinates, the following operators are supported:
 
 <table class="doc-table">
@@ -339,6 +341,8 @@ For querying geographic coordinates, the following operators are supported:
 </table>
     
 You can combine any of the above to build a more complex query.
+
+For more information on constructing geographic coordinate queries, see [Geographic Coordinates in Custom Fields](#!/guide/customfields-section-geographic-coordinates-in-custom-fields) and [Custom Objects & Fields](#!/guide/customfields) for general creation of custom objects and field queries.
     
 If you want to find users with age older than 28:
 
