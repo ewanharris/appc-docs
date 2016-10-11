@@ -19,8 +19,6 @@
         <div id="37551713" class="content">
             <h1>Configuring push services</h1>
     <p>
-Configuring push services for Android devices    </p>
-    <p>
 To send push notifications, Appcelerator Arrow Push relies on the Google Cloud Messaging (GCM) for Android applications, and the Apple Push Notification (APN) service for iOS applications. To use these services in your Titanium application, you first need to enable GCM or APN for your application, and then configure Arrow Push with information about your push service. This guide walks you through the process of creating and configuring push services for your application.    </p>
     <p>
     <span style="color: #222222;">
@@ -150,41 +148,111 @@ Click <strong class=" ">Save Changes</strong>. If the password you entered was i
     <p>
 To enable push services for your Android application, you need to create a Google API project and enable its GSM service, and obtain a send    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Configuring_push_services-section-37551713_Configuringpushservices-CreatingaGoogleAPIproject">Creating a Google API project</a>    </p>
+<a class="document-link " href="#!/guide/Configuring_push_services-section-37551713_Configuringpushservices-CreatingaGoogleAPIConsoleprojectandclientID">Creating a Google API Console project and client ID</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Configuring_push_services-section-37551713_Configuringpushservices-ConfiguringArrowapplicationforGCMservice">Configuring Arrow application for GCM service</a>    </p>
-</li></ul>    <div class="section section-3 " id="37551713_Configuringpushservices-CreatingaGoogleAPIproject">
-        <h3 class="heading "><span>Creating a Google API project</span></h3>
+</li></ul>    <div class="section section-3 " id="37551713_Configuringpushservices-CreatingaGoogleAPIConsoleprojectandclientID">
+        <h3 class="heading "><span>Creating a Google API Console project and client ID</span></h3>
     <p>
-The first step is creating a Google API project and enabling its GCM service. You also need to obtain a <strong class=" ">GCM sender ID </strong>and create a <strong class=" ">Google API server key</strong>.    </p>
+    <span style="color: #212121;">
+Before you can integrate Google Sign-In into your website, you must have a Google API Console project. In the project, you create a client ID, which you need to call the sign-in API.    </span>
+    </p>
     <p>
-<strong class=" ">To create a Google API project for push notifications</strong>:    </p>
+    <span style="color: #212121;">
+To create a Google API Console project and client ID, follow these steps:    </span>
+    </p>
 <ol class=" "><li class=" ">    <p>
-Follow the steps in <a class="external-link external-link" href="https://developers.google.com/cloud-messaging/android/start" target="_blank">Try Cloud Messaging for Android</a>. Note the <strong class=" ">Project Number</strong> generated for your application. This is the &quot;sender ID&quot; you will need later.    </p>
-        <img src="images/download/attachments/37551713/projectid.png" alt="images/download/attachments/37551713/projectid.png" class="confluence-embedded-image" width="500"/>
-        </li><li class=" ">    <p>
-In the sidebar on the left, select <strong class=" ">APIs &amp; auth</strong>.    </p>
-</li><li class=" ">    <p>
-In the displayed list of APIs, toggle the <strong class=" ">Google Cloud Messaging for Android</strong> to ON.    </p>
-        <img src="images/download/attachments/37551713/enable_gcm.png" alt="images/download/attachments/37551713/enable_gcm.png" class="confluence-embedded-image confluence-content-image-border" width="585"/>
-        </li><li class=" ">    <p>
-To generate a Google API Server key:    </p>
-<ol class=" "><li class=" ">    <p>
-Select <strong class=" ">APIs &amp; auth &gt; Credentials</strong> from the left sidebar.    </p>
-</li><li class=" ">    <p>
-Under <strong class=" ">Public API access</strong>, click <strong class=" ">Create new key</strong>.    </p>
-</li><li class=" ">    <p>
-In the <strong class=" ">Create a new key</strong> dialog, click <strong class=" ">Server key</strong>.    </p>
-</li><li class=" ">    <p>
-In the dialog that appears, leave blank the     <span style="color: #000000;">
- <strong class=" ">Accept requests from these server IP addresses</strong> field.    </span>
+    <span style="color: #212121;">
+    <span style="color: #212121;">
+Go to the     </span>
+<a class="external-link external-link" href="https://console.developers.google.com/project/_/apiui/apis/library" target="_blank">Google API Console</a>.<br/>    </span>
     </p>
 </li><li class=" ">    <p>
-Click <strong class=" ">Create</strong>.    </p>
+    <span style="color: #212121;">
+    <span style="color: #212121;">
+From the project drop-down, select an existing     </span>
+<a class="external-link external-link" href="https://support.google.com/cloud/answer/6158853" target="_blank">project</a>    <span style="color: #212121;">
+, or create a new one by selecting     </span>
+<strong class=" ">Create a new project</strong>    <span style="color: #212121;">
+.<br/>    </span>
+    </span>
+    </p>
+    <div class="confbox admonition admonition-note aui-message warning shadowed information-macro">
+        
+    <p>
+Use a single project to hold all platform instances of your app (Android, iOS, web, etc.), each with a different Client ID.    </p>
+    </div>
+    
 </li><li class=" ">    <p>
-In the refreshed page, copy the <a class="external-link external-link" href="http://developer.android.com/google/gcm/gcm.html#apikey" target="_blank">API key</a> to your clipboard.    </p>
-        <img src="images/download/attachments/37551713/server_key.png" alt="images/download/attachments/37551713/server_key.png" class="confluence-embedded-image confluence-content-image-border" width="521"/>
-        </li></ol></li></ol>    </div>
+    <span style="color: #212121;">
+    <span style="color: #212121;">
+    <span style="color: #212121;">
+    <span style="color: #212121;">
+In the sidebar under &quot;API Manager&quot;, select     </span>
+<strong class=" ">Credentials</strong>    <span style="color: #212121;">
+, then select the     </span>
+<strong class=" ">OAuth consent screen</strong>    <span style="color: #212121;">
+tab.    </span>
+    </span>
+    </span>
+    </span>
+    </p>
+<ol class=" "><li class=" ">    <p>
+Choose an <strong class=" ">Email Address</strong>, specify a <strong class=" ">Product Name</strong>, and press <strong class=" ">Save</strong>.    </p>
+</li></ol></li><li class=" ">    <p>
+In the <strong class=" ">Credentials</strong> tab, select the <strong class=" ">New credentials</strong> drop-down list, and choose <strong class=" ">OAuth client ID</strong>.    </p>
+</li><li class=" ">    <p>
+    <span style="color: #212121;">
+    <span style="color: #212121;">
+    <span style="color: #212121;">
+Under     </span>
+<strong class="uitext ">Application type</strong>    <span style="color: #212121;">
+, select     </span>
+<strong class=" ">Web application</strong>    <span style="color: #212121;">
+.     </span>
+    <span style="color: #212121;">
+Register the origins from which your app is allowed to access the Google APIs, as follows. An origin is a unique combination of protocol, hostname, and port.    </span>
+    </span>
+    </span>
+    </p>
+<ol class=" "><li class=" ">    <p>
+    <span style="color: #212121;">
+    <span style="color: #212121;">
+    <span style="color: #212121;">
+    <span style="color: #212121;">
+    <span style="color: #212121;">
+In the     </span>
+<strong class="uitext ">Authorized JavaScript origins</strong>    <span style="color: #212121;">
+ field, enter the origin for your app. You can enter multiple origins to allow for your app to run on different protocols, domains, or subdomains. You cannot use wildcards. In the example below, the second URL could be a production URL.<br/>    </span>
+    </span>
+    </span>
+    </span>
+    </span>
+    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">http:</code><code class="comments">//localhost:8080</code></div>
+<div class="line"><code class="plain">https:</code><code class="comments">//myproductionurl.example.com</code></div>
+</div>
+</div>    <p>
+    <span style="color: #212121;">
+     </span>
+    </p>
+    <p>
+    <span style="color: #212121;">
+     </span>
+    </p>
+</li><li class=" ">    <p>
+The <strong class="uitext ">Authorized redirect URI</strong> field does not require a value. Redirect URIs are not used with JavaScript APIs.    </p>
+</li><li class=" ">    <p>
+Press the <strong class=" ">Create</strong> button.    </p>
+</li></ol></li><li class=" ">    <p>
+From the resulting <strong class="uitext ">OAuth client dialog box</strong>, copy the <strong class="uitext ">Client ID</strong> . The Client ID lets your app access enabled Google APIs.    </p>
+</li></ol>    <p>
+    <span style="color: #212121;">
+Source: <a class="external-link external-link" href="https://developers.google.com/identity/sign-in/web/devconsole-project" target="_blank">https://developers.google.com/identity/sign-in/web/devconsole-project</a>    </span>
+    </p>
+    </div>
     <div class="section section-3 " id="37551713_Configuringpushservices-ConfiguringArrowapplicationforGCMservice">
         <h3 class="heading "><span>Configuring Arrow application for GCM service</span></h3>
     <p>
