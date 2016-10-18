@@ -35,6 +35,8 @@
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Platform_Services-section-43298675_PlatformServices-app/controllers/index.js">app/controllers/index.js</a>    </p>
 </li></ul></li></ul></li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Platform_Services-section-43298675_PlatformServices-Crashserver">Crash server</a>    </p>
+</li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Platform_Services-section-43298675_PlatformServices-Troubleshooting">Troubleshooting</a>    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Platform_Services-section-43298675_PlatformServices-UnabletoenableAppceleratorServices">Unable to enable Appcelerator Services</a>    </p>
@@ -47,7 +49,7 @@ Appcelerator Services are a set of features that are enabled through Appcelerato
 </li><li class=" ">    <p>
 <strong class=" ">Appcelerator Test</strong>: Integrated automated functional testing for your application, powered by SOASTA services. Using Appcelerator Test, developers and testers collaborate to record tests directly on the mobile device, execute tests and analyze the results.  For more information, see <a class="document-link " href="#!/guide/Appcelerator_Test">Appcelerator Test</a>    </p>
 </li><li class=" ">    <p>
-<strong class=" ">Appcelerator Performance</strong>: Monitors your application's health, crashes and overall performance, powered by Crittercism services. Using Appcelerator Performance, developers are able to diagnose why applications crash and focus on specific issues based on user feedback.  For more information, see <a class="document-link " href="#!/guide/Appcelerator_Performance_Management">Appcelerator Performance Management</a>.    </p>
+<strong class=" ">Appcelerator Performance</strong>: Monitors your application's health, crashes and overall performance, powered by our own <a class="document-link " href="#!/guide/Platform_Services-section-43298675_PlatformServices-CrashServer">crash server&nbsp;service</a>. Using Appcelerator Performance, developers are able to diagnose why applications crash and focus on specific issues based on user feedback.  For more information, see <a class="document-link " href="#!/guide/Appcelerator_Performance_Management">Appcelerator Performance Management</a>.    </p>
 </li><li class=" ">    <p>
 <strong class=" ">Appcelerator Analytics</strong>: Track your applications' user adoption and engagement. Understand how your application is used, which features are not used and decide what will go in the next version of your application. For more information, see <a class="document-link " href="#!/guide/Appcelerator_Analytics">Appcelerator Analytics</a>.    </p>
 </li></ul>    <p>
@@ -364,6 +366,15 @@ The following changes are made to the <tt class=" ">index.js</tt> file to enable
 </div>
 </div>    </div>
     </div>
+    </div>
+    <div class="section section-2 " id="43298675_PlatformServices-Crashserver">
+        <h2 class="heading "><span>Crash server</span></h2>
+    <p>
+With SDK 6.0.0 and later, we replaced the module used by Crittercism and created our own crash server service. The main reason we replaced the Crittercism SDK is because it was not open source and doesn't provide information as to how the logs are created and stored. With this new crash server service, we implemented ACRA for Android and KSCrash for iOS. Currently, the Windows platform is not supported.    </p>
+    <p>
+Generically speaking, logs can be retrieved by running <tt class=" ">abd logcat -v brief -b main</tt> command in the terminal.    </p>
+    <p>
+<strong class=" ">Note</strong>: All Dashboard data will not be impacted as we migrate the crash data from Crittercism to our own crash server service.    </p>
     </div>
     <div class="section section-2 " id="43298675_PlatformServices-Troubleshooting">
         <h2 class="heading "><span>Troubleshooting</span></h2>
