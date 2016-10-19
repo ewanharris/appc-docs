@@ -62,6 +62,8 @@
 <a class="document-link " href="#!/guide/Titanium_SDK_6.0.0.Beta_Release_Note-section-48431440_TitaniumSDK6.0.0.BetaReleaseNote-DeprecatedAPIs">Deprecated APIs</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Titanium_SDK_6.0.0.Beta_Release_Note-section-48431440_TitaniumSDK6.0.0.BetaReleaseNote-RemovedAPIs">Removed APIs</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Titanium_SDK_6.0.0.Beta_Release_Note-section-48431440_TitaniumSDK6.0.0.BetaReleaseNote-Knownissues">Known issues </a>    </p>
 </li></ul></li></ul>    </div>
     <div class="section section-2 " id="48431440_TitaniumSDK6.0.0.BetaReleaseNote-TitaniumSDK6.0.0.Beta-18October2016">
         <h2 class="heading "><span>Titanium SDK 6.0.0.Beta - 18 October 2016</span></h2>
@@ -76,8 +78,14 @@ Titanium 6.0.0 only supports Xcode 8 (which supports Swift 2.3+, watchOS 2 and 3
 </li><li class="li3 ">    <p>
 Node 4.2.0 is now a minimum requirement and Node 4.6.x is maximum version supported    </p>
 </li><li class="li3 ">    <p>
+Ability for apps using <tt class=" ">&lt;use-jscore-framework&gt;</tt> to use Studio Debugger. On iOS, you will need to turn on <tt class=" ">true</tt>. Also, you can use Safari to debug your app.    </p>
+</li><li class="li3 ">    <p>
 Apps using Hyperloop can use Studio Debugger. On iOS, you will need to turn on <tt class=" ">&lt;user-jscore-framework&gt;true&lt;/use-jscore-framework&gt;</tt>. Also, you can use Safari to debug your app.    </p>
-</li></ul>    <div class="section section-4 li3" id="48431440_TitaniumSDK6.0.0.BetaReleaseNote-NodeJSsupport">
+<ul class=" "><li class="li3 ">    <p>
+This method only works using <tt class=" ">appc cli 6.0.0-61</tt>    </p>
+</li><li class="li3 ">    <p>
+Alternatively, entering <tt class=" ">appc config set lastUpdateCheckTiDownloads null</tt> before <tt class=" ">app run</tt> will trigger modules download    </p>
+</li></ul></li></ul>    <div class="section section-4 li3" id="48431440_TitaniumSDK6.0.0.BetaReleaseNote-NodeJSsupport">
         <h4 class="heading li3"><span>NodeJS support</span></h4>
     <p>
 This release implemented full NodeJS support so users can use NPM modules for Android and iOS platforms (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-16078" target="_blank">TIMOB-16078</a>). This implementation includes  the NodeJS require algorithm with some minor differences:    </p>
@@ -355,11 +363,11 @@ Added support for iPhone 7's Haptic Engine API    </p>
 Demo:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="keyword">var</code><code class="plain"> dataStructure = </code></div>
+<div class="line"><code class="keyword">var</code><code class="plain"> dataStructure = [</code></div>
 <div class="line"><code class="plain">	</code><code class="string">"FEEDBACK_GENERATOR_TYPE_SELECTION"</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">	</code><code class="string">"FEEDBACK_GENERATOR_TYPE_IMPACT"</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">	</code><code class="string">"FEEDBACK_GENERATOR_TYPE_NOTIFICATION"</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">;</code></div>
+<div class="line"><code class="plain">];</code></div>
 <div class="line"><code class="keyword">var</code><code class="plain"> win = Ti.UI.createWindow({</code></div>
 <div class="line"><code class="plain">    backgroundColor: </code><code class="string">"#fff"</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">	title: </code><code class="string">"iOS 10 Haptic Engine"</code><code class="plain">,</code></div>
@@ -369,20 +377,20 @@ Demo:    </p>
 <div class="line"><code class="plain">	window: win</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="keyword">var</code><code class="plain"> list = Ti.UI.createListView({</code></div>
-<div class="line"><code class="plain">	sections: </code></div>
+<div class="line"><code class="plain">	sections: [</code></div>
 <div class="line"><code class="plain">		Ti.UI.createListSection({</code></div>
 <div class="line"><code class="plain">			items: createItems()</code></div>
 <div class="line"><code class="plain">		})</code></div>
-<div class="line"><code class="plain">	</code></div>
+<div class="line"><code class="plain">	]</code></div>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">list.addEventListener(</code><code class="string">"itemclick"</code><code class="plain">, </code><code class="keyword">function</code><code class="plain">(e) {</code></div>
 <div class="line"><code class="plain">	</code><code class="keyword">var</code><code class="plain"> type = e.itemId;</code></div>
 <div class="line"><code class="plain">	</code><code class="keyword">var</code><code class="plain"> args = {</code></div>
-<div class="line"><code class="plain">		type: Ti.UI.iOStype </code><code class="comments">// Same as Ti.UI.iOS.FEEDBACK_GENERATOR_TYPE_SELECTION etc.</code></div>
+<div class="line"><code class="plain">		type: Ti.UI.iOS[type] </code><code class="comments">// Same as Ti.UI.iOS.FEEDBACK_GENERATOR_TYPE_SELECTION etc.</code></div>
 <div class="line"><code class="plain">	};</code></div>
 <div class="line"><code class="plain">	</code><code class="comments">// If we select the impact-feedback, the style property specifies the style of it</code></div>
-<div class="line"><code class="plain">	</code><code class="keyword">if</code><code class="plain"> (Ti.UI.iOStype == Ti.UI.iOS.FEEDBACK_GENERATOR_TYPE_IMPACT) {</code></div>
-<div class="line"><code class="plain">		args</code><code class="string">"style"</code><code class="plain"> = Ti.UI.iOS.FEEDBACK_GENERATOR_IMPACT_STYLE_MEDIUM;</code></div>
+<div class="line"><code class="plain">	</code><code class="keyword">if</code><code class="plain"> (Ti.UI.iOS[type] == Ti.UI.iOS.FEEDBACK_GENERATOR_TYPE_IMPACT) {</code></div>
+<div class="line"><code class="plain">		args[</code><code class="string">"style"</code><code class="plain">] = Ti.UI.iOS.FEEDBACK_GENERATOR_IMPACT_STYLE_MEDIUM;</code></div>
 <div class="line"><code class="plain">	}</code></div>
 <div class="line"><code class="plain">	</code><code class="comments">// Create the generator with the selected type</code></div>
 <div class="line"><code class="plain">	</code><code class="keyword">var</code><code class="plain"> generator = Ti.UI.iOS.createFeedbackGenerator(args);</code></div>
@@ -404,12 +412,12 @@ Demo:    </p>
 <div class="line"><code class="plain">win.add(list);</code></div>
 <div class="line"><code class="plain">nav.open();</code></div>
 <div class="line"><code class="keyword">function</code><code class="plain"> createItems() {</code></div>
-<div class="line"><code class="plain">	</code><code class="keyword">var</code><code class="plain"> items = ;</code></div>
+<div class="line"><code class="plain">	</code><code class="keyword">var</code><code class="plain"> items = [];</code></div>
 <div class="line"><code class="plain">	</code><code class="keyword">for</code><code class="plain"> (</code><code class="keyword">var</code><code class="plain"> i = 0; i &lt; dataStructure.length; i++) {</code></div>
 <div class="line"><code class="plain">		items.push({</code></div>
 <div class="line"><code class="plain">			properties: {</code></div>
-<div class="line"><code class="plain">				itemId: dataStructurei,</code></div>
-<div class="line"><code class="plain">				title: dataStructurei,</code></div>
+<div class="line"><code class="plain">				itemId: dataStructure[i],</code></div>
+<div class="line"><code class="plain">				title: dataStructure[i],</code></div>
 <div class="line"><code class="plain">				height: 60,</code></div>
 <div class="line"><code class="plain">				accessoryType: Ti.UI.LIST_ACCESSORY_TYPE_DISCLOSURE</code></div>
 <div class="line"><code class="plain">			}</code></div>
@@ -3331,6 +3339,27 @@ Use Titanium.UI.Window.statusBarStyle instead.    </p>
 </tbody>        </table>
             </div>
     </div>
+    <div class="section section-3 " id="48431440_TitaniumSDK6.0.0.BetaReleaseNote-Knownissues">
+        <h3 class="heading "><span>Known issues</span></h3>
+<ul class=" "><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23761" target="_blank">TIMOB-23761</a> - Hyperloop: Errors when running project with liveview and hyperloop enabled    </p>
+<ul class=" "><li class="p2 ">    <p>
+Projects that include or reference Hyperloop and have LiveView enabled encounter the following error    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">[INFO] :   [LiveView] Error Evaluating app.js @ Line: &lt;</code><code class="keyword">null</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">[ERROR] :  Couldn't find module: UIKit/UIAlertController </code><code class="keyword">for</code><code class="plain"> architecture: arm64</code></div>
+<div class="line"><code class="plain">[ERROR] :  File: app.js</code></div>
+<div class="line"><code class="plain">[ERROR] :  Line: &lt;</code><code class="keyword">null</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">[ERROR] :  SourceId: &lt;</code><code class="keyword">null</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">[ERROR] :  Backtrace:</code></div>
+<div class="line"><code class="plain">[ERROR] :   undefined</code></div>
+</div>
+</div></li></ul></li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-24037" target="_blank">TIMOB-24037</a> - Android: Debugging not working with hyperloop enabled with run-on-main-thread set to true or false    </p>
+<ul class=" "><li class="p2 ">    <p>
+Debugging doesn't work with Hyperloop enabled with run-on-main-thread set to either true or false    </p>
+</li></ul></li></ul>    </div>
     </div>
         </div><a id="editButton" href="https://wiki.appcelerator.org/pages/editpage.action?pageId=48431440"><span>Edit</span></a>
     
