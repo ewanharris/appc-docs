@@ -18,19 +18,19 @@
 
         <div id="40929417" class="content">
             <h1>Studio Release Notes</h1>
-    <div class="section section-2 " id="40929417_StudioReleaseNotes-Studio4.8.0.Beta-18October2016">
-        <h2 class="heading "><span>Studio 4.8.0.Beta - 18 October 2016</span></h2>
+    <div class="section section-2 " id="40929417_StudioReleaseNotes-Studio4.8.0.RC-1November2016">
+        <h2 class="heading "><span>Studio 4.8.0.RC - 1 November 2016</span></h2>
     <p>
-Studio 4.8.0.Beta is a minor release that includes new features, improvements and bug fixes. See the .    </p>
+Studio 4.8.0.RC is a minor release that includes new features, improvements and bug fixes.    </p>
     <div class="section section-3 " id="40929417_StudioReleaseNotes-Newfeatures">
         <h3 class="heading "><span>New features</span></h3>
     <p>
 App Designer remembers the state of which platform and device was last selected and the zoom level (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/GB-202" target="_blank">GB-202</a>).    </p>
     <p>
-        <img src="images/download/attachments/48431462/switch_organization.png" alt="images/download/attachments/48431462/switch_organization.png" class="confluence-embedded-image image-right" width="300"/>
+        <img src="images/download/attachments/48432373/switch_organization.png" alt="images/download/attachments/48432373/switch_organization.png" class="confluence-embedded-image image-right" width="300"/>
             </p>
     <p>
-Users no longer have to log in and out of Studio to switch organizations. With Studio 4.8.0 (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIDOC-2559" target="_blank">TIDOC-2559</a> and <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TISTUD-7504" target="_blank">TISTUD-7504</a>), users can switch organizations via the File menu (File &gt; Switch Organizations) or by clicking on the organization icon in the status region (lower right corner). Either way, a dialogue window will pop up and you select which organization you wish to switch into via a drop-down list. Switching organizations takes a few seconds to process so you will see a &quot;switching organization progress&quot; indicator. Users will then be prompted of the successful organization change.    </p>
+Users no longer have to log in and out of Studio to switch organizations. With Studio 4.8.0 (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIDOC-2559" target="_blank">TIDOC-2559</a> and <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TISTUD-7504" target="_blank">TISTUD-7504</a>), users can switch organizations via the File menu (<strong class=" ">File</strong> &gt; <strong class=" ">Switch Organizations</strong>) or by clicking on the <strong class=" ">organization icon</strong> in the status region (lower right corner). Either way, a dialogue window will pop up and you select which organization you wish to switch into via a drop-down list. Switching organizations takes a few seconds to process so you will see a &quot;switching organization progress&quot; indicator. Users will then be prompted of the successful organization change.    </p>
     <p>
 This version of Studio adds support to create, build, and test Windows modules (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TISTUD-8519" target="_blank">TISTUD-8519</a>). See the guide called <a class="document-link " href="#!/guide/Windows_Module_Quick_Start">Windows Module Quick Start</a> for information.    </p>
     </div>
@@ -343,6 +343,8 @@ Added capability to update Hyperloop from within Studio    </p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TISTUD-8594" target="_blank">TISTUD-8594</a> - Manually checking for appcelerator updates for studio 4.8.0.201609061702 fails due to java.lang.NullPointerException    </p>
 </li><li class=" ">    <p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TISTUD-8597" target="_blank">TISTUD-8597</a> - Studio: unable to create mobile apps from ruble    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TISTUD-8643" target="_blank">TISTUD-8643</a> - Android Debugger: Not all variables shown during debug of android app with SDK 6.0.0    </p>
 </li></ul>    </div>
     <div class="section section-3 " id="40929417_StudioReleaseNotes-Knownissues">
         <h3 class="heading "><span>Known issues</span></h3>
@@ -352,22 +354,26 @@ Added capability to update Hyperloop from within Studio    </p>
 Studio requires a 32-bit Java run-time environment in order to launch on either 32 or 64-bit operating systems. During installation, Studio will detect and install a 32-bit JDK if it is not found on your system. However, Studio won't default that Java environment. If you are unable to launch Studio on a Windows 64-bit OS, Studio wasn't able to find the 32-bit JDK. You will see an error similar to this:<br/><a class="external-link external-link" href="https://jira.appcelerator.org/secure/attachment/60015/60015_Studio_launch_issue.png" target="_blank">        <img src="images/jira.appcelerator.org/secure/thumbnail/60015/_thumb_60015.png" alt="images/jira.appcelerator.org/secure/thumbnail/60015/_thumb_60015.png" class="confluence-embedded-image confluence-external-resource"/>
     </a>    </p>
 </li><li class=" ">    <p>
-If your default Java environment is set to 64-bit, then you need to add the following argument in the <tt class=" ">Appcelerator.ini</tt> file (found in the installation directory):    </p>
+If your default Java environment is set to 64-bit, then you need to add the following argument in the Appcelerator.ini file (found in the installation directory):    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">C:\Program Files(x86)\Java\jdk1.</code><code class="value">7</code><code class="plain">.0_71\bin\javaw.exe</code></div>
+<div class="line"><code class="plain"> </code></div>
 </div>
 </div></li></ul></li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TISTUD-8553" target="_blank">TISTUD-8553</a> - Install: Install of version 4.8.0 fails due to node prerequisite install    </p>
+<ul class=" "><li class=" ">    <p>
+When attempting to install Studio, the installer fails to install the mandatory Node.JS files    </p>
+</li></ul></li><li class=" ">    <p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TISTUD-8613" target="_blank">TISTUD-8613</a> - iOS Debugger: Breakpoint is not hit for the first time for a clean alloy project    </p>
 <ul class=" "><li class=" ">    <p>
 When a clean Alloy project is debugged on iOS, the breakpoint is not hit. However when the same project is debugged again without cleaning the previous project build, the breakpoint does hit successfully.    </p>
-</li></ul></li></ul>    <p>
-    </p>
-    </div>
+</li></ul></li></ul>    </div>
     </div>
     <div class="section section-2 " id="40929417_StudioReleaseNotes-RecentReleases">
         <h2 class="heading "><span>Recent Releases</span></h2>
 <ul class="childpages-macro "><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Studio_4.8.0.RC_Release_Note">Studio 4.8.0.RC Release Note</a>    </p>
+</li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Studio_4.8.0.Beta_Release_Note">Studio 4.8.0.Beta Release Note</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Studio_4.7.1.GA_Release_Note">Studio 4.7.1.GA Release Note</a>    </p>
