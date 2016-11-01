@@ -49,6 +49,8 @@
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Arrow_Cloud_Command-Line_Interface_Reference-section-43299782_ArrowCloudCommand-LineInterfaceReference-remove">remove</a>    </p>
 </li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Arrow_Cloud_Command-Line_Interface_Reference-section-43299782_ArrowCloudCommand-LineInterfaceReference-restart">restart</a>    </p>
+</li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Arrow_Cloud_Command-Line_Interface_Reference-section-43299782_ArrowCloudCommand-LineInterfaceReference-run">run</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Arrow_Cloud_Command-Line_Interface_Reference-section-43299782_ArrowCloudCommand-LineInterfaceReference-server">server</a>    </p>
@@ -1220,6 +1222,55 @@ Show help information for this command.    </p>
         </tr>
 </tbody>        </table>
             </div>
+    </div>
+    <div class="section section-3 " id="43299782_ArrowCloudCommand-LineInterfaceReference-restart">
+        <h3 class="heading "><span>restart</span></h3>
+    <p>
+Released with [CLI 6.0.0]     <span style="color: #ffcc00;">
+(add link here)    </span>
+, this command allows you to restart a Node.ACS application without having to use <tt class=" ">acs publish --force</tt>    </p>
+    <p>
+Note: This command will restart all servers associated with your app.    </p>
+<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
+<div class="defaultnew syntaxhighlighter">
+<div class="line"><code class="plain">acs restart [options] [appname]</code></div>
+</div>
+</div>    <div class="tablewrap">
+        <table class="confluenceTable">
+        <thead class=" ">    <tr>
+            <td class="confluenceTh" rowspan="1" colspan="1">
+        <p>
+Name    </p>
+            </td>
+                <td class="confluenceTh" rowspan="1" colspan="1">
+        <p>
+Description    </p>
+            </td>
+        </tr>
+</thead><tfoot class=" "/><tbody class=" ">    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+--org &lt;orgid&gt;    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p class="p1">
+organization ID of the app if there are multiple apps with the same name in different organizations.    </p>
+            </td>
+        </tr>
+    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+-h --help    </p>
+            </td>
+                <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+output usage information    </p>
+            </td>
+        </tr>
+</tbody>        </table>
+            </div>
+    <p>
+    </p>
     </div>
     <div class="section section-3 " id="43299782_ArrowCloudCommand-LineInterfaceReference-run">
         <h3 class="heading "><span>run</span></h3>
