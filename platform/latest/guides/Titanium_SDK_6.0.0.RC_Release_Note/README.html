@@ -34,18 +34,14 @@
 <a class="document-link " href="#!/guide/Titanium_SDK_6.0.0.RC_Release_Note-section-48432365_TitaniumSDK6.0.0.RCReleaseNote-SDK6.0.0andStudio4.8.0">SDK 6.0.0 and Studio 4.8.0</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Titanium_SDK_6.0.0.RC_Release_Note-section-48432365_TitaniumSDK6.0.0.RCReleaseNote-Androidplatform">Android platform</a>    </p>
-</li><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Titanium_SDK_6.0.0.RC_Release_Note-section-48432365_TitaniumSDK6.0.0.RCReleaseNote-iOSplatform">iOS platform</a>    </p>
-</li><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Titanium_SDK_6.0.0.RC_Release_Note-section-48432365_TitaniumSDK6.0.0.RCReleaseNote-Windowsplatform">Windows platform</a>    </p>
 </li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Titanium_SDK_6.0.0.RC_Release_Note-section-48432365_TitaniumSDK6.0.0.RCReleaseNote-Newfeatures">New features</a>    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Titanium_SDK_6.0.0.RC_Release_Note-section-48432365_TitaniumSDK6.0.0.RCReleaseNote-Androidplatform.1">Android platform</a>    </p>
 </li><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Titanium_SDK_6.0.0.RC_Release_Note-section-48432365_TitaniumSDK6.0.0.RCReleaseNote-iOSplatform.1">iOS platform</a>    </p>
+<a class="document-link " href="#!/guide/Titanium_SDK_6.0.0.RC_Release_Note-section-48432365_TitaniumSDK6.0.0.RCReleaseNote-iOSplatform">iOS platform</a>    </p>
 </li><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Titanium_SDK_6.0.0.RC_Release_Note-section-48432365_TitaniumSDK6.0.0.RCReleaseNote-Windowsplatform.1">Windows platform</a>    </p>
+<a class="document-link " href="#!/guide/Titanium_SDK_6.0.0.RC_Release_Note-section-48432365_TitaniumSDK6.0.0.RCReleaseNote-Windowsplatform">Windows platform</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Titanium_SDK_6.0.0.RC_Release_Note-section-48432365_TitaniumSDK6.0.0.RCReleaseNote-Multipleplatforms">Multiple platforms</a>    </p>
 </li></ul></li><li class=" ">    <p>
@@ -53,9 +49,9 @@
 <ul class="toc-indentation "><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Titanium_SDK_6.0.0.RC_Release_Note-section-48432365_TitaniumSDK6.0.0.RCReleaseNote-Androidplatform.2">Android platform</a>    </p>
 </li><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Titanium_SDK_6.0.0.RC_Release_Note-section-48432365_TitaniumSDK6.0.0.RCReleaseNote-iOSplatform.2">iOS platform</a>    </p>
+<a class="document-link " href="#!/guide/Titanium_SDK_6.0.0.RC_Release_Note-section-48432365_TitaniumSDK6.0.0.RCReleaseNote-iOSplatform.1">iOS platform</a>    </p>
 </li><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Titanium_SDK_6.0.0.RC_Release_Note-section-48432365_TitaniumSDK6.0.0.RCReleaseNote-Windowsplatform.2">Windows platform</a>    </p>
+<a class="document-link " href="#!/guide/Titanium_SDK_6.0.0.RC_Release_Note-section-48432365_TitaniumSDK6.0.0.RCReleaseNote-Windowsplatform.1">Windows platform</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Titanium_SDK_6.0.0.RC_Release_Note-section-48432365_TitaniumSDK6.0.0.RCReleaseNote-Multipleplatforms.1">Multiple platforms</a>    </p>
 </li></ul></li><li class=" ">    <p>
@@ -182,7 +178,7 @@ Finally, logging is only enabled for simulator and device builds. It is NOT enab
     <div class="section section-4 " id="48432365_TitaniumSDK6.0.0.RCReleaseNote-RemovalofTi.include">
         <h4 class="heading "><span>Removal of Ti.include</span></h4>
     <p>
-Ti.include has been deprecated since version 3.3.0. With the release of 6.0.0, we have completely removed it (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23185" target="_blank">TIMOB-23185</a>). For those who are still using it, we urge you to replace usage with the necessary required calls.    </p>
+Ti.include has been deprecated since version 3.3.0. With the release of 6.0.0, we have completely removed it (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23185" target="_blank">TIMOB-23185</a>). For those who are still using it, we urge you to replace usage with the necessary <strong class=" ">require()</strong> calls. If you did not migrate until now, please follow <a class="external-link external-link" href="#!/api/Global-method-require">this guide</a> to do so.    </p>
     <p>
 As a last resort, consider using this workaround:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
@@ -196,8 +192,6 @@ As a last resort, consider using this workaround:    </p>
     <div class="section section-4 " id="48432365_TitaniumSDK6.0.0.RCReleaseNote-SDK6.0.0andStudio4.8.0">
         <h4 class="heading "><span>SDK 6.0.0 and Studio 4.8.0</span></h4>
     <p>
-    <span style="color: #2b4771;">
-     </span>
 <strong class=" ">Recommendation:</strong> If you upgraded SDK to version 6.0.0, we strongly urge you to upgrade Studio to version 4.8.0 to avoid any backwards compatibility issues.    </p>
     </div>
     <div class="section section-4 " id="48432365_TitaniumSDK6.0.0.RCReleaseNote-Androidplatform">
@@ -217,6 +211,8 @@ Update minsdk to 6.0.0,    </p>
 </li><li class="li1 ">    <p>
 Then rebuild the module.    </p>
 </li></ol>    <p class="li1">
+Our community member <a class="external-link external-link" href="https://github.com/skypanther" target="_blank">Tim Poulsen</a> also did a <a class="external-link " href="https://wiki.appcelerator.org/skypanther.com/2016/10/rebuilding-modules-for-titanium-6/">blog-post</a> about some tweaks he discovered, including a detailed upgrade guide.    </p>
+    <p class="li1">
 Note, you may also need to edit the Java code to remove references to deprecate classes that have been removed in 6.0.0 (such as TiContext).    </p>
     <p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-19919" target="_blank">TIMOB-19919</a> - Android: add ability to listen to androidback without overriding    </p>
@@ -225,12 +221,6 @@ Changed how the override of a default behavior for the back button on Android   
 </li><li class=" ">    <p>
 This is a breaking change. Apps using this to override the back button need to update their code when using calls like this: win.addEventListener('androidback', onBack);    </p>
 </li></ul>    </div>
-    <div class="section section-4 " id="48432365_TitaniumSDK6.0.0.RCReleaseNote-iOSplatform">
-        <h4 class="heading "><span>iOS platform</span></h4>
-    </div>
-    <div class="section section-4 " id="48432365_TitaniumSDK6.0.0.RCReleaseNote-Windowsplatform">
-        <h4 class="heading "><span>Windows platform</span></h4>
-    </div>
     </div>
     <div class="section section-3 " id="48432365_TitaniumSDK6.0.0.RCReleaseNote-Newfeatures">
         <h3 class="heading "><span>New features</span></h3>
@@ -261,7 +251,7 @@ Added support for fingerprint authentication    </p>
 <ul class=" "><li class=" ">    <p>
 Added canceledOnTouchOutside property which should only allow AlertDialogs to close when the cancel button is pressed    </p>
 </li></ul></li></ul>    </div>
-    <div class="section section-4 " id="48432365_TitaniumSDK6.0.0.RCReleaseNote-iOSplatform.1">
+    <div class="section section-4 " id="48432365_TitaniumSDK6.0.0.RCReleaseNote-iOSplatform">
         <h4 class="heading "><span>iOS platform</span></h4>
 <ul class=" "><li class=" ">    <p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-18927" target="_blank">TIMOB-18927</a> - iOS: Calendar Event: Allow to fetch event Organiser and Invitees/Attendees details    </p>
@@ -450,7 +440,7 @@ Demo:    </p>
 <div class="line"><code class="plain">}</code></div>
 </div>
 </div></li></ul></li></ul>    </div>
-    <div class="section section-4 " id="48432365_TitaniumSDK6.0.0.RCReleaseNote-Windowsplatform.1">
+    <div class="section section-4 " id="48432365_TitaniumSDK6.0.0.RCReleaseNote-Windowsplatform">
         <h4 class="heading "><span>Windows platform</span></h4>
 <ul class=" "><li class=" ">    <p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-19926" target="_blank">TIMOB-19926</a> - Windows: Support proximity sensor for Windows 10    </p>
@@ -502,7 +492,7 @@ Updated cloudpush module to use Google Play services 9.6.1    </p>
 <ul class=" "><li class=" ">    <p>
 Enabled custom AndroidManifest.xml to override the default one (but tiapp.xml still overrides everything)    </p>
 </li></ul></li></ul>    </div>
-    <div class="section section-4 " id="48432365_TitaniumSDK6.0.0.RCReleaseNote-iOSplatform.2">
+    <div class="section section-4 " id="48432365_TitaniumSDK6.0.0.RCReleaseNote-iOSplatform.1">
         <h4 class="heading "><span>iOS platform</span></h4>
 <ul class=" "><li class=" ">    <p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-19335" target="_blank">TIMOB-19335</a> - iOS: ListView editActions specify better action    </p>
@@ -604,9 +594,9 @@ Demo:    </p>
 </div></li></ul></li><li class=" ">    <p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23514" target="_blank">TIMOB-23514</a> - iOS10: Deprecate iAds    </p>
 <ul class=" "><li class=" ">    <p>
-Deprecated iAds    </p>
+Apple deprecated iAds in iOS 10, so we followed and deprecated the Ti.UI.iOSAdView in Titanium 6.    </p>
 </li><li class=" ">    <p>
-Demo: Try the code below and it should throw a warning on Xcode 8 but not on Xcode 7.x:    </p>
+Demo: The following call will through a warning on Xcode 8 and later:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="keyword">var</code><code class="plain"> adView = Ti.UI.iOS.createAdView();</code></div>
@@ -614,11 +604,11 @@ Demo: Try the code below and it should throw a warning on Xcode 8 but not on Xco
 </div></li></ul></li><li class=" ">    <p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23538" target="_blank">TIMOB-23538</a> - iOS: Refactor default new app-projects    </p>
 <ul class=" "><li class=" ">    <p>
-Refreshed the default app templates    </p>
+Refreshed the default app templates with updated best practices (@3x icons, improved assets structure, ...)    </p>
 </li></ul></li><li class=" ">    <p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23566" target="_blank">TIMOB-23566</a> - iOS: Support global tintColor    </p>
 <ul class=" "><li class=" ">    <p>
-Added support for global tintColor    </p>
+Added support for a global tint color that is used for alert dialogs, lists, button and all other UI-based elements.    </p>
 </li><li class=" ">    <p>
 Demo:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
@@ -645,7 +635,9 @@ Demo:    </p>
 </div></li></ul></li><li class=" ">    <p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23584" target="_blank">TIMOB-23584</a> - Add support for iOS 9 Text Style additions    </p>
 <ul class=" "><li class=" ">    <p>
-Added support for additional styles to Font.textStyle    </p>
+Added support for additional styles to font.textStyle    </p>
+</li><li class=" ">    <p>
+Example:    </p>
         <img src="images/plugins/servlet/confluence/placeholder/unknown-attachment" alt="images/plugins/servlet/confluence/placeholder/unknown-attachment" class="confluence-embedded-image" width="300"/>
             <br/><span class="caption">simulatorscreenshot01nsuoj.png</span>
         <p>
@@ -668,7 +660,7 @@ Demo:    </p>
 <div class="line"><code class="plain">win.add(createButtonWithAction(</code><code class="string">"hidesBarsOnTap"</code><code class="plain">));</code></div>
 <div class="line"><code class="plain">win.add(createButtonWithAction(</code><code class="string">"hidesBarsWhenVerticallyCompact"</code><code class="plain">));</code></div>
 <div class="line"><code class="plain">win.add(createButtonWithAction(</code><code class="string">"hidesBarsWhenKeyboardAppears"</code><code class="plain">));</code></div>
-<div class="line"><code class="plain">win.add(Ti.UI.createTextField({width: 200,height:50,backgroundColor: </code><code class="string">"#ccc"</code><code class="plain">, top: 20}));</code></div>
+<div class="line"><code class="plain">win.add(Ti.UI.createTextField({width: 200, height:50, backgroundColor: </code><code class="string">"#ccc"</code><code class="plain">, top: 20}));</code></div>
 <div class="line"><code class="keyword">var</code><code class="plain"> nav = Ti.UI.iOS.createNavigationWindow({window: win}); </code></div>
 <div class="line"><code class="plain">nav.open(); </code></div>
 <div class="line"><code class="keyword">function</code><code class="plain"> createButtonWithAction(action) {</code></div>
@@ -685,9 +677,9 @@ Demo:    </p>
 </div></li></ul></li><li class=" ">    <p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-24007" target="_blank">TIMOB-24007</a> - iOS: Selected color not available in Ti.UI.ListItem    </p>
 <ul class=" "><li class=" ">    <p>
-The selectedColor property is now supported on iOS    </p>
+The selectedColor property for iOS system ListItem templates is now supported    </p>
 </li></ul></li></ul>    </div>
-    <div class="section section-4 " id="48432365_TitaniumSDK6.0.0.RCReleaseNote-Windowsplatform.2">
+    <div class="section section-4 " id="48432365_TitaniumSDK6.0.0.RCReleaseNote-Windowsplatform.1">
         <h4 class="heading "><span>Windows platform</span></h4>
 <ul class=" "><li class=" ">    <p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-19962" target="_blank">TIMOB-19962</a> - Windows: Implement Titanium.UI.TableView footerView/footerTitle    </p>
@@ -709,16 +701,13 @@ Implemented borderColor, borderWidth, borderRadius for Ti.UI.TableView    </p>
 Sample:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="keyword">var</code><code class="plain"> win = Ti.UI.createWindow({backgroundColor: </code><code class="string">'red'</code><code class="plain">}),</code></div>
-<div class="line"><code class="plain">	tableView = Ti.UI.createTableView({</code></div>
-<div class="line"><code class="plain">		width: </code><code class="string">'80%'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">		height: </code><code class="string">'80%'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">		backgroundColor: </code><code class="string">'orange'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">		borderWidth: 5,</code></div>
-<div class="line"><code class="plain">		borderColor: </code><code class="string">'yellow'</code><code class="plain">,</code></div>
-<div class="line"><code class="plain">		borderRadius: 5,</code></div>
-<div class="line"><code class="plain">		data: [{title: </code><code class="string">'Apples'</code><code class="plain">}, {title: </code><code class="string">'Bananas'</code><code class="plain">}, {title: </code><code class="string">'Carrots'</code><code class="plain">}, {title: </code><code class="string">'Potatoes'</code><code class="plain">}]</code></div>
-<div class="line"><code class="plain">	});</code></div>
+<div class="line"><code class="keyword">var</code><code class="plain"> win = Ti.UI.createWindow({backgroundColor: </code><code class="string">'red'</code><code class="plain">});</code></div>
+<div class="line"><code class="keyword">var</code><code class="plain"> tableView = Ti.UI.createTableView({</code></div>
+<div class="line"><code class="plain">	borderWidth: 5,</code></div>
+<div class="line"><code class="plain">	borderColor: </code><code class="string">'yellow'</code><code class="plain">,</code></div>
+<div class="line"><code class="plain">	borderRadius: 5,</code></div>
+<div class="line"><code class="plain">	data: [{title: </code><code class="string">'Apples'</code><code class="plain">}, {title: </code><code class="string">'Bananas'</code><code class="plain">}, {title: </code><code class="string">'Carrots'</code><code class="plain">}, {title: </code><code class="string">'Potatoes'</code><code class="plain">}]</code></div>
+<div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">tableView.addEventListener(</code><code class="string">'click'</code><code class="plain">, </code><code class="keyword">function</code><code class="plain"> (e) {</code></div>
 <div class="line"><code class="plain">	alert(JSON.stringify(e.row.title));</code></div>
 <div class="line"><code class="plain">});</code></div>
@@ -726,7 +715,7 @@ Sample:    </p>
 <div class="line"><code class="plain">win.open();</code></div>
 </div>
 </div></li></ul></li><li class=" ">    <p>
-<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23399" target="_blank">TIMOB-23399</a> - Analytics: Implement nettype property for Windows platform    </p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23399" target="_blank">TIMOB-23399</a> - Analytics: Implement networkType property for Windows platform    </p>
 <ul class=" "><li class=" ">    <p>
 <tt class=" ">Ti.Network.networkTypeName</tt> now returns the correct value depending on the devices current network    </p>
 </li></ul></li><li class=" ">    <p>
@@ -757,16 +746,16 @@ Camera preview can be set to either the front or back. Setting an invalid option
 Sample:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="keyword">var</code><code class="plain"> win = Ti.UI.createWindow({backgroundColor: </code><code class="string">'green'</code><code class="plain">, layout: </code><code class="string">'vertical'</code><code class="plain">}),</code></div>
-<div class="line"><code class="plain">	openButton = Ti.UI.createButton({title: </code><code class="string">'OPEN CAMERA'</code><code class="plain">, backgroundColor: </code><code class="string">'blue'</code><code class="plain">}),</code></div>
-<div class="line"><code class="plain">	imageView = Ti.UI.createImageView({width: Ti.UI.FILL, height: </code><code class="string">'70%'</code><code class="plain">});</code></div>
+<div class="line"><code class="keyword">var</code><code class="plain"> win = Ti.UI.createWindow({backgroundColor: </code><code class="string">'green'</code><code class="plain">, layout: </code><code class="string">'vertical'</code><code class="plain">});</code></div>
+<div class="line"><code class="keyword">var</code><code class="plain"> openButton = Ti.UI.createButton({title: </code><code class="string">'OPEN CAMERA'</code><code class="plain">, backgroundColor: </code><code class="string">'blue'</code><code class="plain">});</code></div>
+<div class="line"><code class="keyword">var</code><code class="plain"> imageView = Ti.UI.createImageView({width: Ti.UI.FILL, height: </code><code class="string">'70%'</code><code class="plain">});</code></div>
+<div class="line"><code class="keyword">var</code><code class="plain"> takeButton = Ti.UI.createButton({title: </code><code class="string">'TAKE A PHOTO'</code><code class="plain">, backgroundColor: </code><code class="string">'red'</code><code class="plain">}),</code></div>
+<div class="line"><code class="keyword">var</code><code class="plain"> hideButton = Ti.UI.createButton({title: </code><code class="string">'HIDE PREVIEW'</code><code class="plain">, backgroundColor: </code><code class="string">'red'</code><code class="plain">});</code></div>
 <div class="line"><code class="keyword">var</code><code class="plain"> overlay = Ti.UI.createView({</code></div>
 <div class="line"><code class="plain">	layout: </code><code class="string">'vertical'</code><code class="plain">,</code></div>
 <div class="line"><code class="plain">	height: </code><code class="string">'20%'</code><code class="plain">, width: Ti.UI.FILL,</code></div>
 <div class="line"><code class="plain">	bottom: 0</code></div>
-<div class="line"><code class="plain">}),</code></div>
-<div class="line"><code class="plain">takeButton = Ti.UI.createButton({title: </code><code class="string">'TAKE A PHOTO'</code><code class="plain">, backgroundColor: </code><code class="string">'red'</code><code class="plain">}),</code></div>
-<div class="line"><code class="plain">hideButton = Ti.UI.createButton({title: </code><code class="string">'HIDE PREVIEW'</code><code class="plain">, backgroundColor: </code><code class="string">'red'</code><code class="plain">});</code></div>
+<div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">takeButton.addEventListener(</code><code class="string">'click'</code><code class="plain">, </code><code class="keyword">function</code><code class="plain"> () {</code></div>
 <div class="line"><code class="plain">	Ti.Media.takePicture();</code></div>
 <div class="line"><code class="plain">});</code></div>
@@ -777,7 +766,7 @@ Sample:    </p>
 <div class="line"><code class="plain">overlay.add(hideButton);</code></div>
 <div class="line"><code class="plain">openButton.addEventListener(</code><code class="string">'click'</code><code class="plain">, </code><code class="keyword">function</code><code class="plain"> () {</code></div>
 <div class="line"><code class="plain">	Ti.Media.showCamera({</code></div>
-<div class="line"><code class="plain">		whichCamera: Titanium.Media.CAMERA_FRONT, </code><code class="comments">// Titanium.Media.CAMERA_REAR</code></div>
+<div class="line"><code class="plain">		whichCamera: Titanium.Media.CAMERA_FRONT, </code><code class="comments">// OR: Titanium.Media.CAMERA_REAR</code></div>
 <div class="line"><code class="plain">		mediaTypes: [Ti.Media.MEDIA_TYPE_PHOTO],</code></div>
 <div class="line"><code class="plain">		overlay: overlay,</code></div>
 <div class="line"><code class="plain">		success: </code><code class="keyword">function</code><code class="plain"> (e) {</code></div>
@@ -791,7 +780,7 @@ Sample:    </p>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">win.add(openButton);</code></div>
 <div class="line"><code class="plain">win.add(imageView);</code></div>
-<div class="line"><code class="plain">win.open(); </code></div>
+<div class="line"><code class="plain">win.open();</code></div>
 </div>
 </div></li></ul></li></ul>    </div>
     <div class="section section-4 p1" id="48432365_TitaniumSDK6.0.0.RCReleaseNote-Multipleplatforms.1">
@@ -843,11 +832,13 @@ Raised the upper limit of Node.js to V6    </p>
     <div class="section section-3 " id="48432365_TitaniumSDK6.0.0.RCReleaseNote-Communitycredits">
         <h3 class="heading "><span>Community credits</span></h3>
 <ul class=" "><li class=" ">    <p>
-<a class="external-link external-link" href="https://github.com/m1ga" target="_blank">Michael Gangolf</a>  for his work on Android: add setRequestHeaders({});, docs, add getter, change docu, adding parameter, and updating documentation    </p>
+<a class="external-link external-link" href="https://github.com/kopiro" target="_blank">Flavio De Stefano</a> for exposing new properties to the iOS navigation bar (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23684" target="_blank">TIMOB-23684</a>) and exposing the &quot;statusBarBackgroundColor&quot; property (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23691" target="_blank">TIMOB-23691</a>) on iOS    </p>
 </li><li class=" ">    <p>
-<a class="external-link external-link" href="https://github.com/Topener" target="_blank">Rene Pot</a> for added missing responseHeaders property and updating HTTPClient.yml (TIDOC-2628)    </p>
+<a class="external-link external-link" href="https://github.com/Topener" target="_blank">Rene Pot</a> for adding the &quot;responseHeaders&quot; property on Android (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIDOC-2628" target="_blank">TIDOC-2628</a>)    </p>
 </li><li class=" ">    <p>
-<a class="external-link external-link" href="https://github.com/jasonkneen" target="_blank">Jason Kneen</a> for <a class="external-link external-link" href="https://github.com/appcelerator/titanium_mobile/pull/8481" target="_blank">updating features</a> to remove emphasis on HTML / web technologies, focus on Native    </p>
+<a class="external-link external-link" href="https://github.com/stephenfeather" target="_blank">Stephen Feather</a> for implementing the iOS 9 text styles (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23584" target="_blank">TIMOB-23584</a>)    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://github.com/m1ga" target="_blank">Michael Gangolf</a> for implementing text field padding (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-16512" target="_blank">TIMOB-16512</a>)    </p>
 </li></ul>    </div>
     <div class="section section-3 " id="48432365_TitaniumSDK6.0.0.RCReleaseNote-Fixedissues">
         <h3 class="heading "><span>Fixed issues</span></h3>
@@ -859,6 +850,8 @@ Raised the upper limit of Node.js to V6    </p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/MOD-2272" target="_blank">MOD-2272</a> - TouchId Module: isSupported() return TRUE even for iPhone4S and iPhone 5 which doesn't have finger print sensor    </p>
 </li><li class=" ">    <p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/MOD-2280" target="_blank">MOD-2280</a> - Facebook: fb.permissions leading to crash inconsistently on iOS    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/MOD-2310" target="_blank">MOD-2310</a> - iOS: Update Facebook SDK in Ti.Facebook to fix FBSDKLoginManager issues    </p>
 </li><li class=" ">    <p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/MOD-2286" target="_blank">MOD-2286</a> - Ti.Facebook iOS: Sending Ti.Blob's in requestWithGraphPath throws mutating-error    </p>
 </li><li class=" ">    <p>

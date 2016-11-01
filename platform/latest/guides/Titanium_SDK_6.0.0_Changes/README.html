@@ -29,7 +29,7 @@ With the release of Titanium SDK 6.0.0, we introduced many great features and im
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Titanium_SDK_6.0.0_Changes-section-48431315_TitaniumSDK6.0.0Changes-DeprecatedAPIs">Deprecated APIs</a>    </p>
 </li><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Titanium_SDK_6.0.0_Changes-section-48431315_TitaniumSDK6.0.0Changes-Watchos1">Watchos 1</a>    </p>
+<a class="document-link " href="#!/guide/Titanium_SDK_6.0.0_Changes-section-48431315_TitaniumSDK6.0.0Changes-watchOS1">watchOS 1</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Titanium_SDK_6.0.0_Changes-section-48431315_TitaniumSDK6.0.0Changes-Listentoandroidback">Listen to androidback</a>    </p>
 </li><li class=" ">    <p>
@@ -76,10 +76,10 @@ For this release, we removed 176+ APIs across iOS and Android. Please review thi
     <p>
 &lt;insert table here after it has been generated from <a class="external-link " href="https://wiki.appcelerator.org/display/~bimmel/Generate+API+Change+Report+Script">Generate API Change Report Script</a>&gt;    </p>
     </div>
-    <div class="section section-2 " id="48431315_TitaniumSDK6.0.0Changes-Watchos1">
-        <h2 class="heading "><span>Watchos 1</span></h2>
+    <div class="section section-2 " id="48431315_TitaniumSDK6.0.0Changes-watchOS1">
+        <h2 class="heading "><span>watchOS 1</span></h2>
     <p>
-As of SDK 6.0.0, the watchos 1 template and all related code are no longer supported. See <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-20083" target="_blank">TIMOB-20083</a> for details.    </p>
+As of SDK 6.0.0, the watchOS 1 template and all related code are no longer supported. See <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-20083" target="_blank">TIMOB-20083</a> for details.    </p>
     </div>
     <div class="section section-2 " id="48431315_TitaniumSDK6.0.0Changes-Listentoandroidback">
         <h2 class="heading "><span>Listen to androidback</span></h2>
@@ -129,7 +129,7 @@ For those iOS users who need to create customized storyboards or for users who c
     <div class="section section-2 " id="48431315_TitaniumSDK6.0.0Changes-RemovalofTi.include">
         <h2 class="heading "><span>Removal of Ti.include</span></h2>
     <p>
-Ti.include has been deprecated since version 3.3.0. With the release of 6.0.0, we have completely removed it (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23185" target="_blank">TIMOB-23185</a>). For those who are still using it, we urge you to replace usage with the necessary required calls.    </p>
+Ti.include has been deprecated since version 3.3.0. With the release of 6.0.0, we have completely removed it (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23185" target="_blank">TIMOB-23185</a>). For those who are still using it, we urge you to replace usage with the necessary <strong class=" ">require()</strong> calls. If you did not migrate until now, please follow <a class="external-link external-link" href="#!/api/Global-method-require">this guide</a> to do so.    </p>
     <p>
 As a last resort, consider using this workaround:    </p>
     <p>
