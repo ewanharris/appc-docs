@@ -34,6 +34,10 @@ With the release of Titanium SDK 6.0.0, we introduced many great features and im
 <a class="document-link " href="#!/guide/Titanium_SDK_6.0.0_Changes-section-48431315_TitaniumSDK6.0.0Changes-Listentoandroidback">Listen to androidback</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Titanium_SDK_6.0.0_Changes-section-48431315_TitaniumSDK6.0.0Changes-ModuleguidesuseCLIinsteadofbuild.py">Module guides use CLI instead of build.py</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Titanium_SDK_6.0.0_Changes-section-48431315_TitaniumSDK6.0.0Changes-Studio4.8.0">Studio 4.8.0</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Titanium_SDK_6.0.0_Changes-section-48431315_TitaniumSDK6.0.0Changes-RemovalofTi.include">Removal of Ti.include</a>    </p>
 </li></ul>    <div class="section section-2 " id="48431315_TitaniumSDK6.0.0Changes-RebuildingAndroidModules">
         <h2 class="heading "><span>Rebuilding Android Modules</span></h2>
     <p>
@@ -116,6 +120,36 @@ There isn't anything else you need to change.    </p>
 <strong class=" ">Note for Android users</strong>: <tt class=" ">ant</tt> is no longer required.    </p>
     <p>
 For those iOS users who need to create customized storyboards or for users who copy content into the <tt class=" ">../platform/iphone/ios</tt> directory, you can now create a directory called <tt class=" ">Resources</tt> in each platform-specific directory and place all your files in there that you wish to be copied into your app.    </p>
+    </div>
+    <div class="section section-2 " id="48431315_TitaniumSDK6.0.0Changes-Studio4.8.0">
+        <h2 class="heading "><span>Studio 4.8.0</span></h2>
+    <p>
+<strong class=" ">Recommendation:</strong> If you upgraded SDK to version 6.0.0, we strongly urge you to upgrade Studio to version 4.8.0 to avoid any backwards compatibility issues.    </p>
+    </div>
+    <div class="section section-2 " id="48431315_TitaniumSDK6.0.0Changes-RemovalofTi.include">
+        <h2 class="heading "><span>Removal of Ti.include</span></h2>
+    <p>
+Ti.include has been deprecated since version 3.3.0. With the release of 6.0.0, we have completely removed it (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23185" target="_blank">TIMOB-23185</a>). For those who are still using it, we urge you to replace usage with the necessary required calls.    </p>
+    <p>
+As a last resort, consider using this workaround:    </p>
+    <p>
+<strong class=" ">Ti.include workaround</strong>    </p>
+    <p>
+    </p>
+    <div class="tablewrap">
+        <table class="confluenceTable">
+        <thead class=" "/><tfoot class=" "/><tbody class=" ">    <tr>
+            <td class="confluenceTd" rowspan="1" colspan="1">
+        <p>
+<tt class="js keyword ">function</tt> <tt class="js plain ">include(file) {</tt><tt class="js spaces ">    </tt><tt class="js keyword ">return</tt> <tt class="js plain ">eval(Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, file).read().text);</tt><tt class="js plain ">}</tt>    </p>
+            </td>
+        </tr>
+</tbody>        </table>
+            </div>
+    <p>
+    </p>
+    <p>
+    </p>
     </div>
         </div><a id="editButton" href="https://wiki.appcelerator.org/pages/editpage.action?pageId=48431315"><span>Edit</span></a>
     
