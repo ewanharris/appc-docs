@@ -419,7 +419,7 @@ When the marker event is fired, a new set of data is generated and appended to t
     <div class="section section-3 " id="40928632_AlloyListViewGuide-HandlingEventsonListItems">
         <h3 class="heading "><span>Handling Events on List Items</span></h3>
     <p>
-To handle click events on list items, you attach an <tt class=" ">onItemClick</tt> attribute to the <tt class=" ">&lt;ListView/&gt;</tt> that specifies the event function handler to invoke. The event handler is passed an <a class="document-link unresolved" href="#!/guide/Alloy_ListView_Guide">itemclick</a> event whose properties identify the clicked list item (by section and item index), as well as the <tt class=" ">bindId</tt> of of the control that generated the event, if any. For example:    </p>
+To handle click events on list items, you attach an <tt class=" ">onItemclick</tt> attribute to the <tt class=" ">&lt;ListView/&gt;</tt> that specifies the event function handler to invoke. The event handler is passed an <a class="document-link unresolved" href="#!/guide/Alloy_ListView_Guide">itemclick</a> event whose properties identify the clicked list item (by section and item index), as well as the <tt class=" ">bindId</tt> of of the control that generated the event, if any. For example:    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="title">index.xml</div>
 <div class="defaultnew syntaxhighlighter">
@@ -461,38 +461,42 @@ When using a custom template, you can also handle events on individual template 
         <img src="images/download/attachments/40928632/likeornot.png" alt="images/download/attachments/40928632/likeornot.png" class="confluence-embedded-image confluence-content-image-border" width="260"/>
             </p>
     <p>
-To do this, you attach an <tt class=" ">onEvent</tt> attribute to the view element in the <tt class=" ">&lt;ItemTemplate/&gt;</tt> element, whose value is the event handler to invoke when the user clicks that view object. For example, the following defines the custom template used in the above screenshot, consisting of a <tt class=" ">&lt;Label/&gt;</tt> element and an <tt class=" ">&lt;ImageView/&gt;</tt> element. The <tt class=" ">&lt;ImageView/&gt;</tt> has an <tt class=" ">onClick</tt> attribute set to <tt class=" ">&quot;starClick&quot;</tt>. The project's /assets folder contains two PNGs: star_grey.png and star_gold.png. Initially, each list item displays the grey star.    </p>
+To do this, you attach an <tt class=" ">onEvent</tt> attribute to the view element in the <tt class=" ">&lt;ItemTemplate/&gt;</tt> element, whose value is the event handler to invoke when the user clicks that view object. For example, the following defines the custom template used in the above screenshot, consisting of a <tt class=" ">&lt;Label/&gt;</tt> element and an <tt class=" ">&lt;ImageView/&gt;</tt> element. The <tt class=" ">&lt;ListView/&gt;</tt> has an <tt class=" ">onItemclick</tt> attribute set to <tt class=" ">&quot;handleItemClick&quot; </tt>to set the star image by bubbling the event down to the image view. The project's /assets folder contains two PNGs: star_grey.png and star_gold.png. Initially, each list item displays the grey star.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">&lt;ListView id=</code><code class="string">"likeList"</code><code class="plain"> defaultItemTemplate=</code><code class="string">"custom"</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">&lt;ListView id=</code><code class="string">"likeList"</code><code class="plain"> defaultItemTemplate=</code><code class="string">"custom"</code><code class="plain"> onItemclick=</code><code class="string">"handleItemClick"</code><code class="plain">&gt;</code></div>
 <div class="line"><code class="plain">	&lt;Templates&gt;</code></div>
 <div class="line"><code class="plain">		&lt;ItemTemplate name=</code><code class="string">"custom"</code><code class="plain">&gt;</code></div>
-<div class="line"><code class="plain">			&lt;Label bindId=</code><code class="string">"label"</code><code class="plain"> left=</code><code class="string">"15"</code><code class="plain">/&gt;</code></div>
-<div class="line"><code class="plain">			&lt;ImageView bindId=</code><code class="string">"icon"</code><code class="plain"> right=</code><code class="string">"15"</code><code class="plain"> onClick=</code><code class="string">"starClick"</code><code class="plain">/&gt;						</code></div>
+<div class="line"><code class="plain">			&lt;Label bindId=</code><code class="string">"label"</code><code class="plain"> left=</code><code class="string">"15"</code><code class="plain"> /&gt;</code></div>
+<div class="line"><code class="plain">			&lt;ImageView bindId=</code><code class="string">"icon"</code><code class="plain"> right=</code><code class="string">"15"</code><code class="plain"> /&gt;						</code></div>
 <div class="line"><code class="plain">		&lt;/ItemTemplate&gt;</code></div>
 <div class="line"><code class="plain">	&lt;/Templates&gt;</code></div>
 <div class="line"><code class="plain">	&lt;ListSection&gt;</code></div>
-<div class="line"><code class="plain">		&lt;ListItem label:text=</code><code class="string">"Do you like it?"</code><code class="plain"> icon:image=</code><code class="string">"star_grey.png"</code><code class="plain">/&gt;</code></div>
+<div class="line"><code class="plain">		&lt;ListItem label:text=</code><code class="string">"Do you like it?"</code><code class="plain"> icon:image=</code><code class="string">"star_grey.png"</code><code class="plain"> /&gt;</code></div>
 <div class="line"><code class="plain">		&lt;ListItem label:text=</code><code class="string">"How about this one?"</code><code class="plain"> icon:image=</code><code class="string">"star_grey.png"</code><code class="plain"> /&gt;</code></div>
 <div class="line"><code class="plain">		&lt;ListItem label:text=</code><code class="string">"Or this one?"</code><code class="plain"> icon:image=</code><code class="string">"star_grey.png"</code><code class="plain"> /&gt;</code></div>
 <div class="line"><code class="plain">	&lt;/ListSection&gt;</code></div>
 <div class="line"><code class="plain">&lt;/ListView&gt;</code></div>
 </div>
 </div>    <p>
-The <tt class=" ">starClick()</tt> event handler function, shown below, toggles the image displayed by the image between the grey and gold versions.    </p>
+The <tt class=" ">handleItemClick()</tt> event handler function, shown below, toggles the image displayed by the image between the grey and gold versions.    </p>
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">function starClick (e) {</code></div>
+<div class="line"><code class="plain">function handleItemClick (e) {</code></div>
+<div class="line"><code class="plain">    </code><code class="comments">// Check if the clicked item is the image view</code></div>
+<div class="line"><code class="plain">    </code><code class="keyword">if</code><code class="plain"> (e.bindId != </code><code class="string">"icon"</code><code class="plain">) {</code></div>
+<div class="line"><code class="plain">        </code><code class="keyword">return</code><code class="plain">;</code></div>
+<div class="line"><code class="plain">    }</code></div>
 <div class="line"><code class="plain">	</code><code class="comments">// Get the clicked item</code></div>
-<div class="line"><code class="plain">	var section = $.likeList.sections[e.sectionIndex];</code></div>
-<div class="line"><code class="plain">	var item = section.getItemAt(e.itemIndex);</code></div>
+<div class="line"><code class="plain">	var item = e.section.getItemAt(e.itemIndex);</code></div>
 <div class="line"><code class="plain">	var currentImage = item.icon.image;</code></div>
-<div class="line"><code class="plain">	</code><code class="keyword">if</code><code class="plain">(currentImage == </code><code class="string">"star_grey.png"</code><code class="plain">) {</code></div>
+<div class="line"><code class="plain">	</code></div>
+<div class="line"><code class="plain">    </code><code class="keyword">if</code><code class="plain"> (currentImage == </code><code class="string">"star_grey.png"</code><code class="plain">) {</code></div>
 <div class="line"><code class="plain">		item.icon.image = </code><code class="string">"star_gold.png"</code><code class="plain">		</code></div>
 <div class="line"><code class="plain">	} </code><code class="keyword">else</code><code class="plain"> {</code></div>
 <div class="line"><code class="plain">		item.icon.image = </code><code class="string">"star_grey.png"</code><code class="plain">				</code></div>
 <div class="line"><code class="plain">	}</code></div>
-<div class="line"><code class="plain">	section.updateItemAt(e.itemIndex, item);</code></div>
+<div class="line"><code class="plain">	e.section.updateItemAt(e.itemIndex, item);</code></div>
 <div class="line"><code class="plain">}</code></div>
 </div>
 </div>    <div class="confbox admonition admonition-note aui-message warning shadowed information-macro">
@@ -502,7 +506,7 @@ The views that display each list data item are recycled as the user scrolls thro
 <div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
 <div class="defaultnew syntaxhighlighter">
 <div class="line"><code class="comments">// Don't do this:</code></div>
-<div class="line"><code class="plain">function starClick (e) {</code></div>
+<div class="line"><code class="plain">function handleItemClick(e) {</code></div>
 <div class="line"><code class="plain">	e.source.image = </code><code class="string">"star_gold.png"</code><code class="plain">;</code></div>
 <div class="line"><code class="plain">}</code></div>
 </div>
@@ -510,31 +514,7 @@ The views that display each list data item are recycled as the user scrolls thro
 The above code can have unexpected consequences if the user scrolls past the item and then scrolls it back into view.    </p>
     </div>
     
-    <p>
-Often you will want to handle events generated by UI elements in a custom template separately from <tt class=" ">itemclick</tt> events generated the ListView itself. But when the user clicks the UI element, you likely want to ignore the <tt class=" ">itemclick</tt> event.    </p>
-    <p>
-Since the <tt class=" ">click</tt> is processed before the <tt class=" ">itemclick</tt>, one way to handle this is to use a state variable that indicates that the <tt class=" ">click</tt> was just fired. The <tt class=" ">itemclick</tt> event handler checks that variable before doing its own work.    </p>
-<div xmlns="http://www.w3.org/1999/xhtml" class="confbox programlisting scroll-unprocessed">
-<div class="defaultnew syntaxhighlighter">
-<div class="line"><code class="plain">var starWasClicked = </code><code class="keyword">false</code><code class="plain">;</code></div>
-<div class="line"><code class="comments">// Click handler</code></div>
-<div class="line"><code class="plain">function starClick (e) {</code></div>
-<div class="line"><code class="plain">	starWasClicked = </code><code class="keyword">true</code><code class="plain">;</code></div>
-<div class="line"><code class="plain">	</code><code class="comments">// Get the clicked item...</code></div>
-<div class="line"><code class="plain">    ...</code></div>
-<div class="line"><code class="plain">}</code></div>
-<div class="line"><code class="plain"> </code></div>
-<div class="line"><code class="comments">// Itemclick handler</code></div>
-<div class="line"><code class="plain">function handleClick (e) {</code></div>
-<div class="line"><code class="plain">	</code><code class="keyword">if</code><code class="plain">(starWasClicked) {</code></div>
-<div class="line"><code class="plain">		starWasClicked = </code><code class="keyword">false</code><code class="plain">;</code></div>
-<div class="line"><code class="plain">		</code><code class="keyword">return</code><code class="plain">;</code></div>
-<div class="line"><code class="plain">	}</code></div>
-<div class="line"><code class="plain">    </code><code class="comments">// Otherwise, continue handling event</code></div>
-<div class="line"><code class="plain">   ...</code></div>
-<div class="line"><code class="plain">}</code></div>
-</div>
-</div><ul class="toc-indentation "><li class=" ">    <p>
+<ul class="toc-indentation "><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Alloy_ListView_Guide-section-40928632_AlloyListViewGuide-Markerevents">Marker events</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Alloy_ListView_Guide-section-40928632_AlloyListViewGuide-HandlingEventsonListItems">Handling Events on List Items</a>    </p>
