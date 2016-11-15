@@ -21,7 +21,7 @@
     <div class="section section-2 " id="43316487_TitaniumSDKReleaseNotes-toc">
         <h2 class="heading "><span/></h2>
 <ul class="toc-indentation "><li class=" ">    <p>
-<a class="document-link " href="#!/guide/Titanium_SDK_Release_Notes-section-43316487_TitaniumSDKReleaseNotes-TitaniumSDK6.0.0.RC-1November2016">Titanium SDK 6.0.0.RC - 1 November 2016</a>    </p>
+<a class="document-link " href="#!/guide/Titanium_SDK_Release_Notes-section-43316487_TitaniumSDKReleaseNotes-TitaniumSDK6.0.0.GA-14November2016">Titanium SDK 6.0.0.GA - 14 November 2016</a>    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Titanium_SDK_Release_Notes-section-43316487_TitaniumSDKReleaseNotes-Noticeoffeatureandbehaviorchanges">Notice of feature and behavior changes</a>    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
@@ -62,21 +62,21 @@
 <a class="document-link " href="#!/guide/Titanium_SDK_Release_Notes-section-43316487_TitaniumSDKReleaseNotes-APIchanges">API changes</a>    </p>
 <ul class="toc-indentation "><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Titanium_SDK_Release_Notes-section-43316487_TitaniumSDKReleaseNotes-NewAPIs">New APIs</a>    </p>
-</li><li class=" ">    <p>
+</li></ul></li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Titanium_SDK_Release_Notes-section-43316487_TitaniumSDKReleaseNotes-DeprecatedAPIs">Deprecated APIs</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Titanium_SDK_Release_Notes-section-43316487_TitaniumSDKReleaseNotes-RemovedAPIs">Removed APIs</a>    </p>
-</li></ul></li><li class=" ">    <p>
+</li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Titanium_SDK_Release_Notes-section-43316487_TitaniumSDKReleaseNotes-Knownissues">Known issues</a>    </p>
 </li></ul></li></ul>    </div>
-    <div class="section section-2 " id="43316487_TitaniumSDKReleaseNotes-TitaniumSDK6.0.0.RC-1November2016">
-        <h2 class="heading "><span>Titanium SDK 6.0.0.RC - 1 November 2016</span></h2>
+    <div class="section section-2 " id="43316487_TitaniumSDKReleaseNotes-TitaniumSDK6.0.0.GA-14November2016">
+        <h2 class="heading "><span>Titanium SDK 6.0.0.GA - 14 November 2016</span></h2>
     <p>
-Titanium SDK 6.0.0.RC is a major release that includes new features, improvements and bug fixes.    </p>
+Titanium SDK 6.0.0.GA is a major release that includes new features, improvements and bug fixes.    </p>
     <div class="section section-3 " id="43316487_TitaniumSDKReleaseNotes-Noticeoffeatureandbehaviorchanges">
         <h3 class="heading "><span>Notice of feature and behavior changes</span></h3>
     <p>
-SDK 6.0.0.RC brings a few behavior changes that includes changes to Xcode and Node support, Studio Debugger, and our logging system. For more details, please visit <a class="document-link " href="#!/guide/Titanium_SDK_6.0.0_Changes">Titanium SDK 6.0.0 Changes</a>.    </p>
+SDK 6.0.0.GA brings a few behavior changes that includes changes to Xcode and Node support, Studio Debugger, and our logging system. For more details, please visit <a class="document-link " href="#!/guide/Titanium_SDK_6.0.0_Changes">Titanium SDK 6.0.0 Changes</a>.    </p>
 <ul class=" "><li class="li3 ">    <p>
 Titanium 6.0.0 only supports Xcode 8 (which supports Swift 2.3+, watchOS 2 and 3, and iOS 8+)    </p>
 </li><li class="li3 ">    <p>
@@ -219,7 +219,7 @@ Note, you may also need to edit the Java code to remove references to deprecate 
 <ul class=" "><li class=" ">    <p>
 Changed how the override of a default behavior for the back button on Android    </p>
 </li><li class=" ">    <p>
-This is a breaking change. Apps using this to override the back button need to update their code when using calls like this: win.addEventListener('androidback', onBack);    </p>
+This is a breaking change. Apps using this to override the back button need to update their code when using calls like this: <tt class=" ">win.addEventListener('androidback', onBack);</tt>    </p>
 </li></ul>    </div>
     </div>
     <div class="section section-3 " id="43316487_TitaniumSDKReleaseNotes-Newfeatures">
@@ -638,9 +638,8 @@ Demo:    </p>
 Added support for additional styles to font.textStyle    </p>
 </li><li class=" ">    <p>
 Example:    </p>
-        <img src="images/plugins/servlet/confluence/placeholder/unknown-attachment" alt="images/plugins/servlet/confluence/placeholder/unknown-attachment" class="confluence-embedded-image" width="300"/>
-            <br/><span class="caption">simulatorscreenshot01nsuoj.png</span>
-        <p>
+        <img src="images/download/attachments/48432896/simulatorscreenshot01nsuoj.png" alt="images/download/attachments/48432896/simulatorscreenshot01nsuoj.png" class="confluence-embedded-image" width="500"/>
+            <p>
     </p>
 </li></ul></li><li class=" ">    <p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23684" target="_blank">TIMOB-23684</a> - iOS: Expose missing iOS8 properties to hide NavigationBar    </p>
@@ -780,9 +779,21 @@ Sample:    </p>
 <div class="line"><code class="plain">});</code></div>
 <div class="line"><code class="plain">win.add(openButton);</code></div>
 <div class="line"><code class="plain">win.add(imageView);</code></div>
-<div class="line"><code class="plain">win.open();</code></div>
+<div class="line"><code class="plain">win.open(); </code></div>
 </div>
-</div></li></ul></li></ul>    </div>
+</div></li></ul></li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23775" target="_blank">TIMOB-23775</a> - Windows: Impose restrictions on feature events    </p>
+<ul class=" "><li class=" ">    <p class="p1">
+Set restrictions on feature events to enforce proper usage    </p>
+<ul class=" "><li class="li1 ">    <p>
+Payload should be no more than 1000 bytes    </p>
+</li><li class="li1 ">    <p>
+Custom event can have no more than 35 keys    </p>
+</li><li class="li1 ">    <p>
+Custom event is limited to a maximum of 5 nested JS objects (e.g. { a: { b: { c: { d: 5 } } } } has 3)    </p>
+</li><li class="li1 ">    <p class="p1">
+Key's (string) value can only be a max of 50 chars    </p>
+</li></ul></li></ul></li></ul>    </div>
     <div class="section section-4 p1" id="43316487_TitaniumSDKReleaseNotes-Multipleplatforms.1">
         <h4 class="heading p1"><span>Multiple platforms</span></h4>
 <ul class=" "><li class=" ">    <p>
@@ -838,7 +849,15 @@ Raised the upper limit of Node.js to V6    </p>
 </li><li class=" ">    <p>
 <a class="external-link external-link" href="https://github.com/stephenfeather" target="_blank">Stephen Feather</a> for implementing the iOS 9 text styles (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23584" target="_blank">TIMOB-23584</a>)    </p>
 </li><li class=" ">    <p>
-<a class="external-link external-link" href="https://github.com/m1ga" target="_blank">Michael Gangolf</a> for implementing text field padding (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-16512" target="_blank">TIMOB-16512</a>)    </p>
+<a class="external-link external-link" href="https://github.com/m1ga" target="_blank">Michael Gangolf</a> for    </p>
+<ul class=" "><li class=" ">    <p>
+implementing text field padding (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-16512" target="_blank">TIMOB-16512</a>)    </p>
+</li><li class=" ">    <p>
+fixing filed upload progress by adding setChunkedStreamingMode (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-20483" target="_blank">TIMOB-20483</a>)    </p>
+</li><li class=" ">    <p>
+adding rotation, rotationX, rotationY, scaleX, and scaleY to view (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23423" target="_blank">TIMOB-23423</a>)    </p>
+</li></ul></li><li class=" ">    <p>
+<a class="external-link external-link" href="https://github.com/manumaticx" target="_blank">Manuel Lehner</a> for enabling Media.openPhotoGallery to select multiple media items instead of one at a time (<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-14382" target="_blank">TIMOB-14382</a>)    </p>
 </li></ul>    </div>
     <div class="section section-3 " id="43316487_TitaniumSDKReleaseNotes-Fixedissues">
         <h3 class="heading "><span>Fixed issues</span></h3>
@@ -851,9 +870,9 @@ Raised the upper limit of Node.js to V6    </p>
 </li><li class=" ">    <p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/MOD-2280" target="_blank">MOD-2280</a> - Facebook: fb.permissions leading to crash inconsistently on iOS    </p>
 </li><li class=" ">    <p>
-<a class="external-link external-link" href="https://jira.appcelerator.org/browse/MOD-2310" target="_blank">MOD-2310</a> - iOS: Update Facebook SDK in Ti.Facebook to fix FBSDKLoginManager issues    </p>
-</li><li class=" ">    <p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/MOD-2286" target="_blank">MOD-2286</a> - Ti.Facebook iOS: Sending Ti.Blob's in requestWithGraphPath throws mutating-error    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/MOD-2289" target="_blank">MOD-2289</a> - Android - Latest 6.X SDK crashes when importing Ti.CloudPush    </p>
 </li><li class=" ">    <p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/MOD-2296" target="_blank">MOD-2296</a> - iOS10: Ti.SafariDialog - tintColor on iOS 10 broken, new barColor property available    </p>
 </li><li class=" ">    <p>
@@ -1081,6 +1100,8 @@ Raised the upper limit of Node.js to V6    </p>
 </li><li class=" ">    <p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23935" target="_blank">TIMOB-23935</a> - iOS: Ti.Media.switchCamera() fails to switch camera.    </p>
 </li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23936" target="_blank">TIMOB-23936</a> - Ti.Media.showCamera() with overlay bug on iOS 10    </p>
+</li><li class=" ">    <p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23937" target="_blank">TIMOB-23937</a> - iOS: Edited videos are not saved to photo gallery    </p>
 </li><li class=" ">    <p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-23938" target="_blank">TIMOB-23938</a> - Android: Titanium crashes if back button is hit soon enough after app launch    </p>
@@ -1147,7 +1168,19 @@ Raised the upper limit of Node.js to V6    </p>
 </li><li class=" ">    <p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-24065" target="_blank">TIMOB-24065</a> - iOS: Using `--build-only` forces Development team to be required for builds    </p>
 </li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-24072" target="_blank">TIMOB-24072</a> - iOS: Classic projects always invoke xcodebuild; Differential builds    </p>
+</li><li class=" ">    <p>
 <a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-24079" target="_blank">TIMOB-24079</a> - Android Debugger: Not all breakpoints are hit during debug of android app with SDK 6.0.0    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-24091" target="_blank">TIMOB-24091</a> - If you package for mobile web, then &quot;[ERROR] ENOENT: no such file or directory&quot; error is returned    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-24107" target="_blank">TIMOB-24107</a> - iOS: Setting &quot;navBarHidden&quot; before opening Ti.UI.iOS.NavigationWindow has no effect (regression)    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-24117" target="_blank">TIMOB-24117</a> - Android: Fix ti.map and ti.admob modules &quot;duplicate entry&quot; error    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-24127" target="_blank">TIMOB-24127</a> - Android: Expected 9683000 but found 9452000 error when using map module 3.0.1    </p>
+</li><li class=" ">    <p>
+<a class="external-link external-link" href="https://jira.appcelerator.org/browse/TIMOB-24139" target="_blank">TIMOB-24139</a> - iOS: App is crashed if it contain Button with backgroundImage property (regression)    </p>
 </li></ul>    <p>
     </p>
     </div>
@@ -1157,7 +1190,7 @@ Raised the upper limit of Node.js to V6    </p>
         <h4 class="heading "><span>New APIs</span></h4>
     <p>
     <span style="color: #000000;">
-The following APIs are new or have expanded platform support in Release 6.0.0.RC.    </span>
+The following APIs are new or have expanded platform support in Release 6.0.0.GA.    </span>
     </p>
     <div class="tablewrap">
         <table class="confluenceTable">
@@ -2354,11 +2387,12 @@ The number of calls remaining to <tt class=" ">transferCurrentComplication</tt> 
 </tbody>        </table>
             </div>
     </div>
-    <div class="section section-4 " id="43316487_TitaniumSDKReleaseNotes-DeprecatedAPIs">
-        <h4 class="heading "><span>Deprecated APIs</span></h4>
+    </div>
+    <div class="section section-3 " id="43316487_TitaniumSDKReleaseNotes-DeprecatedAPIs">
+        <h3 class="heading "><span>Deprecated APIs</span></h3>
     <p>
     <span style="color: #000000;">
-The following APIs are deprecated in Release 6.0.0.RC.    </span>
+The following APIs are deprecated in Release 6.0.0.GA.    </span>
     </p>
     <div class="tablewrap">
         <table class="confluenceTable">
@@ -2547,11 +2581,11 @@ Use Titanium.UI.TextField.padding instead.    </p>
 </tbody>        </table>
             </div>
     </div>
-    <div class="section section-4 " id="43316487_TitaniumSDKReleaseNotes-RemovedAPIs">
-        <h4 class="heading "><span>Removed APIs</span></h4>
+    <div class="section section-3 " id="43316487_TitaniumSDKReleaseNotes-RemovedAPIs">
+        <h3 class="heading "><span>Removed APIs</span></h3>
     <p>
     <span style="color: #000000;">
-The following APIs have been removed in Release 6.0.0.RC.    </span>
+The following APIs have been removed in Release 6.0.0.GA.    </span>
     </p>
     <div class="tablewrap">
         <table class="confluenceTable">
@@ -3356,7 +3390,6 @@ Use Titanium.UI.Window.statusBarStyle instead.    </p>
 </tbody>        </table>
             </div>
     </div>
-    </div>
     <div class="section section-3 " id="43316487_TitaniumSDKReleaseNotes-Knownissues">
         <h3 class="heading "><span>Known issues</span></h3>
 <ul class=" "><li class=" ">    <p>
@@ -3376,6 +3409,8 @@ Debugging doesn't work with Hyperloop enabled with run-on-main-thread set to eit
         <h3 class="heading "><span>Recent Releases</span></h3>
 <ul class="childpages-macro "><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Titanium_SDK_6.0.0.RC_Release_Note">Titanium SDK 6.0.0.RC Release Note</a>    </p>
+</li><li class=" ">    <p>
+<a class="document-link " href="#!/guide/Titanium_SDK_6.0.0.GA_Release_Note">Titanium SDK 6.0.0.GA Release Note</a>    </p>
 </li><li class=" ">    <p>
 <a class="document-link " href="#!/guide/Titanium_SDK_6.0.0.Beta_Release_Note">Titanium SDK 6.0.0.Beta Release Note</a>    </p>
 </li><li class=" ">    <p>
