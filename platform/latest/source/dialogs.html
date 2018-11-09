@@ -21,7 +21,7 @@
  * To use the dialogs builtin library,
  * require it with the `alloy` root directory in your `require` call. For example:
  *
- *     var dialogs = require(&#39;/alloy/dialogs&#39;);
+ *     var dialogs = require('alloy/dialogs');
  *     dialogs.confirm({});
  */
 
@@ -29,19 +29,19 @@
 </span> * @property {String} title
  * To be used as default title for confirm-method AlertDialog
  */
-exports.title = &#39;Confirm&#39;;
+exports.title = 'Confirm';
 
 <span id='Alloy-builtins-dialogs-property-message'>/**
 </span> * @property {String} message
  * To be used as default message for confirm-method AlertDialog
  */
-exports.message = &#39;Are you sure?&#39;;
+exports.message = 'Are you sure?';
 
 <span id='Alloy-builtins-dialogs-property-buttonNames'>/**
 </span> * @property {Array} buttonNames
  * To be used as default buttonNames for confirm-method AlertDialog
  */
-exports.buttonNames = [&#39;No&#39;, &#39;Yes&#39;];
+exports.buttonNames = ['No', 'Yes'];
 
 <span id='Alloy-builtins-dialogs-method-confirm'>/**
 </span> * @method confirm
@@ -53,12 +53,11 @@ exports.buttonNames = [&#39;No&#39;, &#39;Yes&#39;];
  * @param {String} [args.yes=&quot;Yes&quot;] Label of the affirmative button of the dialog box.
  * @param {String} [args.no=&quot;No&quot;] Label of the negative button of the dialog box.
  * @param {Function} [args.callback] Callback function invoked after an affirmative response.
- * @param {Function} [args.cancel] Callback function invoked after a negative response.
  * @param {...*} [args.evt] Callback context.
  */
 exports.confirm = function (args) {
 	args = args || {};
-	if (args.buttonNames) {
+	if(args.buttonNames) {
 		args.no = args.no || args.buttonNames[0];
 		args.yes = args.yes || args.buttonNames[1];
 	}
@@ -69,13 +68,9 @@ exports.confirm = function (args) {
 		buttonNames: [args.no || exports.buttonNames[0], args.yes || exports.buttonNames[1]],
 		cancel: 0
 	});
-	alertDialog.addEventListener(&#39;click&#39;, function (evt) {
+	alertDialog.addEventListener('click', function (evt) {
 		if (evt.index) {
-			if (args.callback) {
-				args.callback(args.evt || {});
-			}
-		} else if (args.cancel) {
-			args.cancel(args.evt || {});
+			if (args.callback) { args.callback(args.evt || {}); }
 		}
 		args = null;
 	});

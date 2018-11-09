@@ -46,7 +46,7 @@
  * Factory method for instantiating a widget controller. Creates and returns an instance of the
  * named widget.
  * @param {String} id Id of widget to instantiate.
- * @param {String} [name=&quot;widget&quot;] Name of the view within the widget to instantiate (&#39;widget&#39; by default)
+ * @param {String} [name=&quot;widget&quot;] Name of the view within the widget to instantiate ('widget' by default)
  * @param {Object} [args] Arguments to pass to the widget.
  * @return {Alloy.Controller} Alloy widget controller object.
  */
@@ -103,13 +103,13 @@
  * An object for storing globally accessible variables and functions.
  * Alloy.Globals is accessible in any controller in your app:
  *
- *     Alloy.Globals.someGlobalObject = { key: &#39;value&#39; };
+ *     Alloy.Globals.someGlobalObject = { key: 'value' };
  *     Alloy.Globals.someGlobalFunction = function(){};
  *
  * Alloy.Globals can be accessed in other non-controller Javascript files
  * like this:
  *
- *     var theObject = require(&#39;/alloy&#39;).Globals.someGlobalObject;
+ *     var theObject = require('alloy').Globals.someGlobalObject;
  *
  */
 
@@ -122,7 +122,7 @@
  *
  * The above markup would effectively generate the following code:
  *
- *     Alloy.Models.myModel = Alloy.createModel(&#39;MyModel&#39;);
+ *     Alloy.Models.myModel = Alloy.createModel('MyModel');
  *
  * Alloy.Models.myModel would then be accessible in any controller in your app.
  *
@@ -143,7 +143,7 @@
  *
  * The above markup would effectively generate the following code:
  *
- *     Alloy.Collections.myModel = Alloy.createCollection(&#39;MyModel&#39;);
+ *     Alloy.Collections.myModel = Alloy.createCollection('MyModel');
  *
  * Alloy.Collections.myModel would then be accessible in any controller in your app.
  *
@@ -157,8 +157,8 @@
 
 <span id='Alloy-property-CFG'> /**
 </span> * @property {Object} CFG
- * An object that stores Alloy configuration values as defined in your app&#39;s
- * app/config.json file. Here&#39;s what a typical config.json file might look
+ * An object that stores Alloy configuration values as defined in your app's
+ * app/config.json file. Here's what a typical config.json file might look
  * like in an Alloy app.
  *
  *     {
@@ -181,7 +181,7 @@
  * Alloy.CFG is accessible in any controller in your app, and can be accessed
  * in other non-controller Javascript files like this:
  *
- *     var theKey = require(&#39;/alloy&#39;).CFG.key;
+ *     var theKey = require('alloy').CFG.key;
  *
  */
 </pre>
