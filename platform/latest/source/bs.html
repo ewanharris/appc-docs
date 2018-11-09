@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js">//! moment.js locale configuration
+//! locale : bosnian (bs)
+//! author : Nedim Cholich : https://github.com/frontyard
+//! based on (hr) translation by Bojan Marković
+
+(function (global, factory) {
+   typeof exports === &#39;object&#39; &amp;&amp; typeof module !== &#39;undefined&#39; ? factory(require(&#39;/alloy/moment&#39;)) :
+   typeof define === &#39;function&#39; &amp;&amp; define.amd ? define([&#39;moment&#39;], factory) :
+   factory(global.moment)
+}(this, function (moment) { &#39;use strict&#39;;
+
+
+    function translate(number, withoutSuffix, key) {
+        var result = number + &#39; &#39;;
+        switch (key) {
+        case &#39;m&#39;:
+            return withoutSuffix ? &#39;jedna minuta&#39; : &#39;jedne minute&#39;;
+        case &#39;mm&#39;:
+            if (number === 1) {
+                result += &#39;minuta&#39;;
+            } else if (number === 2 || number === 3 || number === 4) {
+                result += &#39;minute&#39;;
+            } else {
+                result += &#39;minuta&#39;;
+            }
+            return result;
+        case &#39;h&#39;:
+            return withoutSuffix ? &#39;jedan sat&#39; : &#39;jednog sata&#39;;
+        case &#39;hh&#39;:
+            if (number === 1) {
+                result += &#39;sat&#39;;
+            } else if (number === 2 || number === 3 || number === 4) {
+                result += &#39;sata&#39;;
+            } else {
+                result += &#39;sati&#39;;
+            }
+            return result;
+        case &#39;dd&#39;:
+            if (number === 1) {
+                result += &#39;dan&#39;;
+            } else {
+                result += &#39;dana&#39;;
+            }
+            return result;
+        case &#39;MM&#39;:
+            if (number === 1) {
+                result += &#39;mjesec&#39;;
+            } else if (number === 2 || number === 3 || number === 4) {
+                result += &#39;mjeseca&#39;;
+            } else {
+                result += &#39;mjeseci&#39;;
+            }
+            return result;
+        case &#39;yy&#39;:
+            if (number === 1) {
+                result += &#39;godina&#39;;
+            } else if (number === 2 || number === 3 || number === 4) {
+                result += &#39;godine&#39;;
+            } else {
+                result += &#39;godina&#39;;
+            }
+            return result;
+        }
+    }
+
+    var bs = moment.defineLocale(&#39;bs&#39;, {
+        months : &#39;januar_februar_mart_april_maj_juni_juli_august_septembar_oktobar_novembar_decembar&#39;.split(&#39;_&#39;),
+        monthsShort : &#39;jan._feb._mar._apr._maj._jun._jul._aug._sep._okt._nov._dec.&#39;.split(&#39;_&#39;),
+        weekdays : &#39;nedjelja_ponedjeljak_utorak_srijeda_četvrtak_petak_subota&#39;.split(&#39;_&#39;),
+        weekdaysShort : &#39;ned._pon._uto._sri._čet._pet._sub.&#39;.split(&#39;_&#39;),
+        weekdaysMin : &#39;ne_po_ut_sr_če_pe_su&#39;.split(&#39;_&#39;),
+        longDateFormat : {
+            LT : &#39;H:mm&#39;,
+            LTS : &#39;H:mm:ss&#39;,
+            L : &#39;DD. MM. YYYY&#39;,
+            LL : &#39;D. MMMM YYYY&#39;,
+            LLL : &#39;D. MMMM YYYY H:mm&#39;,
+            LLLL : &#39;dddd, D. MMMM YYYY H:mm&#39;
+        },
+        calendar : {
+            sameDay  : &#39;[danas u] LT&#39;,
+            nextDay  : &#39;[sutra u] LT&#39;,
+            nextWeek : function () {
+                switch (this.day()) {
+                case 0:
+                    return &#39;[u] [nedjelju] [u] LT&#39;;
+                case 3:
+                    return &#39;[u] [srijedu] [u] LT&#39;;
+                case 6:
+                    return &#39;[u] [subotu] [u] LT&#39;;
+                case 1:
+                case 2:
+                case 4:
+                case 5:
+                    return &#39;[u] dddd [u] LT&#39;;
+                }
+            },
+            lastDay  : &#39;[jučer u] LT&#39;,
+            lastWeek : function () {
+                switch (this.day()) {
+                case 0:
+                case 3:
+                    return &#39;[prošlu] dddd [u] LT&#39;;
+                case 6:
+                    return &#39;[prošle] [subote] [u] LT&#39;;
+                case 1:
+                case 2:
+                case 4:
+                case 5:
+                    return &#39;[prošli] dddd [u] LT&#39;;
+                }
+            },
+            sameElse : &#39;L&#39;
+        },
+        relativeTime : {
+            future : &#39;za %s&#39;,
+            past   : &#39;prije %s&#39;,
+            s      : &#39;par sekundi&#39;,
+            m      : translate,
+            mm     : translate,
+            h      : translate,
+            hh     : translate,
+            d      : &#39;dan&#39;,
+            dd     : translate,
+            M      : &#39;mjesec&#39;,
+            MM     : translate,
+            y      : &#39;godinu&#39;,
+            yy     : translate
+        },
+        ordinalParse: /\d{1,2}\./,
+        ordinal : &#39;%d.&#39;,
+        week : {
+            dow : 1, // Monday is the first day of the week.
+            doy : 7  // The week that contains Jan 1st is the first week of the year.
+        }
+    });
+
+    return bs;
+
+}));</pre>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js"><span id='Alloy-builtins-measurement'>/**
+</span> * @class Alloy.builtins.measurement
+ * A collection of utilities for converting between different display units.
+ * These functions are only useful on the Android platform to support devices with different
+ * screen densities and resolutions.
+ *
+ * To use the measurement builtin library,
+ * require it with the `alloy` root directory in your `require` call. For example:
+ *
+ *     var measurement = require(&#39;alloy/measurement&#39;);
+ *     console.log(&#39;----- iOS -----&#39;);
+ *     Ti.API.info(&#39;Ti.Platform.displayCaps.density: &#39; + Ti.Platform.displayCaps.density);
+ *     Ti.API.info(&#39;Ti.Platform.displayCaps.dpi: &#39; + Ti.Platform.displayCaps.dpi);
+ *     Ti.API.info(&#39;Ti.Platform.displayCaps.platformHeight: &#39; + Ti.Platform.displayCaps.platformHeight);
+ *     Ti.API.info(&#39;Ti.Platform.displayCaps.platformWidth: &#39; + Ti.Platform.displayCaps.platformWidth);
+ *     if (Ti.Platform.osname === &#39;android&#39;){
+ *         Ti.API.info(&#39;Ti.Platform.displayCaps.xdpi: &#39; + Ti.Platform.displayCaps.xdpi);
+ *         Ti.API.info(&#39;Ti.Platform.displayCaps.ydpi: &#39; + Ti.Platform.displayCaps.ydpi);
+ *         Ti.API.info(&#39;Ti.Platform.displayCaps.logicalDensityFactor: &#39; + Ti.Platform.displayCaps.logicalDensityFactor);
+ *     }
+ *     console.log(&#39;dpToPX: &#39; + measurement.dpToPX(130));
+ *     console.log(&#39;dpToSystem: &#39; + measurement.dpToSystem(130));
+ *     console.log(&#39;pxToDP: &#39; + measurement.pxToDP(130));
+ *     console.log(&#39;pxToSystem: &#39; + measurement.pxToSystem(130));
+ *     console.log(&#39;systemToPX: &#39; + measurement.systemToPX(130));
+ *     console.log(&#39;systemToDP: &#39; + measurement.systemToDP(130));
+ *     console.log(&#39;convertUnitToPX: &#39; + measurement.convertUnitToPX(&#39;130dp&#39;));
+ *     console.log(&#39;convertUnitToDP: &#39; + measurement.convertUnitToDP(&#39;130dp&#39;));
+ *     console.log(&#39;convertUnitToSystem: &#39; + measurement.convertUnitToSystem(&#39;130dp&#39;));
+ *     console.log(&#39;-----&#39;);
+ *
+ * result sample:
+ *
+ *     [INFO] :   ----- iPhone OS -----
+ *     [INFO] :   Ti.Platform.displayCaps.density: high
+ *     [INFO] :   Ti.Platform.displayCaps.dpi: 320
+ *     [INFO] :   Ti.Platform.displayCaps.platformHeight: 568
+ *     [INFO] :   Ti.Platform.displayCaps.platformWidth: 320
+ *     [INFO] :   dpToPX: 260
+ *     [INFO] :   dpToSystem: 130
+ *     [INFO] :   pxToDP: 65
+ *     [INFO] :   pxToSystem: 65
+ *     [INFO] :   systemToPX: 260
+ *     [INFO] :   systemToDP: 130
+ *     [INFO] :   convertUnitToPX: 260
+ *     [INFO] :   convertUnitToDP: 130
+ *     [INFO] :   convertUnitToSystem: 130
+ *     [INFO] :   -----
+ *     [INFO] :   ----- android -----
+ *     [INFO] :   Ti.Platform.displayCaps.density: xhigh
+ *     [INFO] :   Ti.Platform.displayCaps.dpi: 320
+ *     [INFO] :   Ti.Platform.displayCaps.platformHeight: 1280
+ *     [INFO] :   Ti.Platform.displayCaps.platformWidth: 720
+ *     [INFO] :   Ti.Platform.displayCaps.xdpi: 345.0566101074219
+ *     [INFO] :   Ti.Platform.displayCaps.ydpi: 342.2315673828125
+ *     [INFO] :   Ti.Platform.displayCaps.logicalDensityFactor: 2
+ *     [INFO] :   dpToPX: 260
+ *     [INFO] :   dpToSystem: 260
+ *     [INFO] :   pxToDP: 65
+ *     [INFO] :   pxToSystem: 130
+ *     [INFO] :   systemToPX: 130
+ *     [INFO] :   systemToDP: 65
+ *     [INFO] :   convertUnitToPX: 260
+ *     [INFO] :   convertUnitToDP: 130
+ *     [INFO] :   convertUnitToSystem: 260
+ *     [INFO] :   -----
+ */
+
+var currentUnit = Ti.App.Properties.getString(&#39;ti.ui.defaultunit&#39;, &#39;system&#39;);
+currentUnit = (currentUnit === &#39;system&#39;) ? (OS_IOS) ? Ti.UI.UNIT_DIP : Ti.UI.UNIT_PX : currentUnit;
+
+function convert(val, fromUnit, toUnit) {
+	return Ti.UI.convertUnits(&#39;&#39; + parseInt(val) + fromUnit, toUnit);
+}
+
+module.exports = exports = {
+	dpToPX: function(val) {
+		return convert(val, Ti.UI.UNIT_DIP, Ti.UI.UNIT_PX);
+	},
+	dpToSystem: function(val) {
+		return convert(val, Ti.UI.UNIT_DIP, currentUnit);
+	},
+	pxToDP: function(val) {
+		return convert(val, Ti.UI.UNIT_PX, Ti.UI.UNIT_DIP);
+	},
+	pxToSystem: function(val) {
+		return convert(val, Ti.UI.UNIT_PX, currentUnit);
+	},
+	systemToPX: function(val) {
+		return convert(val, currentUnit, Ti.UI.UNIT_PX);
+	},
+	systemToDP: function(val) {
+		return convert(val, currentUnit, Ti.UI.UNIT_DIP);
+	},
+	convertUnitToPX: function(valStr) {
+		return Ti.UI.convertUnits(valStr, Ti.UI.UNIT_PX);
+	},
+	convertUnitToDP: function(valStr) {
+		return Ti.UI.convertUnits(valStr, Ti.UI.UNIT_DIP);
+	},
+	convertUnitToSystem: function(valStr) {
+		return Ti.UI.convertUnits(valStr, currentUnit);
+	},
+	pointPXToDP: function(pt) {
+		return {
+			x: this.pxToDP(pt.x),
+			y: this.pxToDP(pt.y)
+		};
+	}
+};
+</pre>
+</body>
+</html>

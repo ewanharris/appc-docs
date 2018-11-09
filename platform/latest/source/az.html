@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js">//! moment.js locale configuration
+//! locale : azerbaijani (az)
+//! author : topchiyev : https://github.com/topchiyev
+
+(function (global, factory) {
+   typeof exports === &#39;object&#39; &amp;&amp; typeof module !== &#39;undefined&#39; ? factory(require(&#39;/alloy/moment&#39;)) :
+   typeof define === &#39;function&#39; &amp;&amp; define.amd ? define([&#39;moment&#39;], factory) :
+   factory(global.moment)
+}(this, function (moment) { &#39;use strict&#39;;
+
+
+    var suffixes = {
+        1: &#39;-inci&#39;,
+        5: &#39;-inci&#39;,
+        8: &#39;-inci&#39;,
+        70: &#39;-inci&#39;,
+        80: &#39;-inci&#39;,
+        2: &#39;-nci&#39;,
+        7: &#39;-nci&#39;,
+        20: &#39;-nci&#39;,
+        50: &#39;-nci&#39;,
+        3: &#39;-üncü&#39;,
+        4: &#39;-üncü&#39;,
+        100: &#39;-üncü&#39;,
+        6: &#39;-ncı&#39;,
+        9: &#39;-uncu&#39;,
+        10: &#39;-uncu&#39;,
+        30: &#39;-uncu&#39;,
+        60: &#39;-ıncı&#39;,
+        90: &#39;-ıncı&#39;
+    };
+
+    var az = moment.defineLocale(&#39;az&#39;, {
+        months : &#39;yanvar_fevral_mart_aprel_may_iyun_iyul_avqust_sentyabr_oktyabr_noyabr_dekabr&#39;.split(&#39;_&#39;),
+        monthsShort : &#39;yan_fev_mar_apr_may_iyn_iyl_avq_sen_okt_noy_dek&#39;.split(&#39;_&#39;),
+        weekdays : &#39;Bazar_Bazar ertəsi_Çərşənbə axşamı_Çərşənbə_Cümə axşamı_Cümə_Şənbə&#39;.split(&#39;_&#39;),
+        weekdaysShort : &#39;Baz_BzE_ÇAx_Çər_CAx_Cüm_Şən&#39;.split(&#39;_&#39;),
+        weekdaysMin : &#39;Bz_BE_ÇA_Çə_CA_Cü_Şə&#39;.split(&#39;_&#39;),
+        longDateFormat : {
+            LT : &#39;HH:mm&#39;,
+            LTS : &#39;HH:mm:ss&#39;,
+            L : &#39;DD.MM.YYYY&#39;,
+            LL : &#39;D MMMM YYYY&#39;,
+            LLL : &#39;D MMMM YYYY HH:mm&#39;,
+            LLLL : &#39;dddd, D MMMM YYYY HH:mm&#39;
+        },
+        calendar : {
+            sameDay : &#39;[bugün saat] LT&#39;,
+            nextDay : &#39;[sabah saat] LT&#39;,
+            nextWeek : &#39;[gələn həftə] dddd [saat] LT&#39;,
+            lastDay : &#39;[dünən] LT&#39;,
+            lastWeek : &#39;[keçən həftə] dddd [saat] LT&#39;,
+            sameElse : &#39;L&#39;
+        },
+        relativeTime : {
+            future : &#39;%s sonra&#39;,
+            past : &#39;%s əvvəl&#39;,
+            s : &#39;birneçə saniyyə&#39;,
+            m : &#39;bir dəqiqə&#39;,
+            mm : &#39;%d dəqiqə&#39;,
+            h : &#39;bir saat&#39;,
+            hh : &#39;%d saat&#39;,
+            d : &#39;bir gün&#39;,
+            dd : &#39;%d gün&#39;,
+            M : &#39;bir ay&#39;,
+            MM : &#39;%d ay&#39;,
+            y : &#39;bir il&#39;,
+            yy : &#39;%d il&#39;
+        },
+        meridiemParse: /gecə|səhər|gündüz|axşam/,
+        isPM : function (input) {
+            return /^(gündüz|axşam)$/.test(input);
+        },
+        meridiem : function (hour, minute, isLower) {
+            if (hour &lt; 4) {
+                return &#39;gecə&#39;;
+            } else if (hour &lt; 12) {
+                return &#39;səhər&#39;;
+            } else if (hour &lt; 17) {
+                return &#39;gündüz&#39;;
+            } else {
+                return &#39;axşam&#39;;
+            }
+        },
+        ordinalParse: /\d{1,2}-(ıncı|inci|nci|üncü|ncı|uncu)/,
+        ordinal : function (number) {
+            if (number === 0) {  // special case for zero
+                return number + &#39;-ıncı&#39;;
+            }
+            var a = number % 10,
+                b = number % 100 - a,
+                c = number &gt;= 100 ? 100 : null;
+            return number + (suffixes[a] || suffixes[b] || suffixes[c]);
+        },
+        week : {
+            dow : 1, // Monday is the first day of the week.
+            doy : 7  // The week that contains Jan 1st is the first week of the year.
+        }
+    });
+
+    return az;
+
+}));</pre>
+</body>
+</html>

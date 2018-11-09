@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js">//! moment.js locale configuration
+//! locale : breton (br)
+//! author : Jean-Baptiste Le Duigou : https://github.com/jbleduigou
+
+(function (global, factory) {
+   typeof exports === &#39;object&#39; &amp;&amp; typeof module !== &#39;undefined&#39; ? factory(require(&#39;/alloy/moment&#39;)) :
+   typeof define === &#39;function&#39; &amp;&amp; define.amd ? define([&#39;moment&#39;], factory) :
+   factory(global.moment)
+}(this, function (moment) { &#39;use strict&#39;;
+
+
+    function relativeTimeWithMutation(number, withoutSuffix, key) {
+        var format = {
+            &#39;mm&#39;: &#39;munutenn&#39;,
+            &#39;MM&#39;: &#39;miz&#39;,
+            &#39;dd&#39;: &#39;devezh&#39;
+        };
+        return number + &#39; &#39; + mutation(format[key], number);
+    }
+    function specialMutationForYears(number) {
+        switch (lastNumber(number)) {
+        case 1:
+        case 3:
+        case 4:
+        case 5:
+        case 9:
+            return number + &#39; bloaz&#39;;
+        default:
+            return number + &#39; vloaz&#39;;
+        }
+    }
+    function lastNumber(number) {
+        if (number &gt; 9) {
+            return lastNumber(number % 10);
+        }
+        return number;
+    }
+    function mutation(text, number) {
+        if (number === 2) {
+            return softMutation(text);
+        }
+        return text;
+    }
+    function softMutation(text) {
+        var mutationTable = {
+            &#39;m&#39;: &#39;v&#39;,
+            &#39;b&#39;: &#39;v&#39;,
+            &#39;d&#39;: &#39;z&#39;
+        };
+        if (mutationTable[text.charAt(0)] === undefined) {
+            return text;
+        }
+        return mutationTable[text.charAt(0)] + text.substring(1);
+    }
+
+    var br = moment.defineLocale(&#39;br&#39;, {
+        months : &#39;Genver_C\&#39;hwevrer_Meurzh_Ebrel_Mae_Mezheven_Gouere_Eost_Gwengolo_Here_Du_Kerzu&#39;.split(&#39;_&#39;),
+        monthsShort : &#39;Gen_C\&#39;hwe_Meu_Ebr_Mae_Eve_Gou_Eos_Gwe_Her_Du_Ker&#39;.split(&#39;_&#39;),
+        weekdays : &#39;Sul_Lun_Meurzh_Merc\&#39;her_Yaou_Gwener_Sadorn&#39;.split(&#39;_&#39;),
+        weekdaysShort : &#39;Sul_Lun_Meu_Mer_Yao_Gwe_Sad&#39;.split(&#39;_&#39;),
+        weekdaysMin : &#39;Su_Lu_Me_Mer_Ya_Gw_Sa&#39;.split(&#39;_&#39;),
+        longDateFormat : {
+            LT : &#39;h[e]mm A&#39;,
+            LTS : &#39;h[e]mm:ss A&#39;,
+            L : &#39;DD/MM/YYYY&#39;,
+            LL : &#39;D [a viz] MMMM YYYY&#39;,
+            LLL : &#39;D [a viz] MMMM YYYY h[e]mm A&#39;,
+            LLLL : &#39;dddd, D [a viz] MMMM YYYY h[e]mm A&#39;
+        },
+        calendar : {
+            sameDay : &#39;[Hiziv da] LT&#39;,
+            nextDay : &#39;[Warc\&#39;hoazh da] LT&#39;,
+            nextWeek : &#39;dddd [da] LT&#39;,
+            lastDay : &#39;[Dec\&#39;h da] LT&#39;,
+            lastWeek : &#39;dddd [paset da] LT&#39;,
+            sameElse : &#39;L&#39;
+        },
+        relativeTime : {
+            future : &#39;a-benn %s&#39;,
+            past : &#39;%s \&#39;zo&#39;,
+            s : &#39;un nebeud segondennoù&#39;,
+            m : &#39;ur vunutenn&#39;,
+            mm : relativeTimeWithMutation,
+            h : &#39;un eur&#39;,
+            hh : &#39;%d eur&#39;,
+            d : &#39;un devezh&#39;,
+            dd : relativeTimeWithMutation,
+            M : &#39;ur miz&#39;,
+            MM : relativeTimeWithMutation,
+            y : &#39;ur bloaz&#39;,
+            yy : specialMutationForYears
+        },
+        ordinalParse: /\d{1,2}(añ|vet)/,
+        ordinal : function (number) {
+            var output = (number === 1) ? &#39;añ&#39; : &#39;vet&#39;;
+            return number + output;
+        },
+        week : {
+            dow : 1, // Monday is the first day of the week.
+            doy : 4  // The week that contains Jan 4th is the first week of the year.
+        }
+    });
+
+    return br;
+
+}));</pre>
+</body>
+</html>

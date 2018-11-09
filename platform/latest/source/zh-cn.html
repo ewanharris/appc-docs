@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js">//! moment.js locale configuration
+//! locale : chinese (zh-cn)
+//! author : suupic : https://github.com/suupic
+//! author : Zeno Zeng : https://github.com/zenozeng
+
+(function (global, factory) {
+   typeof exports === &#39;object&#39; &amp;&amp; typeof module !== &#39;undefined&#39; ? factory(require(&#39;/alloy/moment&#39;)) :
+   typeof define === &#39;function&#39; &amp;&amp; define.amd ? define([&#39;moment&#39;], factory) :
+   factory(global.moment)
+}(this, function (moment) { &#39;use strict&#39;;
+
+
+    var zh_cn = moment.defineLocale(&#39;zh-cn&#39;, {
+        months : &#39;一月_二月_三月_四月_五月_六月_七月_八月_九月_十月_十一月_十二月&#39;.split(&#39;_&#39;),
+        monthsShort : &#39;1月_2月_3月_4月_5月_6月_7月_8月_9月_10月_11月_12月&#39;.split(&#39;_&#39;),
+        weekdays : &#39;星期日_星期一_星期二_星期三_星期四_星期五_星期六&#39;.split(&#39;_&#39;),
+        weekdaysShort : &#39;周日_周一_周二_周三_周四_周五_周六&#39;.split(&#39;_&#39;),
+        weekdaysMin : &#39;日_一_二_三_四_五_六&#39;.split(&#39;_&#39;),
+        longDateFormat : {
+            LT : &#39;Ah点mm分&#39;,
+            LTS : &#39;Ah点m分s秒&#39;,
+            L : &#39;YYYY-MM-DD&#39;,
+            LL : &#39;YYYY年MMMD日&#39;,
+            LLL : &#39;YYYY年MMMD日Ah点mm分&#39;,
+            LLLL : &#39;YYYY年MMMD日ddddAh点mm分&#39;,
+            l : &#39;YYYY-MM-DD&#39;,
+            ll : &#39;YYYY年MMMD日&#39;,
+            lll : &#39;YYYY年MMMD日Ah点mm分&#39;,
+            llll : &#39;YYYY年MMMD日ddddAh点mm分&#39;
+        },
+        meridiemParse: /凌晨|早上|上午|中午|下午|晚上/,
+        meridiemHour: function (hour, meridiem) {
+            if (hour === 12) {
+                hour = 0;
+            }
+            if (meridiem === &#39;凌晨&#39; || meridiem === &#39;早上&#39; ||
+                    meridiem === &#39;上午&#39;) {
+                return hour;
+            } else if (meridiem === &#39;下午&#39; || meridiem === &#39;晚上&#39;) {
+                return hour + 12;
+            } else {
+                // &#39;中午&#39;
+                return hour &gt;= 11 ? hour : hour + 12;
+            }
+        },
+        meridiem : function (hour, minute, isLower) {
+            var hm = hour * 100 + minute;
+            if (hm &lt; 600) {
+                return &#39;凌晨&#39;;
+            } else if (hm &lt; 900) {
+                return &#39;早上&#39;;
+            } else if (hm &lt; 1130) {
+                return &#39;上午&#39;;
+            } else if (hm &lt; 1230) {
+                return &#39;中午&#39;;
+            } else if (hm &lt; 1800) {
+                return &#39;下午&#39;;
+            } else {
+                return &#39;晚上&#39;;
+            }
+        },
+        calendar : {
+            sameDay : function () {
+                return this.minutes() === 0 ? &#39;[今天]Ah[点整]&#39; : &#39;[今天]LT&#39;;
+            },
+            nextDay : function () {
+                return this.minutes() === 0 ? &#39;[明天]Ah[点整]&#39; : &#39;[明天]LT&#39;;
+            },
+            lastDay : function () {
+                return this.minutes() === 0 ? &#39;[昨天]Ah[点整]&#39; : &#39;[昨天]LT&#39;;
+            },
+            nextWeek : function () {
+                var startOfWeek, prefix;
+                startOfWeek = moment().startOf(&#39;week&#39;);
+                prefix = this.unix() - startOfWeek.unix() &gt;= 7 * 24 * 3600 ? &#39;[下]&#39; : &#39;[本]&#39;;
+                return this.minutes() === 0 ? prefix + &#39;dddAh点整&#39; : prefix + &#39;dddAh点mm&#39;;
+            },
+            lastWeek : function () {
+                var startOfWeek, prefix;
+                startOfWeek = moment().startOf(&#39;week&#39;);
+                prefix = this.unix() &lt; startOfWeek.unix()  ? &#39;[上]&#39; : &#39;[本]&#39;;
+                return this.minutes() === 0 ? prefix + &#39;dddAh点整&#39; : prefix + &#39;dddAh点mm&#39;;
+            },
+            sameElse : &#39;LL&#39;
+        },
+        ordinalParse: /\d{1,2}(日|月|周)/,
+        ordinal : function (number, period) {
+            switch (period) {
+            case &#39;d&#39;:
+            case &#39;D&#39;:
+            case &#39;DDD&#39;:
+                return number + &#39;日&#39;;
+            case &#39;M&#39;:
+                return number + &#39;月&#39;;
+            case &#39;w&#39;:
+            case &#39;W&#39;:
+                return number + &#39;周&#39;;
+            default:
+                return number;
+            }
+        },
+        relativeTime : {
+            future : &#39;%s内&#39;,
+            past : &#39;%s前&#39;,
+            s : &#39;几秒&#39;,
+            m : &#39;1 分钟&#39;,
+            mm : &#39;%d 分钟&#39;,
+            h : &#39;1 小时&#39;,
+            hh : &#39;%d 小时&#39;,
+            d : &#39;1 天&#39;,
+            dd : &#39;%d 天&#39;,
+            M : &#39;1 个月&#39;,
+            MM : &#39;%d 个月&#39;,
+            y : &#39;1 年&#39;,
+            yy : &#39;%d 年&#39;
+        },
+        week : {
+            // GB/T 7408-1994《数据元和交换格式·信息交换·日期和时间表示法》与ISO 8601:1988等效
+            dow : 1, // Monday is the first day of the week.
+            doy : 4  // The week that contains Jan 4th is the first week of the year.
+        }
+    });
+
+    return zh_cn;
+
+}));</pre>
+</body>
+</html>

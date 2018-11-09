@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js">//! moment.js locale configuration
+//! locale : canadian french (fr-ca)
+//! author : Jonathan Abourbih : https://github.com/jonbca
+
+(function (global, factory) {
+   typeof exports === &#39;object&#39; &amp;&amp; typeof module !== &#39;undefined&#39; ? factory(require(&#39;/alloy/moment&#39;)) :
+   typeof define === &#39;function&#39; &amp;&amp; define.amd ? define([&#39;moment&#39;], factory) :
+   factory(global.moment)
+}(this, function (moment) { &#39;use strict&#39;;
+
+
+    var fr_ca = moment.defineLocale(&#39;fr-ca&#39;, {
+        months : &#39;janvier_février_mars_avril_mai_juin_juillet_août_septembre_octobre_novembre_décembre&#39;.split(&#39;_&#39;),
+        monthsShort : &#39;janv._févr._mars_avr._mai_juin_juil._août_sept._oct._nov._déc.&#39;.split(&#39;_&#39;),
+        weekdays : &#39;dimanche_lundi_mardi_mercredi_jeudi_vendredi_samedi&#39;.split(&#39;_&#39;),
+        weekdaysShort : &#39;dim._lun._mar._mer._jeu._ven._sam.&#39;.split(&#39;_&#39;),
+        weekdaysMin : &#39;Di_Lu_Ma_Me_Je_Ve_Sa&#39;.split(&#39;_&#39;),
+        longDateFormat : {
+            LT : &#39;HH:mm&#39;,
+            LTS : &#39;HH:mm:ss&#39;,
+            L : &#39;YYYY-MM-DD&#39;,
+            LL : &#39;D MMMM YYYY&#39;,
+            LLL : &#39;D MMMM YYYY HH:mm&#39;,
+            LLLL : &#39;dddd D MMMM YYYY HH:mm&#39;
+        },
+        calendar : {
+            sameDay: &#39;[Aujourd\&#39;hui à] LT&#39;,
+            nextDay: &#39;[Demain à] LT&#39;,
+            nextWeek: &#39;dddd [à] LT&#39;,
+            lastDay: &#39;[Hier à] LT&#39;,
+            lastWeek: &#39;dddd [dernier à] LT&#39;,
+            sameElse: &#39;L&#39;
+        },
+        relativeTime : {
+            future : &#39;dans %s&#39;,
+            past : &#39;il y a %s&#39;,
+            s : &#39;quelques secondes&#39;,
+            m : &#39;une minute&#39;,
+            mm : &#39;%d minutes&#39;,
+            h : &#39;une heure&#39;,
+            hh : &#39;%d heures&#39;,
+            d : &#39;un jour&#39;,
+            dd : &#39;%d jours&#39;,
+            M : &#39;un mois&#39;,
+            MM : &#39;%d mois&#39;,
+            y : &#39;un an&#39;,
+            yy : &#39;%d ans&#39;
+        },
+        ordinalParse: /\d{1,2}(er|e)/,
+        ordinal : function (number) {
+            return number + (number === 1 ? &#39;er&#39; : &#39;e&#39;);
+        }
+    });
+
+    return fr_ca;
+
+}));</pre>
+</body>
+</html>

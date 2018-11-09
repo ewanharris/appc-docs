@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js">//! moment.js locale configuration
+//! locale : spanish (es)
+//! author : Julio Napurí : https://github.com/julionc
+
+(function (global, factory) {
+   typeof exports === &#39;object&#39; &amp;&amp; typeof module !== &#39;undefined&#39; ? factory(require(&#39;/alloy/moment&#39;)) :
+   typeof define === &#39;function&#39; &amp;&amp; define.amd ? define([&#39;moment&#39;], factory) :
+   factory(global.moment)
+}(this, function (moment) { &#39;use strict&#39;;
+
+
+    var monthsShortDot = &#39;Ene._Feb._Mar._Abr._May._Jun._Jul._Ago._Sep._Oct._Nov._Dic.&#39;.split(&#39;_&#39;),
+        monthsShort = &#39;Ene_Feb_Mar_Abr_May_Jun_Jul_Ago_Sep_Oct_Nov_Dic&#39;.split(&#39;_&#39;);
+
+    var es = moment.defineLocale(&#39;es&#39;, {
+        months : &#39;Enero_Febrero_Marzo_Abril_Mayo_Junio_Julio_Agosto_Septiembre_Octubre_Noviembre_Diciembre&#39;.split(&#39;_&#39;),
+        monthsShort : function (m, format) {
+            if (/-MMM-/.test(format)) {
+                return monthsShort[m.month()];
+            } else {
+                return monthsShortDot[m.month()];
+            }
+        },
+        weekdays : &#39;Domingo_Lunes_Martes_Miércoles_Jueves_Viernes_Sábado&#39;.split(&#39;_&#39;),
+        weekdaysShort : &#39;Dom._Lun._Mar._Mié._Jue._Vie._Sáb.&#39;.split(&#39;_&#39;),
+        weekdaysMin : &#39;Do_Lu_Ma_Mi_Ju_Vi_Sá&#39;.split(&#39;_&#39;),
+        longDateFormat : {
+            LT : &#39;H:mm&#39;,
+            LTS : &#39;H:mm:ss&#39;,
+            L : &#39;DD/MM/YYYY&#39;,
+            LL : &#39;D [de] MMMM [de] YYYY&#39;,
+            LLL : &#39;D [de] MMMM [de] YYYY H:mm&#39;,
+            LLLL : &#39;dddd, D [de] MMMM [de] YYYY H:mm&#39;
+        },
+        calendar : {
+            sameDay : function () {
+                return &#39;[hoy a la&#39; + ((this.hours() !== 1) ? &#39;s&#39; : &#39;&#39;) + &#39;] LT&#39;;
+            },
+            nextDay : function () {
+                return &#39;[mañana a la&#39; + ((this.hours() !== 1) ? &#39;s&#39; : &#39;&#39;) + &#39;] LT&#39;;
+            },
+            nextWeek : function () {
+                return &#39;dddd [a la&#39; + ((this.hours() !== 1) ? &#39;s&#39; : &#39;&#39;) + &#39;] LT&#39;;
+            },
+            lastDay : function () {
+                return &#39;[ayer a la&#39; + ((this.hours() !== 1) ? &#39;s&#39; : &#39;&#39;) + &#39;] LT&#39;;
+            },
+            lastWeek : function () {
+                return &#39;[el] dddd [pasado a la&#39; + ((this.hours() !== 1) ? &#39;s&#39; : &#39;&#39;) + &#39;] LT&#39;;
+            },
+            sameElse : &#39;L&#39;
+        },
+        relativeTime : {
+            future : &#39;en %s&#39;,
+            past : &#39;hace %s&#39;,
+            s : &#39;unos segundos&#39;,
+            m : &#39;un minuto&#39;,
+            mm : &#39;%d minutos&#39;,
+            h : &#39;una hora&#39;,
+            hh : &#39;%d horas&#39;,
+            d : &#39;un día&#39;,
+            dd : &#39;%d días&#39;,
+            M : &#39;un mes&#39;,
+            MM : &#39;%d meses&#39;,
+            y : &#39;un año&#39;,
+            yy : &#39;%d años&#39;
+        },
+        ordinalParse : /\d{1,2}º/,
+        ordinal : &#39;%dº&#39;,
+        week : {
+            dow : 1, // Monday is the first day of the week.
+            doy : 4  // The week that contains Jan 4th is the first week of the year.
+        }
+    });
+
+    return es;
+
+}));</pre>
+</body>
+</html>

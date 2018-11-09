@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js">//! moment.js locale configuration
+//! locale : frisian (fy)
+//! author : Robin van der Vliet : https://github.com/robin0van0der0v
+
+(function (global, factory) {
+   typeof exports === &#39;object&#39; &amp;&amp; typeof module !== &#39;undefined&#39; ? factory(require(&#39;/alloy/moment&#39;)) :
+   typeof define === &#39;function&#39; &amp;&amp; define.amd ? define([&#39;moment&#39;], factory) :
+   factory(global.moment)
+}(this, function (moment) { &#39;use strict&#39;;
+
+
+    var monthsShortWithDots = &#39;jan._feb._mrt._apr._mai_jun._jul._aug._sep._okt._nov._des.&#39;.split(&#39;_&#39;),
+        monthsShortWithoutDots = &#39;jan_feb_mrt_apr_mai_jun_jul_aug_sep_okt_nov_des&#39;.split(&#39;_&#39;);
+
+    var fy = moment.defineLocale(&#39;fy&#39;, {
+        months : &#39;jannewaris_febrewaris_maart_april_maaie_juny_july_augustus_septimber_oktober_novimber_desimber&#39;.split(&#39;_&#39;),
+        monthsShort : function (m, format) {
+            if (/-MMM-/.test(format)) {
+                return monthsShortWithoutDots[m.month()];
+            } else {
+                return monthsShortWithDots[m.month()];
+            }
+        },
+        weekdays : &#39;snein_moandei_tiisdei_woansdei_tongersdei_freed_sneon&#39;.split(&#39;_&#39;),
+        weekdaysShort : &#39;si._mo._ti._wo._to._fr._so.&#39;.split(&#39;_&#39;),
+        weekdaysMin : &#39;Si_Mo_Ti_Wo_To_Fr_So&#39;.split(&#39;_&#39;),
+        longDateFormat : {
+            LT : &#39;HH:mm&#39;,
+            LTS : &#39;HH:mm:ss&#39;,
+            L : &#39;DD-MM-YYYY&#39;,
+            LL : &#39;D MMMM YYYY&#39;,
+            LLL : &#39;D MMMM YYYY HH:mm&#39;,
+            LLLL : &#39;dddd D MMMM YYYY HH:mm&#39;
+        },
+        calendar : {
+            sameDay: &#39;[hjoed om] LT&#39;,
+            nextDay: &#39;[moarn om] LT&#39;,
+            nextWeek: &#39;dddd [om] LT&#39;,
+            lastDay: &#39;[juster om] LT&#39;,
+            lastWeek: &#39;[ôfrûne] dddd [om] LT&#39;,
+            sameElse: &#39;L&#39;
+        },
+        relativeTime : {
+            future : &#39;oer %s&#39;,
+            past : &#39;%s lyn&#39;,
+            s : &#39;in pear sekonden&#39;,
+            m : &#39;ien minút&#39;,
+            mm : &#39;%d minuten&#39;,
+            h : &#39;ien oere&#39;,
+            hh : &#39;%d oeren&#39;,
+            d : &#39;ien dei&#39;,
+            dd : &#39;%d dagen&#39;,
+            M : &#39;ien moanne&#39;,
+            MM : &#39;%d moannen&#39;,
+            y : &#39;ien jier&#39;,
+            yy : &#39;%d jierren&#39;
+        },
+        ordinalParse: /\d{1,2}(ste|de)/,
+        ordinal : function (number) {
+            return number + ((number === 1 || number === 8 || number &gt;= 20) ? &#39;ste&#39; : &#39;de&#39;);
+        },
+        week : {
+            dow : 1, // Monday is the first day of the week.
+            doy : 4  // The week that contains Jan 4th is the first week of the year.
+        }
+    });
+
+    return fy;
+
+}));</pre>
+</body>
+</html>

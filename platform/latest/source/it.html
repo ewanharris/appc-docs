@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js">//! moment.js locale configuration
+//! locale : italian (it)
+//! author : Lorenzo : https://github.com/aliem
+//! author: Mattia Larentis: https://github.com/nostalgiaz
+
+(function (global, factory) {
+   typeof exports === &#39;object&#39; &amp;&amp; typeof module !== &#39;undefined&#39; ? factory(require(&#39;/alloy/moment&#39;)) :
+   typeof define === &#39;function&#39; &amp;&amp; define.amd ? define([&#39;moment&#39;], factory) :
+   factory(global.moment)
+}(this, function (moment) { &#39;use strict&#39;;
+
+
+    var it = moment.defineLocale(&#39;it&#39;, {
+        months : &#39;gennaio_febbraio_marzo_aprile_maggio_giugno_luglio_agosto_settembre_ottobre_novembre_dicembre&#39;.split(&#39;_&#39;),
+        monthsShort : &#39;gen_feb_mar_apr_mag_giu_lug_ago_set_ott_nov_dic&#39;.split(&#39;_&#39;),
+        weekdays : &#39;Domenica_Lunedì_Martedì_Mercoledì_Giovedì_Venerdì_Sabato&#39;.split(&#39;_&#39;),
+        weekdaysShort : &#39;Dom_Lun_Mar_Mer_Gio_Ven_Sab&#39;.split(&#39;_&#39;),
+        weekdaysMin : &#39;D_L_Ma_Me_G_V_S&#39;.split(&#39;_&#39;),
+        longDateFormat : {
+            LT : &#39;HH:mm&#39;,
+            LTS : &#39;HH:mm:ss&#39;,
+            L : &#39;DD/MM/YYYY&#39;,
+            LL : &#39;D MMMM YYYY&#39;,
+            LLL : &#39;D MMMM YYYY HH:mm&#39;,
+            LLLL : &#39;dddd, D MMMM YYYY HH:mm&#39;
+        },
+        calendar : {
+            sameDay: &#39;[Oggi alle] LT&#39;,
+            nextDay: &#39;[Domani alle] LT&#39;,
+            nextWeek: &#39;dddd [alle] LT&#39;,
+            lastDay: &#39;[Ieri alle] LT&#39;,
+            lastWeek: function () {
+                switch (this.day()) {
+                    case 0:
+                        return &#39;[la scorsa] dddd [alle] LT&#39;;
+                    default:
+                        return &#39;[lo scorso] dddd [alle] LT&#39;;
+                }
+            },
+            sameElse: &#39;L&#39;
+        },
+        relativeTime : {
+            future : function (s) {
+                return ((/^[0-9].+$/).test(s) ? &#39;tra&#39; : &#39;in&#39;) + &#39; &#39; + s;
+            },
+            past : &#39;%s fa&#39;,
+            s : &#39;alcuni secondi&#39;,
+            m : &#39;un minuto&#39;,
+            mm : &#39;%d minuti&#39;,
+            h : &#39;un\&#39;ora&#39;,
+            hh : &#39;%d ore&#39;,
+            d : &#39;un giorno&#39;,
+            dd : &#39;%d giorni&#39;,
+            M : &#39;un mese&#39;,
+            MM : &#39;%d mesi&#39;,
+            y : &#39;un anno&#39;,
+            yy : &#39;%d anni&#39;
+        },
+        ordinalParse : /\d{1,2}º/,
+        ordinal: &#39;%dº&#39;,
+        week : {
+            dow : 1, // Monday is the first day of the week.
+            doy : 4  // The week that contains Jan 4th is the first week of the year.
+        }
+    });
+
+    return it;
+
+}));</pre>
+</body>
+</html>

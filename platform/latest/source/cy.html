@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js">//! moment.js locale configuration
+//! locale : Welsh (cy)
+//! author : Robert Allen
+
+(function (global, factory) {
+   typeof exports === &#39;object&#39; &amp;&amp; typeof module !== &#39;undefined&#39; ? factory(require(&#39;/alloy/moment&#39;)) :
+   typeof define === &#39;function&#39; &amp;&amp; define.amd ? define([&#39;moment&#39;], factory) :
+   factory(global.moment)
+}(this, function (moment) { &#39;use strict&#39;;
+
+
+    var cy = moment.defineLocale(&#39;cy&#39;, {
+        months: &#39;Ionawr_Chwefror_Mawrth_Ebrill_Mai_Mehefin_Gorffennaf_Awst_Medi_Hydref_Tachwedd_Rhagfyr&#39;.split(&#39;_&#39;),
+        monthsShort: &#39;Ion_Chwe_Maw_Ebr_Mai_Meh_Gor_Aws_Med_Hyd_Tach_Rhag&#39;.split(&#39;_&#39;),
+        weekdays: &#39;Dydd Sul_Dydd Llun_Dydd Mawrth_Dydd Mercher_Dydd Iau_Dydd Gwener_Dydd Sadwrn&#39;.split(&#39;_&#39;),
+        weekdaysShort: &#39;Sul_Llun_Maw_Mer_Iau_Gwe_Sad&#39;.split(&#39;_&#39;),
+        weekdaysMin: &#39;Su_Ll_Ma_Me_Ia_Gw_Sa&#39;.split(&#39;_&#39;),
+        // time formats are the same as en-gb
+        longDateFormat: {
+            LT: &#39;HH:mm&#39;,
+            LTS : &#39;HH:mm:ss&#39;,
+            L: &#39;DD/MM/YYYY&#39;,
+            LL: &#39;D MMMM YYYY&#39;,
+            LLL: &#39;D MMMM YYYY HH:mm&#39;,
+            LLLL: &#39;dddd, D MMMM YYYY HH:mm&#39;
+        },
+        calendar: {
+            sameDay: &#39;[Heddiw am] LT&#39;,
+            nextDay: &#39;[Yfory am] LT&#39;,
+            nextWeek: &#39;dddd [am] LT&#39;,
+            lastDay: &#39;[Ddoe am] LT&#39;,
+            lastWeek: &#39;dddd [diwethaf am] LT&#39;,
+            sameElse: &#39;L&#39;
+        },
+        relativeTime: {
+            future: &#39;mewn %s&#39;,
+            past: &#39;%s yn ôl&#39;,
+            s: &#39;ychydig eiliadau&#39;,
+            m: &#39;munud&#39;,
+            mm: &#39;%d munud&#39;,
+            h: &#39;awr&#39;,
+            hh: &#39;%d awr&#39;,
+            d: &#39;diwrnod&#39;,
+            dd: &#39;%d diwrnod&#39;,
+            M: &#39;mis&#39;,
+            MM: &#39;%d mis&#39;,
+            y: &#39;blwyddyn&#39;,
+            yy: &#39;%d flynedd&#39;
+        },
+        ordinalParse: /\d{1,2}(fed|ain|af|il|ydd|ed|eg)/,
+        // traditional ordinal numbers above 31 are not commonly used in colloquial Welsh
+        ordinal: function (number) {
+            var b = number,
+                output = &#39;&#39;,
+                lookup = [
+                    &#39;&#39;, &#39;af&#39;, &#39;il&#39;, &#39;ydd&#39;, &#39;ydd&#39;, &#39;ed&#39;, &#39;ed&#39;, &#39;ed&#39;, &#39;fed&#39;, &#39;fed&#39;, &#39;fed&#39;, // 1af to 10fed
+                    &#39;eg&#39;, &#39;fed&#39;, &#39;eg&#39;, &#39;eg&#39;, &#39;fed&#39;, &#39;eg&#39;, &#39;eg&#39;, &#39;fed&#39;, &#39;eg&#39;, &#39;fed&#39; // 11eg to 20fed
+                ];
+            if (b &gt; 20) {
+                if (b === 40 || b === 50 || b === 60 || b === 80 || b === 100) {
+                    output = &#39;fed&#39;; // not 30ain, 70ain or 90ain
+                } else {
+                    output = &#39;ain&#39;;
+                }
+            } else if (b &gt; 0) {
+                output = lookup[b];
+            }
+            return number + output;
+        },
+        week : {
+            dow : 1, // Monday is the first day of the week.
+            doy : 4  // The week that contains Jan 4th is the first week of the year.
+        }
+    });
+
+    return cy;
+
+}));</pre>
+</body>
+</html>

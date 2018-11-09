@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js">//! moment.js locale configuration
+//! locale : Luxembourgish (lb)
+//! author : mweimerskirch : https://github.com/mweimerskirch, David Raison : https://github.com/kwisatz
+
+(function (global, factory) {
+   typeof exports === &#39;object&#39; &amp;&amp; typeof module !== &#39;undefined&#39; ? factory(require(&#39;/alloy/moment&#39;)) :
+   typeof define === &#39;function&#39; &amp;&amp; define.amd ? define([&#39;moment&#39;], factory) :
+   factory(global.moment)
+}(this, function (moment) { &#39;use strict&#39;;
+
+
+    function processRelativeTime(number, withoutSuffix, key, isFuture) {
+        var format = {
+            &#39;m&#39;: [&#39;eng Minutt&#39;, &#39;enger Minutt&#39;],
+            &#39;h&#39;: [&#39;eng Stonn&#39;, &#39;enger Stonn&#39;],
+            &#39;d&#39;: [&#39;een Dag&#39;, &#39;engem Dag&#39;],
+            &#39;M&#39;: [&#39;ee Mount&#39;, &#39;engem Mount&#39;],
+            &#39;y&#39;: [&#39;ee Joer&#39;, &#39;engem Joer&#39;]
+        };
+        return withoutSuffix ? format[key][0] : format[key][1];
+    }
+    function processFutureTime(string) {
+        var number = string.substr(0, string.indexOf(&#39; &#39;));
+        if (eifelerRegelAppliesToNumber(number)) {
+            return &#39;a &#39; + string;
+        }
+        return &#39;an &#39; + string;
+    }
+    function processPastTime(string) {
+        var number = string.substr(0, string.indexOf(&#39; &#39;));
+        if (eifelerRegelAppliesToNumber(number)) {
+            return &#39;viru &#39; + string;
+        }
+        return &#39;virun &#39; + string;
+    }
+<span id='global-method-eifelerRegelAppliesToNumber'>    /**
+</span>     * Returns true if the word before the given number loses the &#39;-n&#39; ending.
+     * e.g. &#39;an 10 Deeg&#39; but &#39;a 5 Deeg&#39;
+     *
+     * @param number {integer}
+     * @returns {boolean}
+     */
+    function eifelerRegelAppliesToNumber(number) {
+        number = parseInt(number, 10);
+        if (isNaN(number)) {
+            return false;
+        }
+        if (number &lt; 0) {
+            // Negative Number --&gt; always true
+            return true;
+        } else if (number &lt; 10) {
+            // Only 1 digit
+            if (4 &lt;= number &amp;&amp; number &lt;= 7) {
+                return true;
+            }
+            return false;
+        } else if (number &lt; 100) {
+            // 2 digits
+            var lastDigit = number % 10, firstDigit = number / 10;
+            if (lastDigit === 0) {
+                return eifelerRegelAppliesToNumber(firstDigit);
+            }
+            return eifelerRegelAppliesToNumber(lastDigit);
+        } else if (number &lt; 10000) {
+            // 3 or 4 digits --&gt; recursively check first digit
+            while (number &gt;= 10) {
+                number = number / 10;
+            }
+            return eifelerRegelAppliesToNumber(number);
+        } else {
+            // Anything larger than 4 digits: recursively check first n-3 digits
+            number = number / 1000;
+            return eifelerRegelAppliesToNumber(number);
+        }
+    }
+
+    var lb = moment.defineLocale(&#39;lb&#39;, {
+        months: &#39;Januar_Februar_Mäerz_Abrëll_Mee_Juni_Juli_August_September_Oktober_November_Dezember&#39;.split(&#39;_&#39;),
+        monthsShort: &#39;Jan._Febr._Mrz._Abr._Mee_Jun._Jul._Aug._Sept._Okt._Nov._Dez.&#39;.split(&#39;_&#39;),
+        weekdays: &#39;Sonndeg_Méindeg_Dënschdeg_Mëttwoch_Donneschdeg_Freideg_Samschdeg&#39;.split(&#39;_&#39;),
+        weekdaysShort: &#39;So._Mé._Dë._Më._Do._Fr._Sa.&#39;.split(&#39;_&#39;),
+        weekdaysMin: &#39;So_Mé_Dë_Më_Do_Fr_Sa&#39;.split(&#39;_&#39;),
+        longDateFormat: {
+            LT: &#39;H:mm [Auer]&#39;,
+            LTS: &#39;H:mm:ss [Auer]&#39;,
+            L: &#39;DD.MM.YYYY&#39;,
+            LL: &#39;D. MMMM YYYY&#39;,
+            LLL: &#39;D. MMMM YYYY H:mm [Auer]&#39;,
+            LLLL: &#39;dddd, D. MMMM YYYY H:mm [Auer]&#39;
+        },
+        calendar: {
+            sameDay: &#39;[Haut um] LT&#39;,
+            sameElse: &#39;L&#39;,
+            nextDay: &#39;[Muer um] LT&#39;,
+            nextWeek: &#39;dddd [um] LT&#39;,
+            lastDay: &#39;[Gëschter um] LT&#39;,
+            lastWeek: function () {
+                // Different date string for &#39;Dënschdeg&#39; (Tuesday) and &#39;Donneschdeg&#39; (Thursday) due to phonological rule
+                switch (this.day()) {
+                    case 2:
+                    case 4:
+                        return &#39;[Leschten] dddd [um] LT&#39;;
+                    default:
+                        return &#39;[Leschte] dddd [um] LT&#39;;
+                }
+            }
+        },
+        relativeTime : {
+            future : processFutureTime,
+            past : processPastTime,
+            s : &#39;e puer Sekonnen&#39;,
+            m : processRelativeTime,
+            mm : &#39;%d Minutten&#39;,
+            h : processRelativeTime,
+            hh : &#39;%d Stonnen&#39;,
+            d : processRelativeTime,
+            dd : &#39;%d Deeg&#39;,
+            M : processRelativeTime,
+            MM : &#39;%d Méint&#39;,
+            y : processRelativeTime,
+            yy : &#39;%d Joer&#39;
+        },
+        ordinalParse: /\d{1,2}\./,
+        ordinal: &#39;%d.&#39;,
+        week: {
+            dow: 1, // Monday is the first day of the week.
+            doy: 4  // The week that contains Jan 4th is the first week of the year.
+        }
+    });
+
+    return lb;
+
+}));</pre>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js">//! moment.js locale configuration
+//! locale : great britain english (en-gb)
+//! author : Chris Gedrim : https://github.com/chrisgedrim
+
+(function (global, factory) {
+   typeof exports === &#39;object&#39; &amp;&amp; typeof module !== &#39;undefined&#39; ? factory(require(&#39;/alloy/moment&#39;)) :
+   typeof define === &#39;function&#39; &amp;&amp; define.amd ? define([&#39;moment&#39;], factory) :
+   factory(global.moment)
+}(this, function (moment) { &#39;use strict&#39;;
+
+
+    var en_gb = moment.defineLocale(&#39;en-gb&#39;, {
+        months : &#39;January_February_March_April_May_June_July_August_September_October_November_December&#39;.split(&#39;_&#39;),
+        monthsShort : &#39;Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec&#39;.split(&#39;_&#39;),
+        weekdays : &#39;Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday&#39;.split(&#39;_&#39;),
+        weekdaysShort : &#39;Sun_Mon_Tue_Wed_Thu_Fri_Sat&#39;.split(&#39;_&#39;),
+        weekdaysMin : &#39;Su_Mo_Tu_We_Th_Fr_Sa&#39;.split(&#39;_&#39;),
+        longDateFormat : {
+            LT : &#39;HH:mm&#39;,
+            LTS : &#39;HH:mm:ss&#39;,
+            L : &#39;DD/MM/YYYY&#39;,
+            LL : &#39;D MMMM YYYY&#39;,
+            LLL : &#39;D MMMM YYYY HH:mm&#39;,
+            LLLL : &#39;dddd, D MMMM YYYY HH:mm&#39;
+        },
+        calendar : {
+            sameDay : &#39;[Today at] LT&#39;,
+            nextDay : &#39;[Tomorrow at] LT&#39;,
+            nextWeek : &#39;dddd [at] LT&#39;,
+            lastDay : &#39;[Yesterday at] LT&#39;,
+            lastWeek : &#39;[Last] dddd [at] LT&#39;,
+            sameElse : &#39;L&#39;
+        },
+        relativeTime : {
+            future : &#39;in %s&#39;,
+            past : &#39;%s ago&#39;,
+            s : &#39;a few seconds&#39;,
+            m : &#39;a minute&#39;,
+            mm : &#39;%d minutes&#39;,
+            h : &#39;an hour&#39;,
+            hh : &#39;%d hours&#39;,
+            d : &#39;a day&#39;,
+            dd : &#39;%d days&#39;,
+            M : &#39;a month&#39;,
+            MM : &#39;%d months&#39;,
+            y : &#39;a year&#39;,
+            yy : &#39;%d years&#39;
+        },
+        ordinalParse: /\d{1,2}(st|nd|rd|th)/,
+        ordinal : function (number) {
+            var b = number % 10,
+                output = (~~(number % 100 / 10) === 1) ? &#39;th&#39; :
+                (b === 1) ? &#39;st&#39; :
+                (b === 2) ? &#39;nd&#39; :
+                (b === 3) ? &#39;rd&#39; : &#39;th&#39;;
+            return number + output;
+        },
+        week : {
+            dow : 1, // Monday is the first day of the week.
+            doy : 4  // The week that contains Jan 4th is the first week of the year.
+        }
+    });
+
+    return en_gb;
+
+}));</pre>
+</body>
+</html>

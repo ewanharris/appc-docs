@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js">//! moment.js locale configuration
+//! locale : latvian (lv)
+//! author : Kristaps Karlsons : https://github.com/skakri
+//! author : Jānis Elmeris : https://github.com/JanisE
+
+(function (global, factory) {
+   typeof exports === &#39;object&#39; &amp;&amp; typeof module !== &#39;undefined&#39; ? factory(require(&#39;/alloy/moment&#39;)) :
+   typeof define === &#39;function&#39; &amp;&amp; define.amd ? define([&#39;moment&#39;], factory) :
+   factory(global.moment)
+}(this, function (moment) { &#39;use strict&#39;;
+
+
+    var units = {
+        &#39;m&#39;: &#39;minūtes_minūtēm_minūte_minūtes&#39;.split(&#39;_&#39;),
+        &#39;mm&#39;: &#39;minūtes_minūtēm_minūte_minūtes&#39;.split(&#39;_&#39;),
+        &#39;h&#39;: &#39;stundas_stundām_stunda_stundas&#39;.split(&#39;_&#39;),
+        &#39;hh&#39;: &#39;stundas_stundām_stunda_stundas&#39;.split(&#39;_&#39;),
+        &#39;d&#39;: &#39;dienas_dienām_diena_dienas&#39;.split(&#39;_&#39;),
+        &#39;dd&#39;: &#39;dienas_dienām_diena_dienas&#39;.split(&#39;_&#39;),
+        &#39;M&#39;: &#39;mēneša_mēnešiem_mēnesis_mēneši&#39;.split(&#39;_&#39;),
+        &#39;MM&#39;: &#39;mēneša_mēnešiem_mēnesis_mēneši&#39;.split(&#39;_&#39;),
+        &#39;y&#39;: &#39;gada_gadiem_gads_gadi&#39;.split(&#39;_&#39;),
+        &#39;yy&#39;: &#39;gada_gadiem_gads_gadi&#39;.split(&#39;_&#39;)
+    };
+<span id='global-method-format'>    /**
+</span>     * @param withoutSuffix boolean true = a length of time; false = before/after a period of time.
+     */
+    function format(forms, number, withoutSuffix) {
+        if (withoutSuffix) {
+            // E.g. &quot;21 minūte&quot;, &quot;3 minūtes&quot;.
+            return number % 10 === 1 &amp;&amp; number !== 11 ? forms[2] : forms[3];
+        } else {
+            // E.g. &quot;21 minūtes&quot; as in &quot;pēc 21 minūtes&quot;.
+            // E.g. &quot;3 minūtēm&quot; as in &quot;pēc 3 minūtēm&quot;.
+            return number % 10 === 1 &amp;&amp; number !== 11 ? forms[0] : forms[1];
+        }
+    }
+    function relativeTimeWithPlural(number, withoutSuffix, key) {
+        return number + &#39; &#39; + format(units[key], number, withoutSuffix);
+    }
+    function relativeTimeWithSingular(number, withoutSuffix, key) {
+        return format(units[key], number, withoutSuffix);
+    }
+    function relativeSeconds(number, withoutSuffix) {
+        return withoutSuffix ? &#39;dažas sekundes&#39; : &#39;dažām sekundēm&#39;;
+    }
+
+    var lv = moment.defineLocale(&#39;lv&#39;, {
+        months : &#39;janvāris_februāris_marts_aprīlis_maijs_jūnijs_jūlijs_augusts_septembris_oktobris_novembris_decembris&#39;.split(&#39;_&#39;),
+        monthsShort : &#39;jan_feb_mar_apr_mai_jūn_jūl_aug_sep_okt_nov_dec&#39;.split(&#39;_&#39;),
+        weekdays : &#39;svētdiena_pirmdiena_otrdiena_trešdiena_ceturtdiena_piektdiena_sestdiena&#39;.split(&#39;_&#39;),
+        weekdaysShort : &#39;Sv_P_O_T_C_Pk_S&#39;.split(&#39;_&#39;),
+        weekdaysMin : &#39;Sv_P_O_T_C_Pk_S&#39;.split(&#39;_&#39;),
+        longDateFormat : {
+            LT : &#39;HH:mm&#39;,
+            LTS : &#39;HH:mm:ss&#39;,
+            L : &#39;DD.MM.YYYY.&#39;,
+            LL : &#39;YYYY. [gada] D. MMMM&#39;,
+            LLL : &#39;YYYY. [gada] D. MMMM, HH:mm&#39;,
+            LLLL : &#39;YYYY. [gada] D. MMMM, dddd, HH:mm&#39;
+        },
+        calendar : {
+            sameDay : &#39;[Šodien pulksten] LT&#39;,
+            nextDay : &#39;[Rīt pulksten] LT&#39;,
+            nextWeek : &#39;dddd [pulksten] LT&#39;,
+            lastDay : &#39;[Vakar pulksten] LT&#39;,
+            lastWeek : &#39;[Pagājušā] dddd [pulksten] LT&#39;,
+            sameElse : &#39;L&#39;
+        },
+        relativeTime : {
+            future : &#39;pēc %s&#39;,
+            past : &#39;pirms %s&#39;,
+            s : relativeSeconds,
+            m : relativeTimeWithSingular,
+            mm : relativeTimeWithPlural,
+            h : relativeTimeWithSingular,
+            hh : relativeTimeWithPlural,
+            d : relativeTimeWithSingular,
+            dd : relativeTimeWithPlural,
+            M : relativeTimeWithSingular,
+            MM : relativeTimeWithPlural,
+            y : relativeTimeWithSingular,
+            yy : relativeTimeWithPlural
+        },
+        ordinalParse: /\d{1,2}\./,
+        ordinal : &#39;%d.&#39;,
+        week : {
+            dow : 1, // Monday is the first day of the week.
+            doy : 4  // The week that contains Jan 4th is the first week of the year.
+        }
+    });
+
+    return lv;
+
+}));</pre>
+</body>
+</html>

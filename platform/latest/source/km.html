@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js">//! moment.js locale configuration
+//! locale : khmer (km)
+//! author : Kruy Vanna : https://github.com/kruyvanna
+
+(function (global, factory) {
+   typeof exports === &#39;object&#39; &amp;&amp; typeof module !== &#39;undefined&#39; ? factory(require(&#39;/alloy/moment&#39;)) :
+   typeof define === &#39;function&#39; &amp;&amp; define.amd ? define([&#39;moment&#39;], factory) :
+   factory(global.moment)
+}(this, function (moment) { &#39;use strict&#39;;
+
+
+    var km = moment.defineLocale(&#39;km&#39;, {
+        months: &#39;មករា_កុម្ភៈ_មិនា_មេសា_ឧសភា_មិថុនា_កក្កដា_សីហា_កញ្ញា_តុលា_វិច្ឆិកា_ធ្នូ&#39;.split(&#39;_&#39;),
+        monthsShort: &#39;មករា_កុម្ភៈ_មិនា_មេសា_ឧសភា_មិថុនា_កក្កដា_សីហា_កញ្ញា_តុលា_វិច្ឆិកា_ធ្នូ&#39;.split(&#39;_&#39;),
+        weekdays: &#39;អាទិត្យ_ច័ន្ទ_អង្គារ_ពុធ_ព្រហស្បតិ៍_សុក្រ_សៅរ៍&#39;.split(&#39;_&#39;),
+        weekdaysShort: &#39;អាទិត្យ_ច័ន្ទ_អង្គារ_ពុធ_ព្រហស្បតិ៍_សុក្រ_សៅរ៍&#39;.split(&#39;_&#39;),
+        weekdaysMin: &#39;អាទិត្យ_ច័ន្ទ_អង្គារ_ពុធ_ព្រហស្បតិ៍_សុក្រ_សៅរ៍&#39;.split(&#39;_&#39;),
+        longDateFormat: {
+            LT: &#39;HH:mm&#39;,
+            LTS : &#39;HH:mm:ss&#39;,
+            L: &#39;DD/MM/YYYY&#39;,
+            LL: &#39;D MMMM YYYY&#39;,
+            LLL: &#39;D MMMM YYYY HH:mm&#39;,
+            LLLL: &#39;dddd, D MMMM YYYY HH:mm&#39;
+        },
+        calendar: {
+            sameDay: &#39;[ថ្ងៃនៈ ម៉ោង] LT&#39;,
+            nextDay: &#39;[ស្អែក ម៉ោង] LT&#39;,
+            nextWeek: &#39;dddd [ម៉ោង] LT&#39;,
+            lastDay: &#39;[ម្សិលមិញ ម៉ោង] LT&#39;,
+            lastWeek: &#39;dddd [សប្តាហ៍មុន] [ម៉ោង] LT&#39;,
+            sameElse: &#39;L&#39;
+        },
+        relativeTime: {
+            future: &#39;%sទៀត&#39;,
+            past: &#39;%sមុន&#39;,
+            s: &#39;ប៉ុន្មានវិនាទី&#39;,
+            m: &#39;មួយនាទី&#39;,
+            mm: &#39;%d នាទី&#39;,
+            h: &#39;មួយម៉ោង&#39;,
+            hh: &#39;%d ម៉ោង&#39;,
+            d: &#39;មួយថ្ងៃ&#39;,
+            dd: &#39;%d ថ្ងៃ&#39;,
+            M: &#39;មួយខែ&#39;,
+            MM: &#39;%d ខែ&#39;,
+            y: &#39;មួយឆ្នាំ&#39;,
+            yy: &#39;%d ឆ្នាំ&#39;
+        },
+        week: {
+            dow: 1, // Monday is the first day of the week.
+            doy: 4 // The week that contains Jan 4th is the first week of the year.
+        }
+    });
+
+    return km;
+
+}));</pre>
+</body>
+</html>

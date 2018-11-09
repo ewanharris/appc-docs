@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js">//! moment.js locale configuration
+//! locale : tamil (ta)
+//! author : Arjunkumar Krishnamoorthy : https://github.com/tk120404
+
+(function (global, factory) {
+   typeof exports === &#39;object&#39; &amp;&amp; typeof module !== &#39;undefined&#39; ? factory(require(&#39;/alloy/moment&#39;)) :
+   typeof define === &#39;function&#39; &amp;&amp; define.amd ? define([&#39;moment&#39;], factory) :
+   factory(global.moment)
+}(this, function (moment) { &#39;use strict&#39;;
+
+
+    var ta = moment.defineLocale(&#39;ta&#39;, {
+        months : &#39;ஜனவரி_பிப்ரவரி_மார்ச்_ஏப்ரல்_மே_ஜூன்_ஜூலை_ஆகஸ்ட்_செப்டெம்பர்_அக்டோபர்_நவம்பர்_டிசம்பர்&#39;.split(&#39;_&#39;),
+        monthsShort : &#39;ஜனவரி_பிப்ரவரி_மார்ச்_ஏப்ரல்_மே_ஜூன்_ஜூலை_ஆகஸ்ட்_செப்டெம்பர்_அக்டோபர்_நவம்பர்_டிசம்பர்&#39;.split(&#39;_&#39;),
+        weekdays : &#39;ஞாயிற்றுக்கிழமை_திங்கட்கிழமை_செவ்வாய்கிழமை_புதன்கிழமை_வியாழக்கிழமை_வெள்ளிக்கிழமை_சனிக்கிழமை&#39;.split(&#39;_&#39;),
+        weekdaysShort : &#39;ஞாயிறு_திங்கள்_செவ்வாய்_புதன்_வியாழன்_வெள்ளி_சனி&#39;.split(&#39;_&#39;),
+        weekdaysMin : &#39;ஞா_தி_செ_பு_வி_வெ_ச&#39;.split(&#39;_&#39;),
+        longDateFormat : {
+            LT : &#39;HH:mm&#39;,
+            LTS : &#39;HH:mm:ss&#39;,
+            L : &#39;DD/MM/YYYY&#39;,
+            LL : &#39;D MMMM YYYY&#39;,
+            LLL : &#39;D MMMM YYYY, HH:mm&#39;,
+            LLLL : &#39;dddd, D MMMM YYYY, HH:mm&#39;
+        },
+        calendar : {
+            sameDay : &#39;[இன்று] LT&#39;,
+            nextDay : &#39;[நாளை] LT&#39;,
+            nextWeek : &#39;dddd, LT&#39;,
+            lastDay : &#39;[நேற்று] LT&#39;,
+            lastWeek : &#39;[கடந்த வாரம்] dddd, LT&#39;,
+            sameElse : &#39;L&#39;
+        },
+        relativeTime : {
+            future : &#39;%s இல்&#39;,
+            past : &#39;%s முன்&#39;,
+            s : &#39;ஒரு சில விநாடிகள்&#39;,
+            m : &#39;ஒரு நிமிடம்&#39;,
+            mm : &#39;%d நிமிடங்கள்&#39;,
+            h : &#39;ஒரு மணி நேரம்&#39;,
+            hh : &#39;%d மணி நேரம்&#39;,
+            d : &#39;ஒரு நாள்&#39;,
+            dd : &#39;%d நாட்கள்&#39;,
+            M : &#39;ஒரு மாதம்&#39;,
+            MM : &#39;%d மாதங்கள்&#39;,
+            y : &#39;ஒரு வருடம்&#39;,
+            yy : &#39;%d ஆண்டுகள்&#39;
+        },
+        ordinalParse: /\d{1,2}வது/,
+        ordinal : function (number) {
+            return number + &#39;வது&#39;;
+        },
+        // refer http://ta.wikipedia.org/s/1er1
+        meridiemParse: /யாமம்|வைகறை|காலை|நண்பகல்|எற்பாடு|மாலை/,
+        meridiem : function (hour, minute, isLower) {
+            if (hour &lt; 2) {
+                return &#39; யாமம்&#39;;
+            } else if (hour &lt; 6) {
+                return &#39; வைகறை&#39;;  // வைகறை
+            } else if (hour &lt; 10) {
+                return &#39; காலை&#39;; // காலை
+            } else if (hour &lt; 14) {
+                return &#39; நண்பகல்&#39;; // நண்பகல்
+            } else if (hour &lt; 18) {
+                return &#39; எற்பாடு&#39;; // எற்பாடு
+            } else if (hour &lt; 22) {
+                return &#39; மாலை&#39;; // மாலை
+            } else {
+                return &#39; யாமம்&#39;;
+            }
+        },
+        meridiemHour : function (hour, meridiem) {
+            if (hour === 12) {
+                hour = 0;
+            }
+            if (meridiem === &#39;யாமம்&#39;) {
+                return hour &lt; 2 ? hour : hour + 12;
+            } else if (meridiem === &#39;வைகறை&#39; || meridiem === &#39;காலை&#39;) {
+                return hour;
+            } else if (meridiem === &#39;நண்பகல்&#39;) {
+                return hour &gt;= 10 ? hour : hour + 12;
+            } else {
+                return hour + 12;
+            }
+        },
+        week : {
+            dow : 0, // Sunday is the first day of the week.
+            doy : 6  // The week that contains Jan 1st is the first week of the year.
+        }
+    });
+
+    return ta;
+
+}));</pre>
+</body>
+</html>

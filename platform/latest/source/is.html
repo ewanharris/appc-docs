@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js">//! moment.js locale configuration
+//! locale : icelandic (is)
+//! author : Hinrik Örn Sigurðsson : https://github.com/hinrik
+
+(function (global, factory) {
+   typeof exports === &#39;object&#39; &amp;&amp; typeof module !== &#39;undefined&#39; ? factory(require(&#39;/alloy/moment&#39;)) :
+   typeof define === &#39;function&#39; &amp;&amp; define.amd ? define([&#39;moment&#39;], factory) :
+   factory(global.moment)
+}(this, function (moment) { &#39;use strict&#39;;
+
+
+    function plural(n) {
+        if (n % 100 === 11) {
+            return true;
+        } else if (n % 10 === 1) {
+            return false;
+        }
+        return true;
+    }
+    function translate(number, withoutSuffix, key, isFuture) {
+        var result = number + &#39; &#39;;
+        switch (key) {
+        case &#39;s&#39;:
+            return withoutSuffix || isFuture ? &#39;nokkrar sekúndur&#39; : &#39;nokkrum sekúndum&#39;;
+        case &#39;m&#39;:
+            return withoutSuffix ? &#39;mínúta&#39; : &#39;mínútu&#39;;
+        case &#39;mm&#39;:
+            if (plural(number)) {
+                return result + (withoutSuffix || isFuture ? &#39;mínútur&#39; : &#39;mínútum&#39;);
+            } else if (withoutSuffix) {
+                return result + &#39;mínúta&#39;;
+            }
+            return result + &#39;mínútu&#39;;
+        case &#39;hh&#39;:
+            if (plural(number)) {
+                return result + (withoutSuffix || isFuture ? &#39;klukkustundir&#39; : &#39;klukkustundum&#39;);
+            }
+            return result + &#39;klukkustund&#39;;
+        case &#39;d&#39;:
+            if (withoutSuffix) {
+                return &#39;dagur&#39;;
+            }
+            return isFuture ? &#39;dag&#39; : &#39;degi&#39;;
+        case &#39;dd&#39;:
+            if (plural(number)) {
+                if (withoutSuffix) {
+                    return result + &#39;dagar&#39;;
+                }
+                return result + (isFuture ? &#39;daga&#39; : &#39;dögum&#39;);
+            } else if (withoutSuffix) {
+                return result + &#39;dagur&#39;;
+            }
+            return result + (isFuture ? &#39;dag&#39; : &#39;degi&#39;);
+        case &#39;M&#39;:
+            if (withoutSuffix) {
+                return &#39;mánuður&#39;;
+            }
+            return isFuture ? &#39;mánuð&#39; : &#39;mánuði&#39;;
+        case &#39;MM&#39;:
+            if (plural(number)) {
+                if (withoutSuffix) {
+                    return result + &#39;mánuðir&#39;;
+                }
+                return result + (isFuture ? &#39;mánuði&#39; : &#39;mánuðum&#39;);
+            } else if (withoutSuffix) {
+                return result + &#39;mánuður&#39;;
+            }
+            return result + (isFuture ? &#39;mánuð&#39; : &#39;mánuði&#39;);
+        case &#39;y&#39;:
+            return withoutSuffix || isFuture ? &#39;ár&#39; : &#39;ári&#39;;
+        case &#39;yy&#39;:
+            if (plural(number)) {
+                return result + (withoutSuffix || isFuture ? &#39;ár&#39; : &#39;árum&#39;);
+            }
+            return result + (withoutSuffix || isFuture ? &#39;ár&#39; : &#39;ári&#39;);
+        }
+    }
+
+    var is = moment.defineLocale(&#39;is&#39;, {
+        months : &#39;janúar_febrúar_mars_apríl_maí_júní_júlí_ágúst_september_október_nóvember_desember&#39;.split(&#39;_&#39;),
+        monthsShort : &#39;jan_feb_mar_apr_maí_jún_júl_ágú_sep_okt_nóv_des&#39;.split(&#39;_&#39;),
+        weekdays : &#39;sunnudagur_mánudagur_þriðjudagur_miðvikudagur_fimmtudagur_föstudagur_laugardagur&#39;.split(&#39;_&#39;),
+        weekdaysShort : &#39;sun_mán_þri_mið_fim_fös_lau&#39;.split(&#39;_&#39;),
+        weekdaysMin : &#39;Su_Má_Þr_Mi_Fi_Fö_La&#39;.split(&#39;_&#39;),
+        longDateFormat : {
+            LT : &#39;H:mm&#39;,
+            LTS : &#39;H:mm:ss&#39;,
+            L : &#39;DD/MM/YYYY&#39;,
+            LL : &#39;D. MMMM YYYY&#39;,
+            LLL : &#39;D. MMMM YYYY [kl.] H:mm&#39;,
+            LLLL : &#39;dddd, D. MMMM YYYY [kl.] H:mm&#39;
+        },
+        calendar : {
+            sameDay : &#39;[í dag kl.] LT&#39;,
+            nextDay : &#39;[á morgun kl.] LT&#39;,
+            nextWeek : &#39;dddd [kl.] LT&#39;,
+            lastDay : &#39;[í gær kl.] LT&#39;,
+            lastWeek : &#39;[síðasta] dddd [kl.] LT&#39;,
+            sameElse : &#39;L&#39;
+        },
+        relativeTime : {
+            future : &#39;eftir %s&#39;,
+            past : &#39;fyrir %s síðan&#39;,
+            s : translate,
+            m : translate,
+            mm : translate,
+            h : &#39;klukkustund&#39;,
+            hh : translate,
+            d : translate,
+            dd : translate,
+            M : translate,
+            MM : translate,
+            y : translate,
+            yy : translate
+        },
+        ordinalParse: /\d{1,2}\./,
+        ordinal : &#39;%d.&#39;,
+        week : {
+            dow : 1, // Monday is the first day of the week.
+            doy : 4  // The week that contains Jan 4th is the first week of the year.
+        }
+    });
+
+    return is;
+
+}));</pre>
+</body>
+</html>

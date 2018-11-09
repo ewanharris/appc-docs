@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js">//! moment.js locale configuration
+//! locale : galician (gl)
+//! author : Juan G. Hurtado : https://github.com/juanghurtado
+
+(function (global, factory) {
+   typeof exports === &#39;object&#39; &amp;&amp; typeof module !== &#39;undefined&#39; ? factory(require(&#39;/alloy/moment&#39;)) :
+   typeof define === &#39;function&#39; &amp;&amp; define.amd ? define([&#39;moment&#39;], factory) :
+   factory(global.moment)
+}(this, function (moment) { &#39;use strict&#39;;
+
+
+    var gl = moment.defineLocale(&#39;gl&#39;, {
+        months : &#39;Xaneiro_Febreiro_Marzo_Abril_Maio_Xuño_Xullo_Agosto_Setembro_Outubro_Novembro_Decembro&#39;.split(&#39;_&#39;),
+        monthsShort : &#39;Xan._Feb._Mar._Abr._Mai._Xuñ._Xul._Ago._Set._Out._Nov._Dec.&#39;.split(&#39;_&#39;),
+        weekdays : &#39;Domingo_Luns_Martes_Mércores_Xoves_Venres_Sábado&#39;.split(&#39;_&#39;),
+        weekdaysShort : &#39;Dom._Lun._Mar._Mér._Xov._Ven._Sáb.&#39;.split(&#39;_&#39;),
+        weekdaysMin : &#39;Do_Lu_Ma_Mé_Xo_Ve_Sá&#39;.split(&#39;_&#39;),
+        longDateFormat : {
+            LT : &#39;H:mm&#39;,
+            LTS : &#39;H:mm:ss&#39;,
+            L : &#39;DD/MM/YYYY&#39;,
+            LL : &#39;D MMMM YYYY&#39;,
+            LLL : &#39;D MMMM YYYY H:mm&#39;,
+            LLLL : &#39;dddd D MMMM YYYY H:mm&#39;
+        },
+        calendar : {
+            sameDay : function () {
+                return &#39;[hoxe &#39; + ((this.hours() !== 1) ? &#39;ás&#39; : &#39;á&#39;) + &#39;] LT&#39;;
+            },
+            nextDay : function () {
+                return &#39;[mañá &#39; + ((this.hours() !== 1) ? &#39;ás&#39; : &#39;á&#39;) + &#39;] LT&#39;;
+            },
+            nextWeek : function () {
+                return &#39;dddd [&#39; + ((this.hours() !== 1) ? &#39;ás&#39; : &#39;a&#39;) + &#39;] LT&#39;;
+            },
+            lastDay : function () {
+                return &#39;[onte &#39; + ((this.hours() !== 1) ? &#39;á&#39; : &#39;a&#39;) + &#39;] LT&#39;;
+            },
+            lastWeek : function () {
+                return &#39;[o] dddd [pasado &#39; + ((this.hours() !== 1) ? &#39;ás&#39; : &#39;a&#39;) + &#39;] LT&#39;;
+            },
+            sameElse : &#39;L&#39;
+        },
+        relativeTime : {
+            future : function (str) {
+                if (str === &#39;uns segundos&#39;) {
+                    return &#39;nuns segundos&#39;;
+                }
+                return &#39;en &#39; + str;
+            },
+            past : &#39;hai %s&#39;,
+            s : &#39;uns segundos&#39;,
+            m : &#39;un minuto&#39;,
+            mm : &#39;%d minutos&#39;,
+            h : &#39;unha hora&#39;,
+            hh : &#39;%d horas&#39;,
+            d : &#39;un día&#39;,
+            dd : &#39;%d días&#39;,
+            M : &#39;un mes&#39;,
+            MM : &#39;%d meses&#39;,
+            y : &#39;un ano&#39;,
+            yy : &#39;%d anos&#39;
+        },
+        ordinalParse : /\d{1,2}º/,
+        ordinal : &#39;%dº&#39;,
+        week : {
+            dow : 1, // Monday is the first day of the week.
+            doy : 7  // The week that contains Jan 1st is the first week of the year.
+        }
+    });
+
+    return gl;
+
+}));</pre>
+</body>
+</html>

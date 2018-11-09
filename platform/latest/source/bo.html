@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js">//! moment.js locale configuration
+//! locale : tibetan (bo)
+//! author : Thupten N. Chakrishar : https://github.com/vajradog
+
+(function (global, factory) {
+   typeof exports === &#39;object&#39; &amp;&amp; typeof module !== &#39;undefined&#39; ? factory(require(&#39;/alloy/moment&#39;)) :
+   typeof define === &#39;function&#39; &amp;&amp; define.amd ? define([&#39;moment&#39;], factory) :
+   factory(global.moment)
+}(this, function (moment) { &#39;use strict&#39;;
+
+
+    var symbolMap = {
+        &#39;1&#39;: &#39;༡&#39;,
+        &#39;2&#39;: &#39;༢&#39;,
+        &#39;3&#39;: &#39;༣&#39;,
+        &#39;4&#39;: &#39;༤&#39;,
+        &#39;5&#39;: &#39;༥&#39;,
+        &#39;6&#39;: &#39;༦&#39;,
+        &#39;7&#39;: &#39;༧&#39;,
+        &#39;8&#39;: &#39;༨&#39;,
+        &#39;9&#39;: &#39;༩&#39;,
+        &#39;0&#39;: &#39;༠&#39;
+    },
+    numberMap = {
+        &#39;༡&#39;: &#39;1&#39;,
+        &#39;༢&#39;: &#39;2&#39;,
+        &#39;༣&#39;: &#39;3&#39;,
+        &#39;༤&#39;: &#39;4&#39;,
+        &#39;༥&#39;: &#39;5&#39;,
+        &#39;༦&#39;: &#39;6&#39;,
+        &#39;༧&#39;: &#39;7&#39;,
+        &#39;༨&#39;: &#39;8&#39;,
+        &#39;༩&#39;: &#39;9&#39;,
+        &#39;༠&#39;: &#39;0&#39;
+    };
+
+    var bo = moment.defineLocale(&#39;bo&#39;, {
+        months : &#39;ཟླ་བ་དང་པོ_ཟླ་བ་གཉིས་པ_ཟླ་བ་གསུམ་པ_ཟླ་བ་བཞི་པ_ཟླ་བ་ལྔ་པ_ཟླ་བ་དྲུག་པ_ཟླ་བ་བདུན་པ_ཟླ་བ་བརྒྱད་པ_ཟླ་བ་དགུ་པ_ཟླ་བ་བཅུ་པ_ཟླ་བ་བཅུ་གཅིག་པ_ཟླ་བ་བཅུ་གཉིས་པ&#39;.split(&#39;_&#39;),
+        monthsShort : &#39;ཟླ་བ་དང་པོ_ཟླ་བ་གཉིས་པ_ཟླ་བ་གསུམ་པ_ཟླ་བ་བཞི་པ_ཟླ་བ་ལྔ་པ_ཟླ་བ་དྲུག་པ_ཟླ་བ་བདུན་པ_ཟླ་བ་བརྒྱད་པ_ཟླ་བ་དགུ་པ_ཟླ་བ་བཅུ་པ_ཟླ་བ་བཅུ་གཅིག་པ_ཟླ་བ་བཅུ་གཉིས་པ&#39;.split(&#39;_&#39;),
+        weekdays : &#39;གཟའ་ཉི་མ་_གཟའ་ཟླ་བ་_གཟའ་མིག་དམར་_གཟའ་ལྷག་པ་_གཟའ་ཕུར་བུ_གཟའ་པ་སངས་_གཟའ་སྤེན་པ་&#39;.split(&#39;_&#39;),
+        weekdaysShort : &#39;ཉི་མ་_ཟླ་བ་_མིག་དམར་_ལྷག་པ་_ཕུར་བུ_པ་སངས་_སྤེན་པ་&#39;.split(&#39;_&#39;),
+        weekdaysMin : &#39;ཉི་མ་_ཟླ་བ་_མིག་དམར་_ལྷག་པ་_ཕུར་བུ_པ་སངས་_སྤེན་པ་&#39;.split(&#39;_&#39;),
+        longDateFormat : {
+            LT : &#39;A h:mm&#39;,
+            LTS : &#39;A h:mm:ss&#39;,
+            L : &#39;DD/MM/YYYY&#39;,
+            LL : &#39;D MMMM YYYY&#39;,
+            LLL : &#39;D MMMM YYYY, A h:mm&#39;,
+            LLLL : &#39;dddd, D MMMM YYYY, A h:mm&#39;
+        },
+        calendar : {
+            sameDay : &#39;[དི་རིང] LT&#39;,
+            nextDay : &#39;[སང་ཉིན] LT&#39;,
+            nextWeek : &#39;[བདུན་ཕྲག་རྗེས་མ], LT&#39;,
+            lastDay : &#39;[ཁ་སང] LT&#39;,
+            lastWeek : &#39;[བདུན་ཕྲག་མཐའ་མ] dddd, LT&#39;,
+            sameElse : &#39;L&#39;
+        },
+        relativeTime : {
+            future : &#39;%s ལ་&#39;,
+            past : &#39;%s སྔན་ལ&#39;,
+            s : &#39;ལམ་སང&#39;,
+            m : &#39;སྐར་མ་གཅིག&#39;,
+            mm : &#39;%d སྐར་མ&#39;,
+            h : &#39;ཆུ་ཚོད་གཅིག&#39;,
+            hh : &#39;%d ཆུ་ཚོད&#39;,
+            d : &#39;ཉིན་གཅིག&#39;,
+            dd : &#39;%d ཉིན་&#39;,
+            M : &#39;ཟླ་བ་གཅིག&#39;,
+            MM : &#39;%d ཟླ་བ&#39;,
+            y : &#39;ལོ་གཅིག&#39;,
+            yy : &#39;%d ལོ&#39;
+        },
+        preparse: function (string) {
+            return string.replace(/[༡༢༣༤༥༦༧༨༩༠]/g, function (match) {
+                return numberMap[match];
+            });
+        },
+        postformat: function (string) {
+            return string.replace(/\d/g, function (match) {
+                return symbolMap[match];
+            });
+        },
+        meridiemParse: /མཚན་མོ|ཞོགས་ཀས|ཉིན་གུང|དགོང་དག|མཚན་མོ/,
+        isPM: function (input) {
+            return /^(ཉིན་གུང|དགོང་དག|མཚན་མོ)$/.test(input);
+        },
+        meridiem : function (hour, minute, isLower) {
+            if (hour &lt; 4) {
+                return &#39;མཚན་མོ&#39;;
+            } else if (hour &lt; 10) {
+                return &#39;ཞོགས་ཀས&#39;;
+            } else if (hour &lt; 17) {
+                return &#39;ཉིན་གུང&#39;;
+            } else if (hour &lt; 20) {
+                return &#39;དགོང་དག&#39;;
+            } else {
+                return &#39;མཚན་མོ&#39;;
+            }
+        },
+        week : {
+            dow : 0, // Sunday is the first day of the week.
+            doy : 6  // The week that contains Jan 1st is the first week of the year.
+        }
+    });
+
+    return bo;
+
+}));</pre>
+</body>
+</html>

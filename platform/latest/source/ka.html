@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js">//! moment.js locale configuration
+//! locale : Georgian (ka)
+//! author : Irakli Janiashvili : https://github.com/irakli-janiashvili
+
+(function (global, factory) {
+   typeof exports === &#39;object&#39; &amp;&amp; typeof module !== &#39;undefined&#39; ? factory(require(&#39;/alloy/moment&#39;)) :
+   typeof define === &#39;function&#39; &amp;&amp; define.amd ? define([&#39;moment&#39;], factory) :
+   factory(global.moment)
+}(this, function (moment) { &#39;use strict&#39;;
+
+
+    function monthsCaseReplace(m, format) {
+        var months = {
+            &#39;nominative&#39;: &#39;იანვარი_თებერვალი_მარტი_აპრილი_მაისი_ივნისი_ივლისი_აგვისტო_სექტემბერი_ოქტომბერი_ნოემბერი_დეკემბერი&#39;.split(&#39;_&#39;),
+            &#39;accusative&#39;: &#39;იანვარს_თებერვალს_მარტს_აპრილის_მაისს_ივნისს_ივლისს_აგვისტს_სექტემბერს_ოქტომბერს_ნოემბერს_დეკემბერს&#39;.split(&#39;_&#39;)
+        },
+        nounCase = (/D[oD] *MMMM?/).test(format) ?
+            &#39;accusative&#39; :
+            &#39;nominative&#39;;
+        return months[nounCase][m.month()];
+    }
+    function weekdaysCaseReplace(m, format) {
+        var weekdays = {
+            &#39;nominative&#39;: &#39;კვირა_ორშაბათი_სამშაბათი_ოთხშაბათი_ხუთშაბათი_პარასკევი_შაბათი&#39;.split(&#39;_&#39;),
+            &#39;accusative&#39;: &#39;კვირას_ორშაბათს_სამშაბათს_ოთხშაბათს_ხუთშაბათს_პარასკევს_შაბათს&#39;.split(&#39;_&#39;)
+        },
+        nounCase = (/(წინა|შემდეგ)/).test(format) ?
+            &#39;accusative&#39; :
+            &#39;nominative&#39;;
+        return weekdays[nounCase][m.day()];
+    }
+
+    var ka = moment.defineLocale(&#39;ka&#39;, {
+        months : monthsCaseReplace,
+        monthsShort : &#39;იან_თებ_მარ_აპრ_მაი_ივნ_ივლ_აგვ_სექ_ოქტ_ნოე_დეკ&#39;.split(&#39;_&#39;),
+        weekdays : weekdaysCaseReplace,
+        weekdaysShort : &#39;კვი_ორშ_სამ_ოთხ_ხუთ_პარ_შაბ&#39;.split(&#39;_&#39;),
+        weekdaysMin : &#39;კვ_ორ_სა_ოთ_ხუ_პა_შა&#39;.split(&#39;_&#39;),
+        longDateFormat : {
+            LT : &#39;h:mm A&#39;,
+            LTS : &#39;h:mm:ss A&#39;,
+            L : &#39;DD/MM/YYYY&#39;,
+            LL : &#39;D MMMM YYYY&#39;,
+            LLL : &#39;D MMMM YYYY h:mm A&#39;,
+            LLLL : &#39;dddd, D MMMM YYYY h:mm A&#39;
+        },
+        calendar : {
+            sameDay : &#39;[დღეს] LT[-ზე]&#39;,
+            nextDay : &#39;[ხვალ] LT[-ზე]&#39;,
+            lastDay : &#39;[გუშინ] LT[-ზე]&#39;,
+            nextWeek : &#39;[შემდეგ] dddd LT[-ზე]&#39;,
+            lastWeek : &#39;[წინა] dddd LT-ზე&#39;,
+            sameElse : &#39;L&#39;
+        },
+        relativeTime : {
+            future : function (s) {
+                return (/(წამი|წუთი|საათი|წელი)/).test(s) ?
+                    s.replace(/ი$/, &#39;ში&#39;) :
+                    s + &#39;ში&#39;;
+            },
+            past : function (s) {
+                if ((/(წამი|წუთი|საათი|დღე|თვე)/).test(s)) {
+                    return s.replace(/(ი|ე)$/, &#39;ის წინ&#39;);
+                }
+                if ((/წელი/).test(s)) {
+                    return s.replace(/წელი$/, &#39;წლის წინ&#39;);
+                }
+            },
+            s : &#39;რამდენიმე წამი&#39;,
+            m : &#39;წუთი&#39;,
+            mm : &#39;%d წუთი&#39;,
+            h : &#39;საათი&#39;,
+            hh : &#39;%d საათი&#39;,
+            d : &#39;დღე&#39;,
+            dd : &#39;%d დღე&#39;,
+            M : &#39;თვე&#39;,
+            MM : &#39;%d თვე&#39;,
+            y : &#39;წელი&#39;,
+            yy : &#39;%d წელი&#39;
+        },
+        ordinalParse: /0|1-ლი|მე-\d{1,2}|\d{1,2}-ე/,
+        ordinal : function (number) {
+            if (number === 0) {
+                return number;
+            }
+            if (number === 1) {
+                return number + &#39;-ლი&#39;;
+            }
+            if ((number &lt; 20) || (number &lt;= 100 &amp;&amp; (number % 20 === 0)) || (number % 100 === 0)) {
+                return &#39;მე-&#39; + number;
+            }
+            return number + &#39;-ე&#39;;
+        },
+        week : {
+            dow : 1,
+            doy : 7
+        }
+    });
+
+    return ka;
+
+}));</pre>
+</body>
+</html>
